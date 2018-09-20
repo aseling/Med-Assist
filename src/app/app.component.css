@@ -1,6 +1,10 @@
+.container {
+  min-width: 100%;
+}
 .main-body {
   position: relative;
   top: 33px;
   background-color: white;
   border-radius: 10px;
+  margin: 0 auto;
 }
