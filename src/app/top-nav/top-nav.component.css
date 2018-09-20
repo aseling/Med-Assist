@@ -31,3 +31,15 @@ input.form-control {
     width: 500px;
   }
 }
+
+@media (max-width: 892px) {
+  .user-section-container {
+    margin: 20px 0 0 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-inline .form-control {
+    width: 200px;
+  }
+}
