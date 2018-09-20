@@ -1,5 +1,9 @@
 <div id="mySidenav" class="sidenav">
-  <a class="closebtn" (click)="navClose()">&times;</a>
+  <!--<a class="closebtn" (click)="navClose()">&times;</a> -->
+
+  <div class="user-section-container">
+    <div class="user-img-text"><img src="./assets/img/jane-doe.png"> Welcome Jane</div>
+  </div>
   <a routerLink="home">Home</a>
   <a routerLink="account-settings">Chat</a>
   <a routerLink="calendar">Calendar</a>
@@ -9,6 +13,3 @@
   <a routerLink="prescription-refill">Prescription refill</a>
 </div>
 
-<div id="main">
-  <i class="fas fa-bars menu-button" (click)="navOpen()"></i>
-</div>

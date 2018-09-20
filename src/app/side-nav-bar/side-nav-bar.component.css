@@ -3,29 +3,28 @@ body {
 }
 
 .sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
+  height: 910px;
+  width: 250px;
+  position: relative;
   z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #FFD166;
+  top: 33px;
+  background-color: #fff;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  border-radius: 10px;
 }
 
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #fff;
+  color: #000;
   display: block;
   transition: 0.3s;
 }
 
 .sidenav a:hover {
-  color: #000000;
+  color: #3B92A9;
   cursor: default;
 }
 
@@ -62,4 +61,21 @@ body {
   .sidenav a {
     font-size: 18px;
   }
+}
+
+.profile-btn {
+  border-radius: 100%;
+}
+
+.user-section-container {
+  height: 100px;
+  width: 100%;
+  border-bottom: 1px solid #c3c3c3;
+  margin-bottom: 60px;
+}
+
+.user-img-text {
+  position: relative;
+  left: 28px;
+  top: 25px;
 }

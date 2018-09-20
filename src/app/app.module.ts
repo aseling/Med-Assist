@@ -15,6 +15,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ReferencesComponent } from './references/references.component';
 import { ReportsComponent } from './reports/reports.component';
 import { VideosComponent } from './videos/videos.component';
+import { TopNavComponent } from './top-nav/top-nav.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { VideosComponent } from './videos/videos.component';
     UserProfileComponent,
     ReferencesComponent,
     ReportsComponent,
-    VideosComponent
+    VideosComponent,
+    TopNavComponent
   ],
   imports: [
     BrowserModule,
