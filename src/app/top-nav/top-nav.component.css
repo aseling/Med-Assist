@@ -1,0 +1,39 @@
+.form-inline {
+  margin: 0 auto;
+}
+
+.form-inline .form-control {
+  display: inline-block;
+  width: 800px;
+  vertical-align: middle;
+}
+
+input.form-control {
+  background-color: #DCDCDC;
+  color: #4C4C4C;
+}
+
+.user-section-container {
+  margin-right: 10px;
+}
+
+.setting-icon{
+  font-size: 15px;
+  margin: 0 10px 0 20px;
+}
+
+.setting-icon:hover {
+  color: #3B92A9;
+}
+
+@media (max-width: 1130px) {
+  .form-inline .form-control {
+    width: 400px;
+  }
+}
+
+@media (max-width: 450px) {
+  .form-inline .form-control {
+    width: 250px;
+  }
+}
