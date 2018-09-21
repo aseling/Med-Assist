@@ -11,6 +11,7 @@ import {AccountSettingsComponent} from "./account-settings/account-settings.comp
 import {PrescriptionRefillComponent} from "./prescription-refill/prescription-refill.component";
 import {FormsComponent} from "./forms/forms.component";
 import {CalendarComponent} from "./calendar/calendar.component";
+import {ChatComponent} from "./chat/chat.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'account-settings', component: AccountSettingsComponent },
   { path: 'prescription-refill', component: PrescriptionRefillComponent },
   { path: 'forms', component: FormsComponent },
-  { path: 'calendar', component: CalendarComponent }
+  { path: 'calendar', component: CalendarComponent },
+  { path: 'chat', component: ChatComponent }
 ];
 
 @NgModule({
