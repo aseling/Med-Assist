@@ -13,11 +13,6 @@ import {trigger, state, style, animate, transition} from '@angular/animations';
         transform: 'rotate(-360deg)',
         fontSize: '0',
         opacity: 0
-        // visibility: 'visible',
-        // height: '150px',
-        // fontSize: '15px',
-        // transform: 'rotate(360deg)',
-        // opacity: 1
       })),
       state('open', style({
         visibility: 'visible',
