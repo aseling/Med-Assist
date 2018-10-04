@@ -23,27 +23,22 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <form class="form-inline">
-      <i class="fas fa-search search-icon"></i>
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <!-- <i class="fas fa-search search-icon"></i>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search"> -->
     </form>
-    <div class="user-section-container">
-      <div class="user-img-text">
-        <img src="./assets/img/jane-doe.png"> Jane Doe <i class="fas fa-cog setting-icon" id="setting-icon"
-                                                          (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()"></i>
-        <div [@openClose]="dropDownOpenClose" class="drop-menu" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
-          <ul class="drop-menu-ul">
-            <li class="nav-item active">
-              <a class="nav-link" href="">My profile <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Account settings</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="right-section-container">
+      <i class="nav-item fa fa-envelope fa-lg" data-toggle="tooltip" data-placement="top" title="Hooray!"></i>
+      <i class="nav-item fa fa-phone fa-lg"></i>
+      <i class="nav-item fa fa-bell fa-lg"></i>
+      <img class="user-image" src="./assets/img/jane-doe.png">
+      <span class="dropdown dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Jane Doe
+          <div class="dropdown-menu dropdown-menu-right user-dropdown">
+              <button class="dropdown-item" type="button">Settings</button>
+              <button class="dropdown-item" type="button">My Profile</button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" type="button">Logout</button>
+          </div>
+      </span>
     </div>
     <!--<ul class="navbar-nav mr-auto mt-2 mt-lg-0">-->
     <!--<li class="nav-item active">-->
