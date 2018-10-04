@@ -18,6 +18,9 @@ import {ReportsComponent} from './reports/reports.component';
 import {VideosComponent} from './videos/videos.component';
 import {TopNavComponent} from './top-nav/top-nav.component';
 import { ChatComponent } from './chat/chat.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { MedicalProfileComponent } from './medical-profile/medical-profile.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { ChatComponent } from './chat/chat.component';
     ReportsComponent,
     VideosComponent,
     TopNavComponent,
-    ChatComponent
+    ChatComponent,
+    ContactPageComponent,
+    MedicalProfileComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

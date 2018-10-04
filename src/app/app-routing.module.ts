@@ -1,3 +1,4 @@
+import { MedicalProfileComponent } from './medical-profile/medical-profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
@@ -12,6 +13,7 @@ import {PrescriptionRefillComponent} from "./prescription-refill/prescription-re
 import {FormsComponent} from "./forms/forms.component";
 import {CalendarComponent} from "./calendar/calendar.component";
 import {ChatComponent} from "./chat/chat.component";
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,7 +28,9 @@ const routes: Routes = [
   { path: 'prescription-refill', component: PrescriptionRefillComponent },
   { path: 'forms', component: FormsComponent },
   { path: 'calendar', component: CalendarComponent },
-  { path: 'chat', component: ChatComponent }
+  { path: 'chat', component: ChatComponent },
+  { path: 'medical-profile', component: MedicalProfileComponent},
+  { path: 'logout', component: LogoutComponent}
 ];
 
 @NgModule({

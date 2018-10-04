@@ -6,7 +6,7 @@ import {trigger, state, style, animate, transition} from '@angular/animations';
   templateUrl: './top-nav.component.html',
   styleUrls: ['./top-nav.component.css'],
   animations: [
-    trigger("openClose", [
+    trigger('openClose', [
       state('closed', style({
         visibility: 'hidden',
         height: '0',
