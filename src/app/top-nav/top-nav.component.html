@@ -15,7 +15,7 @@
 
 
 <nav class="navbar navbar-expand-lg sticky-top">
-  <a class="navbar-brand"><img class="logo" src="./assets/img/logo.png/"></a>
+  <a class="navbar-brand" routerLink="home"><img class="logo" src="./assets/img/logo.png/" ></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
           aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars menu-bars-icon"></i>
@@ -33,10 +33,10 @@
       <img class="user-image" src="./assets/img/jane-doe.png">
       <span class="dropdown dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Jane Doe
           <div class="dropdown-menu dropdown-menu-right user-dropdown">
-              <button class="dropdown-item" type="button">Settings</button>
-              <button class="dropdown-item" type="button">My Profile</button>
+              <button routerLink="../account-settings" class="dropdown-item" type="button">Settings</button>
+              <button routerLink="../medical-profile" class="dropdown-item" type="button">My Profile</button>
               <div class="dropdown-divider"></div>
-              <button class="dropdown-item" type="button">Logout</button>
+              <button routerLink="../logout" class="dropdown-item" type="button">Logout</button>
           </div>
       </span>
     </div>
