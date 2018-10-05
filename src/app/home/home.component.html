@@ -1,37 +1,43 @@
 <div class="container">
   <div class="top-container">
-    <img src="./assets/img/logo.png/" class="row">
+    <h1 class="header">Applachian Primary Care</h1>
+    <div class="dropdown-divider"></div>
     <img src="./assets/img/doc-cartoon.png/" class="row doc-pic">
   </div>
-  <div class="row">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
+  <div class="row cards-announcements">
+    <div class="card">
+      <div class="card-body">
+        <a routerLink="../my-medicine" class="row">
+          <h5 class="card-title">View Your Medicine</h5><i class="fas fa-file-prescription fa-lg card-icon"></i>
+        </a>
+        <h6 class="text-muted">Click to view the medicines you are currently prescribed and request refills.</h6>
       </div>
-      <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-    <ul>
-      <li>
-        Office closed
-      </li>
-      <li>
-        Happy Birthday
-      </li>
-    </ul>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <a routerLink="../chat" class="row">
+          <h5 class="card-title">Chat With Your Doctor</h5><i class="fas fa-user-md card-icon fa-lg"></i>
+        </a>
+        <h6 class="text-muted">Click to begin chatting with your doctor.</h6>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <a routerLink="../helpful-links" class="row">
+          <h5 class="card-title">Find Helpful Links</h5><i class="fas fa-external-link-alt card-icon fa-lg"></i>
+        </a>
+        <h6 class="card-subtitle mb-2 text-muted">Click to view links suggested by your doctor.</h6>
+      </div>
+    </div>
+    <div class="card announcement-card announcements-class">
+      <h5 class="card-header">Announcements</h5>
+      <ul class="list-group announcements-group overflow-scroll">
+        <li class="list-group-item announcements-item overflow-wrap">9/27 - Office Closed</li>
+        <li class="list-group-item announcements-item overflow-wrap">11/14 - Happy Birthday Dr. Phil</li>
+        <li class="list-group-item announcements-item overflow-wrap">Week of 12/1 - Patient Appreciation Week</li>
+        <li class="list-group-item announcements-item overflow-wrap">Week of 12/20 - Office Remodeling</li>
+        <li class="list-group-item announcements-item overflow-wrap">12/25 - Merry Christmas!</li>
+      </ul>
+    </div>
   </div>
 </div>

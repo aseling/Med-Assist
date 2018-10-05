@@ -3,7 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {AppRoutingModule} from "./app-routing.module";
+import {AppRoutingModule} from './app-routing.module';
 import {SideNavBarComponent} from './side-nav-bar/side-nav-bar.component';
 import {AccountSettingsComponent} from './account-settings/account-settings.component';
 import {CalendarComponent} from './calendar/calendar.component';
@@ -21,6 +21,8 @@ import { ChatComponent } from './chat/chat.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { MedicalProfileComponent } from './medical-profile/medical-profile.component';
 import { LogoutComponent } from './logout/logout.component';
+import { MyMedicineComponent } from './my-medicine/my-medicine.component';
+import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { LogoutComponent } from './logout/logout.component';
     ChatComponent,
     ContactPageComponent,
     MedicalProfileComponent,
-    LogoutComponent
+    LogoutComponent,
+    MyMedicineComponent,
+    HelpfulLinksComponent,
   ],
   imports: [
     BrowserModule,

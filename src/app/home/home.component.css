@@ -45,3 +45,50 @@ p {
     width: 350px;
   }
 }
+
+.announcements-class {
+  margin-left: 1rem;
+}
+
+.announcements-group {
+  overflow: scroll;
+}
+
+.row .card {
+  margin: 0px 10px 0px 0px;
+  height: 10rem;
+  width: 15rem;
+  padding-top: 1.5rem;
+}
+
+.card-body {
+  padding: 5px;
+}
+
+.cards-announcements {
+  margin: 1rem;
+}
+
+.card-icon {
+  margin-top: 3px;
+  padding-left: 1rem;
+}
+
+.card-title {
+  margin-left: 1rem;
+}
+
+.card-body a {
+  color: #000;
+}
+
+.card-body a:hover{
+  color: #3B92A9;
+}
+
+.row .card.announcement-card {
+  padding-top: 0rem;
+  width: 13rem;
+  height: 20rem;
+  margin-left: 1rem;
+}
