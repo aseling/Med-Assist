@@ -13,14 +13,18 @@
       <div class="current-events">
         <label>Current Appointments:</label>
         <div class="appointments" *ngFor="let i of currentAppointments">
-          - {{i}}
+          <ul>
+            <li>{{i}}</li>
+          </ul>
         </div>
       </div>
 
       <div class="upcoming-events">
         <label>Upcoming Appointments:</label>
         <div class="appointments" *ngFor="let i of futureAppointments">
-          - {{i}}
+          <ul>
+            <li>{{i}}</li>
+          </ul>
         </div>
       </div>
     </div>

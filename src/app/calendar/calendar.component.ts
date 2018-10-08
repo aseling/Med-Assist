@@ -8,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class CalendarComponent implements OnInit {
   weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   shortHandWeekDays = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
-  currentAppointments = ["11:00 AM with Dr. Phil", "Blood pressure medicine refil"];
+  currentAppointments = ["11:00 AM with Dr. Phil", "Blood pressure medicine refill"];
   futureAppointments = ["THU, 10/04/18 11:00 AM", "TUES, 10/09/2018 8:00 AM", "WED, 10/10/18 11:00 AM"];
   numOfDaysInMonth = [];
 
