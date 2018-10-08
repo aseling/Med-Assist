@@ -1,4 +1,151 @@
-p{
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+/*----------------------------------------------LEFT SIDE OF PAGE-------------------------------------------*/
+.left-split {
+  border-radius: 5px;
+  background-color: #3B92A8;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(100px, auto);
+  box-shadow: 3px 0 18px 0 #000000;
+}
+
+/*-------------Date selected section--------------*/
+.date-wrapper {
   text-align: center;
+  padding: 10px;
+  margin: 15px;
+}
+
+.date, .day-of-week {
+  color: white;
+}
+
+.date {
+  font-size: 200px;
+}
+
+.day-of-week {
+  font-size: 100px;
+}
+
+.year {
+  font-size: 20px;
+}
+
+/*-------------Events section--------------*/
+.events-container {
+  color: white;
+  padding: 25px;
+}
+
+.current-events, .upcoming-events {
+  margin: 15px;
+  font-size: 25px;
+}
+
+.appointments {
+  font-size: 15px;
+}
+
+/*--------add appointments button-------*/
+.add-appt-container {
+  text-align: center;
+}
+
+.add-appt-btn {
+  width: 95%;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  font-size: 25px;
+  padding: 8px;
+  transition: all 0.4s ease;
+}
+
+.add-appt-btn:hover {
+  background-color: white;
+  color: #3B92A8;
+}
+
+.add-appt-btn:focus {
+  outline: none;
+}
+
+.plus {
+  float: right;
+  margin: 5px;
+  font-size: 32px;
+}
+
+/*------------------------------------------RIGHT SIDE OF PAGE--------------------------------------*/
+.right-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 10px;
+  text-align: center;
+  margin: 10px;
+}
+
+/*--------Top section date picker-------*/
+.date-picker-container {
+  padding: 20px;
+  grid-row: 1;
+}
+
+.caret-btns {
+  border: none;
+  background-color: transparent;
   font-size: 50px;
+  margin: 12px;
+  outline: none;
+}
+
+.month {
+  font-size: 60px;
+  width: 300px;
+}
+
+/*--------Calendar section-------*/
+.calendar-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-row: 2/5;
+}
+
+.day-of-week-container {
+}
+
+.day-of-week-box {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+/*--------past appointments button-------*/
+.view-past-container {
+  padding: 20px;
+  grid-row: 5;
+}
+
+.view-past-btn {
+  border: 1px solid #3B92A8;
+  background-color: transparent;
+  border-radius: 5px;
+  font-size: 25px;
+  margin: 10px;
+  width: 315px;
+  height: 50px;
+  transition: all 0.4s ease;
+}
+
+.view-past-btn:hover {
+  background-color: #3B92A8;
+  color: white;
 }

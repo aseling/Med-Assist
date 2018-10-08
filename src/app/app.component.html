@@ -1,12 +1,10 @@
 <app-top-nav></app-top-nav>
 <div class="container">
-  <div class="row row-offcanvas row-offcanvas-right">
-    <div class="sidebar-offcanvas sidenav" id="sidebar">
-      <app-side-nav-bar></app-side-nav-bar>
-    </div>
+  <div class="side-nav" id="sidebar">
+    <app-side-nav-bar></app-side-nav-bar>
+  </div>
 
-    <div class="col-12 col-md-9 main-body">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="main-body">
+    <router-outlet></router-outlet>
   </div>
 </div>

@@ -1,10 +1,19 @@
 .container {
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  grid-gap: 20px;
   min-width: 100%;
 }
+
 .main-body {
   position: relative;
   top: 33px;
   background-color: white;
   border-radius: 10px;
-  margin: 0 auto;
+}
+
+.side-nav {
+  position: relative;
+  top: 33px;
+  border-radius: 10px;
 }

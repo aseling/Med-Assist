@@ -1,3 +1,56 @@
-<p>
-  calendar works!
-</p>
+<div class="wrapper">
+  <div class="left-split">
+    <div class="date-wrapper">
+      <h1 class="date">
+        {{currentDate}}
+      </h1>
+      <h3 class="day-of-week">
+        {{currentDayName}}
+      </h3>
+    </div>
+
+    <div class="events-container">
+      <div class="current-events">
+        <label>Current Appointments:</label>
+        <div class="appointments" *ngFor="let i of currentAppointments">
+          - {{i}}
+        </div>
+      </div>
+
+      <div class="upcoming-events">
+        <label>Upcoming Appointments:</label>
+        <div class="appointments" *ngFor="let i of futureAppointments">
+          - {{i}}
+        </div>
+      </div>
+    </div>
+
+    <div class="add-appt-container">
+      <button class="add-appt-btn" type="button">Add new appointment <i class="fas fa-plus plus"></i></button>
+    </div>
+  </div>
+
+  <div class="right-split">
+
+    <div class="date-picker-container">
+      <div class="year"><label>{{currentYear}}</label></div>
+      <button class="caret-btns" type="button" (click)="backOneMonth()"><i class="fas fa-chevron-left"></i></button>
+      <label class="month">{{monthName}}</label>
+      <button class="caret-btns" type="button" (click)="forwardOneMonth()"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <div class="calendar-container">
+      <div class="day-of-week-box" *ngFor="let i of shortHandWeekDays">
+        {{i}}
+      </div>
+
+      <div class="day-of-week-box" *ngFor="let i of numOfDaysInMonth; let i = index">
+        {{i}}
+      </div>
+    </div>
+
+    <div class="view-past-container">
+      <button class="view-past-btn" type="button">View past appointment</button>
+    </div>
+  </div>
+</div>
