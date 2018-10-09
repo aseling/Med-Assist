@@ -12,6 +12,7 @@
     <div class="events-container">
       <div class="current-events">
         <label>Current Appointments:</label>
+        <div *ngIf="currentAppointments.length <= 0" class="no-appts">You have no appointments scheduled for today</div>
         <div class="appointments" *ngFor="let i of currentAppointments">
           <ul>
             <li>{{i}}</li>
@@ -21,6 +22,7 @@
 
       <div class="upcoming-events">
         <label>Upcoming Appointments:</label>
+        <div *ngIf="futureAppointments.length <= 0" class="no-appts">You have no upcoming appointments scheduled</div>
         <div class="appointments" *ngFor="let i of futureAppointments">
           <ul>
             <li>{{i}}</li>

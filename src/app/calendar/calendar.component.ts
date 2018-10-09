@@ -128,7 +128,7 @@ export class CalendarComponent implements OnInit {
 
   numOfDaysArray() {
     this.numOfDaysInMonth = [];
-    this.firstOfEachMonthNum = new Date(this.currentYear, this.monthNum, 1).getDay();
+    this.firstOfEachMonthNum = new Date(this.currentYear, this.monthNum, 1).getDay().toString();
     this.adjustCalendarFirstPosition();
 
     for (let i = 0; i < (new Date(this.currentYear, this.monthNum + 1, 0).getDate()); i++) {
@@ -137,25 +137,25 @@ export class CalendarComponent implements OnInit {
   }
 
   adjustCalendarFirstPosition() {
-    if (this.firstOfEachMonthNum == 1) {
-      this.numOfDaysInMonth.push("");
-    } else if (this.firstOfEachMonthNum == 2) {
+    if (this.firstOfEachMonthNum == "1") {
+      this.numOfDaysInMonth.push('');
+    } else if (this.firstOfEachMonthNum == "2") {
       for (let i = 0; i < 2; i++) {
         this.numOfDaysInMonth.push('');
       }
-    } else if (this.firstOfEachMonthNum == 3) {
+    } else if (this.firstOfEachMonthNum == "3") {
       for (let i = 0; i < 3; i++) {
         this.numOfDaysInMonth.push('');
       }
-    } else if (this.firstOfEachMonthNum == 4) {
+    } else if (this.firstOfEachMonthNum == "4") {
       for (let i = 0; i < 4; i++) {
         this.numOfDaysInMonth.push('');
       }
-    } else if (this.firstOfEachMonthNum == 5) {
+    } else if (this.firstOfEachMonthNum == "5") {
       for (let i = 0; i < 5; i++) {
         this.numOfDaysInMonth.push('');
       }
-    } else if(this.firstOfEachMonthNum == 6) {
+    } else if(this.firstOfEachMonthNum == "6") {
       for (let i = 0; i < 6; i++) {
         this.numOfDaysInMonth.push('');
       }
