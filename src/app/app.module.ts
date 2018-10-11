@@ -23,6 +23,7 @@ import { MedicalProfileComponent } from './medical-profile/medical-profile.compo
 import { LogoutComponent } from './logout/logout.component';
 import { MyMedicineComponent } from './my-medicine/my-medicine.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
+import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
     LogoutComponent,
     MyMedicineComponent,
     HelpfulLinksComponent,
+    PdfViewerComponent,
   ],
   imports: [
     BrowserModule,
