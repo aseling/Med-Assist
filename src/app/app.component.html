@@ -1,12 +1,15 @@
-<!--<app-register></app-register>-->
+<!--<div class="access-page" *ngIf="!authorized">-->
+  <!--<app-register></app-register>-->
+<!--</div>-->
+<div class="access-page" *ngIf="authorized">
+  <app-top-nav></app-top-nav>
+  <div class="container">
+    <div class="side-nav" id="sidebar">
+      <app-side-nav-bar></app-side-nav-bar>
+    </div>
 
-<app-top-nav></app-top-nav>
-<div class="container">
-  <div class="side-nav" id="sidebar">
-    <app-side-nav-bar></app-side-nav-bar>
-  </div>
-
-  <div class="main-body">
-    <router-outlet></router-outlet>
+    <div class="main-body">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
