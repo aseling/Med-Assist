@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let report of reports" scope="row">
+      <tr class="report-rows" *ngFor="let report of reports" scope="row">
         <td class="report-name" data-toggle="modal" data-target="#myModal">
           <a>
             {{ report.reportName }}

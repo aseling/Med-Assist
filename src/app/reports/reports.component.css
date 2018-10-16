@@ -30,6 +30,10 @@ th.second-column {
   width: 30%;
 }
 
+.report-rows {
+  cursor: default;
+}
+
 .modal-container {
   width: 100%;
   height: 100%;
