@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 import { MainBodyService } from './services/main-body.service';
 import { SideNavService } from './services/side-nav.service';
 import { Component } from '@angular/core';
 import { TopNavService } from './services/top-nav.service';
-=======
-import {Component} from '@angular/core';
 import {ApiService} from "./services/api.service";
 import { Router } from '@angular/router';
->>>>>>> master
 
 @Component({
   selector: 'app-root',
@@ -17,23 +13,20 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'med-assist';
 
-<<<<<<< HEAD
   showNavBar: boolean;
+  authorized: boolean;
+  registerViewOpen: boolean;
 
-  constructor(private sideNavService: SideNavService, private topNavService: TopNavService,
+  constructor(private apiService: ApiService, private router: Router, private sideNavService: SideNavService,
+    private topNavService: TopNavService,
     private mainBodyService: MainBodyService) {
-      sideNavService.show();
-      topNavService.show();
-      mainBodyService.show();
-    }
-=======
-  authorized:boolean;
-  registerViewOpen:boolean;
+    sideNavService.show();
+    topNavService.show();
+    mainBodyService.show();
 
-  constructor(private apiService:ApiService, private router: Router) {
     this.apiService.authorized.subscribe(value => {
       this.authorized = value;
-      if(!this.authorized) {
+      if (!this.authorized) {
         this.router.navigate(['/']);
       }
     });
@@ -42,5 +35,4 @@ export class AppComponent {
       this.registerViewOpen = value;
     });
   }
->>>>>>> master
 }
