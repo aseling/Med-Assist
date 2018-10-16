@@ -24,7 +24,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { MyMedicineComponent } from './my-medicine/my-medicine.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
-
+import { TopNavService } from './top-nav/top-nav.service';
+import { SideNavService } from './side-nav-bar/side-nav.service';
 
 @NgModule({
   declarations: [
@@ -48,15 +49,22 @@ import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
     LogoutComponent,
     MyMedicineComponent,
     HelpfulLinksComponent,
-    PdfViewerComponent,
+    PdfViewerComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    SideNavService,
+    TopNavService
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
+
 }
+
+

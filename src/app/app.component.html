@@ -1,7 +1,11 @@
-<app-top-nav></app-top-nav>
+<app-top-nav
+  *ngIf="topNavService.isShown"
+></app-top-nav>
 <div class="container">
   <div class="side-nav" id="sidebar">
-    <app-side-nav-bar></app-side-nav-bar>
+    <app-side-nav-bar
+      *ngIf="sideNavService.isShown"
+    ></app-side-nav-bar>
   </div>
 
   <div class="main-body">

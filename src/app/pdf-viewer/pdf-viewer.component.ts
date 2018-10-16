@@ -10,6 +10,7 @@ export class PdfViewerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
 }
+
