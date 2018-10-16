@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
+  
+  authorized = new BehaviorSubject<boolean>(false);
+  registerView = new BehaviorSubject<boolean>(false);
+  
   constructor(private http:HttpClient) { }
 
   login(email: string, password: string): Observable<any>{
@@ -24,5 +27,21 @@ export class ApiService {
       password: password,
       password2: password2
     });
+  }
+  
+  openRegisterPage() {
+    this.registerView.next(true);
+  }
+  
+  closeRegisterPage() {
+    this.registerView.next(false);
+  }
+  
+  authorizeUser() {
+    this.authorized.next(true);
+  }
+
+  unauthorizeUser() {
+    this.authorized.next(false);
   }
 }

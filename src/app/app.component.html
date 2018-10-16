@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <app-top-nav
   *ngIf="topNavService.getIsShown()"
 ></app-top-nav>
@@ -12,5 +13,21 @@
     *ngIf="mainBodyService.getIsShown()"
   >
     <router-outlet></router-outlet>
+=======
+<div class="access-page" *ngIf="!authorized">
+  <app-login *ngIf="!registerViewOpen"></app-login>
+  <app-register *ngIf="registerViewOpen"></app-register>
+</div>
+<div class="access-page" *ngIf="authorized">
+  <app-top-nav></app-top-nav>
+  <div class="container">
+    <div class="side-nav" id="sidebar">
+      <app-side-nav-bar></app-side-nav-bar>
+    </div>
+
+    <div class="main-body">
+      <router-outlet></router-outlet>
+    </div>
+>>>>>>> master
   </div>
 </div>

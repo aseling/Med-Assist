@@ -17,8 +17,9 @@ export class RegisterComponent implements OnInit {
   password2:string = '';
   submitted = false;
   passwordMatch = false;
+  registerViewOpen:boolean;
 
-  constructor(private apiSevice:ApiService, private formBuilder:FormBuilder) {
+  constructor(private apiService:ApiService, private formBuilder:FormBuilder) {
   }
 
   ngOnInit() {
@@ -28,7 +29,11 @@ export class RegisterComponent implements OnInit {
       'username': new FormControl('', [Validators.required]),
       'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
       'password2': new FormControl('', [Validators.required]),
-    })
+    });
+
+    this.apiService.registerView.subscribe(value => {
+      this.registerViewOpen = value;
+    });
   }
 
   registerSubmit() {
@@ -53,9 +58,12 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    this.apiService.closeRegisterPage();
+
     this.passwordMatch = true;
-    console.log(this.name, this.email, this.username, this.password, this.password2);
-    console.log(this.registerForm.value);
-    console.log(this.registerForm.invalid);
+  }
+
+  cancel() {
+    this.apiService.closeRegisterPage();
   }
 }

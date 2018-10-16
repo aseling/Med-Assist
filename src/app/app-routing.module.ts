@@ -19,7 +19,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'new-patient-form', component: NewPatientFormComponent },

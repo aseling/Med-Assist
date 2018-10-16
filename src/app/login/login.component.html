@@ -1,31 +1,20 @@
-<div class="container">
-  <h1>Register</h1>
-  <form>
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required>
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" class="form-control" id="email" required>
-    </div>
-
+<div *ngIf="!registerViewOpen" class="container">
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" required>
+      <input type="text" class="form-control" id="username" formControlName="username">
+      <div *ngIf="submitted && loginForm.controls.username.errors" class="error-message">Username is required</div>
     </div>
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="text" class="form-control" id="password" required>
-    </div>
+      <input type="password" class="form-control" id="password" formControlName="password">
+      <div *ngIf="submitted && loginForm.controls.password.errors" class="error-message">Password is required</div>
 
-    <div class="form-group">
-      <label for="password2">Confirm Password</label>
-      <input type="text" class="form-control" id="password2" required>
     </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="login-btn">Login</button>
+    <button class="register-btn" type="button" (click)="openRegisterView()">Register</button>
   </form>
 </div>
+

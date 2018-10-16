@@ -1,4 +1,28 @@
-p{
-  text-align: center;
-  font-size: 50px;
+.error-message {
+  color: red;
+}
+
+.register-btn {
+  background: transparent;
+  border: transparent;
+  margin: 15px;
+  outline: none;
+}
+
+.register-btn:hover {
+  color: #3B92A8;
+}
+
+
+.login-btn {
+  background: #3B92A8;
+  color: white;
+  width: 300px;
+  border-radius: 5px;
+  font-size: 25px;
+  outline: none;
+}
+
+.login-btn:hover {
+  background: #0089a8;
 }
