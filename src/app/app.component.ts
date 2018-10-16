@@ -17,9 +17,12 @@ export class AppComponent {
   authorized: boolean;
   registerViewOpen: boolean;
 
-  constructor(private apiService: ApiService, private router: Router, private sideNavService: SideNavService,
-    private topNavService: TopNavService,
-    private mainBodyService: MainBodyService) {
+  constructor(private apiService: ApiService, 
+              private router: Router, 
+              private sideNavService: SideNavService, 
+              private topNavService: TopNavService, 
+              private mainBodyService: MainBodyService) {
+    
     sideNavService.show();
     topNavService.show();
     mainBodyService.show();

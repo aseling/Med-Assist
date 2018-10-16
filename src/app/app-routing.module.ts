@@ -15,7 +15,6 @@ import {PrescriptionRefillComponent} from "./prescription-refill/prescription-re
 import {FormsComponent} from "./forms/forms.component";
 import {CalendarComponent} from "./calendar/calendar.component";
 import {ChatComponent} from "./chat/chat.component";
-import { LogoutComponent } from './logout/logout.component';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 
 const routes: Routes = [
@@ -33,7 +32,6 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'medical-profile', component: MedicalProfileComponent },
-  { path: 'logout', component: LogoutComponent },
   { path: 'my-medicine', component: MyMedicineComponent },
   { path: 'helpful-links', component: HelpfulLinksComponent },
   { path: 'reports/view', component: PdfViewerComponent },

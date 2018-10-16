@@ -21,7 +21,6 @@ import {TopNavComponent} from './top-nav/top-nav.component';
 import { ChatComponent } from './chat/chat.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { MedicalProfileComponent } from './medical-profile/medical-profile.component';
-import { LogoutComponent } from './logout/logout.component';
 import { MyMedicineComponent } from './my-medicine/my-medicine.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
@@ -52,7 +51,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ChatComponent,
     ContactPageComponent,
     MedicalProfileComponent,
-    LogoutComponent,
     MyMedicineComponent,
     HelpfulLinksComponent,
     PdfViewerComponent,
