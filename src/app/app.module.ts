@@ -23,16 +23,13 @@ import { MedicalProfileComponent } from './medical-profile/medical-profile.compo
 import { LogoutComponent } from './logout/logout.component';
 import { MyMedicineComponent } from './my-medicine/my-medicine.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
-<<<<<<< HEAD
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 import { TopNavService } from './top-nav/top-nav.service';
 import { SideNavService } from './side-nav-bar/side-nav.service';
-=======
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
->>>>>>> master
 
 @NgModule({
   declarations: [
@@ -56,26 +53,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LogoutComponent,
     MyMedicineComponent,
     HelpfulLinksComponent,
-<<<<<<< HEAD
-    PdfViewerComponent
-=======
+    PdfViewerComponent,
     RegisterComponent,
->>>>>>> master
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-<<<<<<< HEAD
   ],
   providers: [
     SideNavService,
-    TopNavService
-=======
+    TopNavService,
     HttpClientModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule
->>>>>>> master
   ],
   bootstrap: [AppComponent]
 })
