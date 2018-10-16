@@ -64,13 +64,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
-    SideNavService,
-    TopNavService,
-    MainBodyService,
-    HttpClientModule,
+
   ],
   bootstrap: [AppComponent]
 })
