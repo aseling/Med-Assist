@@ -1,6 +1,7 @@
-import { SideNavService } from './side-nav-bar/side-nav.service';
+import { MainBodyService } from './services/main-body.service';
+import { SideNavService } from './services/side-nav.service';
 import { Component } from '@angular/core';
-import { TopNavService } from './top-nav/top-nav.service';
+import { TopNavService } from './services/top-nav.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,12 @@ import { TopNavService } from './top-nav/top-nav.service';
 export class AppComponent {
   title = 'med-assist';
 
-  sideNavService = new SideNavService;
-  topNavService = new TopNavService;
-
   showNavBar: boolean;
 
-  constructor() {
-    this.sideNavService.show();
-    this.topNavService.show();
-  }
+  constructor(private sideNavService: SideNavService, private topNavService: TopNavService,
+    private mainBodyService: MainBodyService) {
+      sideNavService.show();
+      topNavService.show();
+      mainBodyService.show();
+    }
 }

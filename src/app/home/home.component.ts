@@ -1,6 +1,7 @@
-import { SideNavService } from './../side-nav-bar/side-nav.service';
+import { SideNavService } from '../services/side-nav.service';
 import { Component, OnInit } from '@angular/core';
-import { TopNavService } from '../top-nav/top-nav.service';
+import { TopNavService } from '../services/top-nav.service';
+import { container } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,7 @@ import { TopNavService } from '../top-nav/top-nav.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(sideNavService: SideNavService, topNavService: TopNavService) {
-    sideNavService.show();
-    topNavService.show();
-   }
+  constructor() {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 }

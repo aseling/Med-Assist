@@ -1,3 +1,4 @@
+
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
@@ -24,8 +25,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { MyMedicineComponent } from './my-medicine/my-medicine.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
-import { TopNavService } from './top-nav/top-nav.service';
-import { SideNavService } from './side-nav-bar/side-nav.service';
+import { TopNavService } from './services/top-nav.service';
+import { SideNavService } from './services/side-nav.service';
+import { MainBodyService } from './services/main-body.service';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -64,6 +66,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     SideNavService,
     TopNavService,
+    MainBodyService,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule

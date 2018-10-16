@@ -1,14 +1,16 @@
 <app-top-nav
-  *ngIf="topNavService.isShown"
+  *ngIf="topNavService.getIsShown()"
 ></app-top-nav>
 <div class="container">
   <div class="side-nav" id="sidebar">
     <app-side-nav-bar
-      *ngIf="sideNavService.isShown"
+      *ngIf="sideNavService.getIsShown()"
     ></app-side-nav-bar>
   </div>
 
-  <div class="main-body">
+  <div class="main-body"
+    *ngIf="mainBodyService.getIsShown()"
+  >
     <router-outlet></router-outlet>
   </div>
 </div>
