@@ -1,3 +1,44 @@
-<p>
-  prescription-refill works!
-</p>
+<p>My Medications</p>
+
+<p class="meds">Clobetasol 0.05% Sol</p>
+<p class="meds">Levonor/ethi Estradiol Tab</p>
+<p class="meds">Minocycline 100mg Cap</p>
+
+<p>Prescription Refill</p>
+
+<div id="leftMed">
+  <p class="RefillMeds"><input type="checkbox" class="RefillCheckbox">Clobetasol 0.05% Sol</p>
+  <p class="RefillMeds"><input type="checkbox" class="RefillCheckbox">Levonor/ethi Estradiol Tab</p>
+  <p class="RefillMeds"><input type="checkbox" class="RefillCheckbox">Minocycline 100mg Cap</p>
+</div>
+
+<div id="rightMed">
+  <p class="RefillMeds">3 Refills until 06/07/2019</p>
+  <p class="RefillMeds">6 Refills until 04/11/2019</p>
+  <p class="RefillMeds">4 Refills until 07/07/2019</p>
+</div>
+
+<button type="button" id="btnSubmitRequest" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Your Drugs are on the way! 😊</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
