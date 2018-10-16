@@ -19,4 +19,8 @@ export class SideNavService {
   hide() {
     this.isShown = false;
   }
+
+  getIsShown(): boolean {
+    return this.isShown;
+  }
 }

@@ -62,14 +62,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     SideNavService,
     TopNavService,
     MainBodyService,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })
