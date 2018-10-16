@@ -6,10 +6,10 @@ import {Observable, BehaviorSubject} from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  
-  authorized = new BehaviorSubject<boolean>(false);
+
+  authorized = new BehaviorSubject<boolean>(true);
   registerView = new BehaviorSubject<boolean>(false);
-  
+
   constructor(private http:HttpClient) { }
 
   login(email: string, password: string): Observable<any>{
@@ -28,15 +28,15 @@ export class ApiService {
       password2: password2
     });
   }
-  
+
   openRegisterPage() {
     this.registerView.next(true);
   }
-  
+
   closeRegisterPage() {
     this.registerView.next(false);
   }
-  
+
   authorizeUser() {
     this.authorized.next(true);
   }

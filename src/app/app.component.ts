@@ -28,7 +28,8 @@ export class AppComponent {
       this.authorized = value;
       if (!this.authorized) {
         this.router.navigate(['/']);
-      }
+      } else
+        this.router.navigate(['/home'])
     });
 
     this.apiService.registerView.subscribe(value => {
