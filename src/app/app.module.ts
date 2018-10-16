@@ -1,3 +1,4 @@
+
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
@@ -23,6 +24,10 @@ import { MedicalProfileComponent } from './medical-profile/medical-profile.compo
 import { LogoutComponent } from './logout/logout.component';
 import { MyMedicineComponent } from './my-medicine/my-medicine.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
+import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
+import { TopNavService } from './services/top-nav.service';
+import { SideNavService } from './services/side-nav.service';
+import { MainBodyService } from './services/main-body.service';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -50,18 +55,28 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LogoutComponent,
     MyMedicineComponent,
     HelpfulLinksComponent,
+    PdfViewerComponent,
     RegisterComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    SideNavService,
+    TopNavService,
+    MainBodyService,
+    HttpClientModule,
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
+
 }
+
+
