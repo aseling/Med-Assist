@@ -45,13 +45,15 @@ p{
 
 #btnSubmitRequest{
   position: relative;
-  top: 150px;
-  text-align: center;
-  left: 120px;
-  margin-left: 180px;
+  width: 20%;
 }
 
 .container {
   padding: 10px;
   min-height: 200px;
+}
+
+#AlignRefillBtn{
+  position: relative;
+  top: 140px;
 }
