@@ -1,29 +1,12 @@
-<div class="access-page" *ngIf="!authorized">
-  <div class="login-container">
-      <app-login></app-login>
-      <app-register></app-register>
-    </div>
-</div>
-
-<div *ngIf="authorized">
+<div>
   <app-top-nav></app-top-nav>
-  <div class="container">
-    <div class="side-nav" id="sidebar">
-      <app-side-nav-bar></app-side-nav-bar>
-    </div>
+  <div [ngClass]="{'unauth-view ': !authorized, 'container':authorized}">
+  <div class="side-nav" id="sidebar">
+    <app-side-nav-bar></app-side-nav-bar>
+  </div>
 
-    <div class="main-body">
-      <router-outlet></router-outlet>
-    </div>
+  <div class="main-body">
+    <router-outlet></router-outlet>
   </div>
 </div>
-
-
-<!--<div class="left">-->
-<!--</div>-->
-<!--<div class="right">-->
-<!--<div class="login-container">-->
-<!--<app-login></app-login>-->
-<!--<app-register></app-register>-->
-<!--</div>-->
-<!--</div>-->
+</div>
