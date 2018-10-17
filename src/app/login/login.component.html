@@ -1,9 +1,9 @@
-<div *ngIf="!registerViewOpen" class="container">
+<div *ngIf="!authorized || !registerViewOpen" class="container">
   <div class="header">
     <img class="logo" src="./assets/img/logo.png/">
     <h1>Login</h1>
   </div>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
+  <form [formGroup]="loginForm" (ngSubmit)="login()" (click)="reset()">
     <div class="form-group">
       <input type="text" class="form-control" id="username" formControlName="username" placeholder="Username">
       <i *ngIf="submitted && loginForm.controls.username.errors" class="fas fa-exclamation error-message"></i>
@@ -16,5 +16,12 @@
   </form>
   <button class="register-btn" type="button" (click)="openRegisterView()">Register</button>
 
+  <div *ngIf="submitted && (loginForm.controls.username.errors || loginForm.controls.password.errors)" class="alert alert-warning">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields.
+  </div>
+
+  <!--<div *ngIf="submitted && failAlert && !(loginForm.controls.username.errors || loginForm.controls.password.errors)" id="alert" class="alert alert-danger">-->
+    <!--<strong>Oh no!</strong> Looks like there is an invalid username or password.-->
+  <!--</div>-->
 </div>
 

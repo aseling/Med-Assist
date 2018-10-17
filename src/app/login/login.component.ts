@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../services/api.service";
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 
 
@@ -15,8 +15,10 @@ export class LoginComponent implements OnInit {
   password:string = '';
   submitted = false;
   registerViewOpen:boolean;
+  loginMessage = '';
+  failAlert = false;
 
-  constructor(private apiService:ApiService, private formBuilder:FormBuilder,private router: Router) {
+  constructor(private apiService:ApiService, private formBuilder:FormBuilder, private router:Router) {
   }
 
   ngOnInit() {
@@ -27,6 +29,14 @@ export class LoginComponent implements OnInit {
 
     this.apiService.registerView.subscribe(value => {
       this.registerViewOpen = value;
+    });
+
+    this.apiService.loginMessage.subscribe(message => {
+      this.loginMessage = message;
+
+      if (this.loginMessage == 'Success') {
+        this.apiService.authorizeUser();
+      }
     });
   }
 
@@ -39,12 +49,17 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    
-    this.apiService.authorizeUser();
-    this.router.navigate(['/home']);
+
+    this.apiService.login(this.username, this.password);
   };
 
   openRegisterView() {
     this.apiService.openRegisterPage(true);
+    this.router.navigate(['/register']);
+    this.apiService.setRegisterMessage('');
+  }
+
+  reset() {
+    this.submitted = false;
   }
 }
