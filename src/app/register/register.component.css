@@ -1,3 +1,14 @@
 .error-message {
   color: red;
 }
+
+.cancel-btn {
+  background: transparent;
+  border: transparent;
+  margin: 15px;
+  outline: none;
+}
+
+.cancel-btn:hover {
+  color: #ff5356;
+}

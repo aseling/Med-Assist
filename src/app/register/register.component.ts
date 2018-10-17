@@ -16,9 +16,12 @@ export class RegisterComponent implements OnInit {
   password:string = '';
   password2:string = '';
   submitted = false;
+  userTaken = false;
   passwordMatch = false;
+  registerViewOpen:boolean;
+  registerMessage = '';
 
-  constructor(private apiSevice:ApiService, private formBuilder:FormBuilder) {
+  constructor(private apiService:ApiService, private formBuilder:FormBuilder) {
   }
 
   ngOnInit() {
@@ -28,12 +31,28 @@ export class RegisterComponent implements OnInit {
       'username': new FormControl('', [Validators.required]),
       'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
       'password2': new FormControl('', [Validators.required]),
-    })
+    });
+
+    this.apiService.registerView.subscribe(value => {
+      this.registerViewOpen = value;
+    });
+
+    this.apiService.registerMessage.subscribe(message => {
+      this.registerMessage = message;
+      if (this.registerMessage == 'User info was saved.') {
+        this.cancel();
+        this.userTaken = false;
+        this.registerForm.reset();
+        this.submitted = false;
+      } else {
+        this.userTaken = true;
+      }
+      this.registerMessage = '';
+    });
   }
 
   registerSubmit() {
     this.submitted = true;
-
     this.name = this.registerForm.controls.name.value;
     this.email = this.registerForm.controls.email.value;
     this.username = this.registerForm.controls.username.value;
@@ -42,9 +61,6 @@ export class RegisterComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-      console.log(this.registerForm.invalid);
-      console.log(this.registerForm.controls.password);
-      console.log(this.name, this.email, this.username, this.password, this.password2);
       return;
     }
 
@@ -53,9 +69,11 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    this.apiService.register(this.name, this.email, this.username, this.password, this.password2);
     this.passwordMatch = true;
-    console.log(this.name, this.email, this.username, this.password, this.password2);
-    console.log(this.registerForm.value);
-    console.log(this.registerForm.invalid);
+  }
+
+  cancel() {
+    this.apiService.openRegisterPage(false);
   }
 }

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {trigger, state, style, animate, transition} from '@angular/animations';
+import { Router } from '@angular/router';
+import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-top-nav',
@@ -34,7 +36,7 @@ export class TopNavComponent implements OnInit {
 
   dropDownOpenClose = 'closed';
 
-  constructor() {
+  constructor(private apiService: ApiService, private router: Router) {
   }
 
   ngOnInit() {
@@ -48,5 +50,10 @@ export class TopNavComponent implements OnInit {
   mouseLeave() {
     this.dropDownOpenClose = 'closed';
     console.log(this.dropDownOpenClose);
+  }
+
+  logout() {
+    this.apiService.unauthorizeUser();
+    this.router.navigate(['/login']);
   }
 }

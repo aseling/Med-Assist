@@ -15,10 +15,10 @@ import {PrescriptionRefillComponent} from "./prescription-refill/prescription-re
 import {FormsComponent} from "./forms/forms.component";
 import {CalendarComponent} from "./calendar/calendar.component";
 import {ChatComponent} from "./chat/chat.component";
-import { LogoutComponent } from './logout/logout.component';
+import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'new-patient-form', component: NewPatientFormComponent },
@@ -31,10 +31,10 @@ const routes: Routes = [
   { path: 'forms', component: FormsComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'chat', component: ChatComponent },
-  { path: 'medical-profile', component: MedicalProfileComponent},
-  { path: 'logout', component: LogoutComponent},
-  { path: 'my-medicine', component: MyMedicineComponent},
-  { path: 'helpful-links', component: HelpfulLinksComponent},
+  { path: 'medical-profile', component: MedicalProfileComponent },
+  { path: 'my-medicine', component: MyMedicineComponent },
+  { path: 'helpful-links', component: HelpfulLinksComponent },
+  { path: 'reports/view', component: PdfViewerComponent },
 ];
 
 @NgModule({
