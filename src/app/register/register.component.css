@@ -1,14 +1,49 @@
-.error-message {
-  color: red;
+.container {
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.logo {
+  width: 250px;
+  margin: 20px 0 30px 0;
+}
+
+.submit-btn {
+  background: #3B92A8;
+  color: white;
+  width: 230px;
+  border-radius: 5px;
+  font-size: 25px;
+  outline: none;
+}
+
+.submit-btn:hover {
+  background: #0089a8;
 }
 
 .cancel-btn {
   background: transparent;
   border: transparent;
-  margin: 15px;
+  width: 230px;
   outline: none;
+  margin-top: 10px;
 }
 
 .cancel-btn:hover {
   color: #ff5356;
 }
+
+.form-control {
+  display: inline;
+  width: 230px;
+  padding: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-left: 5px;
+}
+

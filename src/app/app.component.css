@@ -17,3 +17,17 @@
   top: 33px;
   border-radius: 10px;
 }
+
+.access-page {
+  /*display: grid;*/
+  /*grid-template-columns: 1fr 2fr;*/
+}
+
+.login-container {
+  background: white;
+  border-radius: 5px;
+  margin: 150px auto 150px auto;
+  width: 600px;
+  height: 675px;
+}
+

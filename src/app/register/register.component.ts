@@ -75,5 +75,7 @@ export class RegisterComponent implements OnInit {
 
   cancel() {
     this.apiService.openRegisterPage(false);
+    this.registerForm.reset();
+    this.submitted = false;
   }
 }
