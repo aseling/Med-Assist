@@ -39,12 +39,12 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
+    
     this.apiService.authorizeUser();
     this.router.navigate(['/home']);
   };
 
   openRegisterView() {
-    this.apiService.openRegisterPage();
+    this.apiService.openRegisterPage(true);
   }
 }
