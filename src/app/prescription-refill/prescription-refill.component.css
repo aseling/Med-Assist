@@ -25,19 +25,22 @@ p{
 
 .RefillCheckbox{
   float: left;
+  left: 0;
   top: 10px;
 }
 
 #leftMed{
   float: left;
   position: relative;
-  left: 320px;
+  width: 40%;
+  left: 8%;
 }
 
 #rightMed{
   float: right;
   position: relative;
-  right: 320px;
+  width: 40%;
+  right: 8%;
 }
 
 #btnSubmitRequest{
