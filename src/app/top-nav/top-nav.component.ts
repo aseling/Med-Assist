@@ -1,59 +1,26 @@
 import {Component, OnInit} from '@angular/core';
-import {trigger, state, style, animate, transition} from '@angular/animations';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-top-nav',
   templateUrl: './top-nav.component.html',
-  styleUrls: ['./top-nav.component.css'],
-  animations: [
-    trigger('openClose', [
-      state('closed', style({
-        visibility: 'hidden',
-        height: '0',
-        transform: 'rotate(-360deg)',
-        fontSize: '0',
-        opacity: 0
-      })),
-      state('open', style({
-        visibility: 'visible',
-        height: '150px',
-        fontSize: '15px',
-        transform: 'rotate(360deg)',
-        opacity: 1
-      })),
-      transition('open => closed', [
-        animate('0.2s')
-      ]),
-      transition('closed => open', [
-        animate('0.2s')
-      ])
-    ])
-  ]
+  styleUrls: ['./top-nav.component.css']
 })
+
 export class TopNavComponent implements OnInit {
+  authorized:boolean = false;
 
-  dropDownOpenClose = 'closed';
-
-  constructor(private apiService: ApiService, private router: Router) {
+  constructor(private apiService:ApiService, private router:Router) {
   }
 
   ngOnInit() {
-  }
-
-  mouseEnter() {
-    this.dropDownOpenClose = 'open';
-    console.log(this.dropDownOpenClose);
-  }
-
-  mouseLeave() {
-    this.dropDownOpenClose = 'closed';
-    console.log(this.dropDownOpenClose);
+    this.apiService.authorized.subscribe(value => {
+      this.authorized = value;
+    });
   }
 
   logout() {
     this.apiService.unauthorizeUser();
-    this.router.navigate(['/login']);
   }
 }

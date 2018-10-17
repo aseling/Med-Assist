@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, BehaviorSubject} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
+import {Router} from '@angular/router'
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +11,18 @@ export class ApiService {
   authorized = new BehaviorSubject<boolean>(false);
   registerView = new BehaviorSubject<boolean>(false);
   registerMessage = new BehaviorSubject<string>('');
+  loginMessage = new BehaviorSubject<string>('');
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private router:Router) {
   }
 
-  login(email:string, password:string) {
+  login(username:string, password:string) {
     return this.http.post<any>('http://localhost:5000/login', {
-      email: email,
+      username: username,
       password: password
-    }).subscribe(res => console.log(res.json));
+    }).subscribe((res:any) => {
+      this.loginMessage.next(res.message);
+    });
   }
 
   register(name:string, email:string, username:string, password:string, password2:string) {
@@ -33,16 +37,19 @@ export class ApiService {
     });
   }
 
-  openRegisterPage(value: boolean) {
+  openRegisterPage(value:boolean) {
     this.registerView.next(value);
   }
 
   authorizeUser() {
     this.authorized.next(true);
+    this.router.navigate(['/home']);
   }
 
   unauthorizeUser() {
     this.authorized.next(false);
+    this.router.navigate(['/login']);
+    this.loginMessage.next('');
   }
 
   setRegisterMessage(message:string) {

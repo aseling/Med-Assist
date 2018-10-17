@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../services/api.service";
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-import{User} from "../models/user"
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -17,11 +17,12 @@ export class RegisterComponent implements OnInit {
   password2:string = '';
   submitted = false;
   userTaken = false;
-  passwordMatch = false;
+  passwordMatch: boolean;
   registerViewOpen:boolean;
   registerMessage = '';
+  
 
-  constructor(private apiService:ApiService, private formBuilder:FormBuilder) {
+  constructor(private apiService:ApiService, private formBuilder:FormBuilder,private router: Router) {
   }
 
   ngOnInit() {
@@ -40,6 +41,7 @@ export class RegisterComponent implements OnInit {
     this.apiService.registerMessage.subscribe(message => {
       this.registerMessage = message;
       if (this.registerMessage == 'User info was saved.') {
+        console.log("SAVED");
         this.cancel();
         this.userTaken = false;
         this.registerForm.reset();
@@ -47,7 +49,6 @@ export class RegisterComponent implements OnInit {
       } else {
         this.userTaken = true;
       }
-      this.registerMessage = '';
     });
   }
 
@@ -65,7 +66,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if (this.password != this.password2) {
-      console.log("NO MATCH");
+      this.passwordMatch = false;
       return;
     }
 
@@ -75,7 +76,12 @@ export class RegisterComponent implements OnInit {
 
   cancel() {
     this.apiService.openRegisterPage(false);
+    this.router.navigate(['login']);
     this.registerForm.reset();
+    this.submitted = false;
+  }
+
+  reset() {
     this.submitted = false;
   }
 }

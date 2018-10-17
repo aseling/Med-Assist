@@ -29,7 +29,8 @@
   border: transparent;
   width: 230px;
   outline: none;
-  margin-top: 10px;
+  margin: 10px 0 10px 0;
+
 }
 
 .register-btn:hover {
