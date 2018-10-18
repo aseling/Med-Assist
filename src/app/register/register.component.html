@@ -35,17 +35,17 @@
     <button class="cancel-btn" type="button" (click)="cancel()">Cancel</button>
   </div>
 
-  <!--<div *ngIf="submitted && (registerForm.controls.name.errors || registerForm.controls.email.errors ||registerForm.controls.username.errors || registerForm.controls.password.errors)" class="alert alert-warning">-->
-    <!--<strong>Holy guacamole!</strong> You should check in on some of those fields.-->
-  <!--</div>-->
+  <div *ngIf="submitted && (registerForm.controls.name.errors || registerForm.controls.email.errors ||registerForm.controls.username.errors || registerForm.controls.password.errors)" class="alert alert-warning">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields.
+  </div>
 
   <!--<div *ngIf="submitted && !passwordMatch && !(registerForm.controls.name.errors || registerForm.controls.email.errors || registerForm.controls.username.errors || registerForm.controls.password.errors)" id="alert" class="alert alert-danger">-->
     <!--<strong>Oh no!</strong> Passwords do not match.-->
   <!--</div>-->
 
-  <!--<div *ngIf="submitted && passwordsMatch && userTaken && !(registerForm.controls.name.errors || registerForm.controls.email.errors || registerForm.controls.username.errors || registerForm.controls.password.errors)" id="alert" class="alert alert-danger">-->
-    <!--<strong>Oops!</strong> Username or email already exist. Please try again.-->
-  <!--</div>-->
+  <div *ngIf="submitted && passwordsMatch && userTaken && !(registerForm.controls.name.errors || registerForm.controls.email.errors || registerForm.controls.username.errors || registerForm.controls.password.errors)" id="alert" class="alert alert-danger">
+    <strong>Oops!</strong> Username or email already exist. Please try again.
+  </div>
 </div>
 
 

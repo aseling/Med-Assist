@@ -83,5 +83,6 @@ export class RegisterComponent implements OnInit {
 
   reset() {
     this.submitted = false;
+    this.userTaken = false;
   }
 }

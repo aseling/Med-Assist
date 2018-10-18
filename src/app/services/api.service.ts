@@ -17,7 +17,7 @@ export class ApiService {
   }
 
   login(username:string, password:string) {
-    return this.http.post<any>('http://localhost:5000/login', {
+    return this.http.post<any>('https://floating-citadel-31945.herokuapp.com/login', {
       username: username,
       password: password
     }).subscribe((res:any) => {
@@ -26,7 +26,7 @@ export class ApiService {
   }
 
   register(name:string, email:string, username:string, password:string, password2:string) {
-    return this.http.post<any>('http://localhost:5000/register', {
+    return this.http.post<any>('https://floating-citadel-31945.herokuapp.com/register', {
       name: name,
       email: email,
       username: username,
