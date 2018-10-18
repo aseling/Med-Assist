@@ -11,13 +11,20 @@
   </li>
 </ul>
 <!-- Tab panels -->
-<div class="tab-content card">
+<div class="tab-content card" id="contactInfo">
   <!--Panel 1-->
   <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
     <br>
     <div>
       <div class="container">
-      <h5>Patient Information</h5>
+        <div class="row">
+          <div class="col-md-11">
+           <h5>Patient Information</h5>
+          </div>
+          <div class="col-md-1">
+          <td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>
+          </div>
+        </div>
     <p> Name: <p>
     <p> Address: <p>
     <p>  Date of Birth: <p>
@@ -52,11 +59,6 @@
     </p>
     </div>
   </div>
-<div>
-  <div class="container">
-  <td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>
-  </div>
-  </div>
   </div>
   <!--/.Panel 1-->
 
@@ -64,10 +66,17 @@
   <!--Panel 2-->
   <div class="tab-pane fade" id="panel2" role="tabpanel">
     <br>
-    <br>
     <div>
-      <div class="container">
-      <h5>Billing Information</h5>
+      <div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-11">
+              <h5>Billing Information</h5>
+            </div>
+            <div class="col-md-1">
+              <td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>
+            </div>
+          </div>
       <p>Name:</p>
       <p>Address:</p>
       <p>Billing Phone:</p>
@@ -75,6 +84,7 @@
       </div>
   </div>
 <div>
+  <br>
   <div class="container">
   <h5>Primary Insurance</h5>
     <p> Type: </p>
@@ -89,11 +99,7 @@
     <p> Expires: </p>
   </div>
 </div>
-    <div>
-      <div class="container">
-        <td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>
-      </div>
-    </div>
+  </div>
   </div>
   <!--/.Panel 2-->
 
@@ -106,76 +112,139 @@
       <h5>Medical Information</h5>
         </div>
       </div>
+      <br>
       <div>
       <div class="container">
+        <div class="row">
+          <div class="col-md-4">
       <h5>Blood Type:</h5>
-      <p>O+</p>
+          </div>
+          <div class="col-md-4">
+            O+
+          </div>
+        </div>
       </div>
       </div>
+      <br>
       <div>
         <div class="container">
         <h5>Allergies</h5>
       <p>No allergies are listed in your records</p>
         </div>
       </div>
+      <br>
       <div>
         <div class="container">
          <h5>Vaccinations</h5>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
               Vaccine:
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               Type:
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               Date Received:
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                Polio
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                Opv
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               12/12/12
             </div>
           </div>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
               Measles, Mumps, Rubella Mmr
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                12/12/12
             </div>
             </div>
         </div>
       </div>
-
+      <br>
       <div>
       <div class="container">
       <h5>Social History</h5>
-      <p>Smoking Status:      Never Smoked</p>
-      <p>Tobacco Usage:       Status Unknown</p>
+        <div>
+          <div class="row">
+            <div class="col-md-4">
+                Smoking Status:
+              </div>
+            <div class="col-md-4">
+              Never Smoked
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              Tobacco Usage:
+              </div>
+            <div class="col-md-4">
+              Status Unknown
+            </div>
+        </div>
       </div>
       </div>
-
+<br>
       <div>
       <div class="container">
       <h5>Problems</h5>
-      <p>Problem:       Provider:      Onset Date:</p>
-      <p>Flu   John Doe       12/30/65</p>
+        <div>
+        <div class="row">
+          <div class="col-md-4">
+            Problem:
+          </div>
+          <div class="col-md-4">
+            Provider:
+          </div>
+          <div class="col-md-4">
+            Onset Date:
+          </div>
+        </div>
+
+          <div>
+            <div class="row">
+              <div class="col-md-4">
+                Flu
+              </div>
+              <div class="col-md-4">
+                John Doe
+              </div>
+              <div class="col-md-4">
+                12/30/65
+              </div>
+            </div>
+          </div>
       </div>
       </div>
+        <br>
       <div>
         <div class="container">
       <h5>Procedures</h5>
-      <p>Description</p> <p>Date Performed:</p>
-      <p>No procedures are listed in your records</p>
+          <div>
+            <div class="row">
+              <div class="col-md-4">
+                Description:
+                </div>
+              <div class="col-md-4">
+                </div>
+              <div class="col-md-4">
+                Date Performed:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                No procedures are listed in your records
+              </div>
+            </div>
         </div>
       </div>
       </div>
