@@ -12,6 +12,7 @@ export class ApiService {
   registerView = new BehaviorSubject<boolean>(false);
   registerMessage = new BehaviorSubject<string>('');
   loginMessage = new BehaviorSubject<string>('');
+  user = new BehaviorSubject<string>('');
 
   constructor(private http:HttpClient, private router:Router) {
   }

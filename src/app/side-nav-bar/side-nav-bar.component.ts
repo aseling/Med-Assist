@@ -17,7 +17,6 @@ export class SideNavBarComponent implements OnInit {
   ngOnInit() {
     this.apiService.authorized.subscribe(value => {
       this.authorized = value;
-      console.log(this.authorized , " INSIDE TOP NAV")
     });
   }
 }
