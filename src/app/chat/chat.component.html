@@ -5,18 +5,21 @@
     </div>
     <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice">
       <div class="room" (click)="selectRoom(index)">
-        <section>{{i}}</section>
+        <section class="choice" [ngClass]="{'highlight-room': index == roomIndex}">
+          <div>{{i}}</div>
+        </section>
       </div>
     </div>
 
-    <div class="join-btns" >
-      <button *ngIf="!joined" type="button" class="btn btn-primary join" (click)="join()">Join</button>
-      <button *ngIf="joined" type="button" class="btn btn-default leave" (click)="leave()">Leave</button>
-    </div>
+    <!--<div class="join-btns" >-->
+      <!--<button *ngIf="!joined" type="button" class="btn btn-primary join" (click)="join()">Join</button>-->
+      <!--<button *ngIf="joined" type="button" class="btn btn-default leave" (click)="leave()">Leave</button>-->
+    <!--</div>-->
   </div>
 
+  <!--RIGHT SIDE WHERE MESSAGES ARE DISPLAYED-->
   <div class="screen-side">
-    <div class="message-screen">
+    <div class="message-screen" id="message-screen">
       <div *ngFor="let item of messageArray" class="messages">
         <span><strong>{{item.user}} : </strong> {{item.message}}</span>
       </div>

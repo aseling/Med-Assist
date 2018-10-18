@@ -32,6 +32,10 @@
   border-radius: 5px;
 }
 
+.highlight-room {
+  background-color: #c1626a;
+}
+
 .room {
   width: 100%;
   font-size: 28px;
@@ -39,12 +43,20 @@
   border-radius: 5px;
 }
 
+.choice:hover {
+  background-color: #c1626a;
+}
+
 section {
-  height: fit-content;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  text-align: center;
+}
+
+section div {
   position: relative;
-  top: 33px;
-  left: 25px;
-  width: fit-content;
+  top: 35px;
 }
 
 .join-btns {
@@ -69,8 +81,11 @@ section {
   border-radius: 5px;
   border: 1px solid #b3b2b2;
   width: 100%;
-  min-height: 600px;
   box-shadow: 5px 5px 27px -3px #000000b3;
+  min-height: 600px;
+  max-height: 600px;
+  overflow-y: scroll;
+  padding: 15px 0 70px 0;
 }
 
 .messages {
@@ -86,6 +101,7 @@ section {
 .send {
   font-size: 25px;
 }
+
 
 /*a {*/
 /*text-decoration: none;*/
