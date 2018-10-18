@@ -10,6 +10,7 @@ import {ApiService} from "../services/api.service";
 export class SideNavBarComponent implements OnInit {
   isOpen = false;
   authorized:boolean = false;
+  user:string;
 
   constructor(private apiService:ApiService) {
   }
@@ -17,6 +18,11 @@ export class SideNavBarComponent implements OnInit {
   ngOnInit() {
     this.apiService.authorized.subscribe(value => {
       this.authorized = value;
+    });
+
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+      console.log(this.user);
     });
   }
 }

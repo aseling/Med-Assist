@@ -10,6 +10,7 @@ import {ApiService} from "../services/api.service";
 
 export class TopNavComponent implements OnInit {
   authorized:boolean = false;
+  user:string;
 
   constructor(private apiService:ApiService, private router:Router) {
   }
@@ -17,6 +18,11 @@ export class TopNavComponent implements OnInit {
   ngOnInit() {
     this.apiService.authorized.subscribe(value => {
       this.authorized = value;
+    });
+
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+      console.log(this.user);
     });
   }
 

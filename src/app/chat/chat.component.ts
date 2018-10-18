@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {ChatService} from "../services/chat.service";
+import {ChatService} from '../services/chat.service';
+import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-chat',
@@ -8,48 +9,53 @@ import {ChatService} from "../services/chat.service";
 })
 export class ChatComponent {
 
-  user:String;
-  room:String;
-  messageText:String;
+  user:string;
+  room:string;
+  messageText:string;
   messageArray:Array<{user:String,message:String}> = [];
   roomChoice = ["Dr. Phil", "Dr. Smith", "Dr. Janice"];
   joined = false;
   roomIndex:number;
   scroll = document.getElementById("message-screen");
 
-  constructor(private _chatService:ChatService) {
-    this._chatService.newUserJoined().subscribe(data => {
+  constructor(private chatService:ChatService, private apiService: ApiService) {
+    this.chatService.newUserJoined().subscribe(data => {
       this.messageArray.push(data);
       ChatComponent.screenScroll();
     });
 
-    this._chatService.userLeftRoom().subscribe(data => {
+    this.chatService.userLeftRoom().subscribe(data => {
       this.messageArray.push(data);
       ChatComponent.screenScroll();
     });
 
-    this._chatService.newMessageReceived().subscribe(data => {
+    this.chatService.newMessageReceived().subscribe(data => {
       this.messageArray.push(data);
       ChatComponent.screenScroll();
+    });
+
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+     console.log(this.user);
     });
   }
 
   join() {
     console.log(this.room);
-    this._chatService.joinRoom({user: this.user, room: this.room});
+    this.chatService.joinRoom({user: this.user, room: this.room});
     this.joined = true;
     ChatComponent.screenScroll();
   }
 
   leave() {
-    this._chatService.leaveRoom({user: this.user, room: this.room});
+    this.chatService.leaveRoom({user: this.user, room: this.room});
     this.messageArray = [];
     this.joined = false;
     ChatComponent.screenScroll();
   }
 
   sendMessage() {
-    this._chatService.sendMessage({user: this.user, room: this.room, message: this.messageText});
+    this.chatService.sendMessage({user: this.user, room: this.room, message: this.messageText});
     this.messageText = '';
 
     ChatComponent.screenScroll();
