@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
     this.apiService.loginMessage.subscribe(message => {
       this.loginMessage = message;
 
-      if (this.loginMessage == 'Success') {
+      if (this.loginMessage === 'Success') {
         this.apiService.authorizeUser();
+        this.apiService.setUserName(this.username);
       }
     });
   }

@@ -56,4 +56,8 @@ export class ApiService {
   setRegisterMessage(message:string) {
     this.registerMessage.next(message);
   }
+
+  setUserName(user:string) {
+    this.user.next(user);
+  }
 }

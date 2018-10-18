@@ -1,8 +1,5 @@
 <div class="container">
   <div class="room-side">
-    <div class="form-group username">
-      <input type="text" [(ngModel)]="user" class="form-control username-input" id="username" placeholder="Enter username">
-    </div>
     <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice">
       <div class="room" (click)="selectRoom(index)">
         <section class="choice" [ngClass]="{'highlight-room': index == roomIndex}">
@@ -10,11 +7,6 @@
         </section>
       </div>
     </div>
-
-    <!--<div class="join-btns" >-->
-      <!--<button *ngIf="!joined" type="button" class="btn btn-primary join" (click)="join()">Join</button>-->
-      <!--<button *ngIf="joined" type="button" class="btn btn-default leave" (click)="leave()">Leave</button>-->
-    <!--</div>-->
   </div>
 
   <!--RIGHT SIDE WHERE MESSAGES ARE DISPLAYED-->
