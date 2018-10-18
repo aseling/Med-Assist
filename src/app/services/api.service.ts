@@ -8,7 +8,7 @@ import {Router} from '@angular/router'
 })
 export class ApiService {
 
-  authorized = new BehaviorSubject<boolean>(true);
+  authorized = new BehaviorSubject<boolean>(false);
   registerView = new BehaviorSubject<boolean>(false);
   registerMessage = new BehaviorSubject<string>('');
   loginMessage = new BehaviorSubject<string>('');
