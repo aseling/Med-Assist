@@ -8,10 +8,11 @@ import {Router} from '@angular/router'
 })
 export class ApiService {
 
-  authorized = new BehaviorSubject<boolean>(false);
+  authorized = new BehaviorSubject<boolean>(true);
   registerView = new BehaviorSubject<boolean>(false);
   registerMessage = new BehaviorSubject<string>('');
   loginMessage = new BehaviorSubject<string>('');
+  user = new BehaviorSubject<string>('');
 
   constructor(private http:HttpClient, private router:Router) {
   }

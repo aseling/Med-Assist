@@ -26,6 +26,7 @@ import {PdfViewerComponent} from './pdf-viewer/pdf-viewer.component';
 import {RegisterComponent} from './register/register.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ChatService} from "./services/chat.service";
 
 @NgModule({
   declarations: [
