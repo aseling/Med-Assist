@@ -1,4 +1,3 @@
-
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
@@ -18,20 +17,16 @@ import {ReferencesComponent} from './references/references.component';
 import {ReportsComponent} from './reports/reports.component';
 import {VideosComponent} from './videos/videos.component';
 import {TopNavComponent} from './top-nav/top-nav.component';
-import { ChatComponent } from './chat/chat.component';
-import { ContactPageComponent } from './contact-page/contact-page.component';
-import { MedicalProfileComponent } from './medical-profile/medical-profile.component';
-import { LogoutComponent } from './logout/logout.component';
-import { MyMedicineComponent } from './my-medicine/my-medicine.component';
-import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
-import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
-import { TopNavService } from './services/top-nav.service';
-import { SideNavService } from './services/side-nav.service';
-import { MainBodyService } from './services/main-body.service';
-import { RegisterComponent } from './register/register.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {ChatComponent} from './chat/chat.component';
+import {ContactPageComponent} from './contact-page/contact-page.component';
+import {MedicalProfileComponent} from './medical-profile/medical-profile.component';
+import {MyMedicineComponent} from './my-medicine/my-medicine.component';
+import {HelpfulLinksComponent} from './helpful-links/helpful-links.component';
+import {PdfViewerComponent} from './pdf-viewer/pdf-viewer.component';
+import {RegisterComponent} from './register/register.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ChatService} from "./services/chat.service";
 
 @NgModule({
   declarations: [
@@ -52,11 +47,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ChatComponent,
     ContactPageComponent,
     MedicalProfileComponent,
-    LogoutComponent,
     MyMedicineComponent,
     HelpfulLinksComponent,
     PdfViewerComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -64,14 +58,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
-  ],
-  providers: [
-    SideNavService,
-    TopNavService,
-    MainBodyService,
     HttpClientModule,
   ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 

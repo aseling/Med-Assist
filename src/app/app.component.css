@@ -5,6 +5,12 @@
   min-width: 100%;
 }
 
+.side-nav {
+  position: relative;
+  top: 33px;
+  border-radius: 10px;
+}
+
 .main-body {
   position: relative;
   top: 33px;
@@ -12,8 +18,11 @@
   border-radius: 10px;
 }
 
-.side-nav {
-  position: relative;
-  top: 33px;
-  border-radius: 10px;
+.unauth-view {
+  width: 600px;
+  height: 700px;
+  margin: 150px auto;
+  box-shadow: 3px 3px 14px 0 #000000;
+  background: white;
+  border-radius: 5px;
 }

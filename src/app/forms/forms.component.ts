@@ -7,29 +7,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormsComponent implements OnInit {
 
-  formsList = [
+  forms = [
     {
-      formName: "New Patient Form",
-      formDate: "1/1/11",
-      formLink: "BarGraph.pdf",
+      formName: "New Patient Forms",
+      formDescription: "All the forms you will need to fill out before your first appointment with your doctor.",
+      formLink: "",
     },
     {
-      formName: "Medical Background Form",
-      formDate: "2/2/12",
-      formLink: "BarGraph.pdf",
+      formName: "Health Information Release Authorization",
+      formDescription: "Fill this out if you would like us to release health information to a company or individual.",
+      formLink: "",
     },
     {
-      formName: "Medical Release Form",
-      formDate: "3/3/13",
-      formLink: "BarGraph.pdf",
+      formName: "Health History Update Form",
+      formDescription: "Fill this out if there have been developments in yoru health since the last time we saw you.",
+      formLink: "",
     },
     {
-      formName: "Change of Insurance Form",
-      formDate: "1/1/11",
-      formLink: "BarGraph.pdf",
+      formName: "Patient Information Update Form",
+      formDescription: "Fill this out if your contact or other personal information has changed.",
+      formLink: "",
     },
-  ];
-
+    {
+      formName: "Patient Feedback Form",
+      formDescription: "Let us know how we're doing.",
+      formLink: "",
+    },
+  ]
   constructor() { }
 
   ngOnInit() {

@@ -1,38 +1,27 @@
-import { MainBodyService } from './services/main-body.service';
-import { SideNavService } from './services/side-nav.service';
-import { Component } from '@angular/core';
-import { TopNavService } from './services/top-nav.service';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "./services/api.service";
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'med-assist';
+  authorized:boolean;
 
-  showNavBar: boolean;
-  authorized: boolean;
-  registerViewOpen: boolean;
+  constructor(private apiService:ApiService,
+              private router:Router) {
+  }
 
-  constructor(private apiService: ApiService, private router: Router, private sideNavService: SideNavService,
-    private topNavService: TopNavService,
-    private mainBodyService: MainBodyService) {
-    sideNavService.show();
-    topNavService.show();
-    mainBodyService.show();
-
+  ngOnInit() {
     this.apiService.authorized.subscribe(value => {
       this.authorized = value;
       if (!this.authorized) {
         this.router.navigate(['/']);
-      }
-    });
-
-    this.apiService.registerView.subscribe(value => {
-      this.registerViewOpen = value;
+      } else
+        this.router.navigate(['/home'])
     });
   }
 }

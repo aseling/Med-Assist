@@ -1,23 +1,20 @@
-.error-message {
-  color: red;
+.container {
+  text-align: center;
 }
 
-.register-btn {
-  background: transparent;
-  border: transparent;
-  margin: 15px;
-  outline: none;
+.header {
+  margin-bottom: 50px;
 }
 
-.register-btn:hover {
-  color: #3B92A8;
+.logo {
+  width: 250px;
+  margin: 20px 0 60px 0;
 }
-
 
 .login-btn {
   background: #3B92A8;
   color: white;
-  width: 300px;
+  width: 230px;
   border-radius: 5px;
   font-size: 25px;
   outline: none;
@@ -25,4 +22,28 @@
 
 .login-btn:hover {
   background: #0089a8;
+}
+
+.register-btn {
+  background: transparent;
+  border: transparent;
+  width: 230px;
+  outline: none;
+  margin: 10px 0 10px 0;
+
+}
+
+.register-btn:hover {
+  color: #3B92A8;
+}
+
+.form-control {
+  display: inline;
+  width: 230px;
+  padding: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-left: 5px;
 }

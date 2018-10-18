@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../services/api.service";
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-import{User} from "../models/user"
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -16,10 +16,13 @@ export class RegisterComponent implements OnInit {
   password:string = '';
   password2:string = '';
   submitted = false;
-  passwordMatch = false;
+  userTaken = false;
+  passwordMatch: boolean;
   registerViewOpen:boolean;
+  registerMessage = '';
+  
 
-  constructor(private apiService:ApiService, private formBuilder:FormBuilder) {
+  constructor(private apiService:ApiService, private formBuilder:FormBuilder,private router: Router) {
   }
 
   ngOnInit() {
@@ -34,11 +37,23 @@ export class RegisterComponent implements OnInit {
     this.apiService.registerView.subscribe(value => {
       this.registerViewOpen = value;
     });
+
+    this.apiService.registerMessage.subscribe(message => {
+      this.registerMessage = message;
+      if (this.registerMessage == 'User info was saved.') {
+        console.log("SAVED");
+        this.cancel();
+        this.userTaken = false;
+        this.registerForm.reset();
+        this.submitted = false;
+      } else {
+        this.userTaken = true;
+      }
+    });
   }
 
   registerSubmit() {
     this.submitted = true;
-
     this.name = this.registerForm.controls.name.value;
     this.email = this.registerForm.controls.email.value;
     this.username = this.registerForm.controls.username.value;
@@ -47,23 +62,27 @@ export class RegisterComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-      console.log(this.registerForm.invalid);
-      console.log(this.registerForm.controls.password);
-      console.log(this.name, this.email, this.username, this.password, this.password2);
       return;
     }
 
     if (this.password != this.password2) {
-      console.log("NO MATCH");
+      this.passwordMatch = false;
       return;
     }
 
-    this.apiService.closeRegisterPage();
-
+    this.apiService.register(this.name, this.email, this.username, this.password, this.password2);
     this.passwordMatch = true;
   }
 
   cancel() {
-    this.apiService.closeRegisterPage();
+    this.apiService.openRegisterPage(false);
+    this.router.navigate(['login']);
+    this.registerForm.reset();
+    this.submitted = false;
+  }
+
+  reset() {
+    this.submitted = false;
+    this.userTaken = false;
   }
 }

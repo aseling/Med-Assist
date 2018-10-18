@@ -10,9 +10,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let report of reports" scope="row">
-        <td class="report-name">
-          <a href="reports/view/" >
+      <tr class="report-rows" *ngFor="let report of reports" scope="row">
+        <td class="report-name" data-toggle="modal" data-target="#myModal">
+          <a>
             {{ report.reportName }}
           </a>
         </td>
@@ -22,3 +22,22 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<div class="modal-container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <app-pdf-viewer></app-pdf-viewer>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
