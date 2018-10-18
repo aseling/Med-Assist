@@ -1,4 +1,4 @@
-import {Component, OnInIt} from '@angular/core';
+import {Component} from '@angular/core';
 import {ChatService} from "../services/chat.service";
 
 @Component({
@@ -6,15 +6,15 @@ import {ChatService} from "../services/chat.service";
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInIt{
+export class ChatComponent {
 
   user:String;
   room:String;
   messageText:String;
   messageArray:Array<{user:String,message:String}> = [];
-  roomChoice = ["Dr. Phil","Dr. Smith","Dr. Janice"];
+  roomChoice = ["Dr. Phil", "Dr. Smith", "Dr. Janice"];
   joined = false;
-  roomIndex:numer;
+  roomIndex:number;
   scroll = document.getElementById("message-screen");
 
   constructor(private _chatService:ChatService) {
@@ -32,10 +32,6 @@ export class ChatComponent implements OnInIt{
       this.messageArray.push(data);
       ChatComponent.screenScroll();
     });
-  }
-
-  ngOnInit() {
-
   }
 
   join() {
@@ -59,7 +55,7 @@ export class ChatComponent implements OnInIt{
     ChatComponent.screenScroll();
   }
 
-  selectRoom(index: number) {
+  selectRoom(index:number) {
     this.leave();
     this.room = this.roomChoice[index];
     this.roomIndex = index;
