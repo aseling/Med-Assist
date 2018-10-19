@@ -7,16 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class ChatService {
 
-  // private url = 'http://localhost:5000';
-  // private socket; // socket that connects to our socket.io
-  //
-  // constructor() {
-  //   this.socket = io(this.url);
-  // }
-  //
-  // public sendMessage(message) {
-  //   this.socket.emit('new-message', message);
-  // }
+  //private socket = io('http://localhost:5000');
 
   private socket = io('https://floating-citadel-31945.herokuapp.com');
 

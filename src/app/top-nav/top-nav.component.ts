@@ -22,7 +22,6 @@ export class TopNavComponent implements OnInit {
 
     this.apiService.user.subscribe(user => {
       this.user = user;
-      console.log(this.user);
     });
   }
 

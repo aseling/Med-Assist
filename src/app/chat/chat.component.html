@@ -1,22 +1,22 @@
 <div class="container">
   <div class="room-side">
-    <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice">
-      <div class="room" (click)="selectRoom(index)">
-        <section class="choice" [ngClass]="{'highlight-room': index == roomIndex}">
-          <div>{{i}}</div>
-        </section>
-      </div>
+    <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice" id="easing" (click)="selectRoomAnimation()">
+      <div class="rooms" (click)="selectRoom(index)" [ngClass]="{'expand': index == roomIndex, 'shrink': index != roomIndex}">{{i}}</div>
     </div>
   </div>
 
   <!--RIGHT SIDE WHERE MESSAGES ARE DISPLAYED-->
   <div class="screen-side">
     <div class="message-screen" id="message-screen">
-      <div *ngFor="let item of messageArray" class="messages">
-        <span><strong>{{item.user}} : </strong> {{item.message}}</span>
+      <div *ngFor="let item of messageArray; let index = index" class="message-container">
+        <div id="messages">
+          <div class="user" [ngClass]="{'float-user-right': messageArray[index].user == user}">{{item.user}}</div>
+          <div class="message" [ngClass]="{'float-message-right': messageArray[index].user == user}">{{item.message}}</div>
+        </div>
       </div>
     </div>
-    <input type="text" class="form-control message-input" id="message-input" placeholder="message" [(ngModel)]="messageText"
+    <input type="text" class="form-control message-input" id="message-input" placeholder="message"
+           [(ngModel)]="messageText"
            (keyup.enter)="sendMessage()">
   </div>
 </div>

@@ -53,6 +53,10 @@
   margin-right: 10px;
 }
 
+img {
+  width: 50px;
+}
+
 input.form-control {
   background-color: #DCDCDC;
   color: #4C4C4C;
