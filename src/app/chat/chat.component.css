@@ -58,6 +58,10 @@
   padding: 15px 0 70px 0;
 }
 
+::-webkit-scrollbar {
+  display:none;
+}
+
 .message-container {
   display: flex;
   margin: 5px 0 5px 25px;
