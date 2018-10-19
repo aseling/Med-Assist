@@ -15,10 +15,8 @@ export class ChatComponent {
   messageText:string;
   messageArray:Array<{user:String,message:String}> = [];
   roomChoice = ["Dr. Phil", "Dr. Smith", "Dr. Janice"];
-  joined = false;
   roomIndex:number;
   scroll = document.getElementById("message-screen");
-  yourMessage: boolean;
 
   constructor(private chatService:ChatService, private apiService:ApiService) {
     this.chatService.newUserJoined().subscribe(data => {
@@ -43,14 +41,12 @@ export class ChatComponent {
 
   join() {
     this.chatService.joinRoom({user: this.user, room: this.room});
-    this.joined = true;
     ChatComponent.screenScroll();
   }
 
   leave() {
     this.chatService.leaveRoom({user: this.user, room: this.room});
     this.messageArray = [];
-    this.joined = false;
     ChatComponent.screenScroll();
   }
 

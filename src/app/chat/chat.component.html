@@ -1,7 +1,10 @@
 <div class="container">
   <div class="room-side">
-    <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice" id="easing" (click)="selectRoomAnimation()">
-      <div class="rooms" (click)="selectRoom(index)" [ngClass]="{'expand': index == roomIndex, 'shrink': index != roomIndex}">{{i}}</div>
+    <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice" id="easing"
+         (click)="selectRoomAnimation()">
+      <div class="rooms" (click)="selectRoom(index)"
+           [ngClass]="{'expand': index == roomIndex, 'shrink': index != roomIndex}">{{i}}
+      </div>
     </div>
   </div>
 
@@ -10,8 +13,16 @@
     <div class="message-screen" id="message-screen">
       <div *ngFor="let item of messageArray; let index = index" class="message-container">
         <div id="messages">
-          <div class="user" [ngClass]="{'float-user-right': messageArray[index].user == user}">{{item.user}}</div>
-          <div class="message" [ngClass]="{'float-message-right': messageArray[index].user == user}">{{item.message}}</div>
+          <div class="user"
+               [ngClass]="{'float-user-right': messageArray[index].user == user,
+               'user-join': messageArray[index].message == 'has joined this room.' || messageArray[index].message == 'has left this room.'}">
+            {{item.user}}
+          </div>
+          <div class="message"
+               [ngClass]="{'float-message-right': messageArray[index].user == user,
+               'user-join-message': messageArray[index].message == 'has joined this room.' || messageArray[index].message == 'has left this room.'}">
+            {{item.message}}
+          </div>
         </div>
       </div>
     </div>

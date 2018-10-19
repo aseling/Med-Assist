@@ -88,7 +88,7 @@
 
 .message {
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   background-color: #dbdbdb;
   color: #292929;
   padding: 5px 15px 5px 15px;
@@ -112,3 +112,26 @@
   background-color: #3B92A8;
   color: white;
 }
+
+
+.user-join {
+  border: none;
+  background-color: transparent;
+  color: black;
+  padding: 0;
+  font-size: 12px;
+  float: none;
+  margin: 0;
+  width: auto;
+}
+
+.user-join-message {
+  border: none;
+  background-color: transparent;
+  color: black;
+  padding: 0;
+  font-size: 12px;
+  float: none;
+}
+
+
