@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Renderer2} from '@angular/core';
 import {ChatService} from '../services/chat.service';
 import {ApiService} from "../services/api.service";
 import anime from 'animejs'
@@ -13,25 +13,23 @@ export class ChatComponent {
   user:string;
   room:string;
   messageText:string;
-  messageArray:Array<{user:String,message:String}> = [];
+  messageArray:{user: string; message: string}[];
   roomChoice = ["Dr. Phil", "Dr. Smith", "Dr. Janice"];
   roomIndex:number;
   scroll = document.getElementById("message-screen");
 
-  constructor(private chatService:ChatService, private apiService:ApiService) {
+  constructor(private chatService:ChatService, private apiService:ApiService, private renderer:Renderer2) {
     this.chatService.newUserJoined().subscribe(data => {
       this.messageArray.push(data);
-      ChatComponent.screenScroll();
     });
 
     this.chatService.userLeftRoom().subscribe(data => {
       this.messageArray.push(data);
-      ChatComponent.screenScroll();
     });
 
     this.chatService.newMessageReceived().subscribe(data => {
       this.messageArray.push(data);
-      ChatComponent.screenScroll();
+      this.screenScroll();
     });
 
     this.apiService.user.subscribe(user => {
@@ -41,19 +39,17 @@ export class ChatComponent {
 
   join() {
     this.chatService.joinRoom({user: this.user, room: this.room});
-    ChatComponent.screenScroll();
   }
 
   leave() {
     this.chatService.leaveRoom({user: this.user, room: this.room});
     this.messageArray = [];
-    ChatComponent.screenScroll();
   }
 
   sendMessage() {
     this.chatService.sendMessage({user: this.user, room: this.room, message: this.messageText});
     this.messageText = '';
-    ChatComponent.screenScroll();
+    this.screenScroll();
   }
 
   selectRoom(index:number) {
@@ -65,9 +61,20 @@ export class ChatComponent {
     }
   }
 
-  static screenScroll() {
-    let scroll = document.getElementById("message-screen");
-    scroll.scrollTop = scroll.scrollHeight;
+  // STILL A SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
+  ngAfterViewChecked() {
+    this.screenScroll();
+  }
+
+  screenScroll() {
+    this.renderer.selectRootElement("#end").scrollIntoView();
+
+    // document.querySelector('#end').scrollIntoView();
+
+    //SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
+    // setTimeout(() => {
+    //   this.renderer.selectRootElement("#end").scrollIntoView()
+    // }, 100);
   }
 
   selectRoomAnimation() {
