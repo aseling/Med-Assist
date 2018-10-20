@@ -23,12 +23,20 @@
                'user-join-message': messageArray[index].message == 'has joined this room.' || messageArray[index].message == 'has left this room.'}">
             {{item.message}}
           </div>
+
         </div>
       </div>
       <div id="end"></div>
     </div>
+    <div class="user-typing" *ngIf="userTyping">{{whoIsTyping}} is typing
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
     <input type="text" class="form-control message-input" id="message-input" placeholder="message"
            [(ngModel)]="messageText"
-           (keyup.enter)="sendMessage()">
+           (keyup.enter)="sendMessage()" (keypress)="typing()">
   </div>
 </div>

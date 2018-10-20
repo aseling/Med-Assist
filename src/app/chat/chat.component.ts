@@ -17,6 +17,9 @@ export class ChatComponent {
   roomChoice = ["Dr. Phil", "Dr. Smith", "Dr. Janice"];
   roomIndex:number;
   scroll = document.getElementById("message-screen");
+  userTyping = false;
+  whoIsTyping:string;
+
 
   constructor(private chatService:ChatService, private apiService:ApiService, private renderer:Renderer2) {
     this.chatService.newUserJoined().subscribe(data => {
@@ -27,9 +30,18 @@ export class ChatComponent {
       this.messageArray.push(data);
     });
 
+    this.chatService.userTyping().subscribe(data => {
+      this.userTyping = true;
+      this.whoIsTyping = data.user;
+      setTimeout(() => {
+        this.userTyping = false;
+      }, 10000);
+    });
+
     this.chatService.newMessageReceived().subscribe(data => {
       this.messageArray.push(data);
       this.screenScroll();
+      this.userTyping = false;
     });
 
     this.apiService.user.subscribe(user => {
@@ -44,6 +56,10 @@ export class ChatComponent {
   leave() {
     this.chatService.leaveRoom({user: this.user, room: this.room});
     this.messageArray = [];
+  }
+
+  typing() {
+    this.chatService.typing({user: this.user, room: this.room});
   }
 
   sendMessage() {

@@ -6,14 +6,22 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
-  
+
   observable;
 
-  // private socket = io('http://localhost:5000'); //USE FOR LOCAL TESTING
-  private socket = io('https://floating-citadel-31945.herokuapp.com');
+  private socket = io('http://localhost:5000'); //USE FOR LOCAL TESTING
+  // private socket = io('https://floating-citadel-31945.herokuapp.com');
 
   joinRoom(data) {
     this.socket.emit('join', data);
+  }
+
+  leaveRoom(data) {
+    this.socket.emit('leave', data);
+  }
+
+  typing(data) {
+    this.socket.emit('typing', data);
   }
 
   newUserJoined() {
@@ -27,13 +35,20 @@ export class ChatService {
     });
   }
 
-  leaveRoom(data) {
-    this.socket.emit('leave', data);
-  }
-
   userLeftRoom() {
     return this.observable = new Observable<{user:string, message:string}>(observer=> {
       this.socket.on('left room', (data)=> {
+        observer.next(data);
+      });
+      return () => {
+        this.socket.disconnect();
+      }
+    });
+  }
+
+  userTyping() {
+    return this.observable = new Observable<{user:string, message:string}>(observer=> {
+      this.socket.on('typing...', (data)=> {
         observer.next(data);
       });
       return () => {
