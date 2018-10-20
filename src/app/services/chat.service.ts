@@ -9,8 +9,8 @@ export class ChatService {
 
   observable;
 
-  private socket = io('http://localhost:5000'); //USE FOR LOCAL TESTING
-  // private socket = io('https://floating-citadel-31945.herokuapp.com');
+  // private socket = io('http://localhost:5000'); //USE FOR LOCAL TESTING
+  private socket = io('https://floating-citadel-31945.herokuapp.com');
 
   joinRoom(data) {
     this.socket.emit('join', data);
