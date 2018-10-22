@@ -71,6 +71,7 @@
 .message-input {
   width: 96%;
   margin: 11px;
+  height: 37px;
 }
 
 .send {

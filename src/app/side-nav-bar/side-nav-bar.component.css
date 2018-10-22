@@ -92,10 +92,10 @@ img {
   }
 }
 
-@media (max-width: 990px) {
-  .sidenav {
-    height: 0;
-    width: 0;
-    transition: .5s;
-  }
-}
+/*@media (max-width: 990px) {*/
+  /*.sidenav {*/
+    /*height: 0;*/
+    /*width: 0;*/
+    /*transition: .5s;*/
+  /*}*/
+/*}*/

@@ -35,7 +35,7 @@ export class ChatComponent {
       this.whoIsTyping = data.user;
       setTimeout(() => {
         this.userTyping = false;
-      }, 10000);
+      }, 5000);
     });
 
     this.chatService.newMessageReceived().subscribe(data => {
@@ -59,6 +59,7 @@ export class ChatComponent {
   }
 
   typing() {
+    this.userTyping = true;
     this.chatService.typing({user: this.user, room: this.room});
   }
 

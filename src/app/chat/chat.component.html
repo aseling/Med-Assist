@@ -35,8 +35,12 @@
         <div class="bounce3"></div>
       </div>
     </div>
-    <input type="text" class="form-control message-input" id="message-input" placeholder="message"
-           [(ngModel)]="messageText"
-           (keyup.enter)="sendMessage()" (keypress)="typing()">
+    <textarea type="text"
+              class="form-control message-input"
+              id="message-input"
+              placeholder="message"
+              [(ngModel)]="messageText"
+              (keyup.enter)="sendMessage()"
+              (keypress)="typing()"></textarea>
   </div>
 </div>

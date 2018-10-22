@@ -4,7 +4,15 @@
   grid-gap: 20px;
   min-width: 100%;
   padding-bottom: 150px;
-  min-height: 700px
+  min-height: 700px;
+}
+
+.wrapper {
+  min-width: 740px;
+}
+
+.top-nav{
+  min-width: 100%;
 }
 
 .side-nav {
@@ -20,11 +28,18 @@
   border-radius: 10px;
 }
 
+.unauth-main-body {
+  position: relative;
+  top: 0;
+  text-align: center;
+}
+
 .unauth-view {
-  width: 600px;
-  height: 700px;
+  width: 60%;
   margin: 150px auto;
   box-shadow: 3px 3px 14px 0 #000000;
   background: white;
   border-radius: 5px;
+  position: relative;
+  top: 0;
 }

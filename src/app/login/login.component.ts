@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   registerViewOpen:boolean;
   loginMessage = '';
   failAlert = false;
+  hide = true;
+  loading = false;
 
   constructor(private apiService:ApiService, private formBuilder:FormBuilder, private router:Router) {
   }
@@ -37,6 +39,15 @@ export class LoginComponent implements OnInit {
       if (this.loginMessage === 'Success') {
         this.apiService.authorizeUser();
         this.apiService.setUserName(this.username);
+        this.failAlert = false;
+      }
+
+      if(this.loginMessage === 'Authentication failed. User not found'){
+        this.failAlert = true;
+        this.loading = false;
+        setTimeout(() => {
+          this.failAlert = false;
+        }, 5000);
       }
     });
   }
@@ -51,6 +62,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    this.loading = true;
     this.apiService.login(this.username, this.password);
   };
 
