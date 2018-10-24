@@ -73,6 +73,7 @@ i.nav-item:hover, .dropdown-item:hover {
 .user-image {
   margin-left: 20px;
   margin-right: 5px;
+  border-radius: 50%;
 }
 
 span.dropdown:hover {

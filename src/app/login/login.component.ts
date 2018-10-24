@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../services/api.service";
 import {Router} from '@angular/router';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,12 @@ export class LoginComponent implements OnInit {
   hide = true;
   loading = false;
 
-  constructor(private apiService:ApiService, private formBuilder:FormBuilder, private router:Router) {
+  herokuPath = 'https://floating-citadel-31945.herokuapp.com/';
+
+  constructor(private apiService:ApiService,
+              private formBuilder:FormBuilder,
+              private router:Router,
+              private http:HttpClient) {
   }
 
   ngOnInit() {
@@ -42,7 +47,7 @@ export class LoginComponent implements OnInit {
         this.failAlert = false;
       }
 
-      if(this.loginMessage === 'Authentication failed. User not found'){
+      if (this.loginMessage === 'Authentication failed. User not found' || this.loginMessage === 'Invalid password') {
         this.failAlert = true;
         this.loading = false;
         setTimeout(() => {
@@ -64,6 +69,7 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     this.apiService.login(this.username, this.password);
+    this.apiService.getUserImage(this.username);
   };
 
   openRegisterView() {
@@ -75,4 +81,5 @@ export class LoginComponent implements OnInit {
   reset() {
     this.submitted = false;
   }
+
 }

@@ -8,11 +8,19 @@
 }
 
 .wrapper {
-  min-width: 740px;
+  /*min-width: 740px;*/
+  /*display: grid;*/
+  /*grid-template-columns: 1fr 8fr;*/
+  /*grid-gap: 20px;*/
+  /*min-width: 100%;*/
+  /*padding-bottom: 150px;*/
+  /*min-height: 700px;*/
 }
 
 .top-nav{
   min-width: 100%;
+  grid-row: 1;
+  grid-column: 1/8;
 }
 
 .side-nav {
@@ -42,4 +50,17 @@
   border-radius: 5px;
   position: relative;
   top: 0;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .unauth-view {
+    width: 100%;
+    margin:0 auto;
+  }
 }

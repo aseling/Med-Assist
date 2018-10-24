@@ -11,6 +11,7 @@ import {ApiService} from "../services/api.service";
 export class TopNavComponent implements OnInit {
   authorized:boolean = false;
   user:string;
+  imagePath = './assets/img/default-user.png';
 
   constructor(private apiService:ApiService, private router:Router) {
   }
@@ -23,9 +24,19 @@ export class TopNavComponent implements OnInit {
     this.apiService.user.subscribe(user => {
       this.user = user;
     });
+
+    this.apiService.imagePath.subscribe(path => {
+      if (path === 'no image') {
+        this.imagePath = './assets/img/default-user.png';
+      } else {
+        this.imagePath = path;
+      }
+    });
   }
 
   logout() {
     this.apiService.unauthorizeUser();
+    this.apiService.setImagePath('./assets/img/default-user.png');
   }
+
 }
