@@ -7,7 +7,8 @@ import {ApiService} from "../services/api.service";
   styleUrls: ['./account-settings.component.css']
 })
 export class AccountSettingsComponent implements OnInit {
-
+  imagePath = './assets/img/default-user.png';
+  
   constructor(private apiService:ApiService) {
   }
 
