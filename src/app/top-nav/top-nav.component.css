@@ -11,7 +11,7 @@
 }
 
 .right-section-container {
-  position: fixed;
+  position: absolute;
   margin: 0 20px 0 0;
   right: 0;
 }
@@ -53,6 +53,10 @@
   margin-right: 10px;
 }
 
+img {
+  width: 50px;
+}
+
 input.form-control {
   background-color: #DCDCDC;
   color: #4C4C4C;
@@ -69,6 +73,7 @@ i.nav-item:hover, .dropdown-item:hover {
 .user-image {
   margin-left: 20px;
   margin-right: 5px;
+  border-radius: 50%;
 }
 
 span.dropdown:hover {

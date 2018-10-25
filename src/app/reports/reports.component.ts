@@ -16,78 +16,28 @@ export class ReportsComponent implements OnInit {
 
   reports = [
     {
-      reportName: "report1",
+      reportName: "Blood Work",
       reportDate: "1/1/11",
       reportLink: "BarGraph.pdf",
     },
     {
-      reportName: "report2",
+      reportName: "MRI",
       reportDate: "2/2/12",
       reportLink: "BarGraph.pdf",
     },
     {
-      reportName: "report3",
+      reportName: "Scoliosis Screening",
       reportDate: "3/3/13",
       reportLink: "BarGraph.pdf",
     },
     {
-      reportName: "report1",
+      reportName: "Chest X-Ray",
       reportDate: "1/1/11",
       reportLink: "BarGraph.pdf",
     },
     {
-      reportName: "report2",
+      reportName: "Back X-Ray",
       reportDate: "2/2/12",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "report3",
-      reportDate: "3/3/13",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "report1",
-      reportDate: "1/1/11",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "report2",
-      reportDate: "2/2/12",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "report3",
-      reportDate: "3/3/13",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "report1",
-      reportDate: "1/1/11",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "report2",
-      reportDate: "2/2/12",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "report3",
-      reportDate: "3/3/13",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "report1",
-      reportDate: "1/1/11",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "report2",
-      reportDate: "2/2/12",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "report3",
-      reportDate: "3/3/13",
       reportLink: "BarGraph.pdf",
     }
   ];

@@ -1,4 +1,42 @@
-p{
+.page-title h1 {
   text-align: center;
-  font-size: 50px;
+  font-size: 30px;
+  padding: 15px 0px 15px 0px;
+}
+
+table {
+  width: 600px;
+  margin-left: 250px;
+}
+
+th {
+  padding-top: 15px;
+}
+
+td.right-col {
+  width: 400px;
+}
+
+input {
+  margin: 10px 0 10px 0;
+}
+
+img {
+  margin-right: 10px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+button {
+  margin-left: 500px;
+  margin-top: 30px;
+}
+
+.wrapper-class {
+  min-height: 700px;
+}
+
+.modal-body h6 {
+  text-align: center;
+  font-size: 25px;
 }
