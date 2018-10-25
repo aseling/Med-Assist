@@ -67,13 +67,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    // if (this.password != this.password2) {
-    //   this.passwordMatch = false;
-    //   return;
-    // }
-
     this.apiService.register(this.name, this.email, this.username, this.password, this.password2);
-    // this.passwordMatch = true;
   }
 
   cancel() {

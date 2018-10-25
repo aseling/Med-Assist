@@ -42,6 +42,17 @@ export class ApiService {
     });
   }
 
+  addUserImage(image:File, user:string) {
+    const formData = new FormData();
+    formData.append('image', image);
+
+    return this.http.post(this.herokuPath + 'addUserImage/' + user, formData)
+      .subscribe((res:any) => {
+        console.log(res);
+        this.setImagePath(res.imageURL)
+      });
+  }
+
   getUserImage(username:string) {
     return this.http.get(this.herokuPath + 'getUserImage/' + username)
       .subscribe((res:any) => {

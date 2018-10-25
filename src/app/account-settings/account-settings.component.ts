@@ -8,7 +8,9 @@ import {ApiService} from "../services/api.service";
 })
 export class AccountSettingsComponent implements OnInit {
   imagePath = './assets/img/default-user.png';
-  
+  selectedFile: File = null;
+  user:string;
+
   constructor(private apiService:ApiService) {
   }
 
@@ -20,6 +22,21 @@ export class AccountSettingsComponent implements OnInit {
         this.imagePath = path;
       }
     });
+
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+    });
   }
 
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+  onUpload() {
+    if (this.selectedFile === null) {
+      console.log("No file selected");
+    } else {
+      this.apiService.addUserImage(this.selectedFile, this.user);
+    }
+  }
 }

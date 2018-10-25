@@ -43,7 +43,7 @@
       <td class="right-col">
         <div class="form-group">
           <img class="user-image" src="{{imagePath}}">
-          <input type="file" id="exampleInputFile" aria-describedby="fileHelp">
+          <input type="file" id="exampleInputFile" aria-describedby="fileHelp" (change)="onFileSelected($event)">
           <small id="fileHelp" class="form-text text-muted">Choose a profile picture to upload. File type must be .jpeg
             or .png</small>
         </div>
@@ -83,7 +83,7 @@
     </tr>
   </tbody>
 </table>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Update Information</button>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" (click)="onUpload()">Update Information</button>
 </div>
 
 <div class="container">
