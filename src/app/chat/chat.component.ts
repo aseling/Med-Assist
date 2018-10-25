@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, Renderer2} from '@angular/core';
 import {ChatService} from '../services/chat.service';
 import {ApiService} from "../services/api.service";
+import anime from 'animejs'
 
 @Component({
   selector: 'app-chat',
@@ -12,64 +13,115 @@ export class ChatComponent {
   user:string;
   room:string;
   messageText:string;
-  messageArray:Array<{user:String,message:String}> = [];
+  messageArray:{user: string; message: string}[];
   roomChoice = ["Dr. Phil", "Dr. Smith", "Dr. Janice"];
-  joined = false;
   roomIndex:number;
   scroll = document.getElementById("message-screen");
+  userTyping = false;
+  whoIsTyping:string;
 
-  constructor(private chatService:ChatService, private apiService: ApiService) {
+
+  constructor(private chatService:ChatService, private apiService:ApiService, private renderer:Renderer2) {
     this.chatService.newUserJoined().subscribe(data => {
       this.messageArray.push(data);
-      ChatComponent.screenScroll();
     });
 
     this.chatService.userLeftRoom().subscribe(data => {
       this.messageArray.push(data);
-      ChatComponent.screenScroll();
+    });
+
+    this.chatService.userTyping().subscribe(data => {
+      this.userTyping = true;
+      this.whoIsTyping = data.user;
+      setTimeout(() => {
+        this.userTyping = false;
+      }, 5000);
     });
 
     this.chatService.newMessageReceived().subscribe(data => {
       this.messageArray.push(data);
-      ChatComponent.screenScroll();
+      this.screenScroll();
+      this.userTyping = false;
     });
 
     this.apiService.user.subscribe(user => {
       this.user = user;
-     console.log(this.user);
     });
   }
 
   join() {
-    console.log(this.room);
     this.chatService.joinRoom({user: this.user, room: this.room});
-    this.joined = true;
-    ChatComponent.screenScroll();
   }
 
   leave() {
     this.chatService.leaveRoom({user: this.user, room: this.room});
     this.messageArray = [];
-    this.joined = false;
-    ChatComponent.screenScroll();
+  }
+
+  typing() {
+    this.userTyping = true;
+    this.chatService.typing({user: this.user, room: this.room});
   }
 
   sendMessage() {
     this.chatService.sendMessage({user: this.user, room: this.room, message: this.messageText});
     this.messageText = '';
-
-    ChatComponent.screenScroll();
+    this.screenScroll();
   }
 
   selectRoom(index:number) {
-    this.leave();
-    this.room = this.roomChoice[index];
-    this.roomIndex = index;
-    this.join();
+    if (this.roomIndex != index) {
+      this.leave();
+      this.room = this.roomChoice[index];
+      this.roomIndex = index;
+      this.join();
+    }
   }
 
-  static screenScroll() {
-    let scroll = document.getElementById("message-screen");
-    scroll.scrollTop = scroll.scrollHeight;
+  // STILL A SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
+  ngAfterViewChecked() {
+    this.screenScroll();
+  }
+
+  screenScroll() {
+    this.renderer.selectRootElement("#end").scrollIntoView();
+
+    // document.querySelector('#end').scrollIntoView();
+
+    //SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
+    // setTimeout(() => {
+    //   this.renderer.selectRootElement("#end").scrollIntoView()
+    // }, 100);
+  }
+
+  selectRoomAnimation() {
+    var easing = anime({
+      targets: '#easing .expand',
+      translateY: [
+        {value: -20, duration: 100, elasticity: 100},
+        {value: 10, duration: 100, elasticity: 100},
+        {value: 0, duration: 100, delay: 100, elasticity: 100}
+      ],
+      color: '#FFFFFF',
+      height: 120,
+      padding: 20,
+      fontSize: 40,
+      backgroundColor: '#c1626a',
+      marginTop: 5,
+      marginBottom: 5,
+      duration: 200,
+    });
+
+    var shrink = anime({
+      targets: '#easing .shrink',
+      color: '#000',
+      height: 75,
+      padding: 10,
+      fontSize: 28,
+      backgroundColor: '#EAE7EA',
+      marginTop: 0,
+      marginBottom: 0,
+      duration: 100,
+    });
   }
 }

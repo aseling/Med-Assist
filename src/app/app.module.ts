@@ -26,7 +26,9 @@ import {PdfViewerComponent} from './pdf-viewer/pdf-viewer.component';
 import {RegisterComponent} from './register/register.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ChatService} from "./services/chat.service";
+import {MatInputModule, MatFormFieldModule, MatIconModule} from '@angular/material';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+
 
 @NgModule({
   declarations: [
@@ -50,15 +52,19 @@ import {ChatService} from "./services/chat.service";
     MyMedicineComponent,
     HelpfulLinksComponent,
     PdfViewerComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

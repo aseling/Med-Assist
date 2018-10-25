@@ -1,12 +1,12 @@
-<div>
-  <app-top-nav></app-top-nav>
+<app-top-nav class="top-nav"></app-top-nav>
+<div class="wrapper">
   <div [ngClass]="{'unauth-view ': !authorized, 'container':authorized}">
-  <div class="side-nav" id="sidebar">
-    <app-side-nav-bar></app-side-nav-bar>
-  </div>
+    <div class="side-nav" id="sidebar">
+      <app-side-nav-bar></app-side-nav-bar>
+    </div>
 
-  <div class="main-body">
-    <router-outlet></router-outlet>
+    <div class="main-body" [ngClass]="{'unauth-main-body': !authorized}">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</div>
 </div>

@@ -1,3 +1,109 @@
-<p>
-  account-settings works!
-</p>
+<div class="wrapper-class"
+><div class="page-title">
+<h1>
+  Account Settings
+</h1>
+</div>
+<table class="overflow-nowrap">
+  <thead>
+    <tr>
+      <th class="first-column" scope="col"></th>
+      <th class="second-column" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <h4>User Settings</h4>
+      </td>
+      <td class="right-col">
+        <span></span>
+      </td>
+    </tr>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <span>Username:</span>
+      </td>
+      <td class="right-col">
+        <span><input class="form-control" id="readOnlyInput" type="text" placeholder="jane.doe" readonly=""></span>
+      </td>
+    </tr>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <span>Email:</span>
+      </td>
+      <td class="right-col">
+        <span><input type="email" class="form-control" value="jdoe@gmail.com"></span>
+      </td>
+    </tr>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <span>Profile Picture:</span>
+      </td>
+      <td class="right-col">
+        <div class="form-group">
+          <img class="user-image" src="{{imagePath}}">
+          <input type="file" id="exampleInputFile" aria-describedby="fileHelp" (change)="onFileSelected($event)">
+          <small id="fileHelp" class="form-text text-muted">Choose a profile picture to upload. File type must be .jpeg
+            or .png</small>
+        </div>
+      </td>
+    </tr>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <h4>Change Password</h4>
+      </td>
+      <td class="right-col">
+        <span></span>
+      </td>
+    </tr>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <span>Old Password:</span>
+      </td>
+      <td class="right-col">
+        <span><input type="password" class="form-control" placeholder="Enter old password"></span>
+      </td>
+    </tr>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <span>New Password:</span>
+      </td>
+      <td class="right-col">
+        <span><input type="password" class="form-control" placeholder="Enter new password"></span>
+      </td>
+    </tr>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <span>Confirm Password:</span>
+      </td>
+      <td class="right-col">
+        <span><input type="password" class="form-control" placeholder="Confirm new password"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" (click)="onUpload()">Update Information</button>
+</div>
+
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <h6>Account information has been updated</h6>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

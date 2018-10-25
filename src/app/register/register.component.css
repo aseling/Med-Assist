@@ -1,14 +1,20 @@
-.container {
+.wrapper {
   text-align: center;
+  display:flex;
 }
 
 .header {
   margin-bottom: 25px;
 }
 
+.body {
+  position: relative;
+  top: 20px;
+}
+
 .logo {
-  width: 250px;
-  margin: 20px 0 30px 0;
+  width: 200px;
+  margin: 20px 0 25px 0;
 }
 
 .submit-btn {
@@ -50,4 +56,33 @@
 
 .alert {
   transition: all 1s ease;
+}
+
+
+.left {
+  flex-direction:column;
+  flex:2;
+  /*background:url(https://media.istockphoto.com/photos/doctor-checking-on-her-patient-picture-id520119081?k=6&m=520119081&s=612x612&w=0&h=IrS0ztyZR9--YEOLpm9a1N8qKIfA1w0dES8ItquiT2g=) center;*/
+  background:url('/assets/img/login-pic.png') center;
+  background-size:cover;
+}
+
+.right {
+  flex-direction:column;
+  flex:2;
+  height:730px;
+}
+
+
+@media only screen and (max-width: 800px) {
+  /*.left {*/
+    /*visibility: hidden;*/
+    /*height:0;*/
+    /*width: 0;*/
+  /*}*/
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }

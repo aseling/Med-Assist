@@ -11,6 +11,7 @@ export class SideNavBarComponent implements OnInit {
   isOpen = false;
   authorized:boolean = false;
   user:string;
+  imagePath = './assets/img/default-user.png';
 
   constructor(private apiService:ApiService) {
   }
@@ -22,7 +23,14 @@ export class SideNavBarComponent implements OnInit {
 
     this.apiService.user.subscribe(user => {
       this.user = user;
-      console.log(this.user);
+    });
+
+    this.apiService.imagePath.subscribe(path => {
+      if (path === 'no image') {
+        this.imagePath = './assets/img/default-user.png';
+      } else {
+        this.imagePath = path;
+      }
     });
   }
 }

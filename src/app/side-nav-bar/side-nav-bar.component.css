@@ -54,6 +54,11 @@ body {
   color: #FFD166;
 }
 
+img {
+  width: 50px;
+  border-radius: 50%;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
@@ -88,10 +93,10 @@ body {
   }
 }
 
-@media (max-width: 990px) {
-  .sidenav {
-    height: 0;
-    width: 0;
-    transition: .5s;
-  }
-}
+/*@media (max-width: 990px) {*/
+  /*.sidenav {*/
+    /*height: 0;*/
+    /*width: 0;*/
+    /*transition: .5s;*/
+  /*}*/
+/*}*/
