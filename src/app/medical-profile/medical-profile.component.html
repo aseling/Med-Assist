@@ -1,4 +1,5 @@
 <!-- Nav tabs -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <ul class="nav nav-tabs md-tabs nav-justified">
   <li class="nav-item">
     <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Contact Information</a>
@@ -22,9 +23,18 @@
            <h5>Patient Information</h5>
           </div>
           <div class="col-md-1">
-          <td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>
+          <td><button class="btn btn-primary" ng-click="edit(item)" ng-model="all">Edit</button></td>
           </div>
         </div>
+        <!--<form>-->
+        <!--<div class="information">-->
+        <!--<label *ngIf="!editMode">{{textValue}}</label>-->
+        <!--<input *ngIf="editMode" [ngModel]="name">-->
+        <!--<button (click)="editMode=true">Edit</button>-->
+        <!--<button (click)="editMode=false">Save</button>-->
+        <!--</div>-->
+        <!--</form>-->
+        <input type="text" ng-readonly="all">
     <p> Name: <p>
     <p> Address: <p>
     <p>  Date of Birth: <p>
@@ -251,5 +261,4 @@
     </div>
   </div>
   <!--/.Panel 3-->
-
 
