@@ -57,7 +57,6 @@ export class ApiService {
     return this.http.get(this.herokuPath + 'getUserImage/' + username)
       .subscribe((res:any) => {
         this.setImagePath(res.message.toString());
-        console.log("GET USER IMAGE" + res.message)
       });
   }
 
@@ -86,6 +85,5 @@ export class ApiService {
 
   setImagePath(path:string) {
     this.imagePath.next(path);
-    console.log(path);
   }
 }

@@ -1,14 +1,31 @@
-.container {
+.wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
   max-width: 100%;
   padding: 0;
 }
 
+.screen-side {
+  visibility: visible;
+}
+
 .room-side {
   border-radius: 5px;
   max-height: 660px;
   overflow-y: scroll;
+}
+
+.collapse-menu {
+  height: 25px;
+}
+
+.drop-menu {
+  width: 95%;
+  text-align: center;
+  /*background-color: #3B92A8;*/
+  color: black;
+  /*border-radius: 5px;*/
+  margin: 0 auto;
 }
 
 .username {
@@ -29,6 +46,40 @@
   grid-template-columns: 1fr;
   margin: 2px 5px 2px 5px;
   border-radius: 5px;
+}
+
+.drop-room-choice {
+  position: fixed;
+  top: 106px;
+  bottom: 0;
+  left: 0;
+  width: 75%;
+  z-index: 1000;
+  background: white;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.slide-in {
+  width: 75%;
+  transition: all 0.2s ease-out;
+}
+
+.slide-out {
+  width: 0;
+  transition: all 0.2s ease-in;
+}
+
+.close-btn {
+  width: 100%;
+  margin-bottom: 45px;
+  padding: 8px;
+}
+
+.fa-times {
+  float: right;
+  margin: 10px;
+  font-size: 25px;
 }
 
 .rooms {
@@ -189,5 +240,17 @@
   40% {
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .message {
+    max-width: 265px;
   }
 }

@@ -1,4 +1,4 @@
-import {Component, Renderer2} from '@angular/core';
+import {Component, OnInit, Renderer2, HostListener} from '@angular/core';
 import {ChatService} from '../services/chat.service';
 import {ApiService} from "../services/api.service";
 import anime from 'animejs'
@@ -8,17 +8,19 @@ import anime from 'animejs'
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent {
+export class ChatComponent implements OnInit {
 
   user:string;
   room:string;
   messageText:string;
-  messageArray:{user: string; message: string}[];
+  messageArray:{user:string; message:string}[];
   roomChoice = ["Dr. Phil", "Dr. Smith", "Dr. Janice"];
   roomIndex:number;
   scroll = document.getElementById("message-screen");
   userTyping = false;
   whoIsTyping:string;
+  changeView;
+  clicked = false;
 
 
   constructor(private chatService:ChatService, private apiService:ApiService, private renderer:Renderer2) {
@@ -47,6 +49,15 @@ export class ChatComponent {
     this.apiService.user.subscribe(user => {
       this.user = user;
     });
+  }
+
+  ngOnInit() {
+    this.changeView = window.innerWidth <= 901;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.changeView = event.target.innerWidth <= 800;
   }
 
   join() {
@@ -80,13 +91,13 @@ export class ChatComponent {
 
   // STILL A SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
   ngAfterViewChecked() {
-    this.screenScroll();
+    // this.screenScroll();
   }
 
   screenScroll() {
     this.renderer.selectRootElement("#end").scrollIntoView();
 
-    // document.querySelector('#end').scrollIntoView();
+    document.querySelector('#end').scrollIntoView();
 
     //SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
     // setTimeout(() => {
@@ -123,5 +134,9 @@ export class ChatComponent {
       marginBottom: 0,
       duration: 100,
     });
+  }
+
+  showChatOptions() {
+    this.clicked = !this.clicked;
   }
 }

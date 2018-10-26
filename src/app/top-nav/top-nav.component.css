@@ -85,6 +85,74 @@ span.dropdown {
   margin-right: 15px;
 }
 
+.slide-out-nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap:10px;
+}
+
+.top-section {
+  margin: 20px;
+  text-align: center;
+  padding: 15px;
+}
+
+.page-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+  padding: 50px;
+}
+
+a {
+  color: black;
+  font-size: 30px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #3B92A9;
+}
+
+.slide-in {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
+  color: black;
+  transition: all 0.2s ease-out;
+}
+
+.slide-out {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -1000px;
+  z-index: 10000;
+  transition: all 0.2s ease-in;
+}
+
+.close-btn {
+  width: 100%;
+  margin-bottom: 45px;
+  padding: 8px;
+}
+
+.fa-times {
+  float: right;
+  margin: 32px 20px 0 0;
+  font-size: 25px;
+}
+
+.toggle-btn {
+  border:none;
+  font-size: 23px;
+  margin-right: 12px;
+}
+
 @media (max-width: 1250px) {
   .form-inline .form-control {
     width: 500px;

@@ -1,7 +1,7 @@
 .info-container {
   width: 80%;
-  margin-left: 115px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  text-align: center;
 }
 
 .table-content {
@@ -11,16 +11,7 @@
 .page-title h1 {
   text-align: center;
   font-size: 30px;
-  padding: 15px 0px 15px 0px;
-}
-
-table button {
-  table-layout: auto;
-  size: relative;
-}
-
-table.table-hover th {
-  font-weight: bold;
+  padding: 15px 0 15px 0;
 }
 
 table {
@@ -28,41 +19,8 @@ table {
   margin-bottom: 50px;
 }
 
-th.first-column {
-  width: 30%;
-}
-
-th.second-column {
-  width: 70%;
-}
-
 .form-rows {
   cursor: default;
-}
-
-.modal-container {
-  width: 100%;
-  height: 100%;
-}
-
-.modal-dialog {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  margin: 0;
-}
-
-.modal-content {
-  height: 100%;
-}
-
-.modal-header {
-  border: none;
-}
-.modal-header .close {
-  padding: 0;
-  margin-right: 5px;
-  font-size: 45px;
 }
 
 .modal-body {
@@ -72,7 +30,7 @@ th.second-column {
 .page-title h1 {
   text-align: center;
   font-size: 30px;
-  padding: 15px 0px 15px 0px;
+  padding: 15px 0 15px 0;
 }
 
 table button {
@@ -82,10 +40,6 @@ table button {
 
 table.table-hover th {
   font-weight: bold;
-}
-
-table {
-  width: 80%;
 }
 
 th.first-column {
@@ -125,6 +79,3 @@ th.second-column {
   font-size: 45px;
 }
 
-.modal-body {
-  height: 100%;
-}

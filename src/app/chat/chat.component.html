@@ -1,5 +1,22 @@
-<div class="container">
-  <div class="room-side">
+<div *ngIf="changeView" class="collapse-menu">
+  <div class="drop-menu" (click)="showChatOptions()">
+    <i class="fas fa-ellipsis-h"></i>
+  </div>
+
+  <div class="drop-room-choice" [ngClass]="{'slide-in': clicked, 'slide-out': !clicked}">
+    <div class="close-btn">
+      <i class="fas fa-times" (click)="showChatOptions()"></i>
+    </div>
+    <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice"
+         (click)="selectRoomAnimation()">
+      <div class="rooms" (click)="selectRoom(index)">{{i}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div *ngIf="!changeView" class="room-side">
     <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice" id="easing"
          (click)="selectRoomAnimation()">
       <div class="rooms" (click)="selectRoom(index)"
@@ -23,7 +40,6 @@
                'user-join-message': messageArray[index].message == 'has joined this room.' || messageArray[index].message == 'has left this room.'}">
             {{item.message}}
           </div>
-
         </div>
       </div>
       <div id="end"></div>
