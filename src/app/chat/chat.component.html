@@ -1,28 +1,18 @@
-<div *ngIf="changeView" class="collapse-menu">
-  <div class="drop-menu" (click)="showChatOptions()">
-    <i class="fas fa-ellipsis-h"></i>
-  </div>
-
-  <div class="drop-room-choice" [ngClass]="{'slide-in': clicked, 'slide-out': !clicked}">
-    <div class="close-btn">
+<div class="wrapper" id="wrapper">
+  <div class="room-side" [ngClass]="{'room-slide-in': clicked && changeView, 'room-slide-out': !clicked}" id="room-side">
+    <div *ngIf="changeView" class="close-btn">
       <i class="fas fa-times" (click)="showChatOptions()"></i>
     </div>
-    <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice"
-         (click)="selectRoomAnimation()">
-      <div class="rooms" (click)="selectRoom(index)">{{i}}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="wrapper">
-  <div *ngIf="!changeView" class="room-side">
     <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice" id="easing"
          (click)="selectRoomAnimation()">
       <div class="rooms" (click)="selectRoom(index)"
            [ngClass]="{'expand': index == roomIndex, 'shrink': index != roomIndex}">{{i}}
       </div>
     </div>
+  </div>
+
+  <div *ngIf="changeView" class="side-room-toggle" (click)="showChatOptions()">
+    <i class="fas fa-ellipsis-h"></i>
   </div>
 
   <!--RIGHT SIDE WHERE MESSAGES ARE DISPLAYED-->

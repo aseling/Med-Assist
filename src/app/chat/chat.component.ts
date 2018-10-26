@@ -15,7 +15,7 @@ export class ChatComponent implements OnInit {
   messageText:string;
   messageArray:{user:string; message:string}[];
   roomChoice = ["Dr. Phil", "Dr. Smith", "Dr. Janice"];
-  roomIndex:number;
+  roomIndex:number = 0;
   scroll = document.getElementById("message-screen");
   userTyping = false;
   whoIsTyping:string;
@@ -35,9 +35,6 @@ export class ChatComponent implements OnInit {
     this.chatService.userTyping().subscribe(data => {
       this.userTyping = true;
       this.whoIsTyping = data.user;
-      setTimeout(() => {
-        this.userTyping = false;
-      }, 5000);
     });
 
     this.chatService.newMessageReceived().subscribe(data => {
@@ -53,11 +50,13 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.changeView = window.innerWidth <= 901;
+    this.clicked = !this.changeView;
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.changeView = event.target.innerWidth <= 800;
+    this.clicked = !this.changeView;
   }
 
   join() {
@@ -70,7 +69,6 @@ export class ChatComponent implements OnInit {
   }
 
   typing() {
-    this.userTyping = true;
     this.chatService.typing({user: this.user, room: this.room});
   }
 
@@ -78,6 +76,7 @@ export class ChatComponent implements OnInit {
     this.chatService.sendMessage({user: this.user, room: this.room, message: this.messageText});
     this.messageText = '';
     this.screenScroll();
+    this.userTyping = false;
   }
 
   selectRoom(index:number) {
@@ -91,13 +90,13 @@ export class ChatComponent implements OnInit {
 
   // STILL A SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
   ngAfterViewChecked() {
-    // this.screenScroll();
+    this.screenScroll();
   }
 
   screenScroll() {
     this.renderer.selectRootElement("#end").scrollIntoView();
-
-    document.querySelector('#end').scrollIntoView();
+    //
+    // document.querySelector('#end').scrollIntoView();
 
     //SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
     // setTimeout(() => {
@@ -134,6 +133,12 @@ export class ChatComponent implements OnInit {
       marginBottom: 0,
       duration: 100,
     });
+
+    if (this.changeView) {
+      setTimeout(() => {
+        this.clicked = false
+      }, 600);
+    }
   }
 
   showChatOptions() {
