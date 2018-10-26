@@ -30,20 +30,14 @@
     <div class="close-btn">
       <i class="fas fa-times" (click)="showSlideOutNav()"></i>
     </div>
-    <div class="top-section">
-      <i class="nav-item fa fa-envelope fa-lg" data-toggle="tooltip" data-placement="top" title="Hooray!" (click)="showSlideOutNav()"></i>
-      <i class="nav-item fa fa-phone fa-lg" routerLink="contact-page" (click)="showSlideOutNav()"></i>
-      <i class="nav-item fa fa-bell fa-lg" (click)="showSlideOutNav()"></i>
-      <img class="user-image" src="{{imagePath}}" routerLink="medical-profile">
-
-      <span class="dropdown dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user}}
-          <div class="dropdown-menu dropdown-menu-right user-dropdown">
-            <button routerLink="/account-settings" class="dropdown-item" type="button" (click)="showSlideOutNav()">Settings</button>
-            <button routerLink="/medical-profile" class="dropdown-item" type="button" (click)="showSlideOutNav()">My Profile</button>
-            <div class="dropdown-divider"></div>
-            <button class="dropdown-item" type="button" (click)="logout(); showSlideOutNav()">Logout</button>
-          </div>
-      </span>
+    <div class="top-section" (click)="showSlideOutNav()">
+      <img class="slide-user-image" src="{{imagePath}}" routerLink="medical-profile">
+      <div>{{user}}</div>
+    </div>
+    <div class="top-contacts">
+      <i class="slide-nav-item fa fa-envelope fa-lg" data-toggle="tooltip" data-placement="top" title="Hooray!" (click)="showSlideOutNav()"></i>
+      <i class="slide-nav-item fa fa-phone fa-lg" routerLink="contact-page" (click)="showSlideOutNav()"></i>
+      <i class="slide-nav-item fa fa-bell fa-lg" (click)="showSlideOutNav()"></i>
     </div>
     <div class="page-links">
       <a routerLink="prescription-refill" (click)="showSlideOutNav()">My Medicine</a>
@@ -53,6 +47,11 @@
       <a routerLink="reports" (click)="showSlideOutNav()">Medical Reports</a>
       <a routerLink="helpful-links" (click)="showSlideOutNav()">Helpful Links</a>
     </div>
+    <footer class="page-links">
+      <a routerLink="account-settings" (click)="showSlideOutNav()">Settings</a>
+      <a routerLink="reports" (click)="showSlideOutNav()">My Profile</a>
+      <a routerLink="helpful-links" (click)="logout(); showSlideOutNav()">Logout</a>
+    </footer>
   </div>
 </div>
 

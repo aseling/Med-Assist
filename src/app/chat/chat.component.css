@@ -61,14 +61,15 @@
 
 .room-slide-in {
   position: fixed;
-  width: 85%;
+  width: 97%;
   top: 130px;
   left: 5px;
   padding: 10px;
   background: white;
   border: 1px solid #969595;
   box-shadow: 5px 5px 27px -3px #000000b3;
-  transition: all 0.3s ease-out;
+  z-index: 10000;
+  transition: all 0.5s ease-out;
 }
 
 .room-slide-out {
@@ -76,6 +77,11 @@
   width: 0;
   top: 70px;
   left: -1000px;
+  -webkit-transform: rotate(-90deg); /* Safari */
+  -moz-transform: rotate(-90deg); /* Firefox */
+  -ms-transform: rotate(-90deg); /* IE */
+  -o-transform: rotate(-90deg); /* Opera */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); /* Internet Explorer */
   transition: all 0.5s ease-in;
 }
 
