@@ -120,10 +120,12 @@ a:hover {
   top: 0;
   bottom: 0;
   right: 0;
-  width: 100%;
+  width: 85%;
   z-index: 10000;
   color: black;
   transition: all 0.2s ease-out;
+  border: 1px solid #969595;
+  border-radius: 5px;
 }
 
 .slide-out {

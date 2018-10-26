@@ -67,15 +67,13 @@
   height: 730px;
 }
 
-@media only screen and (max-width: 800px) {
-  /*.left {*/
-    /*visibility: hidden;*/
-    /*height:0;*/
-    /*width: 0;*/
-  /*}*/
-
+@media only screen and (max-width: 1000px) {
   .wrapper {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .right {
+    margin-top: 155px;
   }
 }
