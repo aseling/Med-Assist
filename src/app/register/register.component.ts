@@ -3,6 +3,7 @@ import {ApiService} from "../services/api.service";
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {Router} from "@angular/router";
 import {AbstractControl} from '@angular/forms';
+import anime from 'animejs'
 
 @Component({
   selector: 'app-register',
@@ -64,6 +65,66 @@ export class RegisterComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
+      if(this.registerForm.controls.name.errors != null) {
+        var error = anime({
+          targets: '#nameError .errors',
+          translateX: [
+            {value: 5, duration: 50, elasticity: 100},
+            {value: -5, duration: 50, elasticity: 100},
+            {value: 0, duration: 50, elasticity: 100}
+          ],
+          loop: 2
+        });
+      }
+
+      if(this.registerForm.controls.email.errors != null) {
+        var error = anime({
+          targets: '#emailError .errors',
+          translateX: [
+            {value: 5, duration: 50, elasticity: 100},
+            {value: -5, duration: 50, elasticity: 100},
+            {value: 0, duration: 50, elasticity: 100}
+          ],
+          loop: 2
+        });
+      }
+
+      if(this.registerForm.controls.username.errors != null) {
+        var error = anime({
+          targets: '#usernameError .errors',
+          translateX: [
+            {value: 5, duration: 50, elasticity: 100},
+            {value: -5, duration: 50, elasticity: 100},
+            {value: 0, duration: 50, elasticity: 100}
+          ],
+          loop: 2
+        });
+      }
+
+      if(this.registerForm.controls.password.errors != null) {
+        var error = anime({
+          targets: '#passwordError .errors',
+          translateX: [
+            {value: 5, duration: 50, elasticity: 100},
+            {value: -5, duration: 50, elasticity: 100},
+            {value: 0, duration: 50, elasticity: 100}
+          ],
+          loop: 2
+        });
+      }
+
+      if(this.registerForm.controls.password2.errors != null) {
+        var error = anime({
+          targets: '#password2Error .errors',
+          translateX: [
+            {value: 5, duration: 50, elasticity: 100},
+            {value: -5, duration: 50, elasticity: 100},
+            {value: 0, duration: 50, elasticity: 100}
+          ],
+          loop: 2
+        });
+      }
+
       return;
     }
 

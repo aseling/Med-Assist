@@ -3,6 +3,7 @@ import {ApiService} from "../services/api.service";
 import {Router} from '@angular/router';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import anime from 'animejs'
 
 @Component({
   selector: 'app-login',
@@ -17,10 +18,7 @@ export class LoginComponent implements OnInit {
   registerViewOpen:boolean;
   loginMessage = '';
   failAlert = false;
-  hide = true;
   loading = false;
-
-  herokuPath = 'https://floating-citadel-31945.herokuapp.com/';
 
   constructor(private apiService:ApiService,
               private formBuilder:FormBuilder,
@@ -64,6 +62,30 @@ export class LoginComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
+
+      if(this.loginForm.controls.username.errors != null) {
+        var error = anime({
+          targets: '#userError .errors',
+          translateX: [
+            {value: 5, duration: 50, elasticity: 100},
+            {value: -5, duration: 50, elasticity: 100},
+            {value: 0, duration: 50, elasticity: 100}
+          ],
+          loop: 2
+        });
+      }
+      
+      if(this.loginForm.controls.password.errors != null) {
+        var error = anime({
+          targets: '#passwordError .errors',
+          translateX: [
+            {value: 5, duration: 50, elasticity: 100},
+            {value: -5, duration: 50, elasticity: 100},
+            {value: 0, duration: 50, elasticity: 100}
+          ],
+          loop: 2
+        });
+      }
       return;
     }
 
