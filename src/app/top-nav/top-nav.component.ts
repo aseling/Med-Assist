@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, HostListener} from '@angular/core';
 import {Router} from '@angular/router';
 import {ApiService} from "../services/api.service";
 
@@ -10,6 +10,10 @@ import {ApiService} from "../services/api.service";
 
 export class TopNavComponent implements OnInit {
   authorized:boolean = false;
+  user:string;
+  imagePath = './assets/img/default-user.png';
+  sideNavVisible = false;
+  changeView;
 
   constructor(private apiService:ApiService, private router:Router) {
   }
@@ -18,9 +22,34 @@ export class TopNavComponent implements OnInit {
     this.apiService.authorized.subscribe(value => {
       this.authorized = value;
     });
+
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+    });
+
+    this.apiService.imagePath.subscribe(path => {
+      if (path === 'no image') {
+        this.imagePath = './assets/img/default-user.png';
+      } else {
+        this.imagePath = path;
+      }
+    });
+
+    this.changeView = window.innerWidth <= 1000;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.changeView = event.target.innerWidth <= 1000;
+    console.log(event.target.innerWidth);
   }
 
   logout() {
     this.apiService.unauthorizeUser();
+    this.apiService.setImagePath('./assets/img/default-user.png');
+  }
+
+  showSlideOutNav() {
+    this.sideNavVisible = !this.sideNavVisible;
   }
 }

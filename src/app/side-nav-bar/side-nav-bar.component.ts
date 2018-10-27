@@ -10,6 +10,8 @@ import {ApiService} from "../services/api.service";
 export class SideNavBarComponent implements OnInit {
   isOpen = false;
   authorized:boolean = false;
+  user:string;
+  imagePath = './assets/img/default-user.png';
 
   constructor(private apiService:ApiService) {
   }
@@ -17,6 +19,18 @@ export class SideNavBarComponent implements OnInit {
   ngOnInit() {
     this.apiService.authorized.subscribe(value => {
       this.authorized = value;
+    });
+
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+    });
+
+    this.apiService.imagePath.subscribe(path => {
+      if (path === 'no image') {
+        this.imagePath = './assets/img/default-user.png';
+      } else {
+        this.imagePath = path;
+      }
     });
   }
 }
