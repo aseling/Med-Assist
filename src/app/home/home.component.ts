@@ -1,7 +1,4 @@
-import { SideNavService } from '../services/side-nav.service';
 import { Component, OnInit } from '@angular/core';
-import { TopNavService } from '../services/top-nav.service';
-import { container } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-home',

@@ -19,7 +19,6 @@ export class RegisterComponent implements OnInit {
   password2:string = '';
   submitted = false;
   userTaken = false;
-  // passwordMatch: boolean = false;
   registerViewOpen:boolean;
   registerMessage = '';
 
@@ -51,6 +50,9 @@ export class RegisterComponent implements OnInit {
         this.submitted = false;
       } else {
         this.userTaken = true;
+        setTimeout(() => {
+          this.userTaken = false;
+        }, 5000);
       }
     });
   }

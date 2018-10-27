@@ -25,7 +25,7 @@
       </form>
       <button *ngIf="!loading" class="register-btn" type="button" (click)="openRegisterView()">Register</button>
 
-      <div *ngIf="submitted && failAlert " id="alert" class="alert alert-danger">
+      <div *ngIf="submitted && failAlert " id="alert" class="alert alert-danger bounce">
         <strong>Oh no!</strong> Looks like there is an invalid username or password.
       </div>
     </div>
