@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       if (this.loginMessage === 'Success') {
         this.apiService.authorizeUser();
         this.apiService.setUserName(this.username);
-        this.failAlert = false;
+        this.apiService.getUserImage(this.username);
       }
 
       if (this.loginMessage === 'Authentication failed. User not found' || this.loginMessage === 'Invalid password') {
@@ -59,6 +59,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     this.username = this.loginForm.controls.username.value;
     this.password = this.loginForm.controls.password.value;
+    this.failAlert = false;
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -74,7 +75,7 @@ export class LoginComponent implements OnInit {
           loop: 2
         });
       }
-      
+
       if(this.loginForm.controls.password.errors != null) {
         var error = anime({
           targets: '#passwordError .errors',
@@ -91,7 +92,6 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     this.apiService.login(this.username, this.password);
-    this.apiService.getUserImage(this.username);
   };
 
   openRegisterView() {

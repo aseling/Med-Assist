@@ -73,9 +73,9 @@
   margin: 0 auto;
   position: relative;
   bottom: 10px;
-  -moz-animation: bounce 1s infinite;
-  -webkit-animation: bounce 1s infinite;
-  animation: bounce 1s infinite;
+  -moz-animation: bounce 1s;
+  -webkit-animation: bounce 1s;
+  animation: bounce 1s;
 }
 
 @-webkit-keyframes bounce {

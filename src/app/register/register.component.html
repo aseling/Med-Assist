@@ -24,6 +24,7 @@
         <div class="form-group" id="usernameError">
           <mat-form-field class="errors">
             <input matInput type="text" id="username" formControlName="username" placeholder="Username">
+            <mat-error *ngIf="registerForm.controls.username.errors">No empty space allowed</mat-error>
           </mat-form-field>
         </div>
 

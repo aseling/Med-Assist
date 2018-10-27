@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       'name': new FormControl('', [Validators.required]),
       'email': new FormControl('', Validators.compose([Validators.required, Validators.email])),
-      'username': new FormControl('', [Validators.required]),
+      'username': new FormControl('', Validators.compose([Validators.required, Validators.pattern(/^\S*$/)])),
       'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
       'password2': new FormControl('', [Validators.required]),
     }, {
@@ -45,7 +45,6 @@ export class RegisterComponent implements OnInit {
       if (this.registerMessage == 'User info was saved.') {
         console.log("SAVED");
         this.cancel();
-        this.userTaken = false;
         this.registerForm.reset();
         this.submitted = false;
       } else {
@@ -64,10 +63,11 @@ export class RegisterComponent implements OnInit {
     this.username = this.registerForm.controls.username.value;
     this.password = this.registerForm.controls.password.value;
     this.password2 = this.registerForm.controls.password2.value;
+    this.userTaken = false;
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-      if(this.registerForm.controls.name.errors != null) {
+      if (this.registerForm.controls.name.errors != null) {
         var error = anime({
           targets: '#nameError .errors',
           translateX: [
@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
         });
       }
 
-      if(this.registerForm.controls.email.errors != null) {
+      if (this.registerForm.controls.email.errors != null) {
         var error = anime({
           targets: '#emailError .errors',
           translateX: [
@@ -91,7 +91,7 @@ export class RegisterComponent implements OnInit {
         });
       }
 
-      if(this.registerForm.controls.username.errors != null) {
+      if (this.registerForm.controls.username.errors != null) {
         var error = anime({
           targets: '#usernameError .errors',
           translateX: [
@@ -103,7 +103,7 @@ export class RegisterComponent implements OnInit {
         });
       }
 
-      if(this.registerForm.controls.password.errors != null) {
+      if (this.registerForm.controls.password.errors != null) {
         var error = anime({
           targets: '#passwordError .errors',
           translateX: [
@@ -115,7 +115,7 @@ export class RegisterComponent implements OnInit {
         });
       }
 
-      if(this.registerForm.controls.password2.errors != null) {
+      if (this.registerForm.controls.password2.errors != null) {
         var error = anime({
           targets: '#password2Error .errors',
           translateX: [
