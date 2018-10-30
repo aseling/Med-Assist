@@ -30,6 +30,7 @@ import {MatInputModule, MatFormFieldModule, MatIconModule} from '@angular/materi
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,5 +74,3 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
 export class AppModule {
 
 }
-
-

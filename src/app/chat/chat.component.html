@@ -1,11 +1,18 @@
-<div class="container">
-  <div class="room-side">
+<div class="wrapper" id="wrapper">
+  <div class="room-side" [ngClass]="{'room-slide-in': clicked && changeView, 'room-slide-out': !clicked}" id="room-side">
+    <div *ngIf="changeView" class="close-btn">
+      <i class="fas fa-times" (click)="showChatOptions()"></i>
+    </div>
     <div *ngFor="let i of roomChoice; let index = index" class="each-room-choice" id="easing"
          (click)="selectRoomAnimation()">
       <div class="rooms" (click)="selectRoom(index)"
            [ngClass]="{'expand': index == roomIndex, 'shrink': index != roomIndex}">{{i}}
       </div>
     </div>
+  </div>
+
+  <div *ngIf="changeView" class="side-room-toggle" (click)="showChatOptions()">
+    <i class="fas fa-ellipsis-h"></i>
   </div>
 
   <!--RIGHT SIDE WHERE MESSAGES ARE DISPLAYED-->
@@ -23,7 +30,6 @@
                'user-join-message': messageArray[index].message == 'has joined this room.' || messageArray[index].message == 'has left this room.'}">
             {{item.message}}
           </div>
-
         </div>
       </div>
       <div id="end"></div>

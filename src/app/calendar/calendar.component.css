@@ -1,7 +1,7 @@
 .wrapper {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2fr;
 }
 
 /*----------------------------------------------LEFT SIDE OF PAGE-------------------------------------------*/
@@ -40,6 +40,7 @@
 .events-container {
   color: white;
   padding: 25px;
+  margin: 0 auto;
 }
 
 .current-events, .upcoming-events {
@@ -170,7 +171,7 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
   .wrapper {
     width: 100%;
     display: grid;
