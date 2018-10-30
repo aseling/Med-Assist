@@ -1,13 +1,17 @@
 <!-- Nav tabs -->
+<div>
+  <div class="myProfile" id="user-page-header">
+  <h3>My Profile</h3>
+  </div>
 <ul class="nav nav-tabs md-tabs nav-justified">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Contact Information</a>
+  <li class="nav-item container">
+    <a class="nav-link active" id="tab1" data-toggle="tab" href="#panel1" role="tab" >Contact Information</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Billing and Insurance</a>
+  <li class="nav-item container">
+    <a class="nav-link"  id="tab2" data-toggle="tab" href="#panel2" role="tab">Billing and Insurance</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">Medical Information</a>
+  <li class="nav-item container">
+    <a class="nav-link" id="tab3" data-toggle="tab" href="#panel3" role="tab">Medical Information</a>
   </li>
 </ul>
 <!-- Tab panels -->
@@ -15,51 +19,84 @@
   <!--Panel 1-->
   <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
     <br>
-    <div>
-      <div class="container">
+    <!--<div>-->
+      <!--<div class="container">-->
+        <!--<div class="row">-->
+          <!--<div class="col-md-11">-->
+          <!--</div>-->
+          <!--<div class="col-md-1">-->
+            <!--<td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>-->
+          <!--</div>-->
+        <!--</div>-->
+
+      <!--</div>-->
+
+    <div class="card border-info mb-3" style="max-width: 20rem;">
+      <div class="card-header">Patient Information</div>
+      <div class="card-body">
+        <div class="container">
         <div class="row">
-          <div class="col-md-11">
-           <h5>Patient Information</h5>
+          <div class="col-lg-10 col-card-row-1">
+
+            <form [formGroup]="profileForm">
+
+              <label>
+                First Name: <input type="text" formControlName="firstName" class="form-textbox">
+              </label>
+
+              <label>
+                Last Name:
+                <input type="text" formControlName="lastName">
+              </label>
+
+            </form>
+          <p>
+        <p> Name: <p>
+        <p> Address: <p>
+        <p>  Date of Birth: <p>
+        <p>  Sex:       <p>
+        <p>  Marital Status: <p>
+        <p>  Language:  <p>
+        <p>  Race:    <p>
+        <p>  Ethnicity: <p>
+        </p>
           </div>
-          <div class="col-md-1">
-          <td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>
+          <div class="col-lg-2 col-card-row-1">
+            <td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>
           </div>
-        </div>
-    <p> Name: <p>
-    <p> Address: <p>
-    <p>  Date of Birth: <p>
-    <p>  Sex:       <p>
-    <p>  Marital Status: <p>
-    <p>  Language:  <p>
-    <p>  Race:    <p>
-    <p>  Ethnicity: <p>
+      </div>
       </div>
     </div>
-<br>
-  <div>
-    <div class="container">
-    <h5>Phone and Email Address</h5>
-    <p>
-     <p> Home Phone: <p>
-     <p> Mobile Phone: <p>
-     <p>  Work Phone: <p>
-     <p> Email Address: <p>
-    </p>
     </div>
-  </div>
+
 <br>
-  <div>
-    <div class="container">
-    <h5>Emergency Contact</h5>
-    <p>
-     <p> Name: <p>
-     <p> Relationship to Patient: <p>
-     <p> Home Phone: <p>
-     <p> Mobile Phone: <p>
-    </p>
+
+    <div class="card border-info mb-3" style="max-width: 20rem;">
+      <div class="card-header">Phone and Email Address</div>
+      <div class="card-body">
+        <p>
+        <p> Home Phone: <p>
+        <p> Mobile Phone: <p>
+        <p>  Work Phone: <p>
+        <p> Email Address: <p>
+      </p>
+      </div>
     </div>
-  </div>
-  </div>
+
+
+<br>
+    <div class="card border-info mb-3" style="max-width: 20rem;">
+      <div class="card-header">Emergency Contact</div>
+      <div class="card-body">
+        <p>
+        <p> Name: <p>
+        <p> Relationship to Patient: <p>
+        <p> Home Phone: <p>
+        <p> Mobile Phone: <p>
+      </p>
+      </div>
+    </div>
+    </div>
   <!--/.Panel 1-->
 
 
@@ -249,7 +286,8 @@
       </div>
       </div>
     </div>
+
+
   </div>
   <!--/.Panel 3-->
-
-
+    </div>
