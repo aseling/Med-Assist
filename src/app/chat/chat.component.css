@@ -1,14 +1,29 @@
-.container {
+.wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
   max-width: 100%;
   padding: 0;
 }
 
+.screen-side {
+  visibility: visible;
+}
+
 .room-side {
   border-radius: 5px;
   max-height: 660px;
   overflow-y: scroll;
+}
+
+.collapse-menu {
+  height: 25px;
+}
+
+.side-room-toggle {
+  width: 95%;
+  text-align: center;
+  color: black;
+  margin: 0 auto;
 }
 
 .username {
@@ -29,6 +44,57 @@
   grid-template-columns: 1fr;
   margin: 2px 5px 2px 5px;
   border-radius: 5px;
+}
+
+.drop-room-choice {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  background: white;
+  height: 100%;
+  overflow-y: scroll;
+  border: 1px solid #969595;
+  border-radius: 5px;
+}
+
+.room-slide-in {
+  position: fixed;
+  width: 97%;
+  top: 130px;
+  left: 5px;
+  padding: 10px;
+  background: white;
+  border: 1px solid #969595;
+  box-shadow: 5px 5px 27px -3px #000000b3;
+  z-index: 10000;
+  transition: all 0.5s ease-out;
+}
+
+.room-slide-out {
+  position: fixed;
+  width: 0;
+  top: 70px;
+  left: -1000px;
+  -webkit-transform: rotate(-90deg); /* Safari */
+  -moz-transform: rotate(-90deg); /* Firefox */
+  -ms-transform: rotate(-90deg); /* IE */
+  -o-transform: rotate(-90deg); /* Opera */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); /* Internet Explorer */
+  transition: all 0.5s ease-in;
+}
+
+.close-btn {
+  width: 100%;
+  margin-bottom: 45px;
+  padding: 8px;
+}
+
+.fa-times {
+  float: right;
+  margin: 10px;
+  font-size: 25px;
 }
 
 .rooms {
@@ -189,5 +255,17 @@
   40% {
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .message {
+    max-width: 265px;
   }
 }

@@ -1,23 +1,20 @@
 <nav *ngIf="authorized" class="navbar navbar-expand-lg sticky-top">
   <a class="navbar-brand" routerLink="home"><img class="logo" src="./assets/img/logo.png/" ></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+  <button *ngIf="changeView" class="toggle-btn"  type="button" (click)="showSlideOutNav()">
     <i class="fas fa-bars menu-bars-icon"></i>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
+  <div *ngIf="!changeView" class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <div class="right-section-container">
       <i class="nav-item fa fa-envelope fa-lg" data-toggle="tooltip" data-placement="top" title="Hooray!"></i>
       <i class="nav-item fa fa-phone fa-lg" routerLink="contact-page"></i>
       <i class="nav-item fa fa-bell fa-lg"></i>
-      <!--<img class="user-image" src="./assets/img/default-user.png" routerLink="medical-profile">-->
       <img class="user-image" src="{{imagePath}}" routerLink="medical-profile">
 
       <span class="dropdown dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user}}
           <div class="dropdown-menu dropdown-menu-right user-dropdown">
-              <button routerLink="/account-settings" class="dropdown-item" type="button">Settings</button>
-              <button routerLink="/medical-profile" class="dropdown-item" type="button">My Profile</button>
+              <button routerLink="account-settings" class="dropdown-item" type="button">Settings</button>
+              <button routerLink="medical-profile" class="dropdown-item" type="button">My Profile</button>
               <div class="dropdown-divider"></div>
               <button class="dropdown-item" type="button" (click)="logout()">Logout</button>
           </div>
@@ -25,4 +22,35 @@
     </div>
   </div>
 </nav>
+
+
+<div *ngIf="changeView" class="slide-out-nav">
+  <div [ngClass]="{'slide-in': sideNavVisible, 'slide-out': !sideNavVisible}">
+    <div class="close-btn">
+      <i class="fas fa-times" (click)="showSlideOutNav()"></i>
+    </div>
+    <div class="top-section" (click)="showSlideOutNav()">
+      <img class="slide-user-image" src="{{imagePath}}" routerLink="medical-profile">
+      <div class="slide-out-user">{{user}}</div>
+    </div>
+    <div class="top-contacts">
+      <i class="slide-nav-item fa fa-envelope fa-lg" data-toggle="tooltip" data-placement="top" title="Hooray!" (click)="showSlideOutNav()"></i>
+      <i class="slide-nav-item fa fa-phone fa-lg" routerLink="contact-page" (click)="showSlideOutNav()"></i>
+      <i class="slide-nav-item fa fa-bell fa-lg" (click)="showSlideOutNav()"></i>
+    </div>
+    <div class="page-links">
+      <a routerLink="prescription-refill" (click)="showSlideOutNav()">My Medicine</a>
+      <a routerLink="calendar" (click)="showSlideOutNav()">Calendar</a>
+      <a routerLink="chat" (click)="showSlideOutNav()">Chat</a>
+      <a routerLink="forms" (click)="showSlideOutNav()">Forms</a>
+      <a routerLink="reports" (click)="showSlideOutNav()">Medical Reports</a>
+      <a routerLink="helpful-links" (click)="showSlideOutNav()">Helpful Links</a>
+    </div>
+    <footer class="page-links">
+      <a routerLink="account-settings" (click)="showSlideOutNav()">Settings</a>
+      <a routerLink="medical-profile" (click)="showSlideOutNav()">My Profile</a>
+      <a routerLink="" (click)="logout(); showSlideOutNav()">Logout</a>
+    </footer>
+  </div>
+</div>
 

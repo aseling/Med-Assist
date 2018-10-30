@@ -3,6 +3,7 @@ import {ApiService} from "../services/api.service";
 import {Router} from '@angular/router';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import anime from 'animejs'
 
 @Component({
   selector: 'app-login',
@@ -17,10 +18,7 @@ export class LoginComponent implements OnInit {
   registerViewOpen:boolean;
   loginMessage = '';
   failAlert = false;
-  hide = true;
   loading = false;
-
-  herokuPath = 'https://floating-citadel-31945.herokuapp.com/';
 
   constructor(private apiService:ApiService,
               private formBuilder:FormBuilder,
@@ -44,7 +42,7 @@ export class LoginComponent implements OnInit {
       if (this.loginMessage === 'Success') {
         this.apiService.authorizeUser();
         this.apiService.setUserName(this.username);
-        this.failAlert = false;
+        this.apiService.getUserImage(this.username);
       }
 
       if (this.loginMessage === 'Authentication failed. User not found' || this.loginMessage === 'Invalid password') {
@@ -61,15 +59,39 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     this.username = this.loginForm.controls.username.value;
     this.password = this.loginForm.controls.password.value;
+    this.failAlert = false;
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
+
+      if(this.loginForm.controls.username.errors != null) {
+        var error = anime({
+          targets: '#userError .errors',
+          translateX: [
+            {value: 5, duration: 50, elasticity: 100},
+            {value: -5, duration: 50, elasticity: 100},
+            {value: 0, duration: 50, elasticity: 100}
+          ],
+          loop: 2
+        });
+      }
+
+      if(this.loginForm.controls.password.errors != null) {
+        var error = anime({
+          targets: '#passwordError .errors',
+          translateX: [
+            {value: 5, duration: 50, elasticity: 100},
+            {value: -5, duration: 50, elasticity: 100},
+            {value: 0, duration: 50, elasticity: 100}
+          ],
+          loop: 2
+        });
+      }
       return;
     }
 
     this.loading = true;
     this.apiService.login(this.username, this.password);
-    this.apiService.getUserImage(this.username);
   };
 
   openRegisterView() {
