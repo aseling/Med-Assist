@@ -3,8 +3,8 @@
   grid-template-columns: 1fr 8fr;
   grid-gap: 20px;
   min-width: 100%;
-  padding-bottom: 150px;
-  min-height: 700px;
+  padding-bottom: 50px;
+  /*min-height: 700px;*/
 }
 
 .top-nav {
@@ -24,6 +24,8 @@
   top: 33px;
   background-color: white;
   border-radius: 10px;
+
+  height: fit-content;
 }
 
 .unauth-main-body {

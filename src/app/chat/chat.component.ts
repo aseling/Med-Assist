@@ -15,7 +15,7 @@ export class ChatComponent implements OnInit {
   messageText:string;
   messageArray:{user:string; message:string}[];
   roomChoice = ["Dr. Phil", "Dr. Smith", "Dr. Janice"];
-  roomIndex:number = 0;
+  roomIndex:number;
   scroll = document.getElementById("message-screen");
   userTyping = false;
   whoIsTyping:string;
@@ -38,6 +38,7 @@ export class ChatComponent implements OnInit {
     });
 
     this.chatService.newMessageReceived().subscribe(data => {
+      console.log(data);
       this.messageArray.push(data);
       this.screenScroll();
       this.userTyping = false;
