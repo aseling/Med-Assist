@@ -41,7 +41,6 @@ export class TopNavComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.changeView = event.target.innerWidth <= 1000;
-    console.log(event.target.innerWidth);
   }
 
   logout() {
