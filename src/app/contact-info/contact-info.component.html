@@ -1,0 +1,125 @@
+<div class="wrapper">
+  <div class="each-box form-group">
+    <div class="header">
+      <button *ngIf="!contactEdit" type="button" class="edit-btn" (click)="editContact()">Edit</button>
+      <div>Patient Information</div>
+    </div>
+    <div class="section" *ngIf="!contactEdit">
+      <label>Name: </label>
+      <div class="user-info">Jane Doe</div>
+
+      <label>Address: </label>
+      <div class="user-info">123 nowhere lane</div>
+
+      <label>Date of Birth: </label>
+      <div class="user-info">something</div>
+
+      <label>sex: </label>
+      <div class="user-info">Female</div>
+
+      <label>Marital Status: </label>
+      <div class="user-info">Married</div>
+
+      <label>Language: </label>
+      <div class="user-info">English</div>
+
+      <label>Race: </label>
+      <div class="user-info">Something</div>
+
+      <label>Ethnicity: </label>
+      <div class="user-info">Something</div>
+    </div>
+
+    <form *ngIf="contactEdit" class="form">
+      <label>Name: </label>
+      <mat-form-field>
+        <input matInput type="text" id="name" placeholder="Name" value="Jane Doe">
+        <!--formControlName="name"-->
+      </mat-form-field>
+
+      <label>Address: </label>
+      <mat-form-field>
+        <input matInput type="text" id="address" placeholder="Address" value="123 nowhere lane">
+        <!--formControlName="address"-->
+      </mat-form-field>
+
+      <label>Date of Birth: </label>
+      <mat-form-field>
+        <input matInput type="text" id="DOB" placeholder="Date of Birth" value="something">
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Sex: </label>
+      <mat-form-field>
+        <input matInput type="text" id="sex" placeholder="Sex" value="Female">
+        <!--formControlName="sex"-->
+      </mat-form-field>
+
+      <label>Marital Status: </label>
+      <mat-form-field>
+        <input matInput type="text" id="maritalStatus" placeholder="Marital Status" value="Married">
+        <!--formControlName="maritalStatus"-->
+      </mat-form-field>
+
+      <label>Language: </label>
+      <mat-form-field>
+        <input matInput type="text" id="language" placeholder="Language" value="English">
+        <!--formControlName="language"-->
+      </mat-form-field>
+
+      <label>Race: </label>
+      <mat-form-field>
+        <input matInput type="text" id="race" placeholder="Race" value="Something">
+        <!--formControlName="race"-->
+      </mat-form-field>
+
+      <label>Ethnicity: </label>
+      <mat-form-field>
+        <input matInput type="text" id="ethnicity" placeholder="Ethnicity" value="Something">
+        <!--formControlName="ethnicity"-->
+      </mat-form-field>
+    </form>
+    <div class="update" *ngIf="contactEdit">
+      <button class="update-btn" type="button" (click)="updateContact(); openSnackBar()">Update</button>
+      <button class="cancel-btn" type="button" (click)="cancelContact()">Cancel</button>
+    </div>
+  </div>
+  <div class="each-box form-group">
+    <div class="header">
+      <button type="button" class="edit-btn">Edit</button>
+      <div>Phone and Email</div>
+    </div>
+    <div class="section">
+      <label>Home Phone: </label>
+      <div class="user-info">Jane Doe</div>
+
+      <label>Mobile Phone: </label>
+      <div class="user-info">123 nowhere lane</div>
+
+      <label>Work Phone: </label>
+      <div class="user-info">something</div>
+
+      <label>Email: </label>
+      <div class="user-info">Female</div>
+    </div>
+  </div>
+  <div class="each-box form-group">
+    <div class="header">
+      <button type="button" class="edit-btn">Edit</button>
+      <div>Emergency Contact</div>
+    </div>
+    <div class="section">
+      <label>Name: </label>
+      <div class="user-info">Jane Doe</div>
+
+      <label>Relationship to Patient: </label>
+      <div class="user-info">123 nowhere lane</div>
+
+      <label>Home Phone: </label>
+      <div class="user-info">something</div>
+
+      <label>Mobile Phone: </label>
+      <div class="user-info">Female</div>
+    </div>
+  </div>
+</div>

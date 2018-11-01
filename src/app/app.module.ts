@@ -26,8 +26,10 @@ import {PdfViewerComponent} from './pdf-viewer/pdf-viewer.component';
 import {RegisterComponent} from './register/register.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatInputModule, MatFormFieldModule, MatIconModule} from '@angular/material';
+import {MatInputModule, MatFormFieldModule, MatIconModule, MatTabsModule} from '@angular/material';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import { ContactInfoComponent } from './contact-info/contact-info.component';
 
 
 
@@ -54,7 +56,8 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     HelpfulLinksComponent,
     PdfViewerComponent,
     RegisterComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    ContactInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,9 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

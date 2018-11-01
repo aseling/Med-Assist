@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-medical-profile',
@@ -16,11 +14,4 @@ export class MedicalProfileComponent implements OnInit {
   ngOnInit() {
   }
 
-}
-
-export class patientContactInformation{
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-  });
 }
