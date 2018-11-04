@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-side-nav-bar',
@@ -7,22 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavBarComponent implements OnInit {
   isOpen = false;
+  authorized:boolean = false;
+  user:string;
+  imagePath = './assets/img/default-user.png';
 
-  constructor() {
+  constructor(private apiService:ApiService) {
   }
 
   ngOnInit() {
-  }
+    this.apiService.authorized.subscribe(value => {
+      this.authorized = value;
+    });
 
-  navOpen() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-    this.isOpen = true;
-  }
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+    });
 
-  navClose() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-    this.isOpen = false;
+    this.apiService.imagePath.subscribe(path => {
+      if (path === 'no image') {
+        this.imagePath = './assets/img/default-user.png';
+      } else {
+        this.imagePath = path;
+      }
+    });
   }
 }

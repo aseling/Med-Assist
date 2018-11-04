@@ -1,0 +1,19 @@
+#title{
+  text-align: center;
+}
+
+#physicianTitle {
+  text-align: center;
+}
+
+img {
+  margin: 20px auto;
+}
+
+#contactInfo {
+  text-align: left;
+}
+
+#officeAddress {
+  text-after-overflow: wrap;
+}

@@ -1,0 +1,9 @@
+.loader{
+  height: 100%;
+  width: 100%;
+}
+
+svg path,
+svg rect{
+  fill: #3B92A8;
+}

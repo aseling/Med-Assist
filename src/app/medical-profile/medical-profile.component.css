@@ -1,0 +1,48 @@
+#user-page-header
+{
+  text-align: center;
+  margin: 25px;
+}
+
+.nav-link {
+  color:#fff;
+background-color: #17a2b8;
+border-color: #17a2b8;
+
+}
+
+.nav-item{
+  flex-grow: .2;
+
+}
+
+.form-textbox {
+  padding: 8px;
+  display: block;
+  border: none;
+  border-bottom: 0px solid #ccc;
+  width: 100%;
+}
+/*.col-card-row-1{*/
+  /**/
+/*}*/
+
+#panel1
+{
+  margin-left: 150px;
+  margin-right: 150px;
+
+}
+
+#panel2
+{
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+#panel3
+{
+  margin-left: 150px;
+  margin-right: 150px;
+}
+

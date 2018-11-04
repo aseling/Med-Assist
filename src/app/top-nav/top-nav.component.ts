@@ -1,52 +1,54 @@
-import {Component, OnInit} from '@angular/core';
-import {trigger, state, style, animate, transition} from '@angular/animations';
+import {Component, OnInit, HostListener} from '@angular/core';
+import {Router} from '@angular/router';
+import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-top-nav',
   templateUrl: './top-nav.component.html',
-  styleUrls: ['./top-nav.component.css'],
-  animations: [
-    trigger('openClose', [
-      state('closed', style({
-        visibility: 'hidden',
-        height: '0',
-        transform: 'rotate(-360deg)',
-        fontSize: '0',
-        opacity: 0
-      })),
-      state('open', style({
-        visibility: 'visible',
-        height: '150px',
-        fontSize: '15px',
-        transform: 'rotate(360deg)',
-        opacity: 1
-      })),
-      transition('open => closed', [
-        animate('0.2s')
-      ]),
-      transition('closed => open', [
-        animate('0.2s')
-      ])
-    ])
-  ]
+  styleUrls: ['./top-nav.component.css']
 })
+
 export class TopNavComponent implements OnInit {
+  authorized:boolean = false;
+  user:string;
+  imagePath = './assets/img/default-user.png';
+  sideNavVisible = false;
+  changeView;
 
-  dropDownOpenClose = 'closed';
-
-  constructor() {
+  constructor(private apiService:ApiService, private router:Router) {
   }
 
   ngOnInit() {
+    this.apiService.authorized.subscribe(value => {
+      this.authorized = value;
+    });
+
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+    });
+
+    this.apiService.imagePath.subscribe(path => {
+      if (path === 'no image') {
+        this.imagePath = './assets/img/default-user.png';
+      } else {
+        this.imagePath = path;
+      }
+    });
+
+    this.changeView = window.innerWidth <= 1000;
   }
 
-  mouseEnter() {
-    this.dropDownOpenClose = 'open';
-    console.log(this.dropDownOpenClose);
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.changeView = event.target.innerWidth <= 1000;
   }
 
-  mouseLeave() {
-    this.dropDownOpenClose = 'closed';
-    console.log(this.dropDownOpenClose);
+  logout() {
+    this.apiService.unauthorizeUser();
+    this.apiService.setImagePath('./assets/img/default-user.png');
+  }
+
+  showSlideOutNav() {
+    this.sideNavVisible = !this.sideNavVisible;
   }
 }

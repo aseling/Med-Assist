@@ -2,3 +2,58 @@ p{
   text-align: center;
   font-size: 50px;
 }
+
+.meds{
+  font-size: 20px;
+  border-top: 2px solid blue;
+  border-bottom: 2px solid blue;
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.RefillMeds{
+  font-size: 20px;
+  border-top: 2px solid blue;
+  border-bottom: 2px solid blue;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.RefillCheckbox{
+  float: left;
+  left: 0;
+  top: 10px;
+}
+
+#leftMed{
+  float: left;
+  position: relative;
+  width: 40%;
+  left: 8%;
+}
+
+#rightMed{
+  float: right;
+  position: relative;
+  width: 40%;
+  right: 8%;
+}
+
+#btnSubmitRequest{
+  position: relative;
+  width: 20%;
+}
+
+.container {
+  padding: 10px;
+  min-height: 200px;
+}
+
+#AlignRefillBtn{
+  position: relative;
+  top: 140px;
+}

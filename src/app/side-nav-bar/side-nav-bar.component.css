@@ -9,7 +9,6 @@ body {
   z-index: 1;
   background-color: #fff;
   overflow-x: hidden;
-  transition: 0.5s;
   border-radius: 10px;
   padding: 0 0 25px 0;
 }
@@ -21,7 +20,6 @@ body {
   font-family: "Helvetica", sans-serif;
   color: #000;
   display: block;
-  transition: 0.3s;
 }
 
 .sidenav a:hover {
@@ -54,14 +52,10 @@ body {
   color: #FFD166;
 }
 
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-
-  .sidenav a {
-    font-size: 18px;
-  }
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .profile-btn {
@@ -73,12 +67,22 @@ body {
   width: 100%;
   border-bottom: 1px solid #c3c3c3;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .user-img-text {
   position: relative;
-  left: 28px;
   top: 25px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -88,10 +92,9 @@ body {
   }
 }
 
-@media (max-width: 990px) {
+@media only screen and (max-width: 1000px) {
   .sidenav {
     height: 0;
     width: 0;
-    transition: .5s;
   }
 }

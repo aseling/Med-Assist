@@ -17,12 +17,18 @@ import {ReferencesComponent} from './references/references.component';
 import {ReportsComponent} from './reports/reports.component';
 import {VideosComponent} from './videos/videos.component';
 import {TopNavComponent} from './top-nav/top-nav.component';
-import { ChatComponent } from './chat/chat.component';
-import { ContactPageComponent } from './contact-page/contact-page.component';
-import { MedicalProfileComponent } from './medical-profile/medical-profile.component';
-import { LogoutComponent } from './logout/logout.component';
-import { MyMedicineComponent } from './my-medicine/my-medicine.component';
-import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
+import {ChatComponent} from './chat/chat.component';
+import {ContactPageComponent} from './contact-page/contact-page.component';
+import {MedicalProfileComponent} from './medical-profile/medical-profile.component';
+import {MyMedicineComponent} from './my-medicine/my-medicine.component';
+import {HelpfulLinksComponent} from './helpful-links/helpful-links.component';
+import {PdfViewerComponent} from './pdf-viewer/pdf-viewer.component';
+import {RegisterComponent} from './register/register.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule, MatFormFieldModule, MatIconModule} from '@angular/material';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+
 
 
 @NgModule({
@@ -44,17 +50,27 @@ import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
     ChatComponent,
     ContactPageComponent,
     MedicalProfileComponent,
-    LogoutComponent,
     MyMedicineComponent,
     HelpfulLinksComponent,
+    PdfViewerComponent,
+    RegisterComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
+
 }

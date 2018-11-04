@@ -1,12 +1,36 @@
-p {
+.info-container {
+  width: 80%;
+  margin: 0 auto 20px;
   text-align: center;
-  font-size: 20px;
+}
+
+.table-content {
+  /*min-height: 700px;*/
 }
 
 .page-title h1 {
   text-align: center;
   font-size: 30px;
-  padding: 15px 0px 15px 0px;
+  padding: 15px 0 15px 0;
+}
+
+table {
+  width: 80%;
+  margin-bottom: 50px;
+}
+
+.form-rows {
+  cursor: default;
+}
+
+.modal-body {
+  height: 100%;
+}
+
+.page-title h1 {
+  text-align: center;
+  font-size: 30px;
+  padding: 15px 0 15px 0;
 }
 
 table button {
@@ -18,19 +42,15 @@ table.table-hover th {
   font-weight: bold;
 }
 
-table {
-  width: 80%;
-}
-
 th.first-column {
-  width: 30%;
+  width: 75%;
 }
 
 th.second-column {
-  width: 70%;
+  width: 30%;
 }
 
-.form-rows {
+.report-rows {
   cursor: default;
 }
 
@@ -59,6 +79,3 @@ th.second-column {
   font-size: 45px;
 }
 
-.modal-body {
-  height: 100%;
-}
