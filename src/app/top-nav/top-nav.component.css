@@ -1,5 +1,6 @@
 .navbar {
-  background-color: white;
+  /*background-color: white;*/
+  background-color: #4582EC;
 }
 
 .logo {
@@ -12,10 +13,11 @@
   margin-right: 12px;
 }
 
-.right-section-container {
+.right-section-container[_ngcontent-c1] {
   position: absolute;
   margin: 0 20px 0 0;
   right: 0;
+  color: black;
 }
 
 .menu-bars-icon:hover {
@@ -159,5 +161,8 @@ a:hover {
   transition: all 0.2s ease-in;
 }
 
-
+.navbar[_ngcontent-c1] {
+  color: white;
+  background-color: white;
+}
 /*-----------------------------------MEDIA QUERIES------------------------------*/
