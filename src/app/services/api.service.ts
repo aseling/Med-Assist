@@ -60,6 +60,15 @@ export class ApiService {
       });
   }
 
+  // updateContactInfo(address:string, DOB:string, sex:string){
+  //   return this.http.post<any>(this.herokuPath + 'register', {
+  //     name: name,
+  //     email: email,
+  //     username: username,
+  //     password: password,
+  //     password2: password2
+  // }
+
   openRegisterPage(value:boolean) {
     this.registerView.next(value);
   }

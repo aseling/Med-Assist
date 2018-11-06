@@ -3,18 +3,18 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MedicalProfileComponent } from './medical-profile.component';
 
 describe('MedicalProfileComponent', () => {
-  let component: MedicalProfileComponent;
-  let fixture: ComponentFixture<MedicalProfileComponent>;
+  let component:  MedicalProfileComponent;
+  let fixture: ComponentFixture< MedicalProfileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MedicalProfileComponent ]
+      declarations: [  MedicalProfileComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MedicalProfileComponent);
+    fixture = TestBed.createComponent( MedicalProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

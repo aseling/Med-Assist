@@ -1,6 +1,6 @@
 <div *ngIf="authorized" class="sidenav">
   <div class="user-section-container">
-    <div class="user-img-text"><img src="{{imagePath}}"> Welcome {{user}}</div>
+    <div class="user-img-text" routerLink="medical-profile"><img src="{{imagePath}}"> Welcome {{user}}</div>
   </div>
   <a routerLink="prescription-refill">My Medicine</a>
   <a routerLink="calendar">Calendar</a>
