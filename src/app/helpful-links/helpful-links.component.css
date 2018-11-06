@@ -1,0 +1,45 @@
+.info-container {
+    width: 80%;
+    margin: 0 auto 20px;
+    text-align: center;
+  }
+
+  .page-title h1 {
+    text-align: center;
+    font-size: 30px;
+    padding: 15px 0 15px 0;
+  }
+
+  table {
+    align-self: center;
+    width: 80%;
+    margin-bottom: 50px;
+    border-spacing: 100px;
+    border-collapse: separate;
+  }
+
+  table td {
+      align-content: center;
+      vertical-align: middle;
+      font-size: 25px;
+      margin: auto;
+  }
+
+  .tile {
+      max-width: 350px;
+      max-height: 350px;
+      font-size: 25px;
+      align-content: center;
+      margin: auto;
+  }
+
+  .tile img {
+      height: 300px;
+      width: 300px;
+  }
+
+  .tile :hover {
+    width: 105%;
+    height: 105%;
+    font-size: 105%;
+  }
