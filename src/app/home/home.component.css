@@ -46,23 +46,45 @@ p {
   }
 }
 
-.announcements-class {
+.announcements-class[_ngcontent-c6] {
   margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .announcements-group {
   overflow: scroll;
 }
 
-.row .card {
-  margin: 0px 10px 0px 0px;
+.row[_ngcontent-c6] .card[_ngcontent-c6] {
+  margin: 0px 0px 0px 0px;
   height: 10rem;
-  width: 15rem;
+  width: 32.3%;
+  margin-left: .5%;
+  margin-right: .5%;
   padding-top: 1.5rem;
+  /*background-color: #17a2b8;*/
+  color: white;
+}
+
+#card1{
+  background-color: #4582EC;
+}
+
+#card2{
+  background-color: #d9534f;
+}
+
+#card3{
+  background-color: #f0ad4e;
 }
 
 .card-body {
   padding: 5px;
+  text-align: center;
+}
+
+.card-header {
+  text-align: center;
 }
 
 .cards-announcements {
@@ -76,14 +98,18 @@ p {
 
 .card-title {
   margin-left: 1rem;
+  text-align: center;
 }
 
 .card-body a {
-  color: #000;
+  color: white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card-body a:hover{
-  color: #3B92A9;
+  color: black;
 }
 
 .row .card.announcement-card {
@@ -91,4 +117,15 @@ p {
   width: 13rem;
   height: 20rem;
   margin-left: 1rem;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.text-muted {
+  color: white!important;
 }
