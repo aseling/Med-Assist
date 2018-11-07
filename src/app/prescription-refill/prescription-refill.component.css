@@ -57,3 +57,38 @@ p{
   position: relative;
   top: 140px;
 }
+
+#topMedList{
+  position: relative;
+  width: 70%;
+  left: 15%;
+}
+
+#MedCard{
+  font-size: 15pt;
+  text-align: left;
+}
+
+#tableHeader{
+  background-color: #17a2b8;
+  color: white;
+  /*text-align: center;*/
+}
+
+table{
+  position: relative;
+  width: 90%;
+  left: 5%;
+}
+
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+  width: 33%;
+  text-align: center;
+}
+
+/*.btn-secondary{*/
+  /*background-color: #adb5bd;*/
+/*}*/
