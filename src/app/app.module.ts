@@ -18,7 +18,6 @@ import {ReportsComponent} from './reports/reports.component';
 import {VideosComponent} from './videos/videos.component';
 import {TopNavComponent} from './top-nav/top-nav.component';
 import {ChatComponent} from './chat/chat.component';
-import {ContactPageComponent} from './contact-page/contact-page.component';
 import {MedicalProfileComponent} from './medical-profile/medical-profile.component';
 import {MyMedicineComponent} from './my-medicine/my-medicine.component';
 import {HelpfulLinksComponent} from './helpful-links/helpful-links.component';
@@ -50,7 +49,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     VideosComponent,
     TopNavComponent,
     ChatComponent,
-    ContactPageComponent,
     MedicalProfileComponent,
     MyMedicineComponent,
     HelpfulLinksComponent,
