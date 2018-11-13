@@ -1,6 +1,5 @@
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 import { MyMedicineComponent } from './my-medicine/my-medicine.component';
-import { MedicalProfileComponent } from './medical-profile/medical-profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
@@ -34,7 +33,6 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent },
   { path: 'contact-page', component: ContactPageComponent},
   { path: 'chat', component: ChatComponent },
-  { path: 'medical-profile', component: MedicalProfileComponent },
   { path: 'my-medicine', component: MyMedicineComponent },
   { path: 'helpful-links', component: HelpfulLinksComponent },
   { path: 'reports/view', component: PdfViewerComponent },

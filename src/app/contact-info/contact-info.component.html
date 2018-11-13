@@ -1,0 +1,218 @@
+<div class="wrapper">
+  <div class="each-box form-group">
+    <div class="header">
+      <!--PATIENT INFORMATION
+      Data shown as the variables called below.
+      The data is labeled and each field is called by a variable-->
+      <button *ngIf="!patientProfileEdit" type="button" class="edit-btn" (click)="editPatientProfile()">Edit</button>
+      <div>Patient Information</div>
+    </div>
+    <div class="section" *ngIf="!patientProfileEdit">
+      <label>Name: </label>
+      <div class="user-info">{{username}}</div>
+
+      <label>Address: </label>
+      <div class="user-info">{{address}}</div>
+
+      <label>Date of Birth: </label>
+      <div class="user-info">{{DOB}}</div>
+
+      <label>Sex: </label>
+      <div class="user-info">{{sex}}</div>
+
+      <label>Marital Status: </label>
+      <div class="user-info">{{maritalStatus}}</div>
+
+      <label>Language: </label>
+      <div class="user-info">{{language}}</div>
+
+      <label>Race: </label>
+      <div class="user-info">{{race}}</div>
+
+      <label>Ethnicity: </label>
+      <div class="user-info">{{ethnicity}}</div>
+    </div>
+
+
+    <!--Once the edit button is clicked (profileEdit method is called),
+    the data is shown as the variables called below-->
+    <form *ngIf="patientProfileEdit" class="form">
+      <label>Name: </label>
+      <mat-form-field>
+        <input matInput type="text" id="name" placeholder="Name" value={{username}}>
+        <!--formControlName="name"-->
+      </mat-form-field>
+
+      <label>Address: </label>
+      <mat-form-field>
+        <input matInput type="text" id="address" placeholder="Address" value={{address}}>
+        <!--formControlName="address"-->
+      </mat-form-field>
+
+      <label>Date of Birth: </label>
+      <mat-form-field>
+        <input matInput type="text" id="DOB" placeholder="Date of Birth" value={{DOB}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Sex: </label>
+      <mat-form-field>
+        <input matInput type="text" id="sex" placeholder="Sex" value={{sex}}>
+        <!--formControlName="sex"-->
+      </mat-form-field>
+
+      <label>Marital Status: </label>
+      <mat-form-field>
+        <input matInput type="text" id="maritalStatus" placeholder="Marital Status" value={{maritalStatus}}>
+        <!--formControlName="maritalStatus"-->
+      </mat-form-field>
+
+      <label>Language: </label>
+      <mat-form-field>
+        <input matInput type="text" id="language" placeholder="Language" value={{language}}>
+        <!--formControlName="language"-->
+      </mat-form-field>
+
+      <label>Race: </label>
+      <mat-form-field>
+        <input matInput type="text" id="race" placeholder="Race" value={{race}}>
+        <!--formControlName="race"-->
+      </mat-form-field>
+
+      <label>Ethnicity: </label>
+      <mat-form-field>
+        <input matInput type="text" id="ethnicity" placeholder="Ethnicity" value={{ethnicity}}>
+        <!--formControlName="ethnicity"-->
+      </mat-form-field>
+    </form>
+    <div class="update" *ngIf="patientProfileEdit">
+      <button class="update-btn" type="button" (click)="updatePatientProfile(); openSnackBar()">Update</button>
+      <button class="cancel-btn" type="button" (click)="cancelPatientProfile()">Cancel</button>
+    </div>
+  </div>
+
+
+  <!--PHONE AND EMAIL
+  Data shown as the variables called below.
+  The data is labeled and each field is called by a variable-->
+<div class="wrapper">
+    <div class="each-box form-group">
+      <div class="header">
+        <button *ngIf="!phoneProfileEdit" type="button" class="edit-btn" (click)="editPhoneProfile()">Edit</button>
+      <div>Phone and Email</div>
+    </div>
+    <div class="section">
+      <label>Home Phone: </label>
+      <div class="user-info">{{homePhone}}</div>
+
+      <label>Mobile Phone: </label>
+      <div class="user-info">{{mobilePhone}}</div>
+
+      <label>Work Phone: </label>
+      <div class="user-info">{{workPhone}}</div>
+
+      <label>Email: </label>
+      <div class="user-info">{{email}}</div>
+    </div>
+
+  <!--PHONE AND EMAIL Once the edit button is clicked (profileEdit method is called),
+     the data is shown as the variables called below-->
+
+  <form *ngIf="phoneProfileEdit" class="form">
+    <label>Home Phone: </label>
+    <mat-form-field>
+      <input matInput type="text" id="homePhone" placeholder="Home Phone" value={{homePhone}}>
+      <!--formControlName="name"-->
+    </mat-form-field>
+
+    <label>Mobile Phone: </label>
+    <mat-form-field>
+      <input matInput type="text" id="mobilePhone" placeholder="Mobile Phone" value={{mobilePhone}}>
+      <!--formControlName="address"-->
+    </mat-form-field>
+
+    <label>Work Phone: </label>
+    <mat-form-field>
+      <input matInput type="text" id="workPhone" placeholder="Work Phone" value={{workPhone}}>
+      <!--formControlName="DOB"-->
+    </mat-form-field>
+
+    <label>Email: </label>
+    <mat-form-field>
+      <input matInput type="text" id="email" placeholder="Email" value={{email}}>
+      <!--formControlName="DOB"-->
+    </mat-form-field>
+  </form>
+  <div class="update" *ngIf="phoneProfileEdit">
+    <button class="update-btn" type="button" (click)="updatePhoneProfile(); openSnackBar()">Update</button>
+    <button class="cancel-btn" type="button" (click)="cancelPhoneProfile()">Cancel</button>
+  </div>
+</div>
+
+
+
+
+  <!--EMERGENCY CONTACT
+      Data shown as the variables called below.
+      The data is labeled and each field is called by a variable-->
+  <div class="each-box form-group">
+    <div class="header">
+      <button type="button" class="edit-btn">Edit</button>
+      <div>Emergency Contact:</div>
+    </div>
+    <div class="section">
+    <label>Name: </label>
+    <div class="user-info">{{emergencyName}}</div>
+
+      <label>Relationship to Patient: </label>
+      <div class="user-info">{{emergencyRelationship}}</div>
+
+      <label>Home Phone: </label>
+      <div class="user-info">{{homePhone}}</div>
+
+      <label>Mobile Phone: </label>
+      <div class="user-info">{{mobilePhone}}</div>
+
+      <label>Work Phone: </label>
+      <div class="user-info">{{workPhone}}</div>
+    </div>
+
+    <!--EMERGENCY CONTACT Once the edit button is clicked (profileEdit method is called),
+       the data is shown as the variables called below-->
+
+    <form *ngIf="profileEdit" class="form">
+      <label>Name: </label>
+      <mat-form-field>
+        <input matInput type="text" id="emergencyName" placeholder="Emergency Contact Name" value={{emergencyName}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Relationship to Patient: </label>
+      <mat-form-field>
+        <input matInput type="text" id="emergencyRelationship" placeholder="Relationship" value={{emergencyRelationship}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Home Phone: </label>
+      <mat-form-field>
+        <input matInput type="text" id="emergencyHomePhone" placeholder="Home Phone" value={{emergencyHomePhone}}>
+        <!--formControlName="name"-->
+      </mat-form-field>
+
+      <label>Mobile Phone: </label>
+      <mat-form-field>
+        <input matInput type="text" id="emergencyMobilePhone" placeholder="Mobile Phone" value={{emergencyMobilePhone}}>
+        <!--formControlName="address"-->
+      </mat-form-field>
+
+      <label>Work Phone: </label>
+      <mat-form-field>
+        <input matInput type="text" id="emergencyWorkPhone" placeholder="Work Phone" value={{emergencyWorkPhone}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+    </form>
+    <div class="update" *ngIf="profileEdit">
+      <button class="update-btn" type="button" (click)="updateProfile(); openSnackBar()">Update</button>
+      <button class="cancel-btn" type="button" (click)="cancelProfile()">Cancel</button>
+    </div>
+  </div>

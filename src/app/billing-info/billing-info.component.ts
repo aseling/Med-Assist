@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-billing-info',
+  templateUrl: './billing-info.component.html',
+  styleUrls: ['./billing-info.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class BillingInfoComponent implements OnInit {
   profileEdit = false;
   username = 'test';
 
