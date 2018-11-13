@@ -1,3 +1,26 @@
-<p>
-  user-profile works!
-</p>
+
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Contact Information">
+      <app-contact-info></app-contact-info>
+    </mat-tab>
+    <mat-tab label="Billing and Insurance">
+      <app-billing-info></app-billing-info>
+    </mat-tab>
+    <mat-tab label="Medical Information">
+      <app-medical-info></app-medical-info>
+    </mat-tab>
+  </mat-tab-group>
+
+
+
+<!--<mat-tab-group color="primary" #tabGroup>-->
+  <!--<mat-tab label="Employee">-->
+    <!--<app-employee *ngIf="tabGroup.selectedIndex === 0"></app-employee>-->
+  <!--</mat-tab>-->
+  <!--<mat-tab label="Department" #tabDepartment>-->
+    <!--<app-department *ngIf="tabGroup.selectedIndex === 1"></app-department>-->
+  <!--</mat-tab>-->
+  <!--<mat-tab label="Attendance">-->
+    <!--<app-attendance *ngIf="tabGroup.selectedIndex === 2"></app-attendance>-->
+  <!--</mat-tab>-->
+<!--</mat-tab-group>-->
