@@ -12,14 +12,12 @@ import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {NewPatientFormComponent} from './new-patient-form/new-patient-form.component';
 import {PrescriptionRefillComponent} from './prescription-refill/prescription-refill.component';
-import {UserProfileComponent} from './user-profile/user-profile.component';
 import {ReferencesComponent} from './references/references.component';
 import {ReportsComponent} from './reports/reports.component';
 import {VideosComponent} from './videos/videos.component';
 import {TopNavComponent} from './top-nav/top-nav.component';
 import {ChatComponent} from './chat/chat.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
-import {MedicalProfileComponent} from './medical-profile/medical-profile.component';
 import {MyMedicineComponent} from './my-medicine/my-medicine.component';
 import {HelpfulLinksComponent} from './helpful-links/helpful-links.component';
 import {PdfViewerComponent} from './pdf-viewer/pdf-viewer.component';
@@ -29,6 +27,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule, MatFormFieldModule, MatIconModule, MatTabsModule} from '@angular/material';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
+import {MedicalInfoComponent} from './medical-info/medical-info.component';
+import {BillingInfoComponent} from './billing-info/billing-info.component';
+import {ContactInfoComponent} from './contact-info/contact-info.component';
+
 
 
 
@@ -50,12 +53,14 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     TopNavComponent,
     ChatComponent,
     ContactPageComponent,
-    MedicalProfileComponent,
     MyMedicineComponent,
     HelpfulLinksComponent,
     PdfViewerComponent,
     RegisterComponent,
     LoadingScreenComponent,
+    MedicalInfoComponent,
+    BillingInfoComponent,
+    ContactInfoComponent
 
   ],
   imports: [
