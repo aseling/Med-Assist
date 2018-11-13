@@ -29,6 +29,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule, MatFormFieldModule, MatIconModule, MatTabsModule} from '@angular/material';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -69,7 +70,8 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     MatFormFieldModule,
     MatIconModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
