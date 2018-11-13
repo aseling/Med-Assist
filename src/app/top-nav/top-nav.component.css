@@ -61,6 +61,12 @@
   border: 1px solid #a7a4a4;
 }
 
+/* For contact popover */
+.contactInfoHeader {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
 
 /*-----------------------------------SLIDE OUT NAV SECTION------------------------------*/
 

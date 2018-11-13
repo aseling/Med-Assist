@@ -16,7 +16,6 @@ import {CalendarComponent} from "./calendar/calendar.component";
 import {ChatComponent} from "./chat/chat.component";
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 import {RegisterComponent} from "./register/register.component";
-import {ContactPageComponent} from "./contact-page/contact-page.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -31,7 +30,6 @@ const routes: Routes = [
   { path: 'prescription-refill', component: PrescriptionRefillComponent },
   { path: 'forms', component: FormsComponent },
   { path: 'calendar', component: CalendarComponent },
-  { path: 'contact-page', component: ContactPageComponent},
   { path: 'chat', component: ChatComponent },
   { path: 'my-medicine', component: MyMedicineComponent },
   { path: 'helpful-links', component: HelpfulLinksComponent },

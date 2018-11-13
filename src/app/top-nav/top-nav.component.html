@@ -1,23 +1,40 @@
 <nav *ngIf="authorized" class="navbar navbar-expand-lg sticky-top">
-  <a class="navbar-brand" routerLink="home"><img class="logo" src="./assets/img/logo.png/" ></a>
-  <button *ngIf="changeView" class="toggle-btn"  type="button" (click)="showSlideOutNav()">
+  <a class="navbar-brand" routerLink="home"><img class="logo" src="./assets/img/logo.png/"></a>
+  <button *ngIf="changeView" class="toggle-btn" type="button" (click)="showSlideOutNav()">
     <i class="fas fa-bars menu-bars-icon"></i>
   </button>
 
   <div *ngIf="!changeView" class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <div class="right-section-container">
       <i class="nav-item fa fa-envelope fa-lg" data-toggle="tooltip" data-placement="top" title="Hooray!"></i>
-      <i class="nav-item fa fa-phone fa-lg" routerLink="contact-page"></i>
+      <span class="nav-item fa fa-phone fa-lg" placement="bottom" triggers="click" [ngbPopover]="popoverContent"
+        popoverTitle="Contact Information"></span>
       <i class="nav-item fa fa-bell fa-lg"></i>
       <img class="user-image" src="{{imagePath}}" routerLink="profile">
 
-      <span class="dropdown dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user}}
-          <div class="dropdown-menu dropdown-menu-right user-dropdown">
-              <button routerLink="account-settings" class="dropdown-item" type="button">Settings</button>
-              <button routerLink="profile" class="dropdown-item" type="button">My Profile</button>
-              <div class="dropdown-divider"></div>
-              <button class="dropdown-item" type="button" (click)="logout()">Logout</button>
-          </div>
+      <ng-template #popoverContent>
+        <h6 class="contactInfoHeader">Office Address:</h6>
+        <div> Dr.John Doe's Medical</div>
+        <div>123 Appalachian Way</div>
+        <div>Kennesaw, GA 11111</div>
+
+        <h6 class="contactInfoHeader">Phone Number:</h6>
+        <div>770-132-4567</div>
+        <h6 class="contactInfoHeader">Fax Number:</h6>
+        <div>770-222-4567</div>
+        <h6 class="contactInfoHeader">Hours Of Operations:</h6>
+        <div>Monday-Thursday 8:00 AM-5:30 PM
+          Friday 7:00 AM-3:00 PM</div>
+      </ng-template>
+
+      <span class="dropdown dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+        aria-expanded="false">{{user}}
+        <div class="dropdown-menu dropdown-menu-right user-dropdown">
+          <button routerLink="account-settings" class="dropdown-item" type="button">Settings</button>
+          <button routerLink="medical-profile" class="dropdown-item" type="button">My Profile</button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button" (click)="logout()">Logout</button>
+        </div>
       </span>
     </div>
   </div>
@@ -53,4 +70,3 @@
     </footer>
   </div>
 </div>
-

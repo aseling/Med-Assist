@@ -17,7 +17,6 @@ import {ReportsComponent} from './reports/reports.component';
 import {VideosComponent} from './videos/videos.component';
 import {TopNavComponent} from './top-nav/top-nav.component';
 import {ChatComponent} from './chat/chat.component';
-import {ContactPageComponent} from './contact-page/contact-page.component';
 import {MyMedicineComponent} from './my-medicine/my-medicine.component';
 import {HelpfulLinksComponent} from './helpful-links/helpful-links.component';
 import {PdfViewerComponent} from './pdf-viewer/pdf-viewer.component';
@@ -31,7 +30,7 @@ import {UserProfileComponent} from './user-profile/user-profile.component';
 import {MedicalInfoComponent} from './medical-info/medical-info.component';
 import {BillingInfoComponent} from './billing-info/billing-info.component';
 import {ContactInfoComponent} from './contact-info/contact-info.component';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -52,7 +51,6 @@ import {ContactInfoComponent} from './contact-info/contact-info.component';
     VideosComponent,
     TopNavComponent,
     ChatComponent,
-    ContactPageComponent,
     MyMedicineComponent,
     HelpfulLinksComponent,
     PdfViewerComponent,
@@ -74,7 +72,8 @@ import {ContactInfoComponent} from './contact-info/contact-info.component';
     MatFormFieldModule,
     MatIconModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
