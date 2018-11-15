@@ -6,6 +6,7 @@
   grid-gap: 25px;
 }
 
+
 .each-box {
   border: 1px solid #d0cdcd;
   border-radius: 5px;
@@ -17,9 +18,9 @@
   width: 100%;
   padding: 12px;
   /*background: #e4e4e4;*/
-  background-color: #a93b5b;
+  background-color: rgb(59, 146, 169);
   border-radius: 5px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-weight: 500;
   color: white;
 }
@@ -47,6 +48,7 @@
 label {
   font-weight: 500;
   font-size: 20px;
+  padding-top: 12px;
 }
 
 .user-info {

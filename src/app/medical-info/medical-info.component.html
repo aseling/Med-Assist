@@ -1,451 +1,95 @@
 <div class="wrapper">
-  <!--<mat-tab-group mat-align-tabs="center">-->
-    <!--<mat-tab label="Contact Information">-->
-      <!--<app-contact-info></app-contact-info>-->
-    <!--</mat-tab>-->
-    <!--<mat-tab label="Billing and Insurance"> Content 2</mat-tab>-->
-    <!--<mat-tab label="Medical Information"> Content 3</mat-tab>-->
-  <!--</mat-tab-group>-->
   <div class="each-box form-group">
     <div class="header">
-      <button *ngIf="!profileEdit" type="button" class="edit-btn" (click)="editProfile()">Edit</button>
-      <div>Patient Information</div>
-    </div>
-    <div class="section" *ngIf="!profileEdit">
-      <label>Name: </label>
-      <div class="user-info">{{username}}</div>
-
-      <label>Address: </label>
-      <div class="user-info">123 nowhere lane</div>
-
-      <label>Date of Birth: </label>
-      <div class="user-info">n/a</div>
-
-      <label>Sex: </label>
-      <div class="user-info">Female</div>
-
-      <label>Marital Status: </label>
-      <div class="user-info">Married</div>
-
-      <label>Language: </label>
-      <div class="user-info">English</div>
-
-      <label>Race: </label>
-      <div class="user-info">n/a</div>
-
-      <label>Ethnicity: </label>
-      <div class="user-info">n/a</div>
-    </div>
-
-    <form *ngIf="profileEdit" class="form">
-      <label>Name: </label>
-      <mat-form-field>
-        <input matInput type="text" id="name" placeholder="Name" value={{username}}>//insert variable
-        <!--formControlName="name"-->
-      </mat-form-field>
-
-      <label>Address: </label>
-      <mat-form-field>
-        <input matInput type="text" id="address" placeholder="Address" value="123 nowhere lane">
-        <!--formControlName="address"-->
-      </mat-form-field>
-
-      <label>Date of Birth: </label>
-      <mat-form-field>
-        <input matInput type="text" id="DOB" placeholder="Date of Birth" value="something">
-        <!--formControlName="DOB"-->
-      </mat-form-field>
-
-      <label>Sex: </label>
-      <mat-form-field>
-        <input matInput type="text" id="sex" placeholder="Sex" value="Female">
-        <!--formControlName="sex"-->
-      </mat-form-field>
-
-      <label>Marital Status: </label>
-      <mat-form-field>
-        <input matInput type="text" id="maritalStatus" placeholder="Marital Status" value="Married">
-        <!--formControlName="maritalStatus"-->
-      </mat-form-field>
-
-      <label>Language: </label>
-      <mat-form-field>
-        <input matInput type="text" id="language" placeholder="Language" value="English">
-        <!--formControlName="language"-->
-      </mat-form-field>
-
-      <label>Race: </label>
-      <mat-form-field>
-        <input matInput type="text" id="race" placeholder="Race" value="Something">
-        <!--formControlName="race"-->
-      </mat-form-field>
-
-      <label>Ethnicity: </label>
-      <mat-form-field>
-        <input matInput type="text" id="ethnicity" placeholder="Ethnicity" value="Something">
-        <!--formControlName="ethnicity"-->
-      </mat-form-field>
-    </form>
-    <div class="update" *ngIf="profileEdit">
-      <button class="update-btn" type="button" (click)="updateProfile(); openSnackBar()">Update</button>
-      <button class="cancel-btn" type="button" (click)="cancelProfile()">Cancel</button>
-    </div>
-  </div>
-  <div class="each-box form-group">
-    <div class="header">
-      <button type="button" class="edit-btn">Edit</button>
-      <div>Phone and Email</div>
+      <!--BLOOD AND ALLERGY
+      Data shown as the variables called below.
+      The data is labeled and each field is called by a variable-->
+      <div>Medical Information</div>
     </div>
     <div class="section">
-      <label>Home Phone: </label>
-      <div class="user-info">Jane Doe</div>
+      <label>Blood Type: </label>
+      <div class="user-info">{{bloodType}}</div>
 
-      <label>Mobile Phone: </label>
-      <div class="user-info">123 nowhere lane</div>
-
-      <label>Work Phone: </label>
-      <div class="user-info">something</div>
-
-      <label>Email: </label>
-      <div class="user-info">Female</div>
+      <label>Allergies: </label>
+      <div class="user-info">{{patientAllergies}}</div>
     </div>
   </div>
+
+  <!--VACCINATIONS
+  Data shown as the variables called below.
+  The data is labeled and each field is called by a variable-->
   <div class="each-box form-group">
     <div class="header">
-      <button type="button" class="edit-btn">Edit</button>
-      <div>Emergency Contact</div>
+      <div>Vaccinations:</div>
     </div>
-    <div class="section">
-      <label>Name: </label>
-      <div class="user-info">Jane Doe</div>
+    <div class="section" >
+      <label>Vaccine: </label>
+      <div class="user-info">{{vaccine}}</div>
 
-      <label>Relationship to Patient: </label>
-      <div class="user-info">123 nowhere lane</div>
+      <label>Type: </label>
+      <div class="user-info">{{vaccineType}}</div>
 
-      <label>Home Phone: </label>
-      <div class="user-info">something</div>
-
-      <label>Mobile Phone: </label>
-      <div class="user-info">Female</div>
+      <label>Date Received: </label>
+      <div class="user-info">{{vaccineDate}}</div>
     </div>
   </div>
 </div>
 
 
 
+<!--SOCIAL HISTORY
+    Data shown as the variables called below.
+    The data is labeled and each field is called by a variable-->
+<div class="wrapper">
+  <div class="each-box form-group">
+    <div class="header">
+      <div>Social History:</div>
+    </div>
+    <div class="section">
+      <label>Smoking Status: </label>
+      <div class="user-info">{{smokingStatus}}</div>
 
+      <label>Tobacco Usage: </label>
+      <div class="user-info">{{tobaccoUsage}}</div>
+    </div>
+</div>
 
+<!--PROBLEMS
+    Data shown as the variables called below.
+    The data is labeled and each field is called by a variable-->
 
+  <div class="each-box form-group">
+    <div class="header">
+      <div>Problems:</div>
+    </div>
+    <div class="section">
+      <label>Medical Problems: </label>
+      <div class="user-info">{{medicalProblems}}</div>
 
+      <label>Medical Provider: </label>
+      <div class="user-info">{{medicalProvider}}</div>
 
+      <label>OnSet Date: </label>
+      <div class="user-info">{{onSetDate}}</div>
+    </div>
+  </div>
+</div>
 
+<!--PROCEDURES
+    Data shown as the variables called below.
+    The data is labeled and each field is called by a variable-->
+<div class="wrapper">
+  <div class="each-box form-group">
+    <div class="header">
+      <div>Procedures:</div>
+    </div>
+    <div class="section">
+      <label>Description: </label>
+      <div class="user-info">{{procedureDescription}}</div>
 
+      <label>Date Performed: </label>
+      <div class="user-info">{{datePerformed}}</div>
+    </div>
+  </div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--&lt;!&ndash; Nav tabs &ndash;&gt;-->
-<!--<div>-->
-  <!--<div class="myProfile" id="user-page-header">-->
-  <!--<h3>My Profile</h3>-->
-  <!--</div>-->
-<!--<ul class="nav nav-tabs md-tabs nav-justified">-->
-  <!--<li class="nav-item container">-->
-    <!--<a class="nav-link active" id="tab1" data-toggle="tab" href="#panel1" role="tab" >Contact Information</a>-->
-  <!--</li>-->
-  <!--<li class="nav-item container">-->
-    <!--<a class="nav-link"  id="tab2" data-toggle="tab" href="#panel2" role="tab">Billing and Insurance</a>-->
-  <!--</li>-->
-  <!--<li class="nav-item container">-->
-    <!--<a class="nav-link" id="tab3" data-toggle="tab" href="#panel3" role="tab">Medical Information</a>-->
-  <!--</li>-->
-<!--</ul>-->
-<!--&lt;!&ndash; Tab panels &ndash;&gt;-->
-<!--<div class="tab-content card" id="contactInfo">-->
-  <!--&lt;!&ndash;Panel 1&ndash;&gt;-->
-  <!--<div class="tab-pane fade in show active" id="panel1" role="tabpanel">-->
-    <!--<br>-->
-    <!--&lt;!&ndash;<div>&ndash;&gt;-->
-      <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
-        <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="col-md-11">&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="col-md-1">&ndash;&gt;-->
-            <!--&lt;!&ndash;<td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-    <!--<div class="card border-info mb-3" style="max-width: 20rem;">-->
-      <!--<div class="card-header">Patient Information</div>-->
-      <!--<div class="card-body">-->
-        <!--<div class="container">-->
-        <!--<div class="row">-->
-          <!--<div class="col-lg-10 col-card-row-1">-->
-
-            <!--<form [formGroup]="profileForm">-->
-
-              <!--<label>-->
-                <!--First Name: <input type="text" formControlName="firstName" class="form-textbox">-->
-              <!--</label>-->
-
-              <!--<label>-->
-                <!--Last Name:-->
-                <!--<input type="text" formControlName="lastName">-->
-              <!--</label>-->
-
-            <!--</form>-->
-          <!--<p>-->
-        <!--<p> Name: <p>-->
-        <!--<p> Address: <p>-->
-        <!--<p>  Date of Birth: <p>-->
-        <!--<p>  Sex:       <p>-->
-        <!--<p>  Marital Status: <p>-->
-        <!--<p>  Language:  <p>-->
-        <!--<p>  Race:    <p>-->
-        <!--<p>  Ethnicity: <p>-->
-        <!--</p>-->
-          <!--</div>-->
-          <!--<div class="col-lg-2 col-card-row-1">-->
-            <!--<td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>-->
-          <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-
-<!--<br>-->
-
-    <!--<div class="card border-info mb-3" style="max-width: 20rem;">-->
-      <!--<div class="card-header">Phone and Email Address</div>-->
-      <!--<div class="card-body">-->
-        <!--<p>-->
-        <!--<p> Home Phone: <p>-->
-        <!--<p> Mobile Phone: <p>-->
-        <!--<p>  Work Phone: <p>-->
-        <!--<p> Email Address: <p>-->
-      <!--</p>-->
-      <!--</div>-->
-    <!--</div>-->
-
-
-<!--<br>-->
-    <!--<div class="card border-info mb-3" style="max-width: 20rem;">-->
-      <!--<div class="card-header">Emergency Contact</div>-->
-      <!--<div class="card-body">-->
-        <!--<p>-->
-        <!--<p> Name: <p>-->
-        <!--<p> Relationship to Patient: <p>-->
-        <!--<p> Home Phone: <p>-->
-        <!--<p> Mobile Phone: <p>-->
-      <!--</p>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-  <!--&lt;!&ndash;/.Panel 1&ndash;&gt;-->
-
-
-  <!--&lt;!&ndash;Panel 2&ndash;&gt;-->
-  <!--<div class="tab-pane fade" id="panel2" role="tabpanel">-->
-    <!--<br>-->
-    <!--<div>-->
-      <!--<div>-->
-        <!--<div class="container">-->
-          <!--<div class="row">-->
-            <!--<div class="col-md-11">-->
-              <!--<h5>Billing Information</h5>-->
-            <!--</div>-->
-            <!--<div class="col-md-1">-->
-              <!--<td><button class="btn btn-primary" ng-click="edit(item)">Edit</button></td>-->
-            <!--</div>-->
-          <!--</div>-->
-      <!--<p>Name:</p>-->
-      <!--<p>Address:</p>-->
-      <!--<p>Billing Phone:</p>-->
-      <!--<p>Billing Email:</p>-->
-      <!--</div>-->
-  <!--</div>-->
-<!--<div>-->
-  <!--<br>-->
-  <!--<div class="container">-->
-  <!--<h5>Primary Insurance</h5>-->
-    <!--<p> Type: </p>-->
-    <!--<p> Insurance Info:</p>-->
-    <!--<p> Office Visit Copay: </p>-->
-    <!--<p> Name: </p>-->
-    <!--<p> Relationship to Insured: </p>-->
-    <!--<p> Date of Birth: </p>-->
-    <!--<p> Group/Policy#: </p>-->
-    <!--<p> ID/Cert#: </p>-->
-    <!--<p> Issue: </p>-->
-    <!--<p> Expires: </p>-->
-  <!--</div>-->
-<!--</div>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--&lt;!&ndash;/.Panel 2&ndash;&gt;-->
-
-  <!--&lt;!&ndash;Panel 3&ndash;&gt;-->
-  <!--<div class="tab-pane fade" id="panel3" role="tabpanel">-->
-    <!--<br>-->
-    <!--<div>-->
-      <!--<div>-->
-        <!--<div class="container">-->
-      <!--<h5>Medical Information</h5>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<br>-->
-      <!--<div>-->
-      <!--<div class="container">-->
-        <!--<div class="row">-->
-          <!--<div class="col-md-4">-->
-      <!--<h5>Blood Type:</h5>-->
-          <!--</div>-->
-          <!--<div class="col-md-4">-->
-            <!--O+-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<br>-->
-      <!--<div>-->
-        <!--<div class="container">-->
-        <!--<h5>Allergies</h5>-->
-      <!--<p>No allergies are listed in your records</p>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<br>-->
-      <!--<div>-->
-        <!--<div class="container">-->
-         <!--<h5>Vaccinations</h5>-->
-          <!--<div class="row">-->
-            <!--<div class="col-md-4">-->
-              <!--Vaccine:-->
-            <!--</div>-->
-            <!--<div class="col-md-4">-->
-              <!--Type:-->
-            <!--</div>-->
-            <!--<div class="col-md-4">-->
-              <!--Date Received:-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="row">-->
-            <!--<div class="col-md-4">-->
-               <!--Polio-->
-            <!--</div>-->
-            <!--<div class="col-md-4">-->
-               <!--Opv-->
-            <!--</div>-->
-            <!--<div class="col-md-4">-->
-              <!--12/12/12-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="row">-->
-            <!--<div class="col-md-4">-->
-              <!--Measles, Mumps, Rubella Mmr-->
-            <!--</div>-->
-            <!--<div class="col-md-4">-->
-            <!--</div>-->
-            <!--<div class="col-md-4">-->
-               <!--12/12/12-->
-            <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<br>-->
-      <!--<div>-->
-      <!--<div class="container">-->
-      <!--<h5>Social History</h5>-->
-        <!--<div>-->
-          <!--<div class="row">-->
-            <!--<div class="col-md-4">-->
-                <!--Smoking Status:-->
-              <!--</div>-->
-            <!--<div class="col-md-4">-->
-              <!--Never Smoked-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="row">-->
-            <!--<div class="col-md-4">-->
-              <!--Tobacco Usage:-->
-              <!--</div>-->
-            <!--<div class="col-md-4">-->
-              <!--Status Unknown-->
-            <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-<!--<br>-->
-      <!--<div>-->
-      <!--<div class="container">-->
-      <!--<h5>Problems</h5>-->
-        <!--<div>-->
-        <!--<div class="row">-->
-          <!--<div class="col-md-4">-->
-            <!--Problem:-->
-          <!--</div>-->
-          <!--<div class="col-md-4">-->
-            <!--Provider:-->
-          <!--</div>-->
-          <!--<div class="col-md-4">-->
-            <!--Onset Date:-->
-          <!--</div>-->
-        <!--</div>-->
-
-          <!--<div>-->
-            <!--<div class="row">-->
-              <!--<div class="col-md-4">-->
-                <!--Flu-->
-              <!--</div>-->
-              <!--<div class="col-md-4">-->
-                <!--John Doe-->
-              <!--</div>-->
-              <!--<div class="col-md-4">-->
-                <!--12/30/65-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-        <!--<br>-->
-      <!--<div>-->
-        <!--<div class="container">-->
-      <!--<h5>Procedures</h5>-->
-          <!--<div>-->
-            <!--<div class="row">-->
-              <!--<div class="col-md-4">-->
-                <!--Description:-->
-                <!--</div>-->
-              <!--<div class="col-md-4">-->
-                <!--</div>-->
-              <!--<div class="col-md-4">-->
-                <!--Date Performed:-->
-              <!--</div>-->
-            <!--</div>-->
-            <!--<div class="row">-->
-              <!--<div class="col-md-8">-->
-                <!--No procedures are listed in your records-->
-              <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->

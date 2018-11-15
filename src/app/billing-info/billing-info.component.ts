@@ -7,26 +7,52 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./billing-info.component.css']
 })
 export class BillingInfoComponent implements OnInit {
-  profileEdit = false;
-  username = 'test';
+  billingProfileEdit = false;
+  insuranceProfileEdit = false;
+  billFirstName:string='';
+  billLastName:string='';
+  billingAddress:string='';
+  billingPhone:string='';
+  billingEmail:string='';
+  insuranceType:string='';
+  insuranceInfo:string='';
+  insurancePay:string='';
+  primaryHolderName:string='';
+  insurerRelationship:string='';
+  insuranceDOB:string='';
+  policyNumber:string='';
+  idNumber:string='';
+  issueNumber:string='';
+  insuranceExpiration:string='';
 
   constructor(public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
-  editProfile() {
-    this.profileEdit = true;
+  editBillingProfile() {
+    this.billingProfileEdit = true;
   }
 
-  updateProfile() {
-    this.profileEdit = false;
+  updateBillingProfile() {
+    this.billingProfileEdit = false;
   }
 
-  cancelProfile() {
-    this.profileEdit = false;
+  cancelBillingProfile() {
+    this.billingProfileEdit = false;
   }
 
+ editInsuranceProfile() {
+    this.insuranceProfileEdit = true;
+  }
+
+  updateInsuranceProfile() {
+    this.insuranceProfileEdit = false;
+  }
+
+  cancelInsuranceProfile() {
+    this.insuranceProfileEdit = false;
+  }
 
   openSnackBar() {
     let message = "Update Successful";

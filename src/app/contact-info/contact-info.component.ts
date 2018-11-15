@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {MatSnackBar} from '@angular/material';
+import{Component, OnInit}from '@angular/core';
+import {MatSnackBar}from '@angular/material';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-info',
@@ -9,34 +12,36 @@ import {MatSnackBar} from '@angular/material';
 export class ContactInfoComponent implements OnInit {
   patientProfileEdit = false;
   phoneProfileEdit = false;
-  username = 'test';
-  address = 'string';
-  DOB = 'string';
-  sex = 'string';
-  maritalStatus = 'string';
-  language = 'string';
-  race = 'string';
-  ethnicity = 'string';
-  homePhone = 'number';
-  workPhone = 'number';
-  mobilePhone = 'number';
-  email = 'email';
-  emergencyName = 'string';
-  emergencyRelationship = 'string';
-  emergencyHomePhone = 'string';
-  emergencyMobilePhone = 'string';
-  emergencyWorkPhone = 'string';
+  emergencyProfileEdit = false;
+  patientFirstName: [''],
+  patientLasttName:string= '';
+  address:string= '';
+  DOB:string = '';
+  sex:string = '';
+  maritalStatus:string = '';
+  language:string = '';
+  race:string = '';
+  ethnicity:string = '';
+  homePhone:string = '';
+  workPhone:string = '';
+  mobilePhone:string = '';
+  email:string = '';
+  emergencyFirstName:string='';
+  emergencyLastName:string ='';
+  emergencyRelationship:string = '';
+  emergencyHomePhone:string = '';
+  emergencyMobilePhone:string = '';
+  emergencyWorkPhone:string = '';
 
 
-
-
-  constructor(public snackBar: MatSnackBar) { }
+constructor(public snackBar: MatSnackBar) { }
 
   ngOnInit() {
-  }
+}
 
   editPatientProfile() {
     this.patientProfileEdit = true;
+
   }
 
   updatePatientProfile() {
@@ -48,15 +53,28 @@ export class ContactInfoComponent implements OnInit {
   }
 
  editPhoneProfile() {
-    this.patientProfileEdit = true;
-  }
+    this.phoneProfileEdit = true;
+ }
 
   updatePhoneProfile() {
-    this.patientProfileEdit = false;
+    this.phoneProfileEdit = false;
   }
 
   cancelPhoneProfile() {
-    this.patientProfileEdit = false;
+    this.phoneProfileEdit = false;
+  }
+
+
+ editEmergencyProfile() {
+    this.emergencyProfileEdit = true;
+ }
+
+  updateEmergencyProfile() {
+    this.emergencyProfileEdit = false;
+  }
+
+  cancelEmergencyProfile() {
+    this.emergencyProfileEdit = false;
   }
 
   openSnackBar() {
@@ -66,3 +84,4 @@ export class ContactInfoComponent implements OnInit {
     });
   }
 }
+
