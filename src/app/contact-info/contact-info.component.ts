@@ -13,7 +13,7 @@ export class ContactInfoComponent implements OnInit {
   patientProfileEdit = false;
   phoneProfileEdit = false;
   emergencyProfileEdit = false;
-  patientFirstName: [''],
+  patientFirstName: [''];
   patientLasttName:string= '';
   address:string= '';
   DOB:string = '';
