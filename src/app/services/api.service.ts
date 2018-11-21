@@ -17,6 +17,7 @@ export class ApiService {
   loginMessage = new BehaviorSubject<string>('');
   imagePath = new BehaviorSubject<string>('');
   user = new BehaviorSubject<string>('');
+  email = new BehaviorSubject<string>('');
 
   constructor(private http:HttpClient, private router:Router) {
   }
@@ -60,6 +61,13 @@ export class ApiService {
       });
   }
 
+  getUserEmail(username:string) {
+    return this.http.get(this.herokuPath + 'getUserEmail/' + username)
+      .subscribe((res:any) => {
+        this.setUserEmail(res.message);
+      });
+  }
+
   // updateContactInfo(address:string, DOB:string, sex:string){
   //   return this.http.post<any>(this.herokuPath + 'register', {
   //     name: name,
@@ -94,5 +102,9 @@ export class ApiService {
 
   setImagePath(path:string) {
     this.imagePath.next(path);
+  }
+
+  setUserEmail(email:string) {
+    this.email.next(email);
   }
 }
