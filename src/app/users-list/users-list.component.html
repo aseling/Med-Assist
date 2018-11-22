@@ -1,6 +1,6 @@
 <div class="table-content">
   <div class="page-title">
-    <h1>Manage Users</h1>
+    <h1>Users List</h1>
   </div>
   <div class="info-container">
     <small class="form-text text-muted">
@@ -17,15 +17,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="report-rows" *ngFor="let user of users" scope="row">
+      <tr class="report-rows" *ngFor="let user of users" scope="row" (click)="onClick(user.username)">
         <td class="user-image">
           <img *ngIf="user.image" src="{{user.image}}">
           <img *ngIf="!user.image" src="../../assets/img/default-user.png">
         </td>
         <td class="user-name">
-          <a>
-            {{ user.name }}
-          </a>
+          {{ user.name }}
         </td>
         <td class="user-email">
           {{ user.email }}
@@ -37,3 +35,4 @@
     </tbody>
   </table>
 </div>
+

@@ -1,4 +1,5 @@
-import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
+import { UsersListComponent } from './users-list/users-list.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 import { MyMedicineComponent } from './my-medicine/my-medicine.component';
 import { NgModule } from '@angular/core';
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path: 'helpful-links', component: HelpfulLinksComponent },
   { path: 'reports/view', component: PdfViewerComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'manage-users', component: ManageUsersComponent},
+  { path: 'users-list', component: UsersListComponent},
+  { path: 'users-list/manage-user', component: ManageUserComponent},
 ];
 
 @NgModule({
