@@ -43,6 +43,9 @@ export class LoginComponent implements OnInit {
         this.apiService.authorizeUser();
         this.apiService.setUserName(this.username);
         this.apiService.getUserImage(this.username);
+        this.apiService.getUserEmail(this.username);
+        this.apiService.getUserPermissions(this.username);
+        this.apiService.getAllUsers();
       }
 
       if (this.loginMessage === 'Authentication failed. User not found' || this.loginMessage === 'Invalid password') {

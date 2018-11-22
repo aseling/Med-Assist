@@ -1,3 +1,4 @@
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 import { MyMedicineComponent } from './my-medicine/my-medicine.component';
 import { NgModule } from '@angular/core';
@@ -34,7 +35,8 @@ const routes: Routes = [
   { path: 'my-medicine', component: MyMedicineComponent },
   { path: 'helpful-links', component: HelpfulLinksComponent },
   { path: 'reports/view', component: PdfViewerComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'manage-users', component: ManageUsersComponent},
 ];
 
 @NgModule({

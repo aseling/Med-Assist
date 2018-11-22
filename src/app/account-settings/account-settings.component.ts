@@ -10,6 +10,7 @@ export class AccountSettingsComponent implements OnInit {
   imagePath = './assets/img/default-user.png';
   selectedFile: File = null;
   user:string;
+  email: string;
 
   constructor(private apiService:ApiService) {
   }
@@ -23,9 +24,15 @@ export class AccountSettingsComponent implements OnInit {
       }
     });
 
+    this.apiService.email.subscribe(email => {
+      this.email = email;
+    }
+  );
+
     this.apiService.user.subscribe(user => {
       this.user = user;
     });
+    console.log(this.email);
   }
 
   onFileSelected(event) {

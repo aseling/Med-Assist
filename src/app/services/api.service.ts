@@ -17,6 +17,8 @@ export class ApiService {
   loginMessage = new BehaviorSubject<string>('');
   imagePath = new BehaviorSubject<string>('');
   user = new BehaviorSubject<string>('');
+  email = new BehaviorSubject<string>('');
+  usersList = new BehaviorSubject<any[]>([]);
 
   constructor(private http:HttpClient, private router:Router) {
   }
@@ -42,6 +44,13 @@ export class ApiService {
     });
   }
 
+  getAllUsers() {
+    return this.http.get(this.localTestPath + 'getAllUsers')
+    .subscribe((res:any) => {
+      this.setUsersList(res);
+    });
+  }
+
   addUserImage(image:File, user:string) {
     const formData = new FormData();
     formData.append('image', image);
@@ -58,6 +67,20 @@ export class ApiService {
       .subscribe((res:any) => {
         this.setImagePath(res.message);
       });
+  }
+
+  getUserEmail(username:string) {
+    return this.http.get(this.herokuPath + 'getUserEmail/' + username)
+      .subscribe((res:any) => {
+        this.setUserEmail(res.message);
+      });
+  }
+
+  getUserPermissions(username: string) {
+    return this.http.get(this.localTestPath + 'getUserPermissions/' + username)
+    .subscribe((res:any) => {
+      this.setUserEmail(res.message);
+    });
   }
 
   // updateContactInfo(address:string, DOB:string, sex:string){
@@ -94,5 +117,13 @@ export class ApiService {
 
   setImagePath(path:string) {
     this.imagePath.next(path);
+  }
+
+  setUserEmail(email:string) {
+    this.email.next(email);
+  }
+
+  setUsersList(list: any[]) {
+    this.usersList.next(list);
   }
 }
