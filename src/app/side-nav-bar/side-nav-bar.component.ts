@@ -12,7 +12,7 @@ export class SideNavBarComponent implements OnInit {
   authorized:boolean = false;
   user:string;
   imagePath = './assets/img/default-user.png';
-  isAdmin = true;
+  isAdmin = false;
 
   constructor(private apiService:ApiService) {
   }
