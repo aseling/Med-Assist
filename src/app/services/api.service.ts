@@ -19,6 +19,7 @@ export class ApiService {
   user = new BehaviorSubject<string>('');
   email = new BehaviorSubject<string>('');
   usersList = new BehaviorSubject<any[]>([]);
+  permissions = new BehaviorSubject<boolean>(false);
 
   constructor(private http:HttpClient, private router:Router) {
   }
@@ -79,7 +80,7 @@ export class ApiService {
   getUserPermissions(username: string) {
     return this.http.get(this.localTestPath + 'getUserPermissions/' + username)
     .subscribe((res:any) => {
-      this.setUserEmail(res.message);
+      this.setUserPermissions(res.message);
     });
   }
 
@@ -125,5 +126,9 @@ export class ApiService {
 
   setUsersList(list: any[]) {
     this.usersList.next(list);
+  }
+
+  setUserPermissions(isAdmin: boolean) {
+    this.permissions.next(isAdmin);
   }
 }
