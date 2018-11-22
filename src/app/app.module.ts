@@ -31,6 +31,7 @@ import {MedicalInfoComponent} from './medical-info/medical-info.component';
 import {BillingInfoComponent} from './billing-info/billing-info.component';
 import {ContactInfoComponent} from './contact-info/contact-info.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 
 
@@ -58,7 +59,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     LoadingScreenComponent,
     MedicalInfoComponent,
     BillingInfoComponent,
-    ContactInfoComponent
+    ContactInfoComponent,
+    ManageUsersComponent
 
   ],
   imports: [

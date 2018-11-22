@@ -18,6 +18,7 @@ export class ApiService {
   imagePath = new BehaviorSubject<string>('');
   user = new BehaviorSubject<string>('');
   email = new BehaviorSubject<string>('');
+  usersList = new BehaviorSubject<any[]>([]);
 
   constructor(private http:HttpClient, private router:Router) {
   }
@@ -40,6 +41,13 @@ export class ApiService {
       password2: password2
     }).subscribe((res:any) => {
       this.setRegisterMessage(res.message);
+    });
+  }
+
+  getAllUsers() {
+    return this.http.get(this.localTestPath + 'getAllUsers')
+    .subscribe((res:any) => {
+      this.setUsersList(res);
     });
   }
 
@@ -66,6 +74,13 @@ export class ApiService {
       .subscribe((res:any) => {
         this.setUserEmail(res.message);
       });
+  }
+
+  getUserPermissions(username: string) {
+    return this.http.get(this.localTestPath + 'getUserPermissions/' + username)
+    .subscribe((res:any) => {
+      this.setUserEmail(res.message);
+    });
   }
 
   // updateContactInfo(address:string, DOB:string, sex:string){
@@ -106,5 +121,9 @@ export class ApiService {
 
   setUserEmail(email:string) {
     this.email.next(email);
+  }
+
+  setUsersList(list: any[]) {
+    this.usersList.next(list);
   }
 }

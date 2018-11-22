@@ -1,4 +1,4 @@
-<div *ngIf="authorized" class="sidenav">
+<div *ngIf="authorized && !isAdmin" class="sidenav">
   <div class="user-section-container">
     <div class="user-img-text" routerLink="profile"><img src="{{imagePath}}"> Welcome {{user}}</div>
   </div>
@@ -10,4 +10,15 @@
   <a routerLink="reports">Medical Reports</a>
   <a routerLink="helpful-links">Helpful Links</a>
 </div>
+
+<div *ngIf="authorized && isAdmin" class="sidenav">
+  <div class="user-section-container">
+    <div class="user-img-text" routerLink="profile"><img src="{{imagePath}}"> Welcome {{user}}</div>
+  </div>
+  <a routerLink="manage-users">Manage Users</a>
+  <a routerLink="home">Upload Forms</a>
+  <a routerLink="home">Edit Website Info</a>
+  <a routerLink="home">Chat</a>
+</div>
+
 
