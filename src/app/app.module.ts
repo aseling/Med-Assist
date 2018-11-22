@@ -31,7 +31,8 @@ import {MedicalInfoComponent} from './medical-info/medical-info.component';
 import {BillingInfoComponent} from './billing-info/billing-info.component';
 import {ContactInfoComponent} from './contact-info/contact-info.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 
 
@@ -60,7 +61,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
     MedicalInfoComponent,
     BillingInfoComponent,
     ContactInfoComponent,
-    ManageUsersComponent
+    UsersListComponent,
+    ManageUserComponent
 
   ],
   imports: [
