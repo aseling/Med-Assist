@@ -33,6 +33,10 @@ import {ContactInfoComponent} from './contact-info/contact-info.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UsersListComponent } from './users-list/users-list.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
+import { AlphabetizePipe } from './Pipes/alphabetize.pipe';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FormUploadComponent } from './form-upload/form-upload.component';
+import { ReportUploadComponent } from './report-upload/report-upload.component';
 
 
 
@@ -62,7 +66,11 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
     BillingInfoComponent,
     ContactInfoComponent,
     UsersListComponent,
-    ManageUserComponent
+    ManageUserComponent,
+    AlphabetizePipe,
+    FileUploadComponent,
+    FormUploadComponent,
+    ReportUploadComponent
 
   ],
   imports: [

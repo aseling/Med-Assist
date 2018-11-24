@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manage-user',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageUserComponent implements OnInit {
 
-  constructor() { }
+  _id: string;
+  name: string;
+
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this._id = this.activatedRoute.snapshot.params['_id'];
+    this.name = this.activatedRoute.snapshot.params['name'];
   }
-
 }

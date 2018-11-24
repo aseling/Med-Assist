@@ -1,3 +1,4 @@
+import { FormUploadComponent } from './form-upload/form-upload.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
@@ -18,6 +19,7 @@ import {CalendarComponent} from "./calendar/calendar.component";
 import {ChatComponent} from "./chat/chat.component";
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 import {RegisterComponent} from "./register/register.component";
+import { ReportUploadComponent } from './report-upload/report-upload.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -37,8 +39,10 @@ const routes: Routes = [
   { path: 'helpful-links', component: HelpfulLinksComponent },
   { path: 'reports/view', component: PdfViewerComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'users-list', component: UsersListComponent},
-  { path: 'users-list/manage-user', component: ManageUserComponent},
+  { path: 'users-list', component: UsersListComponent },
+  { path: 'users-list/:_id/:name', component: ManageUserComponent },
+  { path: 'users-list/:id/:name/upload-reports', component: ReportUploadComponent },
+  { path: 'forms-upload', component: FormUploadComponent }
 ];
 
 @NgModule({

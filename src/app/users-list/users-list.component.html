@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="report-rows" *ngFor="let user of users" scope="row" (click)="onClick(user.username)">
+      <tr class="report-rows" *ngFor="let user of users | alphabetize:'name'" scope="row" (click)="onClick(user._id, user.name)">
         <td class="user-image">
           <img *ngIf="user.image" src="{{user.image}}">
           <img *ngIf="!user.image" src="../../assets/img/default-user.png">

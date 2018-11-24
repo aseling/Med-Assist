@@ -46,7 +46,7 @@ export class ApiService {
   }
 
   getAllUsers() {
-    return this.http.get(this.localTestPath + 'getAllUsers')
+    return this.http.get(this.herokuPath + 'getAllUsers')
     .subscribe((res:any) => {
       this.setUsersList(res);
     });
@@ -78,9 +78,13 @@ export class ApiService {
   }
 
   getUserPermissions(username: string) {
-    return this.http.get(this.localTestPath + 'getUserPermissions/' + username)
+    return this.http.get(this.herokuPath + 'getUserPermissions/' + username)
     .subscribe((res:any) => {
-      this.setUserPermissions(res.message);
+      if(res.message === "no permission set") {
+        this.setUserPermissions(false);
+      } else {
+        this.setUserPermissions(res.message);
+      }
     });
   }
 
