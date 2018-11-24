@@ -77,14 +77,16 @@ export class ApiService {
       });
   }
 
-  getUserPermissions(username: string) {
-    return this.http.get(this.herokuPath + 'getUserPermissions/' + username)
-    .subscribe((res:any) => {
-      if(res.message === "no permission set") {
-        this.setUserPermissions(false);
-      } else {
-        this.setUserPermissions(res.message);
-      }
+  getUserPermissions(username: string): Promise<{}> {
+    return new Promise<{}>(() => {
+      return this.http.get(this.herokuPath + 'getUserPermissions/' + username)
+      .subscribe((res:any) => {
+        if(res.message === "no permission set") {
+          this.setUserPermissions(false);
+        } else {
+          this.setUserPermissions(res.message);
+        }
+      });
     });
   }
 
