@@ -23,7 +23,7 @@ import {PdfViewerComponent} from './pdf-viewer/pdf-viewer.component';
 import {RegisterComponent} from './register/register.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatInputModule, MatFormFieldModule, MatIconModule, MatTabsModule} from '@angular/material';
+import {MatInputModule, MatFormFieldModule, MatIconModule, MatTabsModule, MatNativeDateModule} from '@angular/material';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
@@ -37,7 +37,11 @@ import { AlphabetizePipe } from './Pipes/alphabetize.pipe';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { FormUploadComponent } from './form-upload/form-upload.component';
 import { ReportUploadComponent } from './report-upload/report-upload.component';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -86,8 +90,14 @@ import { ReportUploadComponent } from './report-upload/report-upload.component';
     MatTabsModule,
     MatSnackBarModule,
     NgbModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatStepperModule,
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 

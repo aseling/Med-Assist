@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
         this.apiService.setUserName(this.username);
         this.apiService.getUserImage(this.username);
         this.apiService.getUserEmail(this.username);
-        this.apiService.getUserPermissions(this.username);
         this.apiService.getAllUsers();
       }
 
@@ -95,6 +94,7 @@ export class LoginComponent implements OnInit {
 
     this.loading = true;
     this.apiService.login(this.username, this.password);
+    this.apiService.getUserPermissions(this.username);
   };
 
   openRegisterView() {

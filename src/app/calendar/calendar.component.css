@@ -54,7 +54,7 @@
 
 .no-appts {
   font-size: 14px;
-  padding-left:10px;
+  padding-left: 10px;
 }
 
 /*--------add appointments button-------*/
@@ -160,6 +160,143 @@
   color: white;
 }
 
+.modal-content {
+  text-align: center;
+  min-height: 385px;
+}
+
+h5 {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 5px;
+  background: #f7f7f7;
+  color: #292929;
+}
+
+.doc-container, .date-container, .time-container, .visit-reason {
+  margin-bottom: 20px;
+  height: 130px;
+}
+
+.doc-selection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.doc-choice {
+  text-align: center;
+  display: grid;
+  color: #3a3a3a;
+  grid-template-columns: 1fr;
+  transition: all 0.3s ease;
+}
+
+.doc-choice:hover {
+  /*-webkit-transform: scale(1.2);*/
+  /*-ms-transform: scale(1.2);*/
+  /*transform: scale(1.2);*/
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  color: black;
+  box-shadow: 0 15px 20px 2px #cccccc;
+  border-radius: 5px;
+  margin: 0 25px 0 25px;
+}
+
+.selected {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  color: #292929;
+  box-shadow: 0 15px 20px 2px #cccccc;
+  border-radius: 5px;
+  margin: 0 25px 0 25px;
+}
+
+.not-selected {
+  -webkit-transform: scale(.7);
+  -ms-transform: scale(.7);
+  transform: scale(.7);
+  color: #292929;
+}
+
+.doc-selected {
+  background-color: transparent;
+  font-size: 20px;
+  border: none;
+}
+
+.doc-image {
+  width: 100%;
+  height: 100px;
+  background: no-repeat 50% 50%;
+  background-size: cover;
+  border-radius: 5%;
+  object-fit: scale-down;
+}
+
+.date-choice {
+  width: 100%;
+  text-align: center;
+}
+
+.visit-reason {
+  width: 100%;
+}
+
+.submit-cancel {
+  float: right;
+}
+
+.next {
+  float: right;
+}
+.back {
+  float: left;
+}
+
+.submit-btn {
+  background-color: white;
+  color: #292929;
+  border: 1px solid #3B92A8;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  transition: all 0.4s ease;
+  outline: none;
+}
+
+.submit-btn:hover {
+  background-color: #3B92A8;
+  color: white;
+}
+
+.cancel-btn {
+  border: none;
+  background-color: transparent;
+  transition: all 0.4s ease;
+  outline: none;
+}
+
+.cancel-btn:hover {
+  color: red;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 90%;
+}
+
+.mat-button {
+  margin: 10px;
+}
+
 @media only screen and (max-width: 1200px) {
   .caret-btns {
     font-size: 22px;
@@ -184,5 +321,12 @@
 
   .day-of-week {
     font-size: 55px;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 700px;
+    margin: 1.75rem auto;
   }
 }

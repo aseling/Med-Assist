@@ -12,7 +12,7 @@ import { Component, OnInit,  } from '@angular/core';
 export class UsersListComponent implements OnInit {
   users: User[];
 
-  constructor(private apiService:ApiService, private router: Router, ) { }
+  constructor(private apiService:ApiService, private router: Router) { }
 
   ngOnInit() {
     this.apiService.usersList.subscribe(list => {

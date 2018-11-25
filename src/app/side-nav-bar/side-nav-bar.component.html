@@ -1,6 +1,8 @@
 <div *ngIf="authorized && !isAdmin" class="sidenav">
   <div class="user-section-container">
-    <div class="user-img-text" routerLink="profile"><img src="{{imagePath}}"> Welcome {{user}}</div>
+    <div class="user-img-text" routerLink="profile">
+      <img src="{{imagePath}}"> Welcome {{user}}
+    </div>
   </div>
   <a routerLink="home">Home</a>
   <a routerLink="prescription-refill">My Medicine</a>
