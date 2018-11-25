@@ -38,19 +38,15 @@ export class CalendarComponent implements OnInit {
   monthName:string;
 
   selectedDoctorName = "";
-  selectedDate: Date;
+  selectedDate = "";
   selectedTime = "";
   visitDescription = "";
 
   step = 0;
 
+  // isLinear = false;
 
-  isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
-
-  times: Times[] = [
+  times = [
     '8:00 AM',
     '8:30 AM',
     '9:00 AM',
