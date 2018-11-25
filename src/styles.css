@@ -1,4 +1,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
 /* You can add global styles to this file, and also import other style files */
 body {
   background-color: #e4e4e4;
@@ -42,4 +44,30 @@ body {
     position: relative;
     font-size: 11px !important;
   }
+}
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 4000 !important;
+}
+
+#date-picker {
+  display: inline-block;
+  position: relative;
+  /*text-align: center;*/
+  width: 90%;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: auto;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-horizontal-content-container {
+  padding: 25px 0 0 0 !important;
 }

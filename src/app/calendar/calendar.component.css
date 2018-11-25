@@ -54,7 +54,7 @@
 
 .no-appts {
   font-size: 14px;
-  padding-left:10px;
+  padding-left: 10px;
 }
 
 /*--------add appointments button-------*/
@@ -158,6 +158,130 @@
 .view-past-btn:hover {
   background-color: #3B92A8;
   color: white;
+}
+
+.modal-content {
+  text-align: center;
+  min-height: 385px;
+}
+
+h5 {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 5px;
+  background: #f7f7f7;
+  color: #292929;
+}
+
+.doc-container {
+  margin-bottom: 20px;
+}
+
+.doc-selection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.doc-choice {
+  text-align: center;
+  display: grid;
+  color: #3a3a3a;
+  grid-template-columns: 1fr;
+  transition: all 0.4s ease;
+}
+
+.doc-choice:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  color: #292929;
+}
+
+.selected {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  color: #292929;
+}
+
+.doc-selected {
+  background-color: transparent;
+  font-size: 20px;
+  border: none;
+}
+
+.doc-image {
+  width: 100%;
+  height: 100px;
+  background: no-repeat 50% 50%;
+  background-size: cover;
+  border-radius: 5%;
+  object-fit: scale-down;
+}
+
+.date-choice {
+  width: 100%;
+  text-align: center;
+}
+
+.visit-description {
+  width: 100%;
+}
+
+.description {
+  width: 90%;
+}
+
+.submit-cancel {
+  float: right;
+}
+
+.next {
+  float: right;
+}
+.back {
+  float: left;
+}
+
+.submit-btn {
+  background-color: white;
+  color: #292929;
+  border: 1px solid #3B92A8;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  transition: all 0.4s ease;
+  outline: none;
+}
+
+.submit-btn:hover {
+  background-color: #3B92A8;
+  color: white;
+}
+
+.cancel-btn {
+  border: none;
+  background-color: transparent;
+  transition: all 0.4s ease;
+  outline: none;
+}
+
+.cancel-btn:hover {
+  color: red;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 90%;
+}
+
+.mat-button {
+  margin: 10px;
 }
 
 @media only screen and (max-width: 1200px) {
