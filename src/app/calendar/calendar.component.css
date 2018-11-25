@@ -173,8 +173,9 @@ h5 {
   color: #292929;
 }
 
-.doc-container {
+.doc-container, .date-container, .time-container, .visit-reason {
   margin-bottom: 20px;
+  height: 130px;
 }
 
 .doc-selection {
@@ -187,20 +188,36 @@ h5 {
   display: grid;
   color: #3a3a3a;
   grid-template-columns: 1fr;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 }
 
 .doc-choice:hover {
+  /*-webkit-transform: scale(1.2);*/
+  /*-ms-transform: scale(1.2);*/
+  /*transform: scale(1.2);*/
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
-  color: #292929;
+  color: black;
+  box-shadow: 0 15px 20px 2px #cccccc;
+  border-radius: 5px;
+  margin: 0 25px 0 25px;
 }
 
 .selected {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
+  color: #292929;
+  box-shadow: 0 15px 20px 2px #cccccc;
+  border-radius: 5px;
+  margin: 0 25px 0 25px;
+}
+
+.not-selected {
+  -webkit-transform: scale(.7);
+  -ms-transform: scale(.7);
+  transform: scale(.7);
   color: #292929;
 }
 
@@ -224,12 +241,8 @@ h5 {
   text-align: center;
 }
 
-.visit-description {
+.visit-reason {
   width: 100%;
-}
-
-.description {
-  width: 90%;
 }
 
 .submit-cancel {
@@ -308,5 +321,12 @@ h5 {
 
   .day-of-week {
     font-size: 55px;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 700px;
+    margin: 1.75rem auto;
   }
 }

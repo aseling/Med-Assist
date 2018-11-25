@@ -74,13 +74,13 @@
         <div class="modal-body">
           <mat-horizontal-stepper [linear]="isLinear" #stepper>
 
-            <mat-step>
+            <mat-step [completed]="false">
               <ng-template matStepLabel>Doctor</ng-template>
               <h5>Choose a doctor</h5>
               <div class="doc-container" *ngIf="step === 0">
                 <div class="doc-selection ">
                   <div class="doc-choice" *ngFor="let i of doctors" (click)="selectedDoctor(i)"
-                       [ngClass]="{'selected ': i.name == selectedDoctorName}">
+                       [ngClass]="{'selected ': i.name == selectedDoctorName,'not-selected ': i.name != selectedDoctorName }">
                     <img class="doc-image" src="{{i.image}}">
                     <div class="doc-selected">{{i.name}}</div>
                   </div>
@@ -91,10 +91,10 @@
               </div>
             </mat-step>
 
-            <mat-step>
+            <mat-step [completed]="false">
               <ng-template matStepLabel>Date</ng-template>
               <h5>Pick a date</h5>
-              <div>
+              <div class="date-container">
                 <div class="date-choice">
                   <mat-form-field class="full-width" id="date-picker">
                     <input matInput
@@ -109,15 +109,18 @@
                     <mat-datepicker #picker></mat-datepicker>
                   </mat-form-field>
                 </div>
-                <button class="back" mat-button matStepperPrevious color="warn">Back</button>
+              </div>
+              <div>
+                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back</button>
                 <button class="next" mat-button matStepperNext color="primary">Next <i class="fas fa-arrow-right"></i></button>
               </div>
             </mat-step>
 
-            <mat-step>
+            <mat-step [completed]="false">
               <ng-template matStepLabel>Time</ng-template>
-              <div>
-                <h5>Select a time</h5>
+
+              <h5>Select a time</h5>
+              <div class="time-container">
                 <mat-form-field class="full-width">
                   <mat-select placeholder="Select Time" [(ngModel)]="selectedTime">
                     <mat-option *ngFor="let i of times" [value]="i">
@@ -125,23 +128,23 @@
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
-                <div>
-                  <button class="back" mat-button matStepperPrevious color="warn">Back</button>
-                  <button class="next" mat-button matStepperNext color="primary">Next <i class="fas fa-arrow-right"></i></button>
-                </div>
+              </div>
+              <div>
+                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back</button>
+                <button class="next" mat-button matStepperNext color="primary">Next <i class="fas fa-arrow-right"></i></button>
               </div>
             </mat-step>
 
-            <mat-step>
+            <mat-step [completed]="false">
               <ng-template matStepLabel>Reason</ng-template>
               <h5>Tell us the reason for your visit</h5>
-              <div class="visit-description">
+              <div class="visit-reason">
                 <mat-form-field class="full-width">
                   <textarea matInput placeholder="Reason for visit" [(ngModel)]="visitDescription"></textarea>
                 </mat-form-field>
               </div>
               <div>
-                <button class="back" mat-button matStepperPrevious color="warn">Back</button>
+                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back</button>
                 <div class="submit-cancel">
                   <button type="button" class="submit-btn" (click)="submitNewAppt()">Add New Appointment</button>
                   <button type="button" class="cancel-btn" data-dismiss="modal" (click)="cancel(); stepper.reset()">
