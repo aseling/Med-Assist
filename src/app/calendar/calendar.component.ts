@@ -45,6 +45,9 @@ export class CalendarComponent implements OnInit {
   allEvents = [];
   numOfDaysInMonth = [];
 
+  tooltipInfo = [];
+  tooltipString = "";
+
   user:string;
   minDate = new Date();
   todayFormatted = this.minDate.toLocaleDateString("en-US");
@@ -62,6 +65,7 @@ export class CalendarComponent implements OnInit {
   visitDescription = "";
   step = 0;
   isLinear = false;
+  date;
 
   constructor(private apiService:ApiService, public snackBar:MatSnackBar) {
   }
@@ -82,13 +86,14 @@ export class CalendarComponent implements OnInit {
       this.pastAppointments = [];
       this.allEvents = [];
 
-        events.sort(function compare(a, b) {
+      events.sort(function compare(a, b) {
         let dateA = +new Date(a.date);
         let dateB = +new Date(b.date);
         return dateA - dateB;
       });
 
       this.allEvents = events;
+
       // SORT EVENTS BY DATE
       events.map((event) => {
         let today = +new Date(this.todayFormatted);
@@ -220,7 +225,7 @@ export class CalendarComponent implements OnInit {
       let eventHappening = false;
       let checkDate = new Date(this.monthNum + 1 + "/" + (i + 1) + "/" + this.currentYear).toLocaleDateString("en-us").toString();
       this.allEvents.filter(event => {
-        if(event.date == checkDate) {
+        if (event.date == checkDate) {
           eventHappening = true;
         }
       });
@@ -319,7 +324,26 @@ export class CalendarComponent implements OnInit {
   }
 
   getDateOnHover(index) {
-    let date = new Date(this.monthNum + 1 + "/" + index + "/" + this.currentYear).toLocaleDateString("en-us");
-    // console.log(date);
+    this.tooltipInfo = [];
+    this.tooltipString = "";
+    this.date = new Date(this.monthNum + 1 + "/" + index + "/" + this.currentYear).toLocaleDateString("en-us");
+
+    this.allEvents.filter(event => {
+      if (event.date == this.date) {
+        this.tooltipInfo.push(event);
+      }
+    });
+
+    this.tooltipInfo.sort(function compare(a, b) {
+      // let dateA = +new Date(a.time);
+      // let dateB = +new Date(b.time);
+      return new Date('1970/01/01 ' + a.time) - new Date('1970/01/01 ' + b.time);
+    });
+
+    this.tooltipInfo.map(info => {
+      // console.log(info);
+      this.tooltipString = this.tooltipString.concat("        ");
+      this.tooltipString = this.tooltipString.concat(info.date + " at " + info.time + "   ");
+    });
   }
 }

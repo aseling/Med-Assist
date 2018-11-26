@@ -47,10 +47,16 @@
         {{i}}
       </div>
 
+      <!--mat-raised-button-->
+      <!--matTooltip="{{tooltipString}}"-->
+      <!--[matTooltipPosition]="'above'"-->
+      <!--aria-label="Button that displays a tooltip when focused or hovered over"-->
       <div class="day-of-week-number"
-           *ngFor="let i of numOfDaysInMonth; let i = index"
+           *ngFor="let i of numOfDaysInMonth;"
            [ngClass]="{'number ': i.day == currentDate, 'hide-border': i == ''}"
-           (mouseenter)="getDateOnHover(i)">
+           (mouseenter)="getDateOnHover(i.day)"
+           data-toggle="modal"
+           data-target="#viewDayEvents">
         <div [ngClass]="{'box-date ': i.day == currentDate, 'hide-border': i == ''}">
           {{i.day}}
         </div>
@@ -60,6 +66,8 @@
         </div>
       </div>
     </div>
+
+
 
     <div class="view-past-container">
       <button class="view-past-btn" type="button" data-toggle="modal" data-target="#pastAppointments">View past
@@ -184,14 +192,14 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <label>Your Past Appointments:</label>
+          <label class="label">Your Past Appointments:</label>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <div class="past-events">
             <div *ngIf="pastAppointments.length <= 0" class="no-appts">You have no past appointments in your calendar
             </div>
-            <div class="appointments" *ngFor="let i of pastAppointments">
+            <div class="past-appointments" *ngFor="let i of pastAppointments">
               <strong>Date:</strong> {{i.date}} <br> <strong>With:</strong> {{i.doctor}}
             </div>
           </div>
@@ -201,3 +209,30 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal-container">
+  <div class="modal fade" id="viewDayEvents" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content view-modal-content">
+        <div class="modal-header">
+          <label class="label">Appointments for <strong>{{date}}</strong></label>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="view-events">
+            <div class="view-appointments" *ngFor="let i of tooltipInfo">
+              <div>
+                <strong><i class="far fa-clock"></i> </strong> {{i.time}}
+              </div>
+              <div>
+                <strong><i class="fas fa-user-md"></i></strong> {{i.doctor}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

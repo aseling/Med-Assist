@@ -42,6 +42,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatExpansionModule,
     MatButtonModule,
     MatStepperModule,
+    MatTooltipModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
