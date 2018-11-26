@@ -42,6 +42,7 @@ export class CalendarComponent implements OnInit {
   todayAppointments = [];
   futureAppointments = [];
   pastAppointments = [];
+  allEvents = [];
   numOfDaysInMonth = [];
 
   user:string;
@@ -68,7 +69,7 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
     this.getDayName();
     this.getMonthName();
-    this.numOfDaysArray();
+    // this.numOfDaysArray();
 
     this.apiService.user.subscribe(user => {
       this.user = user;
@@ -79,13 +80,15 @@ export class CalendarComponent implements OnInit {
       this.todayAppointments = [];
       this.futureAppointments = [];
       this.pastAppointments = [];
+      this.allEvents = [];
 
-      events.sort(function compare(a, b) {
+        events.sort(function compare(a, b) {
         let dateA = +new Date(a.date);
         let dateB = +new Date(b.date);
         return dateA - dateB;
       });
 
+      this.allEvents = events;
       // SORT EVENTS BY DATE
       events.map((event) => {
         let today = +new Date(this.todayFormatted);
@@ -99,6 +102,7 @@ export class CalendarComponent implements OnInit {
           this.pastAppointments.push(event);
         }
       });
+      this.numOfDaysArray();
     });
 
     this.apiService.addedEventMessage.subscribe(message => {
@@ -116,7 +120,7 @@ export class CalendarComponent implements OnInit {
       this.currentYear--;
     }
     this.numOfDaysArray();
-    console.log(new Date(this.currentYear, this.monthNum + 1, 0), this.firstOfEachMonthNum);
+    // console.log(new Date(this.currentYear, this.monthNum + 1, 0), this.firstOfEachMonthNum);
     this.getMonthName();
   }
 
@@ -127,7 +131,7 @@ export class CalendarComponent implements OnInit {
       this.currentYear++;
     }
     this.numOfDaysArray();
-    console.log(new Date(this.currentYear, this.monthNum + 1, 0), this.firstOfEachMonthNum);
+    // console.log(new Date(this.currentYear, this.monthNum + 1, 0), this.firstOfEachMonthNum);
     this.getMonthName();
   }
 
@@ -210,9 +214,28 @@ export class CalendarComponent implements OnInit {
     this.firstOfEachMonthNum = new Date(this.currentYear, this.monthNum, 1).getDay().toString();
     this.adjustCalendarFirstPosition();
 
+
     for (let i = 0; i < (new Date(this.currentYear, this.monthNum + 1, 0).getDate()); i++) {
-      this.numOfDaysInMonth.push((i + 1).toString());
+
+      let eventHappening = false;
+      let checkDate = new Date(this.monthNum + 1 + "/" + (i + 1) + "/" + this.currentYear).toLocaleDateString("en-us").toString();
+      this.allEvents.filter(event => {
+        if(event.date == checkDate) {
+          eventHappening = true;
+        }
+      });
+
+      let info = {
+        day: (i + 1).toString(),
+        date: new Date(this.monthNum + 1 + "/" + (i + 1) + "/" + this.currentYear).toLocaleDateString("en-us").toString(),
+        hasEvent: eventHappening
+      };
+
+      // this.numOfDaysInMonth.push((i + 1).toString());
+      this.numOfDaysInMonth.push(info);
     }
+
+    // console.log(this.numOfDaysInMonth);
   }
 
   adjustCalendarFirstPosition() {
@@ -293,5 +316,10 @@ export class CalendarComponent implements OnInit {
 
   getAllUserEvents() {
     this.apiService.getUserEvents(this.user);
+  }
+
+  getDateOnHover(index) {
+    let date = new Date(this.monthNum + 1 + "/" + index + "/" + this.currentYear).toLocaleDateString("en-us");
+    // console.log(date);
   }
 }

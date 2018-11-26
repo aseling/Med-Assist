@@ -25,11 +25,11 @@
 }
 
 .date {
-  font-size: 115px;
+  font-size: 85px;
 }
 
 .day-of-week {
-  font-size: 85px;
+  font-size: 65px;
 }
 
 .year {
@@ -152,7 +152,7 @@ label {
 .caret-btns {
   border: none;
   background-color: transparent;
-  font-size: 50px;
+  font-size: 30px;
   margin: 12px;
   outline: none;
   transition: all 0.5s ease;
@@ -163,7 +163,7 @@ label {
 }
 
 .month {
-  font-size: 60px;
+  font-size: 50px;
   width: 300px;
 }
 
@@ -181,6 +181,42 @@ label {
 .day-of-week-box {
   font-size: 20px;
   text-transform: uppercase;
+}
+
+.day-of-week-number {
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 2px;
+}
+
+.day-of-week-number:hover {
+  border: 1px solid #b5b5b5;
+  border-radius: 5px;
+}
+
+.number {
+  border: 1px solid #3B92A8;
+  border-radius: 5px;
+  box-shadow: 1px 4px 11px -2px #424141;
+}
+
+.box-date {
+  font-weight: 900;
+}
+
+.fa-calendar {
+  color: #a83b5c;
+}
+
+.hide-border {
+  border: none;
+  visibility: hidden;
+}
+
+.hide-border:hover {
+  border: none;
+  visibility: hidden;
 }
 
 /*--------past appointments button-------*/
@@ -405,11 +441,11 @@ h5 {
   }
 
   .date {
-    font-size: 80px;
+    font-size: 60px;
   }
 
   .day-of-week {
-    font-size: 55px;
+    font-size: 45px;
   }
 
   .upcoming-events, .current-events, .past-events {

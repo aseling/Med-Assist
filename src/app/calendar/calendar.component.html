@@ -47,8 +47,17 @@
         {{i}}
       </div>
 
-      <div class="day-of-week-box" *ngFor="let i of numOfDaysInMonth; let i = index">
-        {{i}}
+      <div class="day-of-week-number"
+           *ngFor="let i of numOfDaysInMonth; let i = index"
+           [ngClass]="{'number ': i.day == currentDate, 'hide-border': i == ''}"
+           (mouseenter)="getDateOnHover(i)">
+        <div [ngClass]="{'box-date ': i.day == currentDate, 'hide-border': i == ''}">
+          {{i.day}}
+        </div>
+
+        <div *ngIf="i.hasEvent" class="event-indicator">
+          <i class="far fa-calendar"></i>
+        </div>
       </div>
     </div>
 
