@@ -40,16 +40,33 @@
 .events-container {
   color: white;
   padding: 25px;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 
-.current-events, .upcoming-events {
+label {
+  font-size: 30px;
+}
+
+.upcoming-events, .current-events, .past-events {
   margin: 15px;
   font-size: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5px;
+  row-gap: 5px;
 }
 
 .appointments {
   font-size: 15px;
+  text-align: left;
+  width: 160px;
+  height: 85px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 15px;
+  color: #383737;
+  background-color: #fffefe;
+  box-shadow: 0px 2px 13px #040404;
 }
 
 .no-appts {
@@ -153,6 +170,7 @@
   width: 315px;
   height: 50px;
   transition: all 0.4s ease-out;
+  outline: none;
 }
 
 .view-past-btn:hover {
@@ -252,6 +270,7 @@ h5 {
 .next {
   float: right;
 }
+
 .back {
   float: left;
 }
@@ -321,6 +340,14 @@ h5 {
 
   .day-of-week {
     font-size: 55px;
+  }
+
+  .upcoming-events, .current-events, .past-events {
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+    row-gap: 5px;
   }
 }
 

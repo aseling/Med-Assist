@@ -20,6 +20,8 @@ export class ApiService {
   email = new BehaviorSubject<string>('');
   usersList = new BehaviorSubject<any[]>([]);
   permissions = new BehaviorSubject<boolean>(false);
+  addedEventMessage = new BehaviorSubject<string>('');
+  usersEventsList = new BehaviorSubject<any[]>([]);
 
   constructor(private http:HttpClient, private router:Router) {
   }
@@ -45,11 +47,30 @@ export class ApiService {
     });
   }
 
+  addNewEvent(doctor:string, date:string, time:string, task:string, user:string) {
+    return this.http.post<any>(this.herokuPath + 'addUserEvent/' + user, {
+        doctor: doctor,
+        date: date,
+        time: time,
+        task: task
+      })
+      .subscribe((res:any) => {
+        this.setAddedEventMessage(res.message);
+      });
+  }
+
+  getUserEvents(username: string) {
+      return this.http.get(this.herokuPath + 'getUserEvents/' + username)
+        .subscribe((res:any) => {
+          this.setUsersEventList(res);
+        });
+  }
+
   getAllUsers() {
     return this.http.get(this.herokuPath + 'getAllUsers')
-    .subscribe((res:any) => {
-      this.setUsersList(res);
-    });
+      .subscribe((res:any) => {
+        this.setUsersList(res);
+      });
   }
 
   addUserImage(image:File, user:string) {
@@ -77,15 +98,15 @@ export class ApiService {
       });
   }
 
-  getUserPermissions(username: string) {
+  getUserPermissions(username:string) {
     return this.http.get(this.herokuPath + 'getUserPermissions/' + username)
-    .subscribe((res:any) => {
-      if(res.message === "no permission set") {
-        this.setUserPermissions(false);
-      } else {
-        this.setUserPermissions(res.message);
-      }
-    });
+      .subscribe((res:any) => {
+        if (res.message === "no permission set") {
+          this.setUserPermissions(false);
+        } else {
+          this.setUserPermissions(res.message);
+        }
+      });
   }
 
   // updateContactInfo(address:string, DOB:string, sex:string){
@@ -116,6 +137,10 @@ export class ApiService {
     this.registerMessage.next(message);
   }
 
+  setAddedEventMessage(message:string) {
+    this.addedEventMessage.next(message);
+  }
+
   setUserName(user:string) {
     this.user.next(user);
   }
@@ -128,11 +153,15 @@ export class ApiService {
     this.email.next(email);
   }
 
-  setUsersList(list: any[]) {
+  setUsersList(list:any[]) {
     this.usersList.next(list);
   }
 
-  setUserPermissions(isAdmin: boolean) {
+  setUsersEventList(list:any[]) {
+    this.usersEventsList.next(list);
+  }
+
+  setUserPermissions(isAdmin:boolean) {
     this.permissions.next(isAdmin);
   }
 }
