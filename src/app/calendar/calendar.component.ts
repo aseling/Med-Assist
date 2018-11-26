@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { MatDatepickerInputEvent } from '../../../node_modules/@angular/material';
+import {MatDatepickerInputEvent} from '../../../node_modules/@angular/material';
 import {ApiService} from "../services/api.service";
 import {MatSnackBar}from '@angular/material';
 
@@ -85,19 +85,25 @@ export class CalendarComponent implements OnInit {
         let dateB = +new Date(b.date);
         return dateA - dateB;
       });
-      
-      let index = 0;
+
+      console.log(+new Date(this.todayFormatted));
+
       // SORT EVENTS BY DATE
       events.map((event) => {
-        if(event.date == this.todayFormatted) {
-          index++;
+        let today = +new Date(this.todayFormatted);
+        let eventDate = +new Date(event.date);
+        console.log(eventDate);
+        
+        if (eventDate == today) {
           this.todayAppointments.push(event);
-        } else if(index == 1) {
+        } else if (eventDate > today) {
           this.futureAppointments.push(event);
-        } else if(index == 0) {
+        } else if (eventDate < today) {
           this.pastAppointments.push(event);
         }
       });
+
+      console.log("HERE", this.todayAppointments, this.futureAppointments, this.pastAppointments);
     });
 
     this.apiService.addedEventMessage.subscribe(message => {

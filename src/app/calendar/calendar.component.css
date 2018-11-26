@@ -47,7 +47,18 @@ label {
   font-size: 30px;
 }
 
-.upcoming-events, .current-events, .past-events {
+.upcoming-events, .current-events {
+  margin: 15px;
+  font-size: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5px;
+  row-gap: 5px;
+  max-height: 275px;
+  overflow-y: scroll;
+}
+
+.past-events {
   margin: 15px;
   font-size: 25px;
   display: grid;
