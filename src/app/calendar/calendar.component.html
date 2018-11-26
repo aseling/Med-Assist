@@ -67,6 +67,10 @@
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" (click)="cancel(); stepper.reset()">&times;</button>
+        </div>
+
         <div class="modal-body">
           <mat-horizontal-stepper [linear]="isLinear" #stepper>
 
@@ -82,8 +86,9 @@
                   </div>
                 </div>
               </div>
-              <div>
-                <button class="next" mat-button matStepperNext color="primary">Next <i class="fas fa-arrow-right"></i></button>
+              <div class="buttons">
+                <button *ngIf="selectedDoctorName != ''" class="next alert bounce" mat-button matStepperNext
+                        color="primary">Next <i class="fas fa-arrow-right"></i></button>
               </div>
             </mat-step>
 
@@ -93,10 +98,7 @@
               <div class="date-container">
                 <div class="date-choice">
                   <mat-form-field class="full-width" id="date-picker">
-                    <input matInput
-                           [matDatepickerFilter]="myFilter"
-                           [matDatepicker]="picker"
-                           [min]="minDate"
+                    <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" [min]="minDate"
                            placeholder="Choose a date"
                            (dateInput)="addEvent('input', $event)"
                            (dateChange)="addEvent('change', $event)"
@@ -106,9 +108,11 @@
                   </mat-form-field>
                 </div>
               </div>
-              <div>
-                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back</button>
-                <button class="next" mat-button matStepperNext color="primary">Next <i class="fas fa-arrow-right"></i></button>
+              <div class="buttons">
+                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button *ngIf="selectedDate != ''" class="next alert bounce" mat-button matStepperNext color="primary">
+                  Next <i class="fas fa-arrow-right"></i></button>
               </div>
             </mat-step>
 
@@ -125,9 +129,11 @@
                   </mat-select>
                 </mat-form-field>
               </div>
-              <div>
-                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back</button>
-                <button class="next" mat-button matStepperNext color="primary">Next <i class="fas fa-arrow-right"></i></button>
+              <div class="buttons">
+                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button *ngIf="selectedTime != ''" class="next alert bounce" mat-button matStepperNext color="primary">
+                  Next <i class="fas fa-arrow-right"></i></button>
               </div>
             </mat-step>
 
@@ -139,10 +145,14 @@
                   <textarea matInput placeholder="Reason for visit" [(ngModel)]="visitDescription"></textarea>
                 </mat-form-field>
               </div>
-              <div>
-                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back</button>
+              <div class="buttons">
+                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back
+                </button>
+                <!--<div *ngIf="visitDescription != ''" class="submit-cancel">-->
                 <div class="submit-cancel">
-                  <button type="button" class="submit-btn" data-dismiss="modal" (click)="submitNewAppt()">Add New Appointment</button>
+                  <button type="button" class="submit-btn" data-dismiss="modal"
+                          (click)="submitNewAppt(); stepper.reset()">Add NewAppointment
+                  </button>
                   <button type="button" class="cancel-btn" data-dismiss="modal" (click)="cancel(); stepper.reset()">
                     Cancel
                   </button>
@@ -170,7 +180,8 @@
         </div>
         <div class="modal-body">
           <div class="past-events">
-            <div *ngIf="pastAppointments.length <= 0" class="no-appts">You have no past appointments in your calendar</div>
+            <div *ngIf="pastAppointments.length <= 0" class="no-appts">You have no past appointments in your calendar
+            </div>
             <div class="appointments" *ngFor="let i of pastAppointments">
               <strong>Date:</strong> {{i.date}} <br> <strong>With:</strong> {{i.doctor}}
             </div>

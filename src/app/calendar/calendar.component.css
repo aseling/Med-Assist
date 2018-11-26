@@ -189,9 +189,14 @@ label {
   color: white;
 }
 
+.modal-header {
+   border: none;
+}
+
 .modal-content {
   text-align: center;
-  min-height: 385px;
+  /*min-height: 385px;*/
+  min-height: 500px;
 }
 
 h5 {
@@ -228,7 +233,8 @@ h5 {
   -ms-transform: scale(1.2);
   transform: scale(1.2);
   color: black;
-  box-shadow: 0 15px 20px 2px #cccccc;
+  box-shadow: 0 15px 18px -12px #1d1d1d;
+  border: 1px solid #eae8e8;
   border-radius: 5px;
   margin: 0 25px 0 25px;
 }
@@ -238,7 +244,8 @@ h5 {
   -ms-transform: scale(1.2);
   transform: scale(1.2);
   color: #292929;
-  box-shadow: 0 15px 20px 2px #cccccc;
+  box-shadow: 0 15px 18px -12px #1d1d1d;
+  border: 1px solid #eae8e8;
   border-radius: 5px;
   margin: 0 25px 0 25px;
 }
@@ -276,6 +283,10 @@ h5 {
 
 .submit-cancel {
   float: right;
+}
+
+.buttons {
+  margin-top: 50px;
 }
 
 .next {
@@ -325,6 +336,26 @@ h5 {
 
 .mat-button {
   margin: 10px;
+}
+
+
+.alert {
+  transition: all 1s ease;
+  -moz-animation: bounce 1s;
+  -webkit-animation: bounce 1s;
+  animation: bounce 1s;
+}
+
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);}
+  40% {-webkit-transform: translateY(-20px);}
+  60% {-webkit-transform: translateY(-15px);}
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-20px);}
+  60% {transform: translateY(-15px);}
 }
 
 @media only screen and (max-width: 1200px) {

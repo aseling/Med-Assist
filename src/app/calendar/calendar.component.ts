@@ -60,7 +60,7 @@ export class CalendarComponent implements OnInit {
   selectedTime = "";
   visitDescription = "";
   step = 0;
-  // isLinear = false;
+  isLinear = false;
 
   constructor(private apiService:ApiService, public snackBar:MatSnackBar) {
   }
@@ -86,14 +86,11 @@ export class CalendarComponent implements OnInit {
         return dateA - dateB;
       });
 
-      console.log(+new Date(this.todayFormatted));
-
       // SORT EVENTS BY DATE
       events.map((event) => {
         let today = +new Date(this.todayFormatted);
         let eventDate = +new Date(event.date);
-        console.log(eventDate);
-        
+
         if (eventDate == today) {
           this.todayAppointments.push(event);
         } else if (eventDate > today) {
@@ -102,8 +99,6 @@ export class CalendarComponent implements OnInit {
           this.pastAppointments.push(event);
         }
       });
-
-      console.log("HERE", this.todayAppointments, this.futureAppointments, this.pastAppointments);
     });
 
     this.apiService.addedEventMessage.subscribe(message => {
@@ -260,6 +255,7 @@ export class CalendarComponent implements OnInit {
   }
 
   cancel() {
+    console.log("CANCEL");
     this.selectedDoctorName = "";
     this.selectedDate = "";
     this.selectedTime = "";
