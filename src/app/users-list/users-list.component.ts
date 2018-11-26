@@ -21,6 +21,6 @@ export class UsersListComponent implements OnInit {
   }
 
   onClick(_id: string, name: string) {
-    this.router.navigate(["users-list/", _id, name])
+    this.router.navigate(["users-list/", _id])
   }
 }
