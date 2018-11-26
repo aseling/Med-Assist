@@ -6,7 +6,7 @@
 
   <div *ngIf="!changeView" class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <div class="right-section-container">
-      <i class="nav-item fa fa-envelope fa-lg" data-toggle="tooltip" data-placement="top" title="Hooray!"></i>
+      <i class="nav-item fa fa-envelope fa-lg" data-toggle="tooltip" data-placement="top" routerLink="chat"></i>
       <span class="nav-item fa fa-phone fa-lg" placement="bottom" triggers="click" [ngbPopover]="popoverContent"
         popoverTitle="Contact Information"></span>
       <i class="nav-item fa fa-bell fa-lg"></i>

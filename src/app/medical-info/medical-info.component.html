@@ -1,9 +1,9 @@
+<!--BLOOD AND ALLERGY
+     Data shown as the variables called below.
+     The data is labeled and each field is called by a variable-->
 <div class="wrapper">
   <div class="each-box form-group">
     <div class="header">
-      <!--BLOOD AND ALLERGY
-      Data shown as the variables called below.
-      The data is labeled and each field is called by a variable-->
       <div>Medical Information</div>
     </div>
     <div class="section">
@@ -14,28 +14,34 @@
       <div class="user-info">{{patientAllergies}}</div>
     </div>
   </div>
+</div>
 
   <!--VACCINATIONS
   Data shown as the variables called below.
   The data is labeled and each field is called by a variable-->
-  <div class="each-box form-group">
+<div class="wrapper">
+<div class="each-box form-group">
     <div class="header">
       <div>Vaccinations:</div>
     </div>
     <div class="section" >
+      <div class="row">
+        <div class="col-md-4">
       <label>Vaccine: </label>
       <div class="user-info">{{vaccine}}</div>
-
+        </div>
+          <div class="col-md-4">
       <label>Type: </label>
       <div class="user-info">{{vaccineType}}</div>
-
+          </div>
+            <div class="col-md-4">
       <label>Date Received: </label>
       <div class="user-info">{{vaccineDate}}</div>
+            </div>
     </div>
   </div>
 </div>
-
-
+</div>
 
 <!--SOCIAL HISTORY
     Data shown as the variables called below.
@@ -46,33 +52,48 @@
       <div>Social History:</div>
     </div>
     <div class="section">
+      <div class="row">
+        <div class="col-md-4">
       <label>Smoking Status: </label>
       <div class="user-info">{{smokingStatus}}</div>
-
+        </div>
+        <div class="col-md-4">
       <label>Tobacco Usage: </label>
       <div class="user-info">{{tobaccoUsage}}</div>
+        </div>
     </div>
+</div>
+</div>
 </div>
 
 <!--PROBLEMS
     Data shown as the variables called below.
     The data is labeled and each field is called by a variable-->
-
+<div class="wrapper">
   <div class="each-box form-group">
     <div class="header">
       <div>Problems:</div>
     </div>
     <div class="section">
+      <div class="row">
+
+        <div class="col-md-4">
       <label>Medical Problems: </label>
       <div class="user-info">{{medicalProblems}}</div>
+        </div>
 
+        <div class="col-md-4">
       <label>Medical Provider: </label>
       <div class="user-info">{{medicalProvider}}</div>
+        </div>
 
+        <div class="col-md-4">
       <label>OnSet Date: </label>
       <div class="user-info">{{onSetDate}}</div>
+        </div>
     </div>
   </div>
+</div>
 </div>
 
 <!--PROCEDURES
@@ -84,12 +105,19 @@
       <div>Procedures:</div>
     </div>
     <div class="section">
+      <div class="row">
+        <div class="col-md-4">
       <label>Description: </label>
       <div class="user-info">{{procedureDescription}}</div>
-
+      </div>
+          <div class="col-md-4">
       <label>Date Performed: </label>
       <div class="user-info">{{datePerformed}}</div>
+          </div>
+      </div>
     </div>
   </div>
 </div>
+
+
 

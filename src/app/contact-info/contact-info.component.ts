@@ -14,8 +14,8 @@ export class ContactInfoComponent implements OnInit {
   phoneProfileEdit = false;
   emergencyProfileEdit = false;
   patientFirstName: [''];
-  patientLasttName:string= '';
-  address:string= '';
+  patientLasttName: [''];
+  address: [''];
   DOB:string = '';
   sex:string = '';
   maritalStatus:string = '';
