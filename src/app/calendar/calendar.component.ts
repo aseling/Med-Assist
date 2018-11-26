@@ -335,13 +335,10 @@ export class CalendarComponent implements OnInit {
     });
 
     this.tooltipInfo.sort(function compare(a, b) {
-      // let dateA = +new Date(a.time);
-      // let dateB = +new Date(b.time);
-      return new Date('1970/01/01 ' + a.time) - new Date('1970/01/01 ' + b.time);
+      return +new Date('1970/01/01 ' + a.time) - +new Date('1970/01/01 ' + b.time);
     });
 
     this.tooltipInfo.map(info => {
-      // console.log(info);
       this.tooltipString = this.tooltipString.concat("        ");
       this.tooltipString = this.tooltipString.concat(info.date + " at " + info.time + "   ");
     });

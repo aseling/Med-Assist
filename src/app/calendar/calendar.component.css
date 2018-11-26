@@ -288,6 +288,10 @@ strong {
   border: none;
 }
 
+.view-header {
+  margin-bottom: 75px;
+}
+
 .modal-content {
   text-align: center;
   /*min-height: 385px;*/
@@ -296,7 +300,8 @@ strong {
 
 .view-modal-content {
   height: auto;
-  min-height: 200px;
+  max-height: 300px;
+  overflow: scroll;
 }
 
 h5 {
