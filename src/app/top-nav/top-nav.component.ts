@@ -1,6 +1,6 @@
 import {Component, OnInit, HostListener} from '@angular/core';
 import {Router} from '@angular/router';
-import {ApiService} from "../services/api.service";
+import {ApiService} from '../services/api.service';
 
 @Component({
   selector: 'app-top-nav',
@@ -9,13 +9,13 @@ import {ApiService} from "../services/api.service";
 })
 
 export class TopNavComponent implements OnInit {
-  authorized:boolean = false;
-  user:string;
+  authorized: boolean = false;
+  user: string;
   imagePath = './assets/img/default-user.png';
   sideNavVisible = false;
   changeView;
 
-  constructor(private apiService:ApiService, private router:Router) {
+  constructor(private apiService: ApiService, private router: Router) {
   }
 
   ngOnInit() {
