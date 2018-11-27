@@ -1,0 +1,43 @@
+.wrapper {
+    width: 80%;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+  
+h1 {
+    text-align: center;
+    font-size: 30px;
+    padding: 15px 0 15px 0;
+}
+  
+table {
+    width: 100%;
+    margin-bottom: 50px;
+}
+  
+#tableHeader{
+    background-color: #17a2b8;
+    color: white;
+    text-align: center;
+}
+  
+.form-rows, .add-row {
+    cursor: default;
+    text-align: left;
+}
+
+th.first-column {
+    width: 10%;
+}
+
+th.second-column {
+    width: 30%;
+}
+
+th.third-column {
+    width: 50%;
+}
+
+th.fourth-column {
+    width: 10%;
+}

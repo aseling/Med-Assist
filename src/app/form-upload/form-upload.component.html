@@ -1,3 +1,43 @@
-<p>
-  form-upload works!
-</p>
+<div class="wrapper">
+    <h1>Add, Edit, and Delete Forms</h1>
+    <table>
+      <thead id="tableHeader">
+        <tr>
+          <th class="first-column" scope="col"></th>
+          <th class="second-column" scope="col">Form</th>
+          <th class="third-column" scope="col">Form Description</th>
+          <th class="fourth-column" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="form-rows" *ngFor="let form of forms" scope="row">
+          <td>
+            <button>Edit</button>
+          </td>
+          <td>
+            {{ form.formName }}
+          </td>
+          <td>
+            {{ form.formDescription }}
+          </td>
+          <td>
+            <button>Delete</button>
+          </td>
+        </tr>
+        <tr class="add-row">
+          <td>
+              <button>Add</button>
+          </td>
+          <td>
+
+          </td>
+          <td>
+
+          </td>
+          <td>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
