@@ -1,0 +1,176 @@
+<div class="wrapper">
+  <div class="each-box form-group">
+    <div class="header">
+      <!--BILLING INFORMATION
+      Data shown as the variables called below.
+      The data is labeled and each field is called by a variable-->
+      <button *ngIf="!billingProfileEdit" type="button" class="edit-btn" (click)="editBillingProfile()">Edit</button>
+      <div>Billing Information</div>
+    </div>
+    <div class="section" *ngIf="!billingProfileEdit">
+      <label>First Name: </label>
+      <div class="user-info">{{firstName}}</div>
+
+      <label>Last Name: </label>
+      <div class="user-info">{{lastName}}</div>
+
+      <label>Billing Address: </label>
+      <div class="user-info">{{billingAddress}}</div>
+
+      <label>Billing Phone: </label>
+      <div class="user-info">{{billingPhone}}</div>
+
+      <label>Billing Email: </label>
+      <div class="user-info">{{billingEmail}}</div>
+    </div>
+
+    <!--Once the edit button is clicked (profileEdit method is called),
+    the data is shown as the variables called below-->
+    <form *ngIf="billingProfileEdit" class="form">
+      <label>Name: </label>
+      <mat-form-field>
+        <input matInput type="text" id="billFirstName" placeholder=" First Name" value={{billFirstName}}>
+        <!--formControlName="billFirstName"-->
+      </mat-form-field>
+
+      <label>Address: </label>
+      <mat-form-field>
+        <input matInput type="text" id="billLastName" placeholder="Last Name" value={{billLastName}}>
+        <!--formControlName="address"-->
+      </mat-form-field>
+
+      <label>Date of Birth: </label>
+      <mat-form-field>
+        <input matInput type="text" id="billingAddress" placeholder="Billing Address" value={{billingAddress}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Sex: </label>
+      <mat-form-field>
+        <input matInput type="text" id="billingPhone" placeholder="Billing Phone" value={{billingPhone}}>
+        <!--formControlName="sex"-->
+      </mat-form-field>
+
+      <label>Marital Status: </label>
+      <mat-form-field>
+        <input matInput type="text" id="billingEmail" placeholder="Billing Email" value={{billingEmail}}>
+        <!--formControlName="maritalStatus"-->
+      </mat-form-field>
+    </form>
+    <div class="update" *ngIf="billingProfileEdit">
+      <button class="update-btn" type="button" (click)="updateBillingProfile(); openSnackBar()">Update</button>
+      <button class="cancel-btn" type="button" (click)="cancelBillingProfile()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+  <!--INSURANCE
+  Data shown as the variables called below.
+  The data is labeled and each field is called by a variable-->
+<div class="wrapper">
+  <div class="each-box form-group">
+    <div class="header">
+      <button *ngIf="!insuranceProfileEdit" type="button" class="edit-btn" (click)="editInsuranceProfile()">Edit</button>
+      <div>Primary Insurance</div>
+    </div>
+    <div class="section" *ngIf="!insuranceProfileEdit">
+      <label>Type: </label>
+      <div class="user-info">{{insuranceType}}</div>
+
+      <label>Insurance Info: </label>
+      <div class="user-info">{{insuranceInfo}}</div>
+
+      <label>Office Visit Co-Pay: </label>
+      <div class="user-info">{{insurancePay}}</div>
+
+      <label>Primary Holder Name: </label>
+      <div class="user-info">{{primaryHolderName}}</div>
+
+      <label>Relationship to Insurer: </label>
+      <div class="user-info">{{insurerRelationship}}</div>
+
+      <label>Date of Birth: </label>
+      <div class="user-info">{{insuranceDOB}}</div>
+
+      <label>Group/Policy Number: </label>
+      <div class="user-info">{{policyNumber}}</div>
+
+      <label>ID/Cert Number: </label>
+      <div class="user-info">{{idNumber}}</div>
+
+      <label>Issue: </label>
+      <div class="user-info">{{issueNumber}}</div>
+
+      <label>Expiration: </label>
+      <div class="user-info">{{insuranceExpiration}}</div>
+    </div>
+
+    <!--INSURANCE Once the edit button is clicked (profileEdit method is called),
+       the data is shown as the variables called below-->
+    <form *ngIf="insuranceProfileEdit" class="form">
+      <label>Type: </label>
+      <mat-form-field>
+        <input matInput type="text" id="insuranceType" placeholder="Type" value={{insuranceType}}>
+        <!--formControlName="name"-->
+      </mat-form-field>
+
+      <label>Insurance Information: </label>
+      <mat-form-field>
+        <input matInput type="text" id="insuranceInfo" placeholder="Insurance Information" value={{insuranceInfo}}>
+        <!--formControlName="address"-->
+      </mat-form-field>
+
+      <label>Office Visit Co-Pay: </label>
+      <mat-form-field>
+        <input matInput type="text" id="insurancePay" placeholder="Office Visit Co-Pay" value={{insurancePay}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Primary Holder's Name: </label>
+      <mat-form-field>
+        <input matInput type="text" id="primaryHolderName" placeholder="Primary Holder's Name" value={{primaryHolderName}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Relationship to Insurer: </label>
+      <mat-form-field>
+        <input matInput type="text" id="insurerRelationship" placeholder="Relationship to Insurer" value={{insurerRelationship}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Date of Birth: </label>
+      <mat-form-field>
+        <input matInput type="text" id="insuranceDOB" placeholder="Date of Birth" value={{insuranceDOB}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Policy Number: </label>
+      <mat-form-field>
+        <input matInput type="text" id="policyNumber" placeholder="Policy Number" value={{policyNumber}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>ID/Cert Number: </label>
+      <mat-form-field>
+        <input matInput type="text" id="idNumber" placeholder="ID/Cert #" value={{idNumber}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Issue Number: </label>
+      <mat-form-field>
+        <input matInput type="text" id="issueNumber" placeholder="Issue Number" value={{issueNumber}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+
+      <label>Expiration: </label>
+      <mat-form-field>
+        <input matInput type="text" id="insuranceExpiration" placeholder="Expiration" value={{insuranceExpiration}}>
+        <!--formControlName="DOB"-->
+      </mat-form-field>
+    </form>
+    <div class="update" *ngIf="insuranceProfileEdit">
+      <button class="update-btn" type="button" (click)="updateInsuranceProfile(); openSnackBar()">Update</button>
+      <button class="cancel-btn" type="button" (click)="cancelInsuranceProfile()">Cancel</button>
+    </div>
+  </div>
+</div>

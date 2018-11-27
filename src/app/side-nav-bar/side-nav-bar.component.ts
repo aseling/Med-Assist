@@ -12,6 +12,7 @@ export class SideNavBarComponent implements OnInit {
   authorized:boolean = false;
   user:string;
   imagePath = './assets/img/default-user.png';
+  isAdmin = false;
 
   constructor(private apiService:ApiService) {
   }
@@ -31,6 +32,10 @@ export class SideNavBarComponent implements OnInit {
       } else {
         this.imagePath = path;
       }
+
+      this.apiService.permissions.subscribe(isAdmin => {
+        this.isAdmin = isAdmin;
+      })
     });
   }
 }

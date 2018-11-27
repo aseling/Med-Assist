@@ -1,6 +1,8 @@
+import { FormUploadComponent } from './form-upload/form-upload.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
+import { UsersListComponent } from './users-list/users-list.component';
 import { HelpfulLinksComponent } from './helpful-links/helpful-links.component';
 import { MyMedicineComponent } from './my-medicine/my-medicine.component';
-import { MedicalProfileComponent } from './medical-profile/medical-profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
@@ -17,7 +19,7 @@ import {CalendarComponent} from "./calendar/calendar.component";
 import {ChatComponent} from "./chat/chat.component";
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 import {RegisterComponent} from "./register/register.component";
-import {ContactPageComponent} from "./contact-page/contact-page.component";
+import { ReportUploadComponent } from './report-upload/report-upload.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -32,13 +34,15 @@ const routes: Routes = [
   { path: 'prescription-refill', component: PrescriptionRefillComponent },
   { path: 'forms', component: FormsComponent },
   { path: 'calendar', component: CalendarComponent },
-  { path: 'contact-page', component: ContactPageComponent},
   { path: 'chat', component: ChatComponent },
-  { path: 'medical-profile', component: MedicalProfileComponent },
   { path: 'my-medicine', component: MyMedicineComponent },
   { path: 'helpful-links', component: HelpfulLinksComponent },
   { path: 'reports/view', component: PdfViewerComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'users-list', component: UsersListComponent },
+  { path: 'users-list/:_id/:name', component: ManageUserComponent },
+  { path: 'users-list/:id/:name/upload-reports', component: ReportUploadComponent },
+  { path: 'forms-upload', component: FormUploadComponent }
 ];
 
 @NgModule({

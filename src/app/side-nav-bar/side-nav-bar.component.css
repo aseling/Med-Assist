@@ -3,11 +3,14 @@ body {
 }
 
 .sidenav {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   width: 250px;
   position: relative;
   z-index: 1;
-  background-color: #fff;
+  background-color: white;
+  color: black;
   overflow-x: hidden;
   border-radius: 10px;
   padding: 0 0 25px 0;
@@ -18,12 +21,13 @@ body {
   text-decoration: none;
   font-size: 17px;
   font-family: "Helvetica", sans-serif;
-  color: #000;
   display: block;
+  color: black;
 }
 
 .sidenav a:hover {
-  color: #3B92A9;
+  color: #3B92A8;
+  background-color: white;
   cursor: default;
 }
 

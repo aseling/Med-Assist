@@ -1,0 +1,113 @@
+.wrapper {
+  width: 100%;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+}
+
+
+.each-box {
+  border: 1px solid #d0cdcd;
+  border-radius: 5px;
+  box-shadow: 5px 5px 27px -3px #000000b3;
+  padding-bottom: 30px;
+}
+
+.header {
+  width: 100%;
+  padding: 12px;
+  /*background: #e4e4e4;*/
+  background-color: rgb(59, 146, 169);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: white;
+}
+
+.edit-btn {
+  float: right;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+}
+
+.edit-btn:hover {
+  /*color: #3B92A9;*/
+  color: #000;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 85%;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: 500;
+  font-size: 20px;
+  padding-top: 12px;
+}
+
+.user-info {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.update {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.update-btn {
+  width: 110px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  background: #3B92A9;
+  color: white;
+  margin-right: 10px;
+}
+
+.cancel-btn {
+  border: none;
+  background-color: transparent;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 85%;
+  margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    width: 100%;
+    margin: 0;
+  }
+
+  label {
+    margin-left: 10px;
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin: 0;
+  }
+
+  .mat-form-field {
+    width: 85%;
+  }
+}

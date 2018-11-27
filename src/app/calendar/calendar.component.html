@@ -10,29 +10,26 @@
     </div>
 
     <div class="events-container">
+      <label>Current Appointments:</label>
       <div class="current-events">
-        <label>Current Appointments:</label>
-        <div *ngIf="currentAppointments.length <= 0" class="no-appts">You have no appointments scheduled for today</div>
-        <div class="appointments" *ngFor="let i of currentAppointments">
-          <ul>
-            <li>{{i}}</li>
-          </ul>
+        <div *ngIf="todayAppointments.length <= 0" class="no-appts">You have no appointments scheduled for today</div>
+        <div class="appointments" *ngFor="let i of todayAppointments">
+          <strong>Date:</strong> {{i.date}} <br> <strong>With:</strong> {{i.doctor}}
         </div>
       </div>
 
+      <label>Upcoming Appointments:</label>
       <div class="upcoming-events">
-        <label>Upcoming Appointments:</label>
         <div *ngIf="futureAppointments.length <= 0" class="no-appts">You have no upcoming appointments scheduled</div>
         <div class="appointments" *ngFor="let i of futureAppointments">
-          <ul>
-            <li>{{i}}</li>
-          </ul>
+          <strong>Date:</strong> {{i.date}} <br> <strong>With:</strong> {{i.doctor}}
         </div>
       </div>
     </div>
 
     <div class="add-appt-container">
-      <button class="add-appt-btn" type="button" data-toggle="modal" data-target="#addAppointment">Add new appointment <i class="fas fa-plus plus"></i></button>
+      <button class="add-appt-btn" type="button" data-toggle="modal" data-target="#addAppointment">Add new appointment
+        <i class="fas fa-plus plus"></i></button>
     </div>
   </div>
 
@@ -50,13 +47,32 @@
         {{i}}
       </div>
 
-      <div class="day-of-week-box" *ngFor="let i of numOfDaysInMonth; let i = index">
-        {{i}}
+      <!--mat-raised-button-->
+      <!--matTooltip="{{tooltipString}}"-->
+      <!--[matTooltipPosition]="'above'"-->
+      <!--aria-label="Button that displays a tooltip when focused or hovered over"-->
+      <div class="day-of-week-number"
+           *ngFor="let i of numOfDaysInMonth;"
+           [ngClass]="{'number ': i.day == currentDate, 'hide-border': i == ''}"
+           (mouseenter)="getDateOnHover(i.day)"
+           data-toggle="modal"
+           data-target="#viewDayEvents">
+        <div [ngClass]="{'box-date ': i.day == currentDate, 'hide-border': i == ''}">
+          {{i.day}}
+        </div>
+
+        <div *ngIf="i.hasEvent" class="event-indicator">
+          <i class="far fa-calendar"></i>
+        </div>
       </div>
     </div>
 
+
+
     <div class="view-past-container">
-      <button class="view-past-btn" type="button" data-toggle="modal" data-target="#pastAppointments">View past appointment</button>
+      <button class="view-past-btn" type="button" data-toggle="modal" data-target="#pastAppointments">View past
+        appointment
+      </button>
     </div>
   </div>
 </div>
@@ -69,13 +85,101 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" (click)="cancel(); stepper.reset()">&times;</button>
         </div>
+
         <div class="modal-body">
-          appointments
+          <mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+            <mat-step [completed]="false">
+              <ng-template matStepLabel>Doctor</ng-template>
+              <h5>Choose a doctor</h5>
+              <div class="doc-container" *ngIf="step === 0">
+                <div class="doc-selection ">
+                  <div class="doc-choice" *ngFor="let i of doctors" (click)="selectedDoctor(i)"
+                       [ngClass]="{'selected ': i.name == selectedDoctorName,'not-selected ': i.name != selectedDoctorName }">
+                    <img class="doc-image" src="{{i.image}}">
+                    <div class="doc-selected">{{i.name}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons">
+                <button *ngIf="selectedDoctorName != ''" class="next alert bounce" mat-button matStepperNext
+                        color="primary">Next <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </mat-step>
+
+            <mat-step [completed]="false">
+              <ng-template matStepLabel>Date</ng-template>
+              <h5>Pick a date</h5>
+              <div class="date-container">
+                <div class="date-choice">
+                  <mat-form-field class="full-width" id="date-picker">
+                    <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" [min]="minDate"
+                           placeholder="Choose a date"
+                           (dateInput)="addEvent('input', $event)"
+                           (dateChange)="addEvent('change', $event)"
+                           (click)="picker.open()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="buttons">
+                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button *ngIf="selectedDate != ''" class="next alert bounce" mat-button matStepperNext color="primary">
+                  Next <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </mat-step>
+
+            <mat-step [completed]="false">
+              <ng-template matStepLabel>Time</ng-template>
+
+              <h5>Select a time</h5>
+              <div class="time-container">
+                <mat-form-field class="full-width">
+                  <mat-select placeholder="Select Time" [(ngModel)]="selectedTime">
+                    <mat-option *ngFor="let i of times" [value]="i">
+                      {{i}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="buttons">
+                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button *ngIf="selectedTime != ''" class="next alert bounce" mat-button matStepperNext color="primary">
+                  Next <i class="fas fa-arrow-right"></i></button>
+              </div>
+            </mat-step>
+
+            <mat-step [completed]="false">
+              <ng-template matStepLabel>Reason</ng-template>
+              <h5>Tell us the reason for your visit</h5>
+              <div class="visit-reason">
+                <mat-form-field class="full-width">
+                  <textarea matInput placeholder="Reason for visit" [(ngModel)]="visitDescription"></textarea>
+                </mat-form-field>
+              </div>
+              <div class="buttons">
+                <button class="back" mat-button matStepperPrevious color="warn"><i class="fas fa-arrow-left"></i> Back
+                </button>
+                <!--<div *ngIf="visitDescription != ''" class="submit-cancel">-->
+                <div class="submit-cancel">
+                  <button type="button" class="submit-btn" data-dismiss="modal"
+                          (click)="submitNewAppt(); stepper.reset()">Add NewAppointment
+                  </button>
+                  <button type="button" class="cancel-btn" data-dismiss="modal" (click)="cancel(); stepper.reset()">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </mat-step>
+
+          </mat-horizontal-stepper>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -88,13 +192,47 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
+          <label class="label">Your Past Appointments:</label>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          past
+          <div class="past-events">
+            <div *ngIf="pastAppointments.length <= 0" class="no-appts">You have no past appointments in your calendar
+            </div>
+            <div class="past-appointments" *ngFor="let i of pastAppointments">
+              <strong>Date:</strong> {{i.date}} <br> <strong>With:</strong> {{i.doctor}}
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 </div>
+
+
+<div class="modal-container">
+  <div class="modal fade" id="viewDayEvents" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content view-modal-content">
+        <div class="modal-header view-header">
+          <label class="label">Appointments for <strong>{{date}}</strong></label>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="view-events">
+            <div class="view-appointments" *ngFor="let i of tooltipInfo">
+              <div>
+                <strong><i class="far fa-clock"></i> </strong> {{i.time}}
+              </div>
+              <div>
+                <strong><i class="fas fa-user-md"></i></strong> {{i.doctor}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,50 +17,117 @@ export class ApiService {
   loginMessage = new BehaviorSubject<string>('');
   imagePath = new BehaviorSubject<string>('');
   user = new BehaviorSubject<string>('');
+  email = new BehaviorSubject<string>('');
+  usersList = new BehaviorSubject<any[]>([]);
+  permissions = new BehaviorSubject<boolean>(false);
+  addedEventMessage = new BehaviorSubject<string>('');
+  usersEventsList = new BehaviorSubject<any[]>([]);
+  prescriptions = new BehaviorSubject<[{}]>([{}]);
 
-  constructor(private http:HttpClient, private router:Router) {
+
+  constructor(private http: HttpClient, private router: Router) {
   }
 
-  login(username:string, password:string) {
+  login(username: string, password: string) {
     return this.http.post<any>(this.herokuPath + 'login', {
       username: username,
       password: password
-    }).subscribe((res:any) => {
+    }).subscribe((res: any) => {
       this.loginMessage.next(res.message);
     });
   }
 
-  register(name:string, email:string, username:string, password:string, password2:string) {
+  register(name: string, email: string, username: string, password: string, password2: string) {
     return this.http.post<any>(this.herokuPath + 'register', {
       name: name,
       email: email,
       username: username,
       password: password,
       password2: password2
-    }).subscribe((res:any) => {
+    }).subscribe((res: any) => {
       this.setRegisterMessage(res.message);
     });
   }
 
-  addUserImage(image:File, user:string) {
+  addNewEvent(doctor: string, date: string, time: string, task: string, user: string) {
+    return this.http.post<any>(this.herokuPath + 'addUserEvent/' + user, {
+      doctor: doctor,
+      date: date,
+      time: time,
+      task: task
+    })
+      .subscribe((res: any) => {
+        this.setAddedEventMessage(res.message);
+      });
+  }
+
+  getUserEvents(username: string) {
+    return this.http.get(this.herokuPath + 'getUserEvents/' + username)
+      .subscribe((res: any) => {
+        this.setUsersEventList(res);
+      });
+  }
+
+  getAllUsers() {
+    return this.http.get(this.herokuPath + 'getAllUsers')
+      .subscribe((res: any) => {
+        this.setUsersList(res);
+      });
+  }
+
+  addUserImage(image: File, user: string) {
     const formData = new FormData();
     formData.append('image', image);
 
     return this.http.post(this.herokuPath + 'addUserImage/' + user, formData)
-      .subscribe((res:any) => {
+      .subscribe((res: any) => {
         console.log(res);
-        this.setImagePath(res.imageURL)
+        this.setImagePath(res.imageURL);
       });
   }
 
-  getUserImage(username:string) {
+  getUserImage(username: string) {
     return this.http.get(this.herokuPath + 'getUserImage/' + username)
-      .subscribe((res:any) => {
+      .subscribe((res: any) => {
         this.setImagePath(res.message);
       });
   }
 
-  openRegisterPage(value:boolean) {
+  getUserEmail(username: string) {
+    return this.http.get(this.herokuPath + 'getUserEmail/' + username)
+      .subscribe((res: any) => {
+        this.setUserEmail(res.message);
+      });
+  }
+
+  getUserPermissions(username: string) {
+    return this.http.get(this.herokuPath + 'getUserPermissions/' + username)
+      .subscribe((res: any) => {
+        if (res.message === 'no permission set') {
+          this.setUserPermissions(false);
+        } else {
+          this.setUserPermissions(res.message);
+        }
+      });
+  }
+
+  // updateContactInfo(address:string, DOB:string, sex:string){
+  //   return this.http.post<any>(this.herokuPath + 'register', {
+  //     name: name,
+  //     email: email,
+  //     username: username,
+  //     password: password,
+  //     password2: password2
+  // }
+
+  getUserInfo(username: string) {
+    return this.http.get(this.herokuPath + 'getSingleUser/' + username)
+      .subscribe((res: any) => {
+        console.log(res.message[0].prescriptions);
+      });
+  }
+
+  openRegisterPage(value: boolean) {
     this.registerView.next(value);
   }
 
@@ -75,15 +142,35 @@ export class ApiService {
     this.loginMessage.next('');
   }
 
-  setRegisterMessage(message:string) {
+  setRegisterMessage(message: string) {
     this.registerMessage.next(message);
   }
 
-  setUserName(user:string) {
+  setAddedEventMessage(message: string) {
+    this.addedEventMessage.next(message);
+  }
+
+  setUserName(user: string) {
     this.user.next(user);
   }
 
-  setImagePath(path:string) {
+  setImagePath(path: string) {
     this.imagePath.next(path);
+  }
+
+  setUserEmail(email: string) {
+    this.email.next(email);
+  }
+
+  setUsersList(list: any[]) {
+    this.usersList.next(list);
+  }
+
+  setUsersEventList(list: any[]) {
+    this.usersEventsList.next(list);
+  }
+
+  setUserPermissions(isAdmin: boolean) {
+    this.permissions.next(isAdmin);
   }
 }

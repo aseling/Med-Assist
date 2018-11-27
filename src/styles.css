@@ -1,5 +1,76 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/*@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";*/
+
 /* You can add global styles to this file, and also import other style files */
 body {
   background-color: #e4e4e4;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #3B92A9;
+}
+
+.mat-snack-bar-container {
+  background: #d4edda;
+}
+
+.mat-simple-snackbar {
+  color: #155724;
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-simple-snackbar-action {
+  visibility: hidden;
+}
+
+@media (max-width: 599px) {
+  .mat-tab-label {
+    height: 48px;
+    padding: 0 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: .6;
+    width: 130px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+    font-size: 11px !important;
+  }
+}
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 4000 !important;
+}
+
+#date-picker {
+  display: inline-block;
+  position: relative;
+  width: 90%;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: auto;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-horizontal-content-container {
+  padding: 25px 0 0 0 !important;
+}
+
+.mat-horizontal-stepper-header{
+  pointer-events: none !important;
 }

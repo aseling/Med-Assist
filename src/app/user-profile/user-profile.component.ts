@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-user-profile',
@@ -6,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+  profileEdit = false;
+  username = 'test';
 
-  constructor() { }
+  constructor(public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
+  editProfile() {
+    this.profileEdit = true;
+  }
+
+  updateProfile() {
+    this.profileEdit = false;
+  }
+
+  cancelProfile() {
+    this.profileEdit = false;
+  }
+
+
+  openSnackBar() {
+    let message = "Update Successful";
+    this.snackBar.open(message, "" ,{
+      duration: 2000
+    });
+  }
 }

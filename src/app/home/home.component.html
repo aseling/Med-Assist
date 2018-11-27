@@ -1,34 +1,35 @@
-<div class="container">
+<div class="container" *ngIf="!isAdmin">
   <div class="top-container">
-    <h1 class="header">Appalachian Primary Care</h1>
+    <h1 class="header" id="TitleAPC">Appalachian Primary Care</h1>
     <div class="dropdown-divider"></div>
     <img src="./assets/img/doc-cartoon.png/" class="row doc-pic">
   </div>
   <div class="row cards-announcements">
-    <div class="card">
+    <div class="card" id="card1">
       <div class="card-body">
         <a routerLink="../prescription-refill" class="row">
-          <h5 class="card-title">View Your Medicine</h5><i class="fas fa-file-prescription fa-lg card-icon"></i>
+          <h5 class="card-title"><u>View Your Medicine</u></h5><i class="fas fa-file-prescription fa-lg card-icon"></i>
         </a>
         <h6 class="text-muted">Click to view the medicines you are currently prescribed and request refills.</h6>
       </div>
     </div>
-    <div class="card">
+    <div class="card" id="card2">
       <div class="card-body">
         <a routerLink="../chat" class="row">
-          <h5 class="card-title">Chat With Your Doctor</h5><i class="fas fa-user-md card-icon fa-lg"></i>
+          <h5 class="card-title"><u>Chat With Your Doctor</u></h5><i class="fas fa-user-md card-icon fa-lg"></i>
         </a>
         <h6 class="text-muted">Click to begin chatting with your doctor.</h6>
       </div>
     </div>
-    <div class="card">
+    <div class="card" id="card3">
       <div class="card-body">
         <a routerLink="../helpful-links" class="row">
-          <h5 class="card-title">Find Helpful Links</h5><i class="fas fa-external-link-alt card-icon fa-lg"></i>
+          <h5 class="card-title"><u>Find Helpful Links</u></h5><i class="fas fa-external-link-alt card-icon fa-lg"></i>
         </a>
         <h6 class="card-subtitle mb-2 text-muted">Click to view links suggested by your doctor.</h6>
       </div>
     </div>
+  </div>
     <div class="card announcement-card announcements-class">
       <h5 class="card-header">Announcements</h5>
       <ul class="list-group announcements-group overflow-scroll">
@@ -39,5 +40,9 @@
         <li class="list-group-item announcements-item overflow-wrap">12/25 - Merry Christmas!</li>
       </ul>
     </div>
-  </div>
+</div>
+
+
+<div *ngIf="isAdmin">
+  <app-users-list></app-users-list>
 </div>

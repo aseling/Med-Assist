@@ -1,0 +1,38 @@
+<div class="table-content">
+  <div class="page-title">
+    <h1>Users List</h1>
+  </div>
+  <div class="info-container">
+    <small class="form-text text-muted">
+      Select a user from the list below:
+    </small>
+  </div>
+  <table class="table table-striped table-bordered table-hover table-sm" align="center">
+    <thead>
+      <tr>
+        <th class="first-column" scope="col">Image</th>
+        <th class="second-column" scope="col">Name</th>
+        <th class="third-column" scope="col">Email</th>
+        <th class="fourth-column" scope="col">Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="report-rows" *ngFor="let user of users | alphabetize:'name'" scope="row" (click)="onClick(user._id, user.name)">
+        <td class="user-image">
+          <img *ngIf="user.image" src="{{user.image}}">
+          <img *ngIf="!user.image" src="../../assets/img/default-user.png">
+        </td>
+        <td class="user-name">
+          {{ user.name }}
+        </td>
+        <td class="user-email">
+          {{ user.email }}
+        </td>
+        <td class="user-username">
+          {{ user.username }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

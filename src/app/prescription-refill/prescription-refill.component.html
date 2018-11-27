@@ -1,26 +1,48 @@
 <p>My Medications</p>
 
-<p class="meds">Clobetasol 0.05% Sol</p>
-<p class="meds">Levonor/ethi Estradiol Tab</p>
-<p class="meds">Minocycline 100mg Cap</p>
+<table class="table table-hover">
+  <tbody>
+  <tr class="" id="tableHeader">
+    <th scope="row">Medication</th>
+    <th scope="row">Refills Remaining</th>
+    <th scope="row">Expiration Date</th>
+    <th scope="row">Request Refill</th>
+  </tr>
+  <!--<tr id="rows">-->
+    <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.drugName}}</div></td>-->
+    <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.numberRefills}}</div></td>-->
+    <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.expireDate}}</div></td>-->
+    <!--<td class="align"><div class="test" *ngFor="let i of userMeds"><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Request Refill</button></div></td>-->
+  <!--</tr>-->
+  <!--<div *ngFor="let i of userMeds">-->
+    <!--<tr>-->
+      <!--<td class="align">{{i.drugName}}</td>-->
+      <!--<td class="align">{{i.numberRefills}} Refills Until </td>-->
+      <!--<td class="align">{{i.expireDate}}</td>-->
+      <!--<td class="align"><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Request Refill</button></td>-->
+    <!--</tr>-->
+  <!--</div>-->
+  </tbody>
+</table>
 
-<p>Prescription Refill</p>
-  <div id="leftMed">
-    <p class="RefillMeds"><input type="checkbox" class="RefillCheckbox">Clobetasol 0.05% Sol</p>
-    <p class="RefillMeds"><input type="checkbox" class="RefillCheckbox">Levonor/ethi Estradiol Tab</p>
-    <p class="RefillMeds"><input type="checkbox" class="RefillCheckbox">Minocycline 100mg Cap</p>
+<table class="table table-hover">
+  <tbody>
+  <!--<tr id="rows">-->
+  <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.drugName}}</div></td>-->
+  <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.numberRefills}}</div></td>-->
+  <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.expireDate}}</div></td>-->
+  <!--<td class="align"><div class="test" *ngFor="let i of userMeds"><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Request Refill</button></div></td>-->
+  <!--</tr>-->
+  <div *ngFor="let i of userMeds">
+    <tr>
+      <td class="align">{{i.drugName}}</td>
+      <td class="align">{{i.numberRefills}} Refills </td>
+      <td class="align">{{i.expireDate}}</td>
+      <td class="align"><button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal">Request Refill</button></td>
+    </tr>
   </div>
-
-  <div id="rightMed">
-    <p class="RefillMeds">3 Refills until 06/07/2019</p>
-    <p class="RefillMeds">6 Refills until 04/11/2019</p>
-    <p class="RefillMeds">4 Refills until 07/07/2019</p>
-  </div>
-<br>
-
-<div id="AlignRefillBtn">
-  <button type="button" id="btnSubmitRequest" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button>
-</div>
+  </tbody>
+</table>
 
 <div class="container">
   <!-- Modal -->
@@ -33,7 +55,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          <p>Prescription request has been submitted</p>
+          <p>Prescription request has been sent to your doctor</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
