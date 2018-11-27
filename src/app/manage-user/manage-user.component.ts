@@ -15,7 +15,7 @@ export class ManageUserComponent implements OnInit {
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this._id = this.activatedRoute.snapshot.params['_id']
+    this._id = this.activatedRoute.snapshot.params['_id'];
     this.apiService.usersList.subscribe(list => {
       this.user = list.find((item) => {
         return item._id === this._id;

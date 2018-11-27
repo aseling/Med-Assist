@@ -27,10 +27,10 @@
       </div>
     </div>
 
-    <div class="add-appt-container">
-      <button class="add-appt-btn" type="button" data-toggle="modal" data-target="#addAppointment">Add new appointment
-        <i class="fas fa-plus plus"></i></button>
-    </div>
+    <!--<div class="add-appt-container">-->
+      <!--<button class="add-appt-btn" type="button" data-toggle="modal" data-target="#addAppointment">Add new appointment-->
+        <!--<i class="fas fa-plus plus"></i></button>-->
+    <!--</div>-->
   </div>
 
   <div class="right-split">
@@ -53,7 +53,7 @@
       <!--aria-label="Button that displays a tooltip when focused or hovered over"-->
       <div class="day-of-week-number"
            *ngFor="let i of numOfDaysInMonth;"
-           [ngClass]="{'number': i.day == currentDate, 'hide-border': i == ''}"
+           [ngClass]="{'number ': i.day == currentDate, 'hide-border': i == ''}"
            (mouseenter)="getDateOnHover(i.day)"
            data-toggle="modal"
            data-target="#viewDayEvents">

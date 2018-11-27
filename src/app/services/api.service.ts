@@ -124,7 +124,6 @@ export class ApiService {
   getUserInfo(username: string) {
     return this.http.get(this.herokuPath + 'getSingleUser/' + username)
       .subscribe((res: any) => {
-        console.log(res.message[0].prescriptions);
         this.setUsersPrescriptionList(res.message[0].prescriptions)
       });
   }
