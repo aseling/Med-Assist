@@ -1,8 +1,18 @@
-import { User } from './../generic.interface';
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject} from 'rxjs';
-import {Router} from '@angular/router';
+import {
+  User
+} from './../generic.interface';
+import {
+  Injectable
+} from '@angular/core';
+import {
+  HttpClient
+} from '@angular/common/http';
+import {
+  BehaviorSubject
+} from 'rxjs';
+import {
+  Router
+} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -24,13 +34,13 @@ export class ApiService {
   addedEventMessage = new BehaviorSubject<string>('');
   usersEventsList = new BehaviorSubject<any[]>([]);
   userPrescriptions = new BehaviorSubject<any[]>([]);
+  reports = new BehaviorSubject<any[]>([]);
 
 
-  constructor(private http: HttpClient, private router: Router) {
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(username: string, password: string) {
-    return this.http.post<any>(this.herokuPath + 'login', {
+    return this.http.post < any > (this.herokuPath + 'login', {
       username: username,
       password: password
     }).subscribe((res: any) => {
@@ -39,7 +49,7 @@ export class ApiService {
   }
 
   register(name: string, email: string, username: string, password: string, password2: string) {
-    return this.http.post<any>(this.herokuPath + 'register', {
+    return this.http.post < any > (this.herokuPath + 'register', {
       name: name,
       email: email,
       username: username,
@@ -51,12 +61,12 @@ export class ApiService {
   }
 
   addNewEvent(doctor: string, date: string, time: string, task: string, user: string) {
-    return this.http.post<any>(this.herokuPath + 'addUserEvent/' + user, {
-      doctor: doctor,
-      date: date,
-      time: time,
-      task: task
-    })
+    return this.http.post < any > (this.herokuPath + 'addUserEvent/' + user, {
+        doctor: doctor,
+        date: date,
+        time: time,
+        task: task
+      })
       .subscribe((res: any) => {
         this.setAddedEventMessage(res.message);
       });
@@ -85,6 +95,28 @@ export class ApiService {
         console.log(res);
         this.setImagePath(res.imageURL);
       });
+  }
+
+  addUserReport(report: File, pdfName: string, user: string) {
+    const formData = new FormData();
+    formData.append('pdf', report);
+    formData.append('pdfName', pdfName);
+
+    return this.http.post(this.herokuPath + 'uploadPdf/' + user, formData)
+      .subscribe((res: any) => {
+        console.log(res);
+      });
+  }
+
+  getUserReports(username: string) {
+    return this.http.get(this.herokuPath + 'getUserPdfs/' + username)
+      .subscribe((res: any) => {
+        this.setUserReports(res.message);
+      });
+  }
+
+  setUserReports(reports: any) {
+    this.reports.next(reports);
   }
 
   getUserImage(username: string) {
