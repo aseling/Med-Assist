@@ -1,75 +1,29 @@
 <p>My Medications</p>
 
-<!--<p class="meds">Clobetasol 0.05% Sol</p>-->
-<!--<p class="meds">Levonor/ethi Estradiol Tab</p>-->
-<!--<p class="meds">Minocycline 100mg Cap</p>-->
-
-
 <table class="table table-hover">
   <tbody>
   <tr class="" id="tableHeader">
     <th scope="row">Medication</th>
-    <th scope="row">Refills Left</th>
-    <th scope="row">Refill</th>
+    <th scope="row">Refills Remaining</th>
+    <th scope="row">Expiration Date</th>
+    <th scope="row">Request Refill</th>
   </tr>
-  <tr>
-    <td>Clobetasol 0.05% Sol</td>
-    <td>3 Refills until 06/07/2019</td>
-    <td><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Request Refill</button></td>
-  </tr>
-  <tr>
-    <td>Levonor/ethi Estradiol Tab</td>
-    <td>6 Refills until 04/11/2019</td>
-    <td><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Request Refill</button></td>
-  </tr>
-  <tr>
-    <td>Minocycline 100mg Cap</td>
-    <td>4 Refills until 07/07/2019</td>
-    <td><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Request Refill</button></td>
+  <tr *ngFor="let i of userMeds">
+    <td class="align">{{i.drugName}}</td>
+    <td class="align">{{i.numberRefills}}</td>
+    <td class="align">{{i.expireDate}}</td>
+    <td class="align">
+      <button type="button" class="btn btn-outline-secondary refill-btn" data-toggle="modal" data-target="#myModal">Request
+        Refill
+      </button>
+    </td>
   </tr>
   </tbody>
 </table>
 
-<!--<div class="card border-primary mb-3" style="max-width: 20rem;">-->
-  <!--<div class="card-header">Clobetasol 0.05% Sol</div>-->
-  <!--<div class="card-body">-->
-    <!--<h4 class="card-title">3 Refills until 06/07/2019</h4>-->
-    <!--<button type="button" class="btn btn-primary">Request Refill</button>-->
-  <!--</div>-->
-<!--</div>-->
-
-<!--<div class="card border-primary mb-3" style="max-width: 20rem;">-->
-  <!--<div class="card-header">Header</div>-->
-  <!--<div class="card-body">-->
-    <!--<h4 class="card-title">Primary card title</h4>-->
-    <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-  <!--</div>-->
-<!--</div>-->
-
-<!--<p>Prescription Refill</p>-->
-  <!--<div id="leftMed">-->
-    <!--<p class="RefillMeds"><input type="checkbox" class="RefillCheckbox">Clobetasol 0.05% Sol</p>-->
-    <!--<p class="RefillMeds"><input type="checkbox" class="RefillCheckbox">Levonor/ethi Estradiol Tab</p>-->
-    <!--<p class="RefillMeds"><input type="checkbox" class="RefillCheckbox">Minocycline 100mg Cap</p>-->
-  <!--</div>-->
-
-  <!--<div id="rightMed">-->
-    <!--<p class="RefillMeds">3 Refills until 06/07/2019</p>-->
-    <!--<p class="RefillMeds">6 Refills until 04/11/2019</p>-->
-    <!--<p class="RefillMeds">4 Refills until 07/07/2019</p>-->
-  <!--</div>-->
-<!--<br>-->
-
-<!--<div id="AlignRefillBtn">-->
-  <!--<button type="button" id="btnSubmitRequest" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button>-->
-<!--</div>-->
-
 <div class="container">
-  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -81,7 +35,6 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>

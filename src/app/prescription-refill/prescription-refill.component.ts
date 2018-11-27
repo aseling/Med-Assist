@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../services/api.service';
+
 
 @Component({
   selector: 'app-prescription-refill',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./prescription-refill.component.css']
 })
 export class PrescriptionRefillComponent implements OnInit {
+  user:string;
+  userMeds = [];
 
-  constructor() { }
+  constructor(private apiService:ApiService) {
+  }
 
   ngOnInit() {
+    this.apiService.userPrescriptions.subscribe(prescriptions => {
+      console.log(prescriptions);
+      this.userMeds = prescriptions;
+    });
+
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+    });
+    this.getMedInfo();
+
+  }
+
+  getMedInfo() {
+    this.apiService.getUserInfo(this.user);
   }
 
 }

@@ -1,6 +1,6 @@
 import {Component, OnInit, HostListener} from '@angular/core';
 import {Router} from '@angular/router';
-import {ApiService} from "../services/api.service";
+import {ApiService} from '../services/api.service';
 
 @Component({
   selector: 'app-top-nav',
@@ -9,13 +9,14 @@ import {ApiService} from "../services/api.service";
 })
 
 export class TopNavComponent implements OnInit {
-  authorized:boolean = false;
-  user:string;
+  authorized: boolean = false;
+  user: string;
   imagePath = './assets/img/default-user.png';
   sideNavVisible = false;
   changeView;
+  isAdmin;
 
-  constructor(private apiService:ApiService, private router:Router) {
+  constructor(private apiService: ApiService, private router: Router) {
   }
 
   ngOnInit() {
@@ -34,6 +35,10 @@ export class TopNavComponent implements OnInit {
         this.imagePath = path;
       }
     });
+
+    this.apiService.permissions.subscribe(isAdmin => {
+      this.isAdmin = isAdmin;
+    })
 
     this.changeView = window.innerWidth <= 1000;
   }

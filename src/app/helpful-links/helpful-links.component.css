@@ -58,3 +58,7 @@
     transition-timing-function: ease-in;
     transition: 1.5s;
   }
+
+  #tableRow {
+    width: 50%;
+  }

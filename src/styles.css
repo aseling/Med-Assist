@@ -70,3 +70,7 @@ body {
 .mat-horizontal-content-container {
   padding: 25px 0 0 0 !important;
 }
+
+.mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}

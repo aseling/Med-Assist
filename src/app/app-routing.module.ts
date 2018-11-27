@@ -40,9 +40,9 @@ const routes: Routes = [
   { path: 'reports/view', component: PdfViewerComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'users-list', component: UsersListComponent },
-  { path: 'users-list/:_id/:name', component: ManageUserComponent },
-  { path: 'users-list/:id/:name/upload-reports', component: ReportUploadComponent },
-  { path: 'forms-upload', component: FormUploadComponent }
+  { path: 'users-list/:_id', component: ManageUserComponent },
+  { path: 'users-list/:_id/upload-reports', component: ReportUploadComponent },
+  { path: 'forms-upload', component: FormUploadComponent },
 ];
 
 @NgModule({

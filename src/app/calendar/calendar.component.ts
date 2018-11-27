@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { MatDatepickerInputEvent } from '../../../node_modules/@angular/material';
+import {MatDatepickerInputEvent} from '../../../node_modules/@angular/material';
 import {ApiService} from "../services/api.service";
 import {MatSnackBar}from '@angular/material';
 
@@ -42,7 +42,11 @@ export class CalendarComponent implements OnInit {
   todayAppointments = [];
   futureAppointments = [];
   pastAppointments = [];
+  allEvents = [];
   numOfDaysInMonth = [];
+
+  tooltipInfo = [];
+  tooltipString = "";
 
   user:string;
   minDate = new Date();
@@ -60,7 +64,8 @@ export class CalendarComponent implements OnInit {
   selectedTime = "";
   visitDescription = "";
   step = 0;
-  // isLinear = false;
+  isLinear = false;
+  date;
 
   constructor(private apiService:ApiService, public snackBar:MatSnackBar) {
   }
@@ -68,7 +73,7 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
     this.getDayName();
     this.getMonthName();
-    this.numOfDaysArray();
+    // this.numOfDaysArray();
 
     this.apiService.user.subscribe(user => {
       this.user = user;
@@ -79,25 +84,30 @@ export class CalendarComponent implements OnInit {
       this.todayAppointments = [];
       this.futureAppointments = [];
       this.pastAppointments = [];
+      this.allEvents = [];
 
       events.sort(function compare(a, b) {
         let dateA = +new Date(a.date);
         let dateB = +new Date(b.date);
         return dateA - dateB;
       });
-      
-      let index = 0;
+
+      this.allEvents = events;
+
       // SORT EVENTS BY DATE
       events.map((event) => {
-        if(event.date == this.todayFormatted) {
-          index++;
+        let today = +new Date(this.todayFormatted);
+        let eventDate = +new Date(event.date);
+
+        if (eventDate == today) {
           this.todayAppointments.push(event);
-        } else if(index == 1) {
+        } else if (eventDate > today) {
           this.futureAppointments.push(event);
-        } else if(index == 0) {
+        } else if (eventDate < today) {
           this.pastAppointments.push(event);
         }
       });
+      this.numOfDaysArray();
     });
 
     this.apiService.addedEventMessage.subscribe(message => {
@@ -115,7 +125,7 @@ export class CalendarComponent implements OnInit {
       this.currentYear--;
     }
     this.numOfDaysArray();
-    console.log(new Date(this.currentYear, this.monthNum + 1, 0), this.firstOfEachMonthNum);
+    // console.log(new Date(this.currentYear, this.monthNum + 1, 0), this.firstOfEachMonthNum);
     this.getMonthName();
   }
 
@@ -126,7 +136,7 @@ export class CalendarComponent implements OnInit {
       this.currentYear++;
     }
     this.numOfDaysArray();
-    console.log(new Date(this.currentYear, this.monthNum + 1, 0), this.firstOfEachMonthNum);
+    // console.log(new Date(this.currentYear, this.monthNum + 1, 0), this.firstOfEachMonthNum);
     this.getMonthName();
   }
 
@@ -209,9 +219,28 @@ export class CalendarComponent implements OnInit {
     this.firstOfEachMonthNum = new Date(this.currentYear, this.monthNum, 1).getDay().toString();
     this.adjustCalendarFirstPosition();
 
+
     for (let i = 0; i < (new Date(this.currentYear, this.monthNum + 1, 0).getDate()); i++) {
-      this.numOfDaysInMonth.push((i + 1).toString());
+
+      let eventHappening = false;
+      let checkDate = new Date(this.monthNum + 1 + "/" + (i + 1) + "/" + this.currentYear).toLocaleDateString("en-us").toString();
+      this.allEvents.filter(event => {
+        if (event.date == checkDate) {
+          eventHappening = true;
+        }
+      });
+
+      let info = {
+        day: (i + 1).toString(),
+        date: new Date(this.monthNum + 1 + "/" + (i + 1) + "/" + this.currentYear).toLocaleDateString("en-us").toString(),
+        hasEvent: eventHappening
+      };
+
+      // this.numOfDaysInMonth.push((i + 1).toString());
+      this.numOfDaysInMonth.push(info);
     }
+
+    // console.log(this.numOfDaysInMonth);
   }
 
   adjustCalendarFirstPosition() {
@@ -254,6 +283,7 @@ export class CalendarComponent implements OnInit {
   }
 
   cancel() {
+    console.log("CANCEL");
     this.selectedDoctorName = "";
     this.selectedDate = "";
     this.selectedTime = "";
@@ -291,5 +321,26 @@ export class CalendarComponent implements OnInit {
 
   getAllUserEvents() {
     this.apiService.getUserEvents(this.user);
+  }
+
+  getDateOnHover(index) {
+    this.tooltipInfo = [];
+    this.tooltipString = "";
+    this.date = new Date(this.monthNum + 1 + "/" + index + "/" + this.currentYear).toLocaleDateString("en-us");
+
+    this.allEvents.filter(event => {
+      if (event.date == this.date) {
+        this.tooltipInfo.push(event);
+      }
+    });
+
+    this.tooltipInfo.sort(function compare(a, b) {
+      return +new Date('1970/01/01 ' + a.time) - +new Date('1970/01/01 ' + b.time);
+    });
+
+    this.tooltipInfo.map(info => {
+      this.tooltipString = this.tooltipString.concat("        ");
+      this.tooltipString = this.tooltipString.concat(info.date + " at " + info.time + "   ");
+    });
   }
 }
