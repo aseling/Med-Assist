@@ -45,6 +45,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import 'hammerjs';
 import { AdminCalendarComponent } from './admin-calendar/admin-calendar.component';
+import { AdminChatComponent } from './admin-chat/admin-chat.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { AdminCalendarComponent } from './admin-calendar/admin-calendar.componen
     FileUploadComponent,
     FormUploadComponent,
     ReportUploadComponent,
-    AdminCalendarComponent
+    AdminCalendarComponent,
+    AdminChatComponent
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,7 @@ export class ApiService {
   addedEventMessage = new BehaviorSubject<string>('');
   usersEventsList = new BehaviorSubject<any[]>([]);
   userPrescriptions = new BehaviorSubject<any[]>([]);
+  usernameForAdminChat = new BehaviorSubject<string>('');
 
 
   constructor(private http: HttpClient, private router: Router) {
@@ -135,6 +136,13 @@ export class ApiService {
       });
   }
 
+  getUsernameByID(id: string) {
+    return this.http.get(this.herokuPath + 'getUsernameById/' + id)
+      .subscribe((res: any) => {
+        this.setUserNameForAdminChat(res.username);
+      });
+  }
+
   openRegisterPage(value: boolean) {
     this.registerView.next(value);
   }
@@ -160,6 +168,10 @@ export class ApiService {
 
   setUserName(user: string) {
     this.user.next(user);
+  }
+
+  setUserNameForAdminChat(user: string) {
+    this.usernameForAdminChat.next(user);
   }
 
   setImagePath(path: string) {
