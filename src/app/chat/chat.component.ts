@@ -91,7 +91,7 @@ export class ChatComponent implements OnInit {
 
   // STILL A SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
   ngAfterViewChecked() {
-    this.screenScroll();
+    // this.screenScroll();
   }
 
   screenScroll() {

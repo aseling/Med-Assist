@@ -8,48 +8,22 @@
     <th scope="row">Expiration Date</th>
     <th scope="row">Request Refill</th>
   </tr>
-  <!--<tr id="rows">-->
-    <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.drugName}}</div></td>-->
-    <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.numberRefills}}</div></td>-->
-    <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.expireDate}}</div></td>-->
-    <!--<td class="align"><div class="test" *ngFor="let i of userMeds"><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Request Refill</button></div></td>-->
-  <!--</tr>-->
-  <!--<div *ngFor="let i of userMeds">-->
-    <!--<tr>-->
-      <!--<td class="align">{{i.drugName}}</td>-->
-      <!--<td class="align">{{i.numberRefills}} Refills Until </td>-->
-      <!--<td class="align">{{i.expireDate}}</td>-->
-      <!--<td class="align"><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Request Refill</button></td>-->
-    <!--</tr>-->
-  <!--</div>-->
-  </tbody>
-</table>
-
-<table class="table table-hover">
-  <tbody>
-  <!--<tr id="rows">-->
-  <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.drugName}}</div></td>-->
-  <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.numberRefills}}</div></td>-->
-  <!--<td class="align"><div class="test" *ngFor="let i of userMeds">{{i.expireDate}}</div></td>-->
-  <!--<td class="align"><div class="test" *ngFor="let i of userMeds"><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Request Refill</button></div></td>-->
-  <!--</tr>-->
-  <div *ngFor="let i of userMeds">
-    <tr>
-      <td class="align">{{i.drugName}}</td>
-      <td class="align">{{i.numberRefills}} Refills </td>
-      <td class="align">{{i.expireDate}}</td>
-      <td class="align"><button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal">Request Refill</button></td>
-    </tr>
-  </div>
+  <tr *ngFor="let i of userMeds">
+    <td class="align">{{i.drugName}}</td>
+    <td class="align">{{i.numberRefills}}</td>
+    <td class="align">{{i.expireDate}}</td>
+    <td class="align">
+      <button type="button" class="btn btn-outline-secondary refill-btn" data-toggle="modal" data-target="#myModal">Request
+        Refill
+      </button>
+    </td>
+  </tr>
   </tbody>
 </table>
 
 <div class="container">
-  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -61,7 +35,6 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>

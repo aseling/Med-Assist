@@ -23,7 +23,7 @@ export class ApiService {
   permissions = new BehaviorSubject<boolean>(false);
   addedEventMessage = new BehaviorSubject<string>('');
   usersEventsList = new BehaviorSubject<any[]>([]);
-  prescriptions = new BehaviorSubject<[{}]>([{}]);
+  userPrescriptions = new BehaviorSubject<any[]>([]);
 
 
   constructor(private http: HttpClient, private router: Router) {
@@ -125,6 +125,7 @@ export class ApiService {
     return this.http.get(this.herokuPath + 'getSingleUser/' + username)
       .subscribe((res: any) => {
         console.log(res.message[0].prescriptions);
+        this.setUsersPrescriptionList(res.message[0].prescriptions)
       });
   }
 
@@ -167,6 +168,10 @@ export class ApiService {
     this.usersList.next(list);
   }
 
+  setUsersPrescriptionList(list: any[]) {
+    this.userPrescriptions.next(list);
+  }
+
   setUsersEventList(list: any[]) {
     this.usersEventsList.next(list);
   }
@@ -174,4 +179,5 @@ export class ApiService {
   setUserPermissions(isAdmin: boolean) {
     this.permissions.next(isAdmin);
   }
+  
 }
