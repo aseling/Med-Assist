@@ -1,3 +1,5 @@
+import { User } from './../generic.interface';
+import { ApiService } from './../services/api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,37 +8,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-upload.component.css']
 })
 export class FormUploadComponent implements OnInit {
+  user: User;
+  pdfNameInput: string;
+  pdfDescInput: string;
+  forms: any[];
+  selectedFile: File = null;
 
-  forms = [
-    {
-      formName: "New Patient Forms",
-      formDescription: "All the forms you will need to fill out before your first appointment with your doctor.",
-      formLink: "",
-    },
-    {
-      formName: "Health Information Release Authorization",
-      formDescription: "Fill this out if you would like us to release health information to a company or individual.",
-      formLink: "",
-    },
-    {
-      formName: "Health History Update Form",
-      formDescription: "Fill this out if there have been developments in yoru health since the last time we saw you.",
-      formLink: "",
-    },
-    {
-      formName: "Patient Information Update Form",
-      formDescription: "Fill this out if your contact or other personal information has changed.",
-      formLink: "",
-    },
-    {
-      formName: "Patient Feedback Form",
-      formDescription: "Let us know how we're doing.",
-      formLink: "",
-    },
-  ]
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.apiService.getAllUsers();
+    this.apiService.usersList.subscribe(list => {
+      this.user = list.find((item) => {
+        return item.username === "root";
+      })
+    });
+    this.forms = this.user.pdfReport;
   }
 
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+  onUpload() {
+    if (this.selectedFile === null) {
+      console.log("No file selected");
+    } else {
+      this.apiService.addUserReport(this.selectedFile, this.pdfNameInput, this.user.username, 
+        this.pdfDescInput);
+    }
+  }
 }

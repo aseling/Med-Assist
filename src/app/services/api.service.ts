@@ -97,10 +97,13 @@ export class ApiService {
       });
   }
 
-  addUserReport(report: File, pdfName: string, user: string) {
+  addUserReport(report: File, pdfName: string, user: string, pdfDesc?: string) {
     const formData = new FormData();
     formData.append('pdf', report);
     formData.append('pdfName', pdfName);
+    if(pdfDesc) {
+      formData.append('pdfDesc', pdfDesc);
+    }
 
     return this.http.post(this.herokuPath + 'uploadPdf/' + user, formData)
       .subscribe((res: any) => {
