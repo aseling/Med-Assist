@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDatepickerInputEvent} from '../../../node_modules/@angular/material';
 import {ApiService} from "../services/api.service";
 import {MatSnackBar}from '@angular/material';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-calendar',
@@ -66,18 +67,22 @@ export class AdminCalendarComponent implements OnInit {
   step = 0;
   isLinear = false;
   date;
+  _id;
 
-  constructor(private apiService:ApiService, public snackBar:MatSnackBar) {
+  constructor(private apiService:ApiService, public snackBar:MatSnackBar, private activatedRoute:ActivatedRoute, private router:Router) {
   }
 
   ngOnInit() {
     this.getDayName();
     this.getMonthName();
-    // this.numOfDaysArray();
+
+    this._id = this.activatedRoute.snapshot.params['_id'];
+    console.log(this._id);
+
+    this.getAllUserEvents();
 
     this.apiService.user.subscribe(user => {
       this.user = user;
-      this.getAllUserEvents();
     });
 
     this.apiService.usersEventsList.subscribe(events => {
@@ -320,7 +325,7 @@ export class AdminCalendarComponent implements OnInit {
   }
 
   getAllUserEvents() {
-    this.apiService.getUserEvents(this.user);
+    this.apiService.getUserEventsByID(this._id);
   }
 
   getDateOnHover(index) {

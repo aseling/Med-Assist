@@ -69,6 +69,13 @@ export class ApiService {
       });
   }
 
+  getUserEventsByID(id: string) {
+    return this.http.get(this.herokuPath + 'getUserEventsByID/' + id)
+      .subscribe((res: any) => {
+        this.setUsersEventList(res);
+      });
+  }
+
   getAllUsers() {
     return this.http.get(this.herokuPath + 'getAllUsers')
       .subscribe((res: any) => {
@@ -178,5 +185,5 @@ export class ApiService {
   setUserPermissions(isAdmin: boolean) {
     this.permissions.next(isAdmin);
   }
-  
+
 }
