@@ -1,51 +1,10 @@
+<<<<<<< HEAD
 h1 {
+=======
+p {
+>>>>>>> 3cbcbdff7ddb7b4e8a77557ec175d2a57593815f
   text-align: center;
   font-size: 30px;
-}
-
-.meds{
-  font-size: 20px;
-  border-top: 2px solid blue;
-  border-bottom: 2px solid blue;
-  width: 50%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.RefillMeds{
-  font-size: 20px;
-  border-top: 2px solid blue;
-  border-bottom: 2px solid blue;
-  width: 100%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.RefillCheckbox{
-  float: left;
-  left: 0;
-  top: 10px;
-}
-
-#leftMed{
-  float: left;
-  position: relative;
-  width: 40%;
-  left: 8%;
-}
-
-#rightMed{
-  float: right;
-  position: relative;
-  width: 40%;
-  right: 8%;
-}
-
-#btnSubmitRequest{
-  position: relative;
-  width: 20%;
 }
 
 .container {
@@ -53,32 +12,14 @@ h1 {
   min-height: 200px;
 }
 
-#AlignRefillBtn{
-  position: relative;
-  top: 140px;
-}
-
-#topMedList{
-  position: relative;
-  width: 70%;
-  left: 15%;
-}
-
-#MedCard{
-  font-size: 15pt;
-  text-align: left;
-}
-
-#tableHeader{
+#tableHeader {
   background-color: #17a2b8;
   color: white;
-  /*text-align: center;*/
 }
 
-table{
-  position: relative;
+table {
   width: 90%;
-  left: 5%;
+  margin: 0 auto;
 }
 
 .table td, .table th {
@@ -89,24 +30,20 @@ table{
   text-align: center;
 }
 
-.btn-submit{
-  background-color: white;
-  border: 2px solid
-}
-
-.align{
+.align {
   width: 25%;
 }
 
-#rows{
-  width: 100%;
-}
+@media only screen and (max-width: 1000px) {
+  p {
+    font-size: 30px;
+  }
 
-#userMed {
-  width: 100%;
-}
+  table {
+    font-size: 10px;
+  }
 
-.test{
-  border: 2px solid black;
-  height: 100px;
+  .refill-btn {
+    font-size: 11px;
+  }
 }

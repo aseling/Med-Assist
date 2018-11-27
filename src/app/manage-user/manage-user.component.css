@@ -1,0 +1,36 @@
+button {
+    width: 210px;
+}
+
+.button-group {
+    text-align: center;
+}
+
+button.button-in-group {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.user-image-component {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: inline;
+}
+
+.user-table {
+    display: inline;
+}
+
+table {
+    width: 80%;
+    margin-bottom: 50px;
+  }
+
+  th.first-column {
+    width: 40%;
+  }
+
+  th.second-column {
+    width: 30%;
+  }

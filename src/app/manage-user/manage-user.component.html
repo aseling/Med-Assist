@@ -1,14 +1,50 @@
-<div>
-  <div>
-    <h3>
-      Name: {{name}}
-    </h3>
-  </div>
-  <div>
-    <button>Manage Medical Profile</button>
-    <button>View and Upload Reports</button>
-    <button>Manage Appointments</button>
-    <button>Chat</button>
-    <button>Prescription Refill</button>
-  </div>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item" (click)="onClick('View List')">Users List</li>
+  <li class="breadcrumb-item active">{{user.name}}</li>
+</ol>
+
+<img *ngIf="user.image" class="user-image-component" src="{{user.image}}">
+<img *ngIf="!user.image" class="user-image-component" src="../../assets/img/default-user.png">
+<table class="user-table overflow-nowrap">
+  <thead>
+    <tr>
+      <th class="first-column" scope="col"></th>
+      <th class="second-column" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <span>Name:</span>
+      </td>
+      <td class="right-col">
+        <span>{{user.name}}</span>
+      </td>
+    </tr>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <span>Email:</span>
+      </td>
+      <td class="right-col">
+        <span>{{user.email}}</span>
+      </td>
+    </tr>
+    <tr class="report-rows" scope="row">
+      <td class="left-col">
+        <span>Username:</span>
+      </td>
+      <td class="right-col">
+        <span>{{user.username}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="button-group">
+  <button type="button" class="button-in-group btn btn-outline-info">Manage Medical Profile</button>
+  <button type="button" class="button-in-group btn btn-outline-info" (click)="onClick('reports')">View and Upload
+    Reports</button>
+  <button type="button" class="button-in-group btn btn-outline-info">Manage Appointments</button>
+  <button type="button" class="button-in-group btn btn-outline-info">Chat</button>
+  <button type="button" class="button-in-group btn btn-outline-info">Prescription Refill</button>
 </div>

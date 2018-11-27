@@ -31,7 +31,7 @@
         aria-expanded="false">{{user}}
         <div class="dropdown-menu dropdown-menu-right user-dropdown">
           <button routerLink="account-settings" class="dropdown-item" type="button">Settings</button>
-          <button routerLink="profile" class="dropdown-item" type="button">My Profile</button>
+          <button *ngIf="!isAdmin" routerLink="profile" class="dropdown-item" type="button">My Profile</button>
           <div class="dropdown-divider"></div>
           <button class="dropdown-item" type="button" (click)="logout()">Logout</button>
         </div>
@@ -55,7 +55,7 @@
       <i class="slide-nav-item fa fa-phone fa-lg" routerLink="contact-page" (click)="showSlideOutNav()"></i>
       <i class="slide-nav-item fa fa-bell fa-lg" (click)="showSlideOutNav()"></i>
     </div>
-    <div class="page-links">
+    <div *ngIf="!isAdmin" class="page-links">
       <a routerLink="prescription-refill" (click)="showSlideOutNav()">My Medicine</a>
       <a routerLink="calendar" (click)="showSlideOutNav()">Calendar</a>
       <a routerLink="chat" (click)="showSlideOutNav()">Chat</a>
@@ -63,9 +63,15 @@
       <a routerLink="reports" (click)="showSlideOutNav()">Medical Reports</a>
       <a routerLink="helpful-links" (click)="showSlideOutNav()">Helpful Links</a>
     </div>
+    <div *ngIf="isAdmin" class="page-links">
+      <a routerLink="users-list">Manage Users</a>
+      <a routerLink="home">Upload Forms</a>
+      <a routerLink="home">Edit Website Info</a>
+      <a routerLink="home">Chat</a>
+    </div>
     <footer class="page-links">
       <a routerLink="account-settings" (click)="showSlideOutNav()">Settings</a>
-      <a routerLink="user-profile" (click)="showSlideOutNav()">My Profile</a>
+      <a *ngIf="!isAdmin" routerLink="user-profile" (click)="showSlideOutNav()">My Profile</a>
       <a routerLink="" (click)="logout(); showSlideOutNav()">Logout</a>
     </footer>
   </div>

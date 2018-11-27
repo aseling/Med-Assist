@@ -1,3 +1,7 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active">Users List</li>
+</ol>
+
 <div class="table-content">
   <div class="page-title">
     <h1>Users List</h1>
@@ -17,7 +21,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="report-rows" *ngFor="let user of users | alphabetize:'name'" scope="row" (click)="onClick(user._id, user.name)">
+      <tr class="report-rows" *ngFor="let user of users | alphabetize:'name'" scope="row" (click)="onClick(user._id)">
         <td class="user-image">
           <img *ngIf="user.image" src="{{user.image}}">
           <img *ngIf="!user.image" src="../../assets/img/default-user.png">
