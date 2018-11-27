@@ -14,6 +14,7 @@ export class TopNavComponent implements OnInit {
   imagePath = './assets/img/default-user.png';
   sideNavVisible = false;
   changeView;
+  isAdmin;
 
   constructor(private apiService: ApiService, private router: Router) {
   }
@@ -34,6 +35,10 @@ export class TopNavComponent implements OnInit {
         this.imagePath = path;
       }
     });
+
+    this.apiService.permissions.subscribe(isAdmin => {
+      this.isAdmin = isAdmin;
+    })
 
     this.changeView = window.innerWidth <= 1000;
   }

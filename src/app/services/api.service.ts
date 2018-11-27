@@ -1,3 +1,4 @@
+import { User } from './../generic.interface';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
@@ -18,7 +19,7 @@ export class ApiService {
   imagePath = new BehaviorSubject<string>('');
   user = new BehaviorSubject<string>('');
   email = new BehaviorSubject<string>('');
-  usersList = new BehaviorSubject<any[]>([]);
+  usersList = new BehaviorSubject<User[]>([]);
   permissions = new BehaviorSubject<boolean>(false);
   addedEventMessage = new BehaviorSubject<string>('');
   usersEventsList = new BehaviorSubject<any[]>([]);
