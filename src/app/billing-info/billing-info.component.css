@@ -6,7 +6,6 @@
   grid-gap: 25px;
 }
 
-
 .each-box {
   border: 1px solid #d0cdcd;
   border-radius: 5px;
@@ -49,7 +48,6 @@ label {
   font-weight: 500;
   font-size: 20px;
   padding-top: 12px;
-
 }
 
 .user-info {

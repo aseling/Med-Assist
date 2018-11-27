@@ -4,10 +4,6 @@
   text-align: center;
 }
 
-.table-content {
-  /*min-height: 700px;*/
-}
-
 .page-title h1 {
   text-align: center;
   font-size: 30px;
@@ -19,18 +15,14 @@ table {
   margin-bottom: 50px;
 }
 
+#tableHeader{
+  background-color: #17a2b8;
+  color: white;
+  text-align: center;
+}
+
 .form-rows {
   cursor: default;
-}
-
-.modal-body {
-  height: 100%;
-}
-
-.page-title h1 {
-  text-align: center;
-  font-size: 30px;
-  padding: 15px 0 15px 0;
 }
 
 table button {
@@ -43,14 +35,14 @@ table.table-hover th {
 }
 
 th.first-column {
-  width: 75%;
-}
-
-th.second-column {
   width: 30%;
 }
 
-.report-rows {
+th.second-column {
+  width: 70%;
+}
+
+.form-rows {
   cursor: default;
 }
 
@@ -67,6 +59,10 @@ th.second-column {
 }
 
 .modal-content {
+  height: 100%;
+}
+
+.modal-body {
   height: 100%;
 }
 
