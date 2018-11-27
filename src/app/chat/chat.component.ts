@@ -95,14 +95,14 @@ export class ChatComponent implements OnInit {
   }
 
   screenScroll() {
-    this.renderer.selectRootElement("#end").scrollIntoView();
+    // this.renderer.selectRootElement("#end").scrollIntoView();
     //
     // document.querySelector('#end').scrollIntoView();
 
     //SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
-    // setTimeout(() => {
-    //   this.renderer.selectRootElement("#end").scrollIntoView()
-    // }, 100);
+    setTimeout(() => {
+      this.renderer.selectRootElement("#end").scrollIntoView()
+    }, 100);
   }
 
   selectRoomAnimation() {

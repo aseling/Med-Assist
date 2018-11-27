@@ -25,23 +25,25 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule, MatFormFieldModule, MatIconModule, MatTabsModule, MatNativeDateModule} from '@angular/material';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import {LoadingScreenComponent} from './loading-screen/loading-screen.component';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {MedicalInfoComponent} from './medical-info/medical-info.component';
 import {BillingInfoComponent} from './billing-info/billing-info.component';
 import {ContactInfoComponent} from './contact-info/contact-info.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { UsersListComponent } from './users-list/users-list.component';
-import { ManageUserComponent } from './manage-user/manage-user.component';
-import { AlphabetizePipe } from './Pipes/alphabetize.pipe';
-import { FileUploadComponent } from './file-upload/file-upload.component';
-import { FormUploadComponent } from './form-upload/form-upload.component';
-import { ReportUploadComponent } from './report-upload/report-upload.component';
+import {UsersListComponent} from './users-list/users-list.component';
+import {ManageUserComponent} from './manage-user/manage-user.component';
+import {AlphabetizePipe} from './Pipes/alphabetize.pipe';
+import {FileUploadComponent} from './file-upload/file-upload.component';
+import {FormUploadComponent} from './form-upload/form-upload.component';
+import {ReportUploadComponent} from './report-upload/report-upload.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import 'hammerjs';
 
 
 @NgModule({
@@ -96,6 +98,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatExpansionModule,
     MatButtonModule,
     MatStepperModule,
+    MatTooltipModule,
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
