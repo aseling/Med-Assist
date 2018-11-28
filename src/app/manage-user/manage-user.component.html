@@ -2,49 +2,39 @@
   <li class="breadcrumb-item" (click)="onClick('View List')">Users List</li>
   <li class="breadcrumb-item active">{{user.name}}</li>
 </ol>
+<div class="wrapper">
 
-<img *ngIf="user.image" class="user-image-component" src="{{user.image}}">
-<img *ngIf="!user.image" class="user-image-component" src="../../assets/img/default-user.png">
-<table class="user-table overflow-nowrap">
-  <thead>
-    <tr>
-      <th class="first-column" scope="col"></th>
-      <th class="second-column" scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <span>Name:</span>
-      </td>
-      <td class="right-col">
-        <span>{{user.name}}</span>
-      </td>
-    </tr>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <span>Email:</span>
-      </td>
-      <td class="right-col">
-        <span>{{user.email}}</span>
-      </td>
-    </tr>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <span>Username:</span>
-      </td>
-      <td class="right-col">
-        <span>{{user.username}}</span>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <div class="info-container">
+    <div class="user-image">
+      <img *ngIf="user.image" class="user-image-component" src="{{user.image}}">
+      <img *ngIf="!user.image" class="user-image-component" src="../../assets/img/default-user.png">
+    </div>
+    <div class="user-info">
+      <strong>Name: </strong>
+      <div>{{user.name}}</div>
+      <strong>Email: </strong>
+      <div> {{user.email}}</div>
+      <strong>Username: </strong>
+      <div> {{user.username}}</div>
+    </div>
+  </div>
 
-<div class="button-group">
-  <button type="button" class="button-in-group btn btn-outline-info">Manage Medical Profile</button>
-  <button type="button" class="button-in-group btn btn-outline-info" (click)="onClick('reports')">View and Upload
-    Reports</button>
-  <button type="button" class="button-in-group btn btn-outline-info">Manage Appointments</button>
-  <button type="button" class="button-in-group btn btn-outline-info">Chat</button>
-  <button type="button" class="button-in-group btn btn-outline-info">Prescription Refill</button>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Manage Medical Profile">
+      <app-medical-info></app-medical-info>
+    </mat-tab>
+    <mat-tab label="View and UploadReports">
+      <app-report-upload></app-report-upload>
+    </mat-tab>
+    <mat-tab label="Manage Appointments">
+      <app-admin-calendar></app-admin-calendar>
+    </mat-tab>
+    <mat-tab label="Chat">
+      <app-admin-chat></app-admin-chat>
+    </mat-tab>
+    <mat-tab label="Prescription Refill">
+      <!--<app-prescription-refill></app-prescription-refill>-->
+      refill page
+    </mat-tab>
+  </mat-tab-group>
 </div>

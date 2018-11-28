@@ -35,6 +35,7 @@ export class ApiService {
   usersEventsList = new BehaviorSubject<any[]>([]);
   userPrescriptions = new BehaviorSubject<any[]>([]);
   reports = new BehaviorSubject<any[]>([]);
+  usernameForAdminChat = new BehaviorSubject<string>('');
 
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -74,6 +75,13 @@ export class ApiService {
 
   getUserEvents(username: string) {
     return this.http.get(this.herokuPath + 'getUserEvents/' + username)
+      .subscribe((res: any) => {
+        this.setUsersEventList(res);
+      });
+  }
+
+  getUserEventsByID(id: string) {
+    return this.http.get(this.herokuPath + 'getUserEventsByID/' + id)
       .subscribe((res: any) => {
         this.setUsersEventList(res);
       });
@@ -156,8 +164,14 @@ export class ApiService {
   getUserInfo(username: string) {
     return this.http.get(this.herokuPath + 'getSingleUser/' + username)
       .subscribe((res: any) => {
-        console.log(res.message[0].prescriptions);
         this.setUsersPrescriptionList(res.message[0].prescriptions)
+      });
+  }
+
+  getUsernameByID(id: string) {
+    return this.http.get(this.herokuPath + 'getUsernameById/' + id)
+      .subscribe((res: any) => {
+        this.setUserNameForAdminChat(res.username);
       });
   }
 
@@ -188,6 +202,10 @@ export class ApiService {
     this.user.next(user);
   }
 
+  setUserNameForAdminChat(user: string) {
+    this.usernameForAdminChat.next(user);
+  }
+
   setImagePath(path: string) {
     this.imagePath.next(path);
   }
@@ -211,5 +229,5 @@ export class ApiService {
   setUserPermissions(isAdmin: boolean) {
     this.permissions.next(isAdmin);
   }
-  
+
 }
