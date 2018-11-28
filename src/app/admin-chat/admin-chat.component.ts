@@ -3,6 +3,7 @@ import {ChatService} from '../services/chat.service';
 import {ApiService} from "../services/api.service";
 import anime from 'animejs'
 import { ActivatedRoute, Router } from '@angular/router';
+import {Subscription} from "rxjs/index";
 
 @Component({
   selector: 'app-admin-chat',
@@ -23,31 +24,14 @@ export class AdminChatComponent implements OnInit {
   clicked = false;
   _id;
 
+  onReceiveNewUser: Subscription;
+
 
   constructor(private chatService:ChatService,
               private apiService:ApiService,
               private renderer:Renderer2,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
-
-    this._id = this.activatedRoute.snapshot.params['_id'];
-
-    this.apiService.getUsernameByID(this._id);
-
-    this.apiService.usernameForAdminChat.subscribe(name => {
-      this.leave();
-      this.roomChoice = [];
-      console.log(name);
-      this.roomChoice.push(name);
-      this.room = this.roomChoice[0];
-      this.join();
-    });
-
-    this.apiService.user.subscribe(user => {
-      this.user = user;
-    });
-
-
     this.chatService.newUserJoined().subscribe(data => {
       this.messageArray.push(data);
     });
@@ -70,9 +54,31 @@ export class AdminChatComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+    });
+
+    this._id = this.activatedRoute.snapshot.params['_id'];
+    this.apiService.getUsernameByID(this._id);
+
     this.changeView = window.innerWidth <= 901;
     this.clicked = !this.changeView;
+
+    this.onReceiveNewUser = this.apiService.usernameForAdminChat.subscribe(name => {
+      this.leave();
+      this.roomChoice = [];
+      console.log(name);
+      this.roomChoice.push(name);
+      this.room = this.roomChoice[0];
+      this.join();
+    });
   }
+  
+  ngOnDestroy() {
+    this.onReceiveNewUser.unsubscribe();
+  }
+
+
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
