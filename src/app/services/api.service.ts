@@ -24,6 +24,7 @@ export class ApiService {
   addedEventMessage = new BehaviorSubject<string>('');
   usersEventsList = new BehaviorSubject<any[]>([]);
   userPrescriptions = new BehaviorSubject<any[]>([]);
+  reports = new BehaviorSubject<any[]>([]);
   usernameForAdminChat = new BehaviorSubject<string>('');
 
 
@@ -95,7 +96,29 @@ export class ApiService {
       });
   }
 
-  getUserImage(username:string) {
+  addUserReport(report: File, pdfName: string, user: string) {
+    const formData = new FormData();
+    formData.append('pdf', report);
+    formData.append('pdfName', pdfName);
+
+    return this.http.post(this.herokuPath + 'uploadPdf/' + user, formData)
+      .subscribe((res: any) => {
+        console.log(res);
+      });
+  }
+
+  getUserReports(username: string) {
+    return this.http.get(this.herokuPath + 'getUserPdfs/' + username)
+      .subscribe((res: any) => {
+        this.setUserReports(res.message);
+      });
+  }
+
+  setUserReports(reports: any) {
+    this.reports.next(reports);
+  }
+
+  getUserImage(username: string) {
     return this.http.get(this.herokuPath + 'getUserImage/' + username)
       .subscribe((res:any) => {
         this.setImagePath(res.message);

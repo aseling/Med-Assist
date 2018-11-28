@@ -3,3 +3,31 @@
   <li class="breadcrumb-item" (click)="onClick('View User')">{{user.name}}</li>
   <li class="breadcrumb-item active">Upload Reports</li>
 </ol>
+
+<input class="pdf-name-input" [(ngModel)]="pdfNameInput" placeholder="Enter a name for your PDF">
+<div class="form-group">
+  <input type="file" id="exampleInputFile" aria-describedby="fileHelp" (change)="onFileSelected($event)">
+  <button (click)="onUpload()">Upload</button>
+  <small id="fileHelp" class="form-text text-muted">Choose a report to upload. File type must be .pdf</small>
+</div>
+
+<table class="table table-striped table-bordered table-hover table-sm" align="center">
+  <thead>
+    <tr>
+      <th class="first-column" scope="col">Report Name</th>
+      <th class="second-column" scope="col">Report Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="report-rows" *ngFor="let report of userReports" scope="row">
+      <td class="report-name" data-toggle="modal" data-target="#myModal">
+        <a>
+          {{ report.pdfName }}
+        </a>
+      </td>
+      <td class="report-date">
+        {{ report.pdfDate | date:'yyyy-MM-dd' }}
+      </td>
+    </tr>
+  </tbody>
+</table>
