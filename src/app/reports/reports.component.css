@@ -10,20 +10,6 @@
   padding: 15px 0 15px 0;
 }
 
-<<<<<<< HEAD
-#tableHeader{
-  background-color: #17a2b8;
-  color: white;
-  text-align: center;
-}
-
-table button {
-  table-layout: auto;
-  size: relative;
-}
-
-=======
->>>>>>> master
 table.table-hover th {
   font-weight: bold;
 }
@@ -34,13 +20,9 @@ table {
 }
 
 th.first-column {
-<<<<<<< HEAD
-  width: 70%;
-=======
   padding: 20px;
   text-transform: uppercase;
   font-weight: 600;
->>>>>>> master
 }
 
 th.second-column, th.third-column {
