@@ -110,7 +110,7 @@ export class ApiService {
   getUserReports(username: string) {
     return this.http.get(this.herokuPath + 'getUserPdfs/' + username)
       .subscribe((res: any) => {
-        this.setUserReports(res.message);
+        this.setUserReports(res);
       });
   }
 

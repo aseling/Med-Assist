@@ -1,3 +1,4 @@
+import { ApiService } from './../services/api.service';
 import { Component, OnInit } from '@angular/core';
 
 export interface IReport {
@@ -14,37 +15,19 @@ export interface IReport {
 
 export class ReportsComponent implements OnInit {
 
-  reports = [
-    {
-      reportName: "Blood Work",
-      reportDate: "1/1/11",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "MRI",
-      reportDate: "2/2/12",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "Scoliosis Screening",
-      reportDate: "3/3/13",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "Chest X-Ray",
-      reportDate: "1/1/11",
-      reportLink: "BarGraph.pdf",
-    },
-    {
-      reportName: "Back X-Ray",
-      reportDate: "2/2/12",
-      reportLink: "BarGraph.pdf",
-    }
-  ];
+  reports = null;
+  clickedUrl = null;
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.apiService.reports.subscribe(list => {
+      this.reports = list;
+    });
   }
 
+  setPdfUrl(url: string) {
+    this.clickedUrl = url;
+    console.log(this.clickedUrl);
+  }
 }

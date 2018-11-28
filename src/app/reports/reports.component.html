@@ -15,14 +15,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="report-rows" *ngFor="let report of reports" scope="row">
-        <td class="report-name" data-toggle="modal" data-target="#myModal">
+      <tr class="report-rows" *ngFor="let report of reports" scope="row" (click)="setPdfUrl(report.pdfUrl)" data-toggle="modal" data-target="#myModal">
+        <td class="report-name">
           <a>
-            {{ report.reportName }}
+            {{ report.pdfName }}
           </a>
         </td>
         <td class="report-date">
-          {{ report.reportDate }}
+          {{ report.pdfDate | date:'yyyy-MM-dd' }}
         </td>
       </tr>
     </tbody>
@@ -39,7 +39,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          <app-pdf-viewer></app-pdf-viewer>
+          <app-pdf-viewer [source]="clickedUrl"></app-pdf-viewer>
         </div>
       </div>
 
