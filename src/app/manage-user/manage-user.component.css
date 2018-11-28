@@ -17,6 +17,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 10px auto;
+  column-gap: 10px;
 }
 
 button {
@@ -54,3 +55,16 @@ th.first-column {
 th.second-column {
   width: 30%;
 }
+
+.mat-tab-body-wrapper {
+  width: fit-content;
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .info-container {
+    width: fit-content;
+    font-size: 13px;
+  }
+}
+
