@@ -26,8 +26,7 @@ export class ReportsComponent implements OnInit {
     });
   }
 
-  setPdfUrl(url: string) {
-    this.clickedUrl = url;
-    console.log(this.clickedUrl);
+  changeUrl(index) {
+    this.clickedUrl = this.reports[index].pdfUrl;
   }
 }
