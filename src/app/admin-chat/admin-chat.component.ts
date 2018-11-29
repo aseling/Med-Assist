@@ -67,7 +67,6 @@ export class AdminChatComponent implements OnInit {
     this.onReceiveNewUser = this.apiService.usernameForAdminChat.subscribe(name => {
       this.leave();
       this.roomChoice = [];
-      console.log(name);
       this.roomChoice.push(name);
       this.room = this.roomChoice[0];
       this.join();

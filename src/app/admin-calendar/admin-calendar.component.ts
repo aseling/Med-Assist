@@ -77,7 +77,6 @@ export class AdminCalendarComponent implements OnInit {
     this.getMonthName();
 
     this._id = this.activatedRoute.snapshot.params['_id'];
-    console.log(this._id);
 
     this.getAllUserEvents();
 

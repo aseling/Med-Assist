@@ -65,6 +65,11 @@ th.second-column {
   .info-container {
     width: fit-content;
     font-size: 13px;
+    margin: 15px auto;
+  }
+
+  .mat-tab-group {
+    max-width: 415px;
   }
 }
 
