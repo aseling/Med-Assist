@@ -54,6 +54,11 @@
   color: white;
 }
 
+#table-header {
+  background-color: #17a2b8;
+  color: white;
+}
+
 table {
   width: 90%;
 }
@@ -69,7 +74,6 @@ th.second-column {
   text-transform: uppercase;
   font-weight: 600;
 }
-
 
 .table-bordered td, .table-bordered th {
   padding: 20px;

@@ -10,13 +10,18 @@ import {ApiService} from '../services/api.service';
 export class PrescriptionRefillComponent implements OnInit {
   user:string;
   userMeds = [];
+  test;
 
   constructor(private apiService:ApiService) {
   }
 
   ngOnInit() {
-    this.apiService.userPrescriptions.subscribe(prescriptions => {
-      this.userMeds = prescriptions;
+    this.apiService.userPrescriptions.subscribe(info => {
+      this.test = info;
+      if(this.test != "") {
+        console.log(this.test.message.prescriptions);
+        this.userMeds = this.test.message.prescriptions;
+      }
     });
 
     this.apiService.user.subscribe(user => {
