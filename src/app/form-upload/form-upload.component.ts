@@ -88,4 +88,8 @@ export class FormUploadComponent implements OnInit {
     this.open = false;
     this.apiService.getForms();
   }
+
+  openToggle() {
+    this.open = !this.open;
+  }
 }
