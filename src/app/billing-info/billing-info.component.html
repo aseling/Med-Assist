@@ -4,24 +4,25 @@
       <!--BILLING INFORMATION
       Data shown as the variables called below.
       The data is labeled and each field is called by a variable-->
-      <button *ngIf="!billingProfileEdit" type="button" class="edit-btn" (click)="editBillingProfile()">Edit</button>
+    <!--<button *ngIf="!billingProfileEdit" type="button" class="edit-btn" (click)="editBillingProfile()">Edit</button>-->
       <div>Billing Information</div>
     </div>
     <div class="section" *ngIf="!billingProfileEdit">
       <label>First Name: </label>
-      <div class="user-info">{{billingFirstName}}</div>
+      <div class="user-info">Robert</div>
 
       <label>Last Name: </label>
-      <div class="user-info">{{billingLastName}}</div>
+      <div class="user-info">Jones </div>
 
       <label>Billing Address: </label>
-      <div class="user-info">{{billingAddress}}</div>
+      <div class="user-info">1100 South Marietta Pkwy
+        Marietta, GA 30060</div>
 
       <label>Billing Phone: </label>
-      <div class="user-info">{{billingPhone}}</div>
+      <div class="user-info">404-234-4567</div>
 
       <label>Billing Email: </label>
-      <div class="user-info">{{billingEmail}}</div>
+      <div class="user-info">robert.jonesRocks@yahoo.com</div>
     </div>
 
     <!--Once the edit button is clicked (profileEdit method is called),
@@ -70,39 +71,39 @@
 <div class="wrapper">
   <div class="each-box form-group">
     <div class="header">
-      <button *ngIf="!insuranceProfileEdit" type="button" class="edit-btn" (click)="editInsuranceProfile()">Edit</button>
+      <!--<button *ngIf="!insuranceProfileEdit" type="button" class="edit-btn" (click)="editInsuranceProfile()">Edit</button>-->
       <div>Primary Insurance</div>
     </div>
     <div class="section" *ngIf="!insuranceProfileEdit">
       <label>Type: </label>
-      <div class="user-info">{{insuranceType}}</div>
+      <div class="user-info">Cigna</div>
 
       <label>Insurance Info: </label>
-      <div class="user-info">{{insuranceInfo}}</div>
+      <div class="user-info"> PCP </div>
 
       <label>Office Visit Co-Pay: </label>
-      <div class="user-info">{{insurancePay}}</div>
+      <div class="user-info">Primary Care $20</div>
 
       <label>Primary Holder Name: </label>
-      <div class="user-info">{{primaryHolderName}}</div>
+      <div class="user-info">Robert Jones</div>
 
       <label>Relationship to Insurer: </label>
-      <div class="user-info">{{insurerRelationship}}</div>
+      <div class="user-info">N/A</div>
 
       <label>Date of Birth: </label>
-      <div class="user-info">{{insuranceDOB}}</div>
+      <div class="user-info">12/11/64</div>
 
       <label>Group/Policy Number: </label>
-      <div class="user-info">{{policyNumber}}</div>
+      <div class="user-info">123456789</div>
 
       <label>ID/Cert Number: </label>
-      <div class="user-info">{{idNumber}}</div>
+      <div class="user-info">383838</div>
 
       <label>Issue: </label>
-      <div class="user-info">{{issueNumber}}</div>
+      <div class="user-info">292929</div>
 
       <label>Expiration: </label>
-      <div class="user-info">{{insuranceExpiration}}</div>
+      <div class="user-info">1/15/20</div>
     </div>
 
     <!--INSURANCE Once the edit button is clicked (profileEdit method is called),
