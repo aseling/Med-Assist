@@ -40,3 +40,7 @@ button {
   text-align: center;
   font-size: 25px;
 }
+
+.submit-button {
+  margin-bottom: 30px;
+}
