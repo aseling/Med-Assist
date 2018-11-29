@@ -26,7 +26,6 @@ export class ReportUploadComponent implements OnInit {
 
   constructor(private apiService:ApiService,
               private activatedRoute:ActivatedRoute,
-              private router:Router,
               private formBuilder:FormBuilder) {
   }
 

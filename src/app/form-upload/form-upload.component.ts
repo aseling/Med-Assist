@@ -1,8 +1,8 @@
-import { Subscription } from 'rxjs/index';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { User } from './../generic.interface';
-import { ApiService } from './../services/api.service';
-import { Component, OnInit } from '@angular/core';
+import {Subscription} from 'rxjs/index';
+import {FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
+import {User} from './../generic.interface';
+import {ApiService} from './../services/api.service';
+import {Component, OnInit} from '@angular/core';
 import anime from 'animejs'
 
 @Component({
@@ -12,20 +12,22 @@ import anime from 'animejs'
 })
 export class FormUploadComponent implements OnInit {
 
-  selectedFile: File = null;
-  forms: any[];
-  pdfNameInput: string;
-  pdfDescInput: string;
-  uploadForm: FormGroup;
-  open: boolean;
-  onReceiveNewPdf: Subscription;
+  selectedFile:File = null;
+  forms:any[];
+  pdfNameInput:string;
+  pdfDescInput:string;
+  uploadForm:FormGroup;
+  open:boolean;
+  onReceiveNewPdf:Subscription;
 
-  constructor(private apiService:ApiService, private formBuilder:FormBuilder) {}
+  constructor(private apiService:ApiService,
+              private formBuilder:FormBuilder) {
+  }
 
   ngOnInit() {
     this.apiService.forms.subscribe(forms => {
       return this.forms = forms;
-    })
+    });
 
     this.uploadForm = this.formBuilder.group({
       'pdfNameInput': new FormControl('', [Validators.required]),
@@ -36,6 +38,9 @@ export class FormUploadComponent implements OnInit {
       this.forms = [];
       this.forms = forms;
     });
+  }
+  ngOnDestroy() {
+    this.onReceiveNewPdf.unsubscribe();
   }
 
   onFileSelected(event) {

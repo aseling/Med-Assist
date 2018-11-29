@@ -38,7 +38,7 @@ export class TopNavComponent implements OnInit {
 
     this.apiService.permissions.subscribe(isAdmin => {
       this.isAdmin = isAdmin;
-    })
+    });
 
     this.changeView = window.innerWidth <= 1000;
   }
@@ -51,6 +51,8 @@ export class TopNavComponent implements OnInit {
   logout() {
     this.apiService.unauthorizeUser();
     this.apiService.setImagePath('./assets/img/default-user.png');
+
+    this.apiService.setUserPermissions(false);
   }
 
   showSlideOutNav() {

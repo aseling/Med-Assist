@@ -17,6 +17,11 @@
   margin: 20px 0 25px 0;
 }
 
+h4 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
 .submit-btn {
   background: #3B92A8;
   color: white;

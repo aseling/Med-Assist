@@ -19,6 +19,11 @@ table {
   margin-bottom: 50px;
 }
 
+#table-header {
+  background-color: #17a2b8;
+  color: white;
+}
+
 th.first-column {
   padding: 20px;
   text-transform: uppercase;
@@ -37,7 +42,7 @@ th.second-column, th.third-column {
 }
 
 .report-rows td {
-  padding:20px;
+  padding: 20px;
 }
 
 .no-reports {

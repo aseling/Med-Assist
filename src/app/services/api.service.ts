@@ -106,6 +106,7 @@ export class ApiService {
     return this.http.post(this.herokuPath + 'uploadPdf/' + user, formData)
       .subscribe((res: any) => {
         this.getUserReports(user);
+        this.getForms();
       });
   }
 
