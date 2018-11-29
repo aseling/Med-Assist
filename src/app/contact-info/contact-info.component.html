@@ -14,36 +14,41 @@
 <!--PATIENT INFORMATION
 Data shown as the variables called below.
 The data is labeled and each field is called by a variable-->
-<button *ngIf="!patientProfileEdit" type="button" class="edit-btn" (click)="editPatientProfile()">Edit</button>
+<!--<button *ngIf="!patientProfileEdit" type="button" class="edit-btn" (click)="editPatientProfile()">Edit</button>-->
 <div>Patient Information</div>
 </div>
 <div class="section" *ngIf="!patientProfileEdit">
 <label>First Name: </label>
-<div class="user-info">{{patientFirstName}}</div>
+<!--<div class="user-info">{{patientFirstName}}</div>-->
+  <div class="user-info"> Robert </div>
 
-<label>Last  Name: </label>
-<div class="user-info">{{patientLastName}}</div>
 
-<label>Address: </label>
-<div class="user-info">{{address}}</div>
+  <label>Last  Name: </label>
+<!--<div class="user-info">{{patientLastName}}</div>-->
+  <div class="user-info"> Jones </div>
+
+
+  <label>Address: </label>
+<div class="user-info"> 1100 South Marietta Pkwy
+  Marietta, GA 30060 </div>
 
 <label>Date of Birth: </label>
-<div class="user-info">{{DOB}}</div>
+<div class="user-info">12/11/64</div>
 
 <label>Sex: </label>
-<div class="user-info">{{sex}}</div>
+<div class="user-info">Male</div>
 
 <label>Marital Status: </label>
-<div class="user-info">{{maritalStatus}}</div>
+<div class="user-info">Single</div>
 
 <label>Language: </label>
-<div class="user-info">{{language}}</div>
+<div class="user-info">English</div>
 
 <label>Race: </label>
-<div class="user-info">{{race}}</div>
+<div class="user-info">N/A</div>
 
 <label>Ethnicity: </label>
-<div class="user-info">{{ethnicity}}</div>
+<div class="user-info">N/A</div>
 </div>
 
 <!--Once the edit button is clicked (profileEdit method is called),
@@ -114,21 +119,21 @@ Data shown as the variables called below.
 The data is labeled and each field is called by a variable-->
 <div class="each-box form-group">
 <div class="header">
-<button *ngIf="!phoneProfileEdit" type="button" class="edit-btn" (click)="editPhoneProfile()">Edit</button>
+<!--<button *ngIf="!phoneProfileEdit" type="button" class="edit-btn" (click)="editPhoneProfile()">Edit</button>-->
 <div>Phone and Email</div>
 </div>
 <div class="section" *ngIf="!phoneProfileEdit">
 <label>Home Phone: </label>
-<div class="user-info">{{homePhone}}</div>
+<div class="user-info">770-285-9921</div>
 
 <label>Mobile Phone: </label>
-<div class="user-info">{{mobilePhone}}</div>
+<div class="user-info">404-234-4567</div>
 
 <label>Work Phone: </label>
-<div class="user-info">{{workPhone}}</div>
+<div class="user-info">770-765-2342</div>
 
 <label>Email: </label>
-<div class="user-info">{{email}}</div>
+<div class="user-info">robert.jonesRocks@yahoo.com</div>
 </div>
 
 <!--PHONE AND EMAIL Once the edit button is clicked (profileEdit method is called),
@@ -171,27 +176,27 @@ The data is labeled and each field is called by a variable-->
 <div class="wrapper">
 <div class="each-box form-group">
 <div class="header">
-<button *ngIf="!emergencyProfileEdit" type="button" class="edit-btn" (click)="editEmergencyProfile()">Edit</button>
+<!--<button *ngIf="!emergencyProfileEdit" type="button" class="edit-btn" (click)="editEmergencyProfile()">Edit</button>-->
 <div>Emergency Contact:</div>
 </div>
 <div class="section" *ngIf="!emergencyProfileEdit">
 <label>First Name: </label>
-<div class="user-info">{{emergencyFirstName}}</div>
+<div class="user-info">Kathy</div>
 
 <label>Last Name: </label>
-<div class="user-info">{{emergencyLastName}}</div>
+<div class="user-info">Jones</div>
 
 <label>Relationship to Patient: </label>
-<div class="user-info">{{emergencyRelationship}}</div>
+<div class="user-info"> Mother </div>
 
 <label>Home Phone: </label>
-<div class="user-info">{{emergencyHomePhone}}</div>
+<div class="user-info"> 770-888-3333</div>
 
 <label>Mobile Phone: </label>
-<div class="user-info">{{emergencyMobilePhone}}</div>
+<div class="user-info">404-543-6785</div>
 
 <label>Work Phone: </label>
-<div class="user-info">{{emergencyWorkPhone}}</div>
+<div class="user-info">678-234-1234</div>
 </div>
 
 <!--EMERGENCY CONTACT Once the edit button is clicked (profileEdit method is called),

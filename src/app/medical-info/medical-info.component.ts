@@ -7,24 +7,23 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./medical-info.component.css']
 })
 export class MedicalInfoComponent implements OnInit {
-  profileEdit = false;
-  username = 'test';
+  medicalProfileEdit = false;
 
   constructor(public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
-  editProfile() {
-    this.profileEdit = true;
+ editMedicalProfile() {
+    this.medicalProfileEdit = true;
   }
 
-  updateProfile() {
-    this.profileEdit = false;
+  updateMedicalProfile() {
+    this.medicalProfileEdit = false;
   }
 
-  cancelProfile() {
-    this.profileEdit = false;
+  cancelMedicalProfile() {
+    this.medicalProfileEdit = false;
   }
 
 
