@@ -26,6 +26,7 @@ export class ApiService {
   userPrescriptions = new BehaviorSubject<any[]>([]);
   reports = new BehaviorSubject<any[]>([]);
   usernameForAdminChat = new BehaviorSubject<string>('');
+  forms = new BehaviorSubject<any[]>([]);
 
 
   constructor(private http:HttpClient, private router:Router) {
@@ -96,10 +97,13 @@ export class ApiService {
       });
   }
 
-  addUserReport(report: File, pdfName: string, user: string) {
+  addUserReport(report: File, pdfName: string, user: string, pdfDesc?: string) {
     const formData = new FormData();
     formData.append('pdf', report);
     formData.append('pdfName', pdfName);
+    if(pdfDesc) {
+      formData.append('pdfDesc', pdfDesc);
+    }
 
     return this.http.post(this.herokuPath + 'uploadPdf/' + user, formData)
       .subscribe((res: any) => {
@@ -116,6 +120,18 @@ export class ApiService {
 
   setUserReports(reports: any) {
     this.reports.next(reports);
+  }
+
+  // Forms pulls from "root" admin account
+  getForms() {
+    return this.http.get(this.herokuPath + 'getUserPdfs/root')
+    .subscribe((res: any) => {
+      this.setForms(res);
+    });
+  }
+
+  setForms(forms: any) {
+    this.forms.next(forms);
   }
 
   getUserImage(username: string) {
