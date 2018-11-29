@@ -73,8 +73,15 @@ th.first-column {
   font-weight: 600;
 }
 
-th.second-column, th.third-column {
-  width: 30%;
+th.second-column {
+  width: 40%;
+  padding: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+th.third-column {
+  width: 20%;
   padding: 20px;
   text-transform: uppercase;
   font-weight: 600;
