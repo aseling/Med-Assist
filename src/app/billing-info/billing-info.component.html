@@ -9,10 +9,10 @@
     </div>
     <div class="section" *ngIf="!billingProfileEdit">
       <label>First Name: </label>
-      <div class="user-info">{{firstName}}</div>
+      <div class="user-info">{{billingFirstName}}</div>
 
       <label>Last Name: </label>
-      <div class="user-info">{{lastName}}</div>
+      <div class="user-info">{{billingLastName}}</div>
 
       <label>Billing Address: </label>
       <div class="user-info">{{billingAddress}}</div>
@@ -27,31 +27,31 @@
     <!--Once the edit button is clicked (profileEdit method is called),
     the data is shown as the variables called below-->
     <form *ngIf="billingProfileEdit" class="form">
-      <label>Name: </label>
+      <label>First Name: </label>
       <mat-form-field>
-        <input matInput type="text" id="billFirstName" placeholder=" First Name" value={{billFirstName}}>
+        <input matInput type="text" id="billFirstName" placeholder=" First Name" value={{billingFirstName}}>
         <!--formControlName="billFirstName"-->
       </mat-form-field>
 
-      <label>Address: </label>
+      <label>Last Name: </label>
       <mat-form-field>
-        <input matInput type="text" id="billLastName" placeholder="Last Name" value={{billLastName}}>
+        <input matInput type="text" id="billLastName" placeholder="Last Name" value={{billingLastName}}>
         <!--formControlName="address"-->
       </mat-form-field>
 
-      <label>Date of Birth: </label>
+      <label>Billing Address: </label>
       <mat-form-field>
         <input matInput type="text" id="billingAddress" placeholder="Billing Address" value={{billingAddress}}>
         <!--formControlName="DOB"-->
       </mat-form-field>
 
-      <label>Sex: </label>
+      <label>Phone: </label>
       <mat-form-field>
         <input matInput type="text" id="billingPhone" placeholder="Billing Phone" value={{billingPhone}}>
         <!--formControlName="sex"-->
       </mat-form-field>
 
-      <label>Marital Status: </label>
+      <label>Email: </label>
       <mat-form-field>
         <input matInput type="text" id="billingEmail" placeholder="Billing Email" value={{billingEmail}}>
         <!--formControlName="maritalStatus"-->

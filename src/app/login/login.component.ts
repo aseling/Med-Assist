@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
         this.apiService.setUserName(this.username);
         this.apiService.getUserImage(this.username);
         this.apiService.getUserEmail(this.username);
+        this.apiService.getUserBasicInfo(this.username);
         this.apiService.getAllUsers();
       }
 
