@@ -1,43 +1,69 @@
-.wrapper {
-    width: 80%;
-    margin: 0 auto 20px;
+.upload-forms-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 25px;
     text-align: center;
-}
-  
-h1 {
-    text-align: center;
-    font-size: 30px;
-    padding: 15px 0 15px 0;
-}
-  
-table {
+  }
+
+  .pdf-name-input {
+    margin: 0 auto;
+  }
+
+  .mat-form-field {
+    width: 300px;
+  }
+
+  .form-group {
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  .upload-pdf {
     width: 100%;
-    margin-bottom: 50px;
-}
-  
-#tableHeader{
+    text-align: center;
+  }
+
+  .upload-btn {
+    border: 1px solid #3B92A8;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 18px;
+    margin: 10px;
+    width: 300px;
+    height: 35px;
+    transition: all 0.4s ease-out;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 200;
+  }
+
+  .upload-btn:hover {
+    background-color: #3B92A8;
+    color: white;
+  }
+
+  .mat-accordion .mat-expansion-panel:last-of-type {
+    border-radius: 5px;
+    border: 1px solid #c5c5c5;
+    width: 50%;
+    margin: 35px auto;
+  }
+
+  table {
+    width: 90%;
+  }
+
+  #tableHeader {
     background-color: #17a2b8;
     color: white;
-    text-align: center;
-}
-  
-.form-rows, .add-row {
-    cursor: default;
-    text-align: left;
-}
+  }
 
-th.first-column {
-    width: 10%;
-}
+  @media only screen and (max-width: 1000px) {
+    .mat-accordion .mat-expansion-panel:last-of-type {
+      width: 90%;
+    }
+  }
 
-th.second-column {
-    width: 30%;
-}
-
-th.third-column {
-    width: 50%;
-}
-
-th.fourth-column {
-    width: 10%;
-}
+  th.second-column, th.third-column {
+    width: 20%;
+  }

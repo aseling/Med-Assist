@@ -63,14 +63,6 @@ export class ReportUploadComponent implements OnInit {
     // this.userReports = this.user.pdfReport;
   }
 
-  onClick(event:string) {
-    if (event === "View List") {
-      this.router.navigate(["users-list"])
-    } else if (event === "View User") {
-      this.router.navigate(["users-list", this._id])
-    }
-  }
-
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];
   }
