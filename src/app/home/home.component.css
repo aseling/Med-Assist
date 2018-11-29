@@ -65,15 +65,18 @@ p {
 }
 
 #card1{
-  background-color: #4582EC;
+  /* background-color: #4582EC; */
+  background-color: #527EBE;
 }
 
 #card2{
-  background-color: #d9534f;
+  /* background-color: #d9534f; */
+  background-color: #EC66A7;
 }
 
 #card3{
-  background-color: #f0ad4e;
+  /* background-color: #f0ad4e; */
+  background-color: #4C857E;
 }
 
 .card-body {
