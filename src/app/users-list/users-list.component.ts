@@ -16,7 +16,9 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit() {
     this.apiService.usersList.subscribe(list => {
-      this.users = list;
+      this.users = list.filter((item) => {
+        return item.permissions === false || !item.permissions;
+      })
     });
   }
 
