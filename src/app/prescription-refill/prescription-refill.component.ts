@@ -16,7 +16,6 @@ export class PrescriptionRefillComponent implements OnInit {
 
   ngOnInit() {
     this.apiService.userPrescriptions.subscribe(prescriptions => {
-      console.log(prescriptions);
       this.userMeds = prescriptions;
     });
 

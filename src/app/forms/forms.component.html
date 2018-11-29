@@ -4,45 +4,29 @@
   </div>
   <div class="info-container">
     <small class="form-text text-muted">
-      You can download these documents and forms any time! Below are links to all the forms you may need when interacting with our team. If you have any questions or need help filling out the forms, please contact our office.
+      You can download these documents and forms any time! Below are links to all the forms you may need when
+      interacting with our team. If you have any questions or need help filling out the forms, please contact our
+      office.
     </small>
   </div>
   <table class="table table-striped table-bordered table-hover table-sm" align="center">
-    <thead>
+    <thead id="table-header">
       <tr>
-        <th class="first-column" scope="col">Form</th>
+        <th class="first-column" scope="col">Form Name</th>
         <th class="second-column" scope="col">Form Description</th>
+        <th class="third-column" scope="col">Download PDF</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="form-rows" *ngFor="let form of forms" scope="row">
-        <td class="form-name" data-toggle="modal" data-target="#myModal">
-          <a>
-            {{ form.formName }}
-          </a>
+      <tr class="form-rows" *ngFor="let form of forms; index as i" (mouseenter)="changeUrl(i)" scope="row">
+        <td>
+          <a>{{ form.pdfName }}</a>
         </td>
-        <td class="form-date">
-          {{ form.formDescription }}
+        <td>{{ form.pdfDesc }}</td>
+        <td>
+          <a href="{{clickedUrl}}" target="_blank">PDF</a>
         </td>
       </tr>
     </tbody>
   </table>
-</div>
-
-<div class="modal-container">
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <app-pdf-viewer></app-pdf-viewer>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>

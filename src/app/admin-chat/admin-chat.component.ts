@@ -2,29 +2,36 @@ import {Component, OnInit, Renderer2, HostListener} from '@angular/core';
 import {ChatService} from '../services/chat.service';
 import {ApiService} from "../services/api.service";
 import anime from 'animejs'
+import { ActivatedRoute, Router } from '@angular/router';
+import {Subscription} from "rxjs/index";
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  selector: 'app-admin-chat',
+  templateUrl: './admin-chat.component.html',
+  styleUrls: ['./admin-chat.component.css']
 })
-export class ChatComponent implements OnInit {
-
+export class AdminChatComponent implements OnInit {
   user:string;
   room:string;
   messageText:string;
   messageArray:{user:string; message:string}[];
   roomChoice = [];
-  // roomChoice = ["Dr. Phil", "Dr. Smith", "Dr. Janice"];
   roomIndex:number;
   scroll = document.getElementById("message-screen");
   userTyping = false;
   whoIsTyping:string;
   changeView;
   clicked = false;
+  _id;
+
+  onReceiveNewUser: Subscription;
 
 
-  constructor(private chatService:ChatService, private apiService:ApiService, private renderer:Renderer2) {
+  constructor(private chatService:ChatService,
+              private apiService:ApiService,
+              private renderer:Renderer2,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
     this.chatService.newUserJoined().subscribe(data => {
       this.messageArray.push(data);
     });
@@ -47,17 +54,30 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.apiService.user.subscribe(user => {
+      this.user = user;
+    });
+
+    this._id = this.activatedRoute.snapshot.params['_id'];
+    this.apiService.getUsernameByID(this._id);
+
     this.changeView = window.innerWidth <= 901;
     this.clicked = !this.changeView;
 
-    this.apiService.user.subscribe(user => {
-      console.log("ENTER CHAT API USER CALL");
-      this.user = user;
-      this.roomChoice.push(this.user);
-      this.room = this.user;
-      this.selectRoom(0)
+    this.onReceiveNewUser = this.apiService.usernameForAdminChat.subscribe(name => {
+      this.leave();
+      this.roomChoice = [];
+      this.roomChoice.push(name);
+      this.room = this.roomChoice[0];
+      this.join();
     });
   }
+  
+  ngOnDestroy() {
+    this.onReceiveNewUser.unsubscribe();
+  }
+
+
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -86,10 +106,12 @@ export class ChatComponent implements OnInit {
   }
 
   selectRoom(index:number) {
+    if (this.roomIndex != index) {
       this.leave();
       this.room = this.roomChoice[index];
       this.roomIndex = index;
       this.join();
+    }
   }
 
   // STILL A SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
@@ -98,6 +120,11 @@ export class ChatComponent implements OnInit {
   }
 
   screenScroll() {
+    // this.renderer.selectRootElement("#end").scrollIntoView();
+    //
+    // document.querySelector('#end').scrollIntoView();
+
+    //SUPER HACK WAY TO FIX THE SCROLL TO BOTTOM WHEN LARGE AMOUNT OF TEXT IS SENT. I NEED TO WORK ON THIS.
     setTimeout(() => {
       this.renderer.selectRootElement("#end").scrollIntoView()
     }, 100);

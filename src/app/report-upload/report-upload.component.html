@@ -1,5 +1,55 @@
-<ol class="breadcrumb">
-  <li class="breadcrumb-item" (click)="onClick('View List')">Users List</li>
-  <li class="breadcrumb-item" (click)="onClick('View User')">{{user.name}}</li>
-  <li class="breadcrumb-item active">Upload Reports</li>
-</ol>
+<mat-accordion>
+  <mat-expansion-panel [expanded]="open">
+    <mat-expansion-panel-header (click)="openToggle()">
+      <mat-panel-title>
+        Upload New PDF
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="upload-reports-container">
+      <form [formGroup]="uploadForm" (ngSubmit)="onUpload()">
+        <div class="form-group" id="nameError">
+          <mat-form-field class="errors">
+            <input matInput type="text" id="pdfNameInput" placeholder="Enter the name the PDF"
+                   formControlName="pdfNameInput">
+          </mat-form-field>
+        </div>
+
+        <div class="form-group" id="descriptionError">
+          <mat-form-field class="errors">
+            <input matInput type="text" id="pdfDescInput" placeholder="Short description of the PDF"
+                   formControlName="pdfDescInput">
+          </mat-form-field>
+        </div>
+      </form>
+      <div class="form-group" id="fileError">
+        <input class="errors" type="file" id="exampleInputFile" aria-describedby="fileHelp" (change)="onFileSelected($event)">
+        <small id="fileHelp" class="form-text text-muted">Choose a report to upload. File type must be .pdf</small>
+      </div>
+
+      <div class="upload-pdf">
+        <button class="upload-btn" (click)="onUpload()" type="submit">Upload</button>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<table class="table table-striped table-bordered table-hover table-sm" align="center">
+  <thead id="table-header">
+  <tr>
+    <th class="first-column" scope="col">Report Name</th>
+    <th class="second-column" scope="col">Report Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="report-rows" *ngFor="let report of userReports" scope="row">
+    <td class="report-name" data-toggle="modal" data-target="#myModal">
+      <a>
+        {{ report.pdfName }}
+      </a>
+    </td>
+    <td class="report-date">
+      {{ report.pdfDate | date:'yyyy-MM-dd' }}
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -32,10 +32,10 @@ export class SideNavBarComponent implements OnInit {
       } else {
         this.imagePath = path;
       }
+    });
 
-      this.apiService.permissions.subscribe(isAdmin => {
-        this.isAdmin = isAdmin;
-      })
+    this.apiService.permissions.subscribe(isAdmin => {
+      this.isAdmin = isAdmin;
     });
   }
 }

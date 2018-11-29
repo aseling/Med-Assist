@@ -1,0 +1,93 @@
+<div class="wrapper">
+  <div class="left-split">
+    <div class="date-wrapper">
+      <h1 class="date">
+        {{currentDate}}
+      </h1>
+      <h3 class="day-of-week">
+        {{currentDayName}}
+      </h3>
+    </div>
+
+    <div class="events-container">
+      <label>Current Appointments:</label>
+      <div class="current-events">
+        <div *ngIf="todayAppointments.length <= 0" class="no-appts">You have no appointments scheduled for today</div>
+        <div class="appointments" *ngFor="let i of todayAppointments">
+          <strong>Date:</strong> {{i.date}} <br> <strong>With:</strong> {{i.doctor}}
+        </div>
+      </div>
+
+      <label>Upcoming Appointments:</label>
+      <div class="upcoming-events">
+        <div *ngIf="futureAppointments.length <= 0" class="no-appts">You have no upcoming appointments scheduled</div>
+        <div class="appointments" *ngFor="let i of futureAppointments">
+          <strong>Date:</strong> {{i.date}} <br> <strong>With:</strong> {{i.doctor}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-split">
+
+    <div class="date-picker-container">
+      <div class="year"><label>{{currentYear}}</label></div>
+      <button class="caret-btns" type="button" (click)="backOneMonth()"><i class="fas fa-chevron-left"></i></button>
+      <label class="month">{{monthName}}</label>
+      <button class="caret-btns" type="button" (click)="forwardOneMonth()"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <div class="calendar-container">
+      <div class="day-of-week-box" *ngFor="let i of shortHandWeekDays">
+        {{i}}
+      </div>
+
+      <!--mat-raised-button-->
+      <!--matTooltip="{{tooltipString}}"-->
+      <!--[matTooltipPosition]="'above'"-->
+      <!--aria-label="Button that displays a tooltip when focused or hovered over"-->
+
+      <!--data-toggle="modal"-->
+      <!--data-target="#viewDayEvents"-->
+
+      <div class="day-of-week-number"
+           *ngFor="let i of numOfDaysInMonth;"
+           [ngClass]="{'number ': i.day == currentDate, 'hide-border': i == ''}"
+           (mouseenter)="getDateOnHover(i.day)">
+        <div [ngClass]="{'box-date ': i.day == currentDate, 'hide-border': i == ''}">
+          {{i.day}}
+        </div>
+
+        <div *ngIf="i.hasEvent" class="event-indicator">
+          <i class="far fa-calendar"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-container">
+  <div class="modal fade" id="viewDayEvents" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content view-modal-content">
+        <div class="modal-header view-header">
+          <label class="label">Appointments for <strong>{{date}}</strong></label>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="view-events">
+            <div class="view-appointments" *ngFor="let i of tooltipInfo">
+              <div>
+                <strong><i class="far fa-clock"></i> </strong> {{i.time}}
+              </div>
+              <div>
+                <strong><i class="fas fa-user-md"></i></strong> {{i.doctor}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'users-list', component: UsersListComponent },
   { path: 'users-list/:_id', component: ManageUserComponent },
   { path: 'users-list/:_id/upload-reports', component: ReportUploadComponent },
-  { path: 'forms-upload', component: FormUploadComponent },
+  { path: 'form-upload', component: FormUploadComponent },
 ];
 
 @NgModule({

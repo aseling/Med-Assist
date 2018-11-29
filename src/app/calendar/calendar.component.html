@@ -53,7 +53,7 @@
       <!--aria-label="Button that displays a tooltip when focused or hovered over"-->
       <div class="day-of-week-number"
            *ngFor="let i of numOfDaysInMonth;"
-           [ngClass]="{'number ': i.day == currentDate, 'hide-border': i == ''}"
+           [ngClass]="{'number': i.day == currentDate, 'hide-border': i == ''}"
            (mouseenter)="getDateOnHover(i.day)"
            data-toggle="modal"
            data-target="#viewDayEvents">

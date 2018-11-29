@@ -22,12 +22,12 @@
         <div id="messages">
           <div class="user"
                [ngClass]="{'float-user-right': messageArray[index].user == user,
-               'user-join': messageArray[index].message == 'is now available' || messageArray[index].message == 'is no longer available'}">
+               'user-join': messageArray[index].message == 'has joined this room.' || messageArray[index].message == 'has left this room.'}">
             {{item.user}}
           </div>
           <div class="message"
                [ngClass]="{'float-message-right': messageArray[index].user == user,
-               'user-join-message': messageArray[index].message == 'is now available' || messageArray[index].message == 'is no longer available'}">
+               'user-join-message': messageArray[index].message == 'has joined this room.' || messageArray[index].message == 'has left this room.'}">
             {{item.message}}
           </div>
         </div>

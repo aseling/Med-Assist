@@ -63,10 +63,10 @@
       <a routerLink="helpful-links" (click)="showSlideOutNav()">Helpful Links</a>
     </div>
     <div *ngIf="isAdmin" class="page-links">
-      <a routerLink="users-list">Manage Users</a>
-      <a routerLink="home">Upload Forms</a>
-      <a routerLink="home">Edit Website Info</a>
-      <a routerLink="home">Chat</a>
+      <a routerLink="users-list" (click)="showSlideOutNav()">Manage Users</a>
+      <a routerLink="form-upload" (click)="showSlideOutNav()">Upload Forms</a>
+      <!--<a routerLink="home" (click)="showSlideOutNav()">Edit Website Info</a>-->
+      <!--<a routerLink="home" (click)="showSlideOutNav()">Chat</a>-->
     </div>
     <footer class="page-links">
       <a routerLink="account-settings" (click)="showSlideOutNav()">Settings</a>

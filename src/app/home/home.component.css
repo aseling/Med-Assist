@@ -9,7 +9,6 @@ h2 {
 
 .container {
   padding: 10px;
-  /*min-height: 910px;*/
 }
 
 img {
@@ -62,7 +61,6 @@ p {
   margin-left: .5%;
   margin-right: .5%;
   padding-top: 1.5rem;
-  /*background-color: #17a2b8;*/
   color: white;
 }
 

@@ -1,4 +1,4 @@
-import { User } from './../generic.interface';
+import {User} from './../generic.interface';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
@@ -26,86 +26,132 @@ export class ApiService {
   usersEventsList = new BehaviorSubject<any[]>([]);
   userPrescriptions = new BehaviorSubject<any[]>([]);
   userBasicInfo = new BehaviorSubject<any[]>([]);
+  reports = new BehaviorSubject<any[]>([]);
+  usernameForAdminChat = new BehaviorSubject<string>('');
+  forms = new BehaviorSubject<any[]>([]);
 
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http:HttpClient, private router:Router) {
   }
 
-  login(username: string, password: string) {
+  login(username:string, password:string) {
     return this.http.post<any>(this.herokuPath + 'login', {
       username: username,
       password: password
-    }).subscribe((res: any) => {
+    }).subscribe((res:any) => {
       this.loginMessage.next(res.message);
     });
   }
 
-  register(name: string, email: string, username: string, password: string, password2: string) {
+  register(name:string, email:string, username:string, password:string, password2:string) {
     return this.http.post<any>(this.herokuPath + 'register', {
       name: name,
       email: email,
       username: username,
       password: password,
       password2: password2
-    }).subscribe((res: any) => {
+    }).subscribe((res:any) => {
       this.setRegisterMessage(res.message);
     });
   }
 
-  addNewEvent(doctor: string, date: string, time: string, task: string, user: string) {
+  addNewEvent(doctor:string, date:string, time:string, task:string, user:string) {
     return this.http.post<any>(this.herokuPath + 'addUserEvent/' + user, {
-      doctor: doctor,
-      date: date,
-      time: time,
-      task: task
-    })
-      .subscribe((res: any) => {
+        doctor: doctor,
+        date: date,
+        time: time,
+        task: task
+      })
+      .subscribe((res:any) => {
         this.setAddedEventMessage(res.message);
       });
   }
 
-  getUserEvents(username: string) {
+  getUserEvents(username:string) {
     return this.http.get(this.herokuPath + 'getUserEvents/' + username)
-      .subscribe((res: any) => {
+      .subscribe((res:any) => {
+        this.setUsersEventList(res);
+      });
+  }
+
+  getUserEventsByID(id:string) {
+    return this.http.get(this.herokuPath + 'getUserEventsByID/' + id)
+      .subscribe((res:any) => {
         this.setUsersEventList(res);
       });
   }
 
   getAllUsers() {
     return this.http.get(this.herokuPath + 'getAllUsers')
-      .subscribe((res: any) => {
+      .subscribe((res:any) => {
         this.setUsersList(res);
       });
   }
 
-  addUserImage(image: File, user: string) {
+  addUserImage(image:File, user:string) {
     const formData = new FormData();
     formData.append('image', image);
 
     return this.http.post(this.herokuPath + 'addUserImage/' + user, formData)
-      .subscribe((res: any) => {
+      .subscribe((res:any) => {
         console.log(res);
         this.setImagePath(res.imageURL);
       });
   }
 
+  addUserReport(pdfName: string, pdfDesc: string, report: File, user: string) {
+    const formData = new FormData();
+    formData.append('pdfName', pdfName);
+    formData.append('pdfDesc', pdfDesc);
+    formData.append('pdf', report);
+
+    return this.http.post(this.herokuPath + 'uploadPdf/' + user, formData)
+      .subscribe((res: any) => {
+        this.getUserReports(user);
+        this.getForms();
+      });
+  }
+
+  getUserReports(username: string) {
+    return this.http.get(this.herokuPath + 'getUserPdfs/' + username)
+      .subscribe((res: any) => {
+        this.setUserReports(res);
+      });
+  }
+
+  setUserReports(reports: any) {
+    this.reports.next(reports);
+  }
+
+  // Forms pulls from "root" admin account
+  getForms() {
+    return this.http.get(this.herokuPath + 'getUserPdfs/root')
+    .subscribe((res: any) => {
+      this.setForms(res);
+    });
+  }
+
+  setForms(forms: any) {
+    this.forms.next(forms);
+  }
+
   getUserImage(username: string) {
     return this.http.get(this.herokuPath + 'getUserImage/' + username)
-      .subscribe((res: any) => {
+      .subscribe((res:any) => {
         this.setImagePath(res.message);
       });
   }
 
-  getUserEmail(username: string) {
+  getUserEmail(username:string) {
     return this.http.get(this.herokuPath + 'getUserEmail/' + username)
-      .subscribe((res: any) => {
+      .subscribe((res:any) => {
         this.setUserEmail(res.message);
       });
   }
 
-  getUserPermissions(username: string) {
+  getUserPermissions(username:string) {
     return this.http.get(this.herokuPath + 'getUserPermissions/' + username)
-      .subscribe((res: any) => {
+      .subscribe((res:any) => {
         if (res.message === 'no permission set') {
           this.setUserPermissions(false);
         } else {
@@ -123,15 +169,21 @@ export class ApiService {
   //     password2: password2
   // }
 
-  getUserInfo(username: string) {
+  getUserInfo(username:string) {
     return this.http.get(this.herokuPath + 'getSingleUser/' + username)
-      .subscribe((res: any) => {
-        console.log(res.message[0].prescriptions);
+      .subscribe((res:any) => {
         this.setUsersPrescriptionList(res.message[0].prescriptions)
       });
   }
 
-  openRegisterPage(value: boolean) {
+  getUsernameByID(id:string) {
+    return this.http.get(this.herokuPath + 'getUsernameById/' + id)
+      .subscribe((res:any) => {
+        this.setUserNameForAdminChat(res.username);
+      });
+  }
+
+  openRegisterPage(value:boolean) {
     this.registerView.next(value);
   }
 
@@ -146,39 +198,43 @@ export class ApiService {
     this.loginMessage.next('');
   }
 
-  setRegisterMessage(message: string) {
+  setRegisterMessage(message:string) {
     this.registerMessage.next(message);
   }
 
-  setAddedEventMessage(message: string) {
+  setAddedEventMessage(message:string) {
     this.addedEventMessage.next(message);
   }
 
-  setUserName(user: string) {
+  setUserName(user:string) {
     this.user.next(user);
   }
 
-  setImagePath(path: string) {
+  setUserNameForAdminChat(user:string) {
+    this.usernameForAdminChat.next(user);
+  }
+
+  setImagePath(path:string) {
     this.imagePath.next(path);
   }
 
-  setUserEmail(email: string) {
+  setUserEmail(email:string) {
     this.email.next(email);
   }
 
-  setUsersList(list: any[]) {
+  setUsersList(list:any[]) {
     this.usersList.next(list);
   }
 
-  setUsersPrescriptionList(list: any[]) {
+  setUsersPrescriptionList(list:any[]) {
     this.userPrescriptions.next(list);
   }
 
-  setUsersEventList(list: any[]) {
+  setUsersEventList(list:any[]) {
     this.usersEventsList.next(list);
   }
 
-  setUserPermissions(isAdmin: boolean) {
+  setUserPermissions(isAdmin:boolean) {
     this.permissions.next(isAdmin);
   }
 
@@ -193,5 +249,5 @@ export class ApiService {
   setUserBasicInfo(userBasicInfo: any) {
     this.userBasicInfo.next(userBasicInfo);
   }
-  
+
 }
