@@ -46,6 +46,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import 'hammerjs';
 import { AdminCalendarComponent } from './admin-calendar/admin-calendar.component';
 import { AdminChatComponent } from './admin-chat/admin-chat.component';
+import { AdminPrescriptionRefillComponent } from './admin-prescription-refill/admin-prescription-refill.component';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { AdminChatComponent } from './admin-chat/admin-chat.component';
     FormUploadComponent,
     ReportUploadComponent,
     AdminCalendarComponent,
-    AdminChatComponent
+    AdminChatComponent,
+    AdminPrescriptionRefillComponent
   ],
   imports: [
     BrowserModule,

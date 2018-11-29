@@ -17,10 +17,16 @@ export class PrescriptionRefillComponent implements OnInit {
 
   ngOnInit() {
     this.apiService.userPrescriptions.subscribe(info => {
+      this.userMeds = [];
       this.test = info;
-      if(this.test != "") {
-        console.log(this.test.message.prescriptions);
-        this.userMeds = this.test.message.prescriptions;
+      if (this.test != "") {
+
+        this.test.message.prescriptions.map(data => {
+          if(data.drugName != "ignore") {
+            console.log(data);
+            this.userMeds.push(data);
+          }
+        });
       }
     });
 
