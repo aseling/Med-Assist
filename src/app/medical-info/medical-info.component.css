@@ -2,7 +2,7 @@
   width: 100%;
   padding: 15px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr ;
   grid-gap: 25px;
 }
 
@@ -40,7 +40,7 @@
 
 .section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr ;
   width: 85%;
   margin: 0 auto;
 }
@@ -78,7 +78,7 @@ label {
 
 .form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr ;
   width: 85%;
   margin: 0 auto;
 }
@@ -101,7 +101,7 @@ label {
 
   .form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr;
     width: 100%;
     margin: 0;
   }

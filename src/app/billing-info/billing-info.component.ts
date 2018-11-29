@@ -9,23 +9,23 @@ import {MatSnackBar} from '@angular/material';
 export class BillingInfoComponent implements OnInit {
   billingProfileEdit = false;
   insuranceProfileEdit = false;
-  billFirstName:string='';
-  billLastName:string='';
-  billingAddress:string='';
-  billingPhone:string='';
-  billingEmail:string='';
-  insuranceType:string='';
-  insuranceInfo:string='';
-  insurancePay:string='';
-  primaryHolderName:string='';
-  insurerRelationship:string='';
-  insuranceDOB:string='';
-  policyNumber:string='';
-  idNumber:string='';
-  issueNumber:string='';
-  insuranceExpiration:string='';
+  billFirstName="";
+  billLastName="";
+  billingAddress="";
+  billingPhone="";
+  billingEmail="";
+  insuranceType="";
+  insuranceInfo="";
+  insurancePay="";
+  primaryHolderName="";
+  insurerRelationship="";
+  insuranceDOB="";
+  policyNumber="";
+  idNumber="";
+  issueNumber="";
+  insuranceExpiration="";
 
-  constructor(public snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }

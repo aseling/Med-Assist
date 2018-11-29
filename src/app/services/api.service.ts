@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 import {Router} from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +25,7 @@ export class ApiService {
   addedEventMessage = new BehaviorSubject<string>('');
   usersEventsList = new BehaviorSubject<any[]>([]);
   userPrescriptions = new BehaviorSubject<any[]>([]);
+  userBasicInfo = new BehaviorSubject<any[]>([]);
   reports = new BehaviorSubject<any[]>([]);
   usernameForAdminChat = new BehaviorSubject<string>('');
   forms = new BehaviorSubject<any[]>([]);
@@ -234,6 +236,18 @@ export class ApiService {
 
   setUserPermissions(isAdmin:boolean) {
     this.permissions.next(isAdmin);
+  }
+
+// My Profile
+  getUserBasicInfo(username: string) {
+    return this.http.get(this.herokuPath + 'getSingleUser/' + username)
+      .subscribe((user: any) => {
+       this.setUserBasicInfo(user.message);
+      });
+  }
+
+  setUserBasicInfo(userBasicInfo: any) {
+    this.userBasicInfo.next(userBasicInfo);
   }
 
 }
