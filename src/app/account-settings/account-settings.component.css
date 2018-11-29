@@ -1,44 +1,118 @@
-.page-title h1 {
+.wrapper {
+  height: auto;
+}
+
+.info-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.main-user-image {
+  width: 100%;
   text-align: center;
-  font-size: 30px;
-  padding: 15px 0px 15px 0px;
 }
 
-table {
-  width: 600px;
-  margin-left: 250px;
-}
-
-th {
-  padding-top: 15px;
-}
-
-td.right-col {
-  width: 400px;
-}
-
-input {
-  margin: 10px 0 10px 0;
-}
-
-img {
-  margin-right: 10px;
-  width: 50px;
+.image {
+  width: 22%;
   border-radius: 50%;
 }
 
-button {
-  margin-left: 500px;
-  margin-top: 30px;
+.user-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px auto;
+  column-gap: 10px;
 }
 
-.wrapper-class {
-  /*min-height: 700px;*/
-}
-
-.modal-body h6 {
+.page-title {
+  width: 100%;
   text-align: center;
-  font-size: 25px;
+  margin: 32px 0 30px 0;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.mat-accordion .mat-expansion-panel:last-of-type {
+  border-radius: 5px;
+  border: 1px solid #c5c5c5;
+  width: 60%;
+  margin: 35px auto;
+}
+
+.update-image-container, .change-password-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.img-form-group {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.user-image {
+  width: 40%;
+  margin: 0 auto 25px;
+}
+
+#exampleInputFile {
+  margin: 0 auto 25px;
+}
+
+.upload-btn {
+  border: 1px solid #3B92A8;
+  color: #3B92AB;
+  background-color: transparent;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 10px;
+  width: 170px;
+  padding: 10px;
+  transition: all 0.4s ease-out;
+  outline: none;
+}
+
+.upload-btn:hover {
+  background-color: #3B92A8;
+  color: white;
+}
+
+.change-password-btn {
+  border: 1px solid #3B92A8;
+  color: #3B92AB;
+  background-color: transparent;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 10px;
+  width: 195px;
+  padding: 10px;
+  transition: all 0.4s ease-out;
+  outline: none;
+}
+
+.change-password-btn:hover {
+  background-color: #3B92A8;
+  color: white;
+}
+
+.cancel-btn {
+  border: none;
+  background-color: transparent;
+  transition: all 0.4s ease;
+  outline: none;
+}
+
+.cancel-btn:hover {
+  color: red;
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .mat-accordion .mat-expansion-panel:last-of-type {
+    width: 90%;
+  }
 }
 
 .submit-button {

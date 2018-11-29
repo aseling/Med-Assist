@@ -15,6 +15,7 @@ export class ApiService {
 
   authorized = new BehaviorSubject<boolean>(false);
   registerView = new BehaviorSubject<boolean>(false);
+  changePassword = new BehaviorSubject<string>('');
   registerMessage = new BehaviorSubject<string>('');
   loginMessage = new BehaviorSubject<string>('');
   imagePath = new BehaviorSubject<string>('');
@@ -30,7 +31,6 @@ export class ApiService {
   usernameForAdminChat = new BehaviorSubject<string>('');
   forms = new BehaviorSubject<any[]>([]);
 
-
   constructor(private http:HttpClient, private router:Router) {
   }
 
@@ -40,6 +40,15 @@ export class ApiService {
       password: password
     }).subscribe((res:any) => {
       this.loginMessage.next(res.message);
+    });
+  }
+
+  checkCorrectPassword(username:string, password:string) {
+    return this.http.post<any>(this.herokuPath + 'login', {
+      username: username,
+      password: password
+    }).subscribe((res:any) => {
+      this.allowChangePassword(res.message);
     });
   }
 
@@ -171,8 +180,9 @@ export class ApiService {
 
   getUserInfo(username:string) {
     return this.http.get(this.herokuPath + 'getSingleUser/' + username)
-      .subscribe((res:any) => {
-        this.setUsersPrescriptionList(res.message[0].prescriptions)
+      .subscribe(res => {
+        console.log(res);
+        this.setUsersPrescriptionList(res)
       });
   }
 
@@ -185,6 +195,10 @@ export class ApiService {
 
   openRegisterPage(value:boolean) {
     this.registerView.next(value);
+  }
+
+  allowChangePassword(message:string) {
+    this.changePassword.next(message);
   }
 
   authorizeUser() {
@@ -226,7 +240,7 @@ export class ApiService {
     this.usersList.next(list);
   }
 
-  setUsersPrescriptionList(list:any[]) {
+  setUsersPrescriptionList(list:any) {
     this.userPrescriptions.next(list);
   }
 

@@ -1,109 +1,150 @@
-<div class="wrapper-class"
-><div class="page-title">
-<h1>
-  Account Settings
-</h1>
-</div>
-<table class="overflow-nowrap">
-  <thead>
-    <tr>
-      <th class="first-column" scope="col"></th>
-      <th class="second-column" scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <h4>User Settings</h4>
-      </td>
-      <td class="right-col">
-        <span></span>
-      </td>
-    </tr>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <span>Username:</span>
-      </td>
-      <td class="right-col">
-        <span><input class="form-control" id="readOnlyInput" type="text" placeholder="{{user}}" readonly=""></span>
-      </td>
-    </tr>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <span>Email:</span>
-      </td>
-      <td class="right-col">
-        <span><input type="email" class="form-control" value="{{email}}"></span>
-      </td>
-    </tr>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <span>Profile Picture:</span>
-      </td>
-      <td class="right-col">
-        <div class="form-group">
-          <img class="user-image" src="{{imagePath}}">
-          <input type="file" id="exampleInputFile" aria-describedby="fileHelp" (change)="onFileSelected($event)">
-          <small id="fileHelp" class="form-text text-muted">Choose a profile picture to upload. File type must be .jpeg
-            or .png</small>
-        </div>
-      </td>
-    </tr>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <h4>Change Password</h4>
-      </td>
-      <td class="right-col">
-        <span></span>
-      </td>
-    </tr>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <span>Old Password:</span>
-      </td>
-      <td class="right-col">
-        <span><input type="password" class="form-control" placeholder="Enter old password"></span>
-      </td>
-    </tr>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <span>New Password:</span>
-      </td>
-      <td class="right-col">
-        <span><input type="password" class="form-control" placeholder="Enter new password"></span>
-      </td>
-    </tr>
-    <tr class="report-rows" scope="row">
-      <td class="left-col">
-        <span>Confirm Password:</span>
-      </td>
-      <td class="right-col">
-        <span><input type="password" class="form-control" placeholder="Confirm new password"></span>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<button type="button" class="btn btn-info submit-button" data-toggle="modal" data-target="#myModal" (click)="onUpload()">Update Information</button>
-</div>
+<div class="wrapper">
+  <div class="page-title">
+    <h1>
+      Account Settings
+    </h1>
+  </div>
 
-<div class="container">
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <h6>Account information has been updated</h6>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-
-      </div>
+  <div class="info-container">
+    <div class="main-user-image">
+      <img class="image" src="{{imagePath}}">
+    </div>
+    <div class="user-info">
+      <strong>Username: </strong>
+      <div>{{user}}</div>
+      <strong>Email: </strong>
+      <div> {{email}}</div>
     </div>
   </div>
+
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="imagePanelOpen">
+      <mat-expansion-panel-header (click)="openImagePanelOpenToggle()">
+        <mat-panel-title>
+          Update Profile Image
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="update-image-container">
+        <div class="form-group img-form-group" id="fileError">
+          <img class="user-image" src="{{imagePath}}">
+          <input class="errors" type="file" id="exampleInputFile" aria-describedby="fileHelp" (change)="onFileSelected($event)">
+          <small id="fileHelp" class="form-text text-muted">Choose a report to upload. File type must be .pdf</small>
+        </div>
+        <div class="upload-pdf">
+          <button class="upload-btn" (click)="updateProfileImage()" type="submit">Update image</button>
+          <button class="cancel-btn" (click)="openImagePanelOpenToggle()" type="submit">Cancel</button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="passwordPanelOpen">
+      <mat-expansion-panel-header (click)="openPasswordPanelOpenToggle()">
+        <mat-panel-title>
+          Change Password
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="change-password-container">
+        <form [formGroup]="uploadForm" (ngSubmit)="onUpload()">
+          <div class="form-group" id="oldPassword">
+            <mat-form-field class="errors">
+              <input matInput type="text" id="oldPasswordInput" placeholder="Current password"
+                     formControlName="oldPassword">
+            </mat-form-field>
+          </div>
+
+          <div class="form-group" id="newPassword">
+            <mat-form-field class="errors">
+              <input matInput type="text" id="newPasswordInput" placeholder="New password"
+                     formControlName="newPassword">
+            </mat-form-field>
+          </div>
+
+          <div class="form-group" id="confirmPassword">
+            <mat-form-field class="errors">
+              <input matInput type="text" id="confirmPasswordInput" placeholder="Confirm new password"
+                     formControlName="confirmPassword">
+            </mat-form-field>
+          </div>
+        </form>
+        <div class="upload-pdf">
+          <button class="change-password-btn" (click)="changePassword()" type="submit">Change password</button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+
+<!--<div class="wrapper-class">-->
+  <!--<table class="overflow-nowrap">-->
+    <!--<thead>-->
+    <!--<tr>-->
+      <!--<th class="first-column" scope="col"></th>-->
+      <!--<th class="second-column" scope="col"></th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr class="report-rows" scope="row">-->
+      <!--<td class="left-col">-->
+        <!--<h4>User Settings</h4>-->
+      <!--</td>-->
+      <!--<td class="right-col">-->
+        <!--<span></span>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--<tr class="report-rows" scope="row">-->
+      <!--<td class="left-col">-->
+        <!--<span>Username:</span>-->
+      <!--</td>-->
+      <!--<td class="right-col">-->
+        <!--<span><input class="form-control" id="readOnlyInput" type="text" placeholder="{{user}}" readonly=""></span>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--<tr class="report-rows" scope="row">-->
+      <!--<td class="left-col">-->
+        <!--<span>Email:</span>-->
+      <!--</td>-->
+      <!--<td class="right-col">-->
+        <!--<span><input type="email" class="form-control" value="{{email}}"></span>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--<tr class="report-rows" scope="row">-->
+      <!--<td class="left-col">-->
+        <!--<h4>Change Password</h4>-->
+      <!--</td>-->
+      <!--<td class="right-col">-->
+        <!--<span></span>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--<tr class="report-rows" scope="row">-->
+      <!--<td class="left-col">-->
+        <!--<span>Old Password:</span>-->
+      <!--</td>-->
+      <!--<td class="right-col">-->
+        <!--<span><input type="password" class="form-control" placeholder="Enter old password"></span>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--<tr class="report-rows" scope="row">-->
+      <!--<td class="left-col">-->
+        <!--<span>New Password:</span>-->
+      <!--</td>-->
+      <!--<td class="right-col">-->
+        <!--<span><input type="password" class="form-control" placeholder="Enter new password"></span>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--<tr class="report-rows" scope="row">-->
+      <!--<td class="left-col">-->
+        <!--<span>Confirm Password:</span>-->
+      <!--</td>-->
+      <!--<td class="right-col">-->
+        <!--<span><input type="password" class="form-control" placeholder="Confirm new password"></span>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+  <!--<button type="button" class="btn btn-info" (click)="onUpload()">Update-->
+    <!--Information-->
+  <!--</button>-->
+<!--</div>-->
