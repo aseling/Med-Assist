@@ -18,11 +18,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="report-rows" *ngFor="let form of forms; index as i" (mouseenter)="changeUrl(i)" scope="row">
+      <tr class="form-rows" *ngFor="let form of forms; index as i" (mouseenter)="changeUrl(i)" scope="row">
         <td>
-          <a>{{ form.pdfName }}</a>
+          {{ form.pdfName }}
         </td>
-        <td>{{ form.pdfDesc }}</td>
+        <td>
+          {{ form.pdfDesc }}
+        </td>
         <td>
           <a href="{{clickedUrl}}" target="_blank">PDF</a>
         </td>

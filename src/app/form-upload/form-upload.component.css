@@ -9,35 +9,57 @@ h1 {
     font-size: 30px;
     padding: 15px 0 15px 0;
 }
-  
+
+h2 {
+    text-align: left;
+    font-size: 20px;
+    padding: 15px 0 15px 0;
+}
+
+.form-group {
+   text-align: left; 
+}
+
+.pdf-name-input {
+    width: 50%;
+}
+
+.pdf-desc-input{
+    width: 100%;
+}
+
 table {
     width: 100%;
     margin-bottom: 50px;
 }
   
 #tableHeader{
-    background-color: #17a2b8;
+    /* background-color: #17a2b8; */
+    background-color: #527EBE;
     color: white;
     text-align: center;
-}
+  }
   
-.form-rows, .add-row {
+  .form-rows {
     cursor: default;
     text-align: left;
-}
+  }
 
-th.first-column {
-    width: 10%;
-}
-
-th.second-column {
+  th.first-column {
     width: 30%;
-}
+    vertical-align: middle;
+  }
+  
+  th.second-column {
+    width: 65%;
+    vertical-align: middle;
+  }
+  
+  th.third-column {
+    width: 15%;
+    vertical-align: middle;
+  }
 
-th.third-column {
-    width: 50%;
-}
-
-th.fourth-column {
-    width: 10%;
-}
+.form-rows {
+    cursor: default;
+  }

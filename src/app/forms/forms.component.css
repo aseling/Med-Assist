@@ -16,7 +16,8 @@ table {
 }
 
 #tableHeader{
-  background-color: #17a2b8;
+  /* background-color: #17a2b8; */
+  background-color: #527EBE;
   color: white;
   text-align: center;
 }
@@ -36,10 +37,17 @@ table.table-hover th {
 
 th.first-column {
   width: 30%;
+  vertical-align: middle;
 }
 
 th.second-column {
-  width: 70%;
+  width: 65%;
+  vertical-align: middle;
+}
+
+th.third-column {
+  width: 15%;
+  vertical-align: middle;
 }
 
 .form-rows {

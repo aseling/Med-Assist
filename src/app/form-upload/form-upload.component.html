@@ -1,31 +1,42 @@
 <div class="wrapper">
-
-    <input class="pdf-name-input" [(ngModel)]="pdfNameInput" placeholder="Enter a name for your PDF">
-    <input class="pdf-desc-input" [(ngModel)]="pdfDescInput" placeholder="Enter a description for your PDF">
-
-    <div class="form-group">
+  <h1>Forms</h1>
+  <h2>Add New Form</h2>
+  <div class="form-group">
+    <p>
+      Choose a report to upload (File type must be .pdf)
+      <br>
       <input type="file" id="exampleInputFile" aria-describedby="fileHelp" (change)="onFileSelected($event)">
-      <button (click)="onUpload()">Upload</button>
-      <small id="fileHelp" class="form-text text-muted">Choose a report to upload. File type must be .pdf</small>
-    </div>
-
-    <h1>Add, Edit, and Delete Forms</h1>
-    <table>
-      <thead id="tableHeader">
-        <tr>
-          <th class="second-column" scope="col">Form</th>
-          <th class="third-column" scope="col">Form Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="form-rows" *ngFor="let form of forms" scope="row">
-          <td>
-            {{ form.pdfName }}
-          </td>
-          <td>
-            {{ form.pdfDesc }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    </p>
+    <p>
+      Form Name:
+      <br>
+      <input class="pdf-name-input" [(ngModel)]="pdfNameInput" placeholder="Enter a name for the Form">
+    </p>
+    <p>
+      Form Description:
+      <br>
+      <input class="pdf-desc-input" [(ngModel)]="pdfDescInput" placeholder="Enter a description for the form">
+    </p>
+    <button (click)="onUpload()">Upload</button>
   </div>
+
+  <h2>Forms Currently Available for Download</h2>
+  <table class="table table-striped table-bordered table-hover table-sm" align="center">
+    <thead id="tableHeader">
+      <tr>
+        <th class="first-column" scope="col">Form</th>
+        <th class="second-column" scope="col">Form Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="form-rows" *ngFor="let form of forms" scope="row">
+        <td>
+          {{ form.pdfName }}
+        </td>
+        <td>
+          {{ form.pdfDesc }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
