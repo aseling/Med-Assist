@@ -69,7 +69,10 @@ export class AdminCalendarComponent implements OnInit {
   date;
   _id;
 
-  constructor(private apiService:ApiService, public snackBar:MatSnackBar, private activatedRoute:ActivatedRoute, private router:Router) {
+  constructor(private apiService:ApiService, 
+              public snackBar:MatSnackBar, 
+              private activatedRoute:ActivatedRoute, 
+              private router:Router) {
   }
 
   ngOnInit() {
