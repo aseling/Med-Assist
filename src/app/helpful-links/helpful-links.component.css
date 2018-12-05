@@ -1,58 +1,42 @@
 .info-container {
-    width: 80%;
-    margin: 0 auto 20px;
-    text-align: center;
-  }
+  width: 80%;
+  margin: 0 auto 20px;
+  text-align: center;
+}
 
-  .page-title h1 {
-    text-align: center;
-    font-size: 30px;
-    padding: 15px 0 15px 0;
-  }
+.page-title h1 {
+  text-align: center;
+  font-size: 30px;
+  padding: 15px 0 15px 0;
+}
 
-  table {
-    align-self: center;
-    width: 80%;
-    margin-bottom: 50px;
-    border-spacing: 100px;
-    border-collapse: separate;
-  }
+.links-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
 
-  table td {
-      align-content: center;
-      vertical-align: middle;
-      font-size: 20px;
-      margin: auto;
-  }
+.tile img {
+  height: 250px;
+  width: 250px;
+}
 
-  .tile img {
-      height: 250px;
-      width: 250px;
-  }
+.tile {
+  font-size: 20px;
+  align-content: center;
+  margin: auto;
+  width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  height: auto;
+  overflow: hidden;
+  transition-timing-function: ease-in;
+  transition: 1.5s;
+}
 
-  .tile {
-    font-size: 20px;
-    align-content: center;
-    margin: auto;
-    width: 100%;
-    max-width: 300px;
-    max-height: 300px;
-    height: auto;
-    opacity: 0.75;
-    overflow: hidden;
-    transition-timing-function: ease-in;
-    transition: 1.5s;
-  }
 
-  .tile:hover {
-    opacity: 1;
-    -moz-transform: scale(1.25);
-    -webkit-transform: scale(1.25);
-    transform: scale(1.25);
-    transition-timing-function: ease-in;
-    transition: 1s;
+@media only screen and (max-width: 1000px) {
+  .links-container {
+    grid-template-columns: 1fr;
   }
-
-  #tableRow {
-    width: 50%;
-  }
+}

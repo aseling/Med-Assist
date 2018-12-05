@@ -23,7 +23,6 @@ export class PrescriptionRefillComponent implements OnInit {
 
         this.test.message.prescriptions.map(data => {
           if(data.drugName != "ignore") {
-            console.log(data);
             this.userMeds.push(data);
           }
         });

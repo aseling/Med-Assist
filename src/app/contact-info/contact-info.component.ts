@@ -1,7 +1,7 @@
 import{Component, OnInit}from '@angular/core';
 import {MatSnackBar}from '@angular/material';
 import {FormBuilder}from '@angular/forms';
-import {Validators }from '@angular/forms';
+import {Validators}from '@angular/forms';
 import {FormArray}from '@angular/forms';
 import {ApiService}from "../services/api.service";
 
@@ -13,33 +13,34 @@ import {ApiService}from "../services/api.service";
 
 export class ContactInfoComponent implements OnInit {
 
-userInformation;
+  userInformation;
   patientProfileEdit;
   emergencyProfileEdit;
   phoneProfileEdit;
   user;
-  patientFirstName= "";
-  patientLastName= "";
-  address= "";
-  DOB= "";
-  sex="";
-  maritalStatus= "";
-  language= "";
-  race= "";
-  ethnicity= "";
-  homePhone="";
-  mobilePhone="";
-  workPhone="";
-  email="";
-  emergencyFirstName="";
-  emergencyLastName="";
-  emergencyRelationship="";
-  emergencyHomePhone="";
-  emergencyMobilePhone="";
-  emergencyWorkPhone="";
+  patientFirstName = "";
+  patientLastName = "";
+  address = "";
+  DOB = "";
+  sex = "";
+  maritalStatus = "";
+  language = "";
+  race = "";
+  ethnicity = "";
+  homePhone = "";
+  mobilePhone = "";
+  workPhone = "";
+  email = "";
+  emergencyFirstName = "";
+  emergencyLastName = "";
+  emergencyRelationship = "";
+  emergencyHomePhone = "";
+  emergencyMobilePhone = "";
+  emergencyWorkPhone = "";
 
 
-constructor(private snackBar: MatSnackBar, private apiService: ApiService) { }
+  constructor(private snackBar:MatSnackBar, private apiService:ApiService) {
+  }
 
   ngOnInit() {
     this.apiService.user.subscribe(user => {
@@ -47,26 +48,27 @@ constructor(private snackBar: MatSnackBar, private apiService: ApiService) { }
       this.apiService.getUserBasicInfo(this.user);
     });
 
-this.apiService.userBasicInfo.subscribe(info => {
-this.userInformation = info;
-  this.patientFirstName = this.userInformation.basicInfo[0].patientFirstName;
-  this.patientLastName= this.userInformation.basicInfo[0].patientLastName;
-  this.address= this.userInformation.basicInfo[0].address;
-  this.DOB = this.userInformation.basicInfo[0].DOB;
-  this.sex = this.userInformation.basicInfo[0].sex;
-  this.maritalStatus = this.userInformation.basicInfo[0].maritalStatus;
-  this.language = this.userInformation.basicInfo[0].language;
-  this.race = this.userInformation.basicInfo[0].race;
-  this.ethnicity = this.userInformation.basicInfo[0].ethnicity;
-  this.homePhone = this.userInformation.basicInfo[0].homePhone;
-  this.mobilePhone = this.userInformation.basicInfo[0].mobilePhone;
-  this.email = this.userInformation.basicInfo[0].email;
-  this.emergencyFirstName = this.userInformation.basicInfo[0].emergencyFirstName;
-  this.emergencyLastName = this.userInformation.basicInfo[0].emergencyLastName;
-  this.emergencyRelationship = this.userInformation.basicInfo[0].emergencyRelationship;
-  this.emergencyHomePhone = this.userInformation.basicInfo[0].emergencyHomePhone
-  this.emergencyMobilePhone = this.userInformation.basicInfo[0].emergencyMobilePhone;
-  this.emergencyWorkPhone = this.userInformation.basicInfo[0].emergencyWorkPhone;
+    this.apiService.userBasicInfo.subscribe(info => {
+      this.userInformation = info;
+      // console.log(this.userInformation);
+      // this.patientFirstName = this.userInformation.basicInfo[0].patientFirstName;
+      // this.patientLastName = this.userInformation.basicInfo[0].patientLastName;
+      // this.address = this.userInformation.basicInfo[0].address;
+      // this.DOB = this.userInformation.basicInfo[0].DOB;
+      // this.sex = this.userInformation.basicInfo[0].sex;
+      // this.maritalStatus = this.userInformation.basicInfo[0].maritalStatus;
+      // this.language = this.userInformation.basicInfo[0].language;
+      // this.race = this.userInformation.basicInfo[0].race;
+      // this.ethnicity = this.userInformation.basicInfo[0].ethnicity;
+      // this.homePhone = this.userInformation.basicInfo[0].homePhone;
+      // this.mobilePhone = this.userInformation.basicInfo[0].mobilePhone;
+      // this.email = this.userInformation.basicInfo[0].email;
+      // this.emergencyFirstName = this.userInformation.basicInfo[0].emergencyFirstName;
+      // this.emergencyLastName = this.userInformation.basicInfo[0].emergencyLastName;
+      // this.emergencyRelationship = this.userInformation.basicInfo[0].emergencyRelationship;
+      // this.emergencyHomePhone = this.userInformation.basicInfo[0].emergencyHomePhone;
+      // this.emergencyMobilePhone = this.userInformation.basicInfo[0].emergencyMobilePhone;
+      // this.emergencyWorkPhone = this.userInformation.basicInfo[0].emergencyWorkPhone;
     });
   }
 
@@ -83,9 +85,9 @@ this.userInformation = info;
     this.patientProfileEdit = false;
   };
 
- editPhoneProfile() {
+  editPhoneProfile() {
     this.phoneProfileEdit = true;
- };
+  };
 
   updatePhoneProfile() {
     this.phoneProfileEdit = false;
@@ -95,9 +97,9 @@ this.userInformation = info;
     this.phoneProfileEdit = false;
   };
 
- editEmergencyProfile() {
+  editEmergencyProfile() {
     this.emergencyProfileEdit = true;
- };
+  };
 
   updateEmergencyProfile() {
     this.emergencyProfileEdit = false;
@@ -109,7 +111,7 @@ this.userInformation = info;
 
   openSnackBar() {
     let message = "Update Successful";
-    this.snackBar.open(message, "" ,{
+    this.snackBar.open(message, "", {
       duration: 2000
     });
   };

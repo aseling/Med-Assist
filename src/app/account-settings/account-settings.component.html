@@ -46,7 +46,7 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div class="change-password-container">
-        <form [formGroup]="uploadForm" (ngSubmit)="onUpload()">
+        <form [formGroup]="uploadForm" >
           <div class="form-group" id="oldPassword">
             <mat-form-field class="errors">
               <input matInput type="text" id="oldPasswordInput" placeholder="Current password"

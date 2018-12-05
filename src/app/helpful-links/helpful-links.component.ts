@@ -12,4 +12,7 @@ export class HelpfulLinksComponent implements OnInit {
   ngOnInit() {
   }
 
+  openLinkNewWindow(url) {
+    window.open(url, "_blank");
+  }
 }

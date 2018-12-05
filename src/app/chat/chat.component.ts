@@ -51,7 +51,6 @@ export class ChatComponent implements OnInit {
     this.clicked = !this.changeView;
 
     this.apiService.user.subscribe(user => {
-      console.log("ENTER CHAT API USER CALL");
       this.user = user;
       this.roomChoice.push(this.user);
       this.room = this.user;

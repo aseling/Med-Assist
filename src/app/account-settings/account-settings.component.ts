@@ -44,9 +44,9 @@ export class AccountSettingsComponent implements OnInit {
     this.apiService.changePassword.subscribe(message => {
       console.log(message);
       if(message == "Success") {
-        console.log("YOU CAN CHANGE THE PASSWORD");
+        
       } else {
-        console.log("YOU CAN NOT CHANGE THE PASSWORD!!!!");
+        
       }
     });
 

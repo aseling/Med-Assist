@@ -8,6 +8,18 @@ import {MatSnackBar} from '@angular/material';
 })
 export class MedicalInfoComponent implements OnInit {
   medicalProfileEdit = false;
+  bloodType;
+  patientAllergies;
+  vaccine;
+  vaccineType;
+  vaccineDate;
+  smokingStatus;
+  tobaccoUsage;
+  medicalProblems;
+  medicalProvider;
+  onSetDate;
+  procedureDescription;
+  datePerformed;
 
   constructor(public snackBar: MatSnackBar) { }
 
