@@ -35,10 +35,6 @@
 
 .quick-link-content:hover {
   box-shadow: 0 6px 20px -4px black;
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-  z-index: 200000;
 }
 
 .quick-link-icon {
@@ -193,7 +189,7 @@
   }
 
   .doc-pic {
-    width: 400px;
+    width: 350px;
   }
 
   .content-container {
@@ -205,8 +201,10 @@
   }
 
   .announcements-list {
-    display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 15px;
+  }
+
+  .each-announcements {
+    font-size: 20px;
   }
 }
