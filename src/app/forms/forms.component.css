@@ -55,6 +55,7 @@ th.third-column {
 
 @media only screen and (max-width: 1000px) {
   table {
-    font-size: 12px;
+    font-size: 10px;
+    width: 98%;
   }
 }

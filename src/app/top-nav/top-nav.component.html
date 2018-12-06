@@ -47,13 +47,8 @@
       <i class="fas fa-times" (click)="showSlideOutNav()"></i>
     </div>
     <div class="top-section" (click)="showSlideOutNav()">
-      <img class="slide-user-image" src="{{imagePath}}" routerLink="user-profile">
+      <img class="slide-user-image" src="{{imagePath}}" routerLink="profile">
       <div class="slide-out-user">{{user}}</div>
-    </div>
-    <div class="top-contacts">
-      <i class="slide-nav-item fa fa-envelope fa-lg" data-toggle="tooltip" data-placement="top" title="Hooray!" (click)="showSlideOutNav()"></i>
-      <i class="slide-nav-item fa fa-phone fa-lg" routerLink="contact-page" (click)="showSlideOutNav()"></i>
-      <i class="slide-nav-item fa fa-bell fa-lg" (click)="showSlideOutNav()"></i>
     </div>
     <div *ngIf="!isAdmin" class="page-links">
       <a routerLink="prescription-refill" (click)="showSlideOutNav()">My Medicine</a>
@@ -71,7 +66,7 @@
     </div>
     <footer class="page-links">
       <a routerLink="account-settings" (click)="showSlideOutNav()">Settings</a>
-      <a *ngIf="!isAdmin" routerLink="user-profile" (click)="showSlideOutNav()">My Profile</a>
+      <a *ngIf="!isAdmin" routerLink="profile" (click)="showSlideOutNav()">My Profile</a>
       <a routerLink="" (click)="logout(); showSlideOutNav()">Logout</a>
     </footer>
   </div>

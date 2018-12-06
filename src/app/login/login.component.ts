@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private apiService:ApiService,
               private formBuilder:FormBuilder,
-              private router:Router,
-              private http:HttpClient) {
+              private router:Router) {
   }
 
   ngOnInit() {

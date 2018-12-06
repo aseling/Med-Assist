@@ -40,6 +40,7 @@
 .events-container {
   color: white;
   padding: 25px;
+  text-align: center;
   /*margin: 0 auto;*/
 }
 
@@ -53,7 +54,6 @@ label {
 
 .upcoming-events, .current-events {
   padding: 25px;
-  font-size: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 5px;
@@ -471,17 +471,6 @@ h5 {
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  .caret-btns {
-    font-size: 22px;
-  }
-
-  .month {
-    font-size: 40px;
-    width: 180px;
-  }
-}
-
 @media only screen and (max-width: 1000px) {
   .wrapper {
     width: 100%;
@@ -507,6 +496,27 @@ h5 {
     grid-template-columns: 1fr 1fr;
     column-gap: 5px;
     row-gap: 5px;
+  }
+
+  .caret-btns {
+    font-size: 15px;
+  }
+
+  .month {
+    font-size: 25px;
+    width: 180px;
+  }
+
+  label {
+    font-size: 20px;
+  }
+
+  .appointments:hover {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    z-index: 0;
+    opacity: 1;
   }
 }
 

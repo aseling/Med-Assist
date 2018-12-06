@@ -1,6 +1,6 @@
 import {User} from './../generic.interface';
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient,HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 import {Router} from '@angular/router';
 
@@ -107,43 +107,43 @@ export class ApiService {
       });
   }
 
-  addUserReport(pdfName: string, pdfDesc: string, report: File, user: string) {
+  addUserReport(pdfName:string, pdfDesc:string, report:File, user:string) {
     const formData = new FormData();
     formData.append('pdfName', pdfName);
     formData.append('pdfDesc', pdfDesc);
     formData.append('pdf', report);
 
     return this.http.post(this.herokuPath + 'uploadPdf/' + user, formData)
-      .subscribe((res: any) => {
+      .subscribe((res:any) => {
         this.getUserReports(user);
         this.getForms();
       });
   }
 
-  getUserReports(username: string) {
+  getUserReports(username:string) {
     return this.http.get(this.herokuPath + 'getUserPdfs/' + username)
-      .subscribe((res: any) => {
+      .subscribe((res:any) => {
         this.setUserReports(res);
       });
   }
 
-  setUserReports(reports: any) {
+  setUserReports(reports:any) {
     this.reports.next(reports);
   }
 
   // Forms pulls from "root" admin account
   getForms() {
     return this.http.get(this.herokuPath + 'getUserPdfs/root')
-    .subscribe((res: any) => {
-      this.setForms(res);
-    });
+      .subscribe((res:any) => {
+        this.setForms(res);
+      });
   }
 
-  setForms(forms: any) {
+  setForms(forms:any) {
     this.forms.next(forms);
   }
 
-  getUserImage(username: string) {
+  getUserImage(username:string) {
     return this.http.get(this.herokuPath + 'getUserImage/' + username)
       .subscribe((res:any) => {
         this.setImagePath(res.message);
@@ -168,14 +168,6 @@ export class ApiService {
       });
   }
 
-  // updateContactInfo(address:string, DOB:string, sex:string){
-  //   return this.http.post<any>(this.herokuPath + 'register', {
-  //     name: name,
-  //     email: email,
-  //     username: username,
-  //     password: password,
-  //     password2: password2
-  // }
 
   getUserInfo(username:string) {
     return this.http.get(this.herokuPath + 'getSingleUser/' + username)
@@ -251,14 +243,39 @@ export class ApiService {
   }
 
 // My Profile
-  getUserBasicInfo(username: string) {
+  getUserBasicInfo(username:string) {
     return this.http.get(this.herokuPath + 'getSingleUser/' + username)
-      .subscribe((user: any) => {
-       this.setUserBasicInfo(user.message);
+      .subscribe((user:any) => {
+        this.setUserBasicInfo(user.message);
       });
   }
 
-  setUserBasicInfo(userBasicInfo: any) {
+  updateBasicInfo(patientFirstName:string, patientLastName:string,
+                  address:string, DOB:string, sex:string, maritalStatus:string,
+                  language:string, race:string, ethnicity:string, user:string) {
+
+    let body = new URLSearchParams();
+    body.set('patientFirstName', patientFirstName);
+    body.set('patientLastName', patientLastName);
+    body.set('address', address);
+    body.set('DOB', DOB);
+    body.set('sex', sex);
+    body.set('maritalStatus', maritalStatus);
+    body.set('language', language);
+    body.set('race', race);
+    body.set('ethnicity', ethnicity);
+
+    let options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+
+    return this.http.post(this.herokuPath + 'updateBasicInfo/' + user, body.toString(), options)
+      .subscribe((res:any) => {
+
+      });
+  }
+
+  setUserBasicInfo(userBasicInfo:any) {
     this.userBasicInfo.next(userBasicInfo);
   }
 

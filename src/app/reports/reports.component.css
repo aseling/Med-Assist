@@ -52,3 +52,15 @@ th.second-column, th.third-column {
   margin: 50px 0 50px 0;
   padding: 20px;
 }
+
+
+@media only screen and (max-width: 1000px) {
+  table {
+    font-size: 10px;
+    width:98%;
+  }
+
+  th.second-column, th.third-column {
+    width: 30%;
+  }
+}

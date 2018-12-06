@@ -12,7 +12,6 @@
     <div class="events-container">
       <label>Current Appointments:</label>
       <div class="current-events">
-        <div *ngIf="todayAppointments.length <= 0" class="no-appts">You have no appointments scheduled for today</div>
         <div class="appointments" *ngFor="let i of todayAppointments">
           <strong>Date:</strong> {{i.date}} <br> <strong>With:</strong> {{i.doctor}}
         </div>
@@ -20,7 +19,6 @@
 
       <label>Upcoming Appointments:</label>
       <div class="upcoming-events">
-        <div *ngIf="futureAppointments.length <= 0" class="no-appts">You have no upcoming appointments scheduled</div>
         <div class="appointments" *ngFor="let i of futureAppointments">
           <strong>Date:</strong> {{i.date}} <br> <strong>With:</strong> {{i.doctor}}
         </div>
@@ -54,7 +52,7 @@
       <div class="day-of-week-number"
            *ngFor="let i of numOfDaysInMonth;"
            [ngClass]="{'number': i.day == currentDate, 'hide-border': i == ''}"
-           (mouseenter)="getDateOnHover(i.day)"
+           (click)="getDateOnHover(i.day)"
            data-toggle="modal"
            data-target="#viewDayEvents">
         <div [ngClass]="{'box-date ': i.day == currentDate, 'hide-border': i == ''}">
