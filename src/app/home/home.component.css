@@ -203,4 +203,10 @@
   .contact-header, .announcements-header{
     font-size: 35px;
   }
+
+  .announcements-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+  }
 }
