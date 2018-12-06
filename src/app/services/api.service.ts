@@ -103,7 +103,6 @@ export class ApiService {
 
     return this.http.post(this.herokuPath + 'addUserImage/' + user, formData)
       .subscribe((res:any) => {
-        console.log(res);
         this.setImagePath(res.imageURL);
       });
   }
@@ -181,7 +180,6 @@ export class ApiService {
   getUserInfo(username:string) {
     return this.http.get(this.herokuPath + 'getSingleUser/' + username)
       .subscribe(res => {
-        console.log(res);
         this.setUsersPrescriptionList(res)
       });
   }
