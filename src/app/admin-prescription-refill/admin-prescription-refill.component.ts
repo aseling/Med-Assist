@@ -15,8 +15,7 @@ export class AdminPrescriptionRefillComponent implements OnInit {
   username;
 
   constructor(private apiService:ApiService,
-              private activatedRoute:ActivatedRoute,
-              private router:Router) {
+              private activatedRoute:ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -24,7 +23,6 @@ export class AdminPrescriptionRefillComponent implements OnInit {
 
     this.apiService.usernameForAdminChat.subscribe(name => {
       this.username = name;
-      console.log(this.username, "USER!!!");
       this.apiService.getUserInfo(this.username);
     });
 

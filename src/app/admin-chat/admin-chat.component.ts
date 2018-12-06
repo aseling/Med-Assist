@@ -46,7 +46,6 @@ export class AdminChatComponent implements OnInit {
     });
 
     this.chatService.newMessageReceived().subscribe(data => {
-      console.log(data);
       this.messageArray.push(data);
       this.screenScroll();
       this.userTyping = false;

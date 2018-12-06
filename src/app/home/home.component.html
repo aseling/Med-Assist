@@ -1,47 +1,84 @@
 <div class="container" *ngIf="!isAdmin">
+
   <div class="top-container">
-    <h1 class="header" id="TitleAPC">Appalachian Primary Care</h1>
+    <h1 class="header-text" id="TitleAPC">Appalachian Primary Care</h1>
     <div class="dropdown-divider"></div>
     <img src="/assets/img/doc-cartoon.png" class="row doc-pic">
   </div>
-  <div class="row cards-announcements">
-    <div class="card" id="card1">
-      <div class="card-body">
-        <a routerLink="../prescription-refill" class="row">
-          <h5 class="card-title"><u>View Your Medicine</u></h5><i class="fas fa-file-prescription fa-lg card-icon"></i>
-        </a>
-        <h6 class="text-muted">Click to view the medicines you are currently prescribed and request refills.</h6>
-      </div>
+
+  <div class="quick-links" routerLink="../prescription-refill">
+    <div class="quick-link-content" id="card1">
+      <i class="fas fa-file-prescription quick-link-icon"></i>
+      <div class="card-title">View Your Medicine</div>
+      <h6>Click to view the medicines you are currently prescribed and request refills.</h6>
     </div>
-    <div class="card" id="card2">
-      <div class="card-body">
-        <a routerLink="../chat" class="row">
-          <h5 class="card-title"><u>Chat With Your Doctor</u></h5><i class="fas fa-user-md card-icon fa-lg"></i>
-        </a>
-        <h6 class="text-muted">Click to begin chatting with your doctor.</h6>
-      </div>
+
+    <div class="quick-link-content" id="card2" routerLink="../chat">
+      <i class="fas fa-user-md quick-link-icon"></i>
+      <div class="card-title">Chat With Your Doctor</div>
+      <h6>Click to begin chatting with your doctor.</h6>
     </div>
-    <div class="card" id="card3">
-      <div class="card-body">
-        <a routerLink="../helpful-links" class="row">
-          <h5 class="card-title"><u>Find Helpful Links</u></h5><i class="fas fa-external-link-alt card-icon fa-lg"></i>
-        </a>
-        <h6 class="card-subtitle mb-2 text-muted">Click to view links suggested by your doctor.</h6>
+
+    <div class="quick-link-content" id="card3" routerLink="../helpful-links">
+      <i class="fas fa-external-link-alt quick-link-icon"></i>
+      <div class="card-title">Find Helpful Links</div>
+      <h6>Click to view links suggested by your doctor.</h6>
+    </div>
+  </div>
+
+  <div class="announcements">
+    <div class="announcements-header">
+      <div>Announcements</div>
+    </div>
+    <div class="announcements-list">
+      <div *ngFor="let i of announcementList" class="each-announcements">
+        <i class="far fa-calendar-alt announcement-icon"></i>
+        <div>{{i.date}}</div>
+        <div>{{i.announcement}}</div>
       </div>
     </div>
   </div>
-    <div class="card announcement-card announcements-class">
-      <h5 class="card-header">Announcements</h5>
-      <ul class="list-group announcements-group overflow-scroll">
-        <li class="list-group-item announcements-item overflow-wrap">9/27 - Office Closed</li>
-        <li class="list-group-item announcements-item overflow-wrap">11/14 - Happy Birthday Dr. Phil</li>
-        <li class="list-group-item announcements-item overflow-wrap">Week of 12/1 - Patient Appreciation Week</li>
-        <li class="list-group-item announcements-item overflow-wrap">Week of 12/20 - Office Remodeling</li>
-        <li class="list-group-item announcements-item overflow-wrap">12/25 - Merry Christmas!</li>
-      </ul>
-    </div>
-</div>
 
+  <div class="contact-info">
+    <div class="contact-header">
+      <div>Contact Us</div>
+    </div>
+    <div class="content-container">
+      <div class="contact-content address">
+        <div id="map-icon-background">
+          <i class="fas fa-map-marker-alt contact-icon"></i>
+        </div>
+        <div>Appalachian Primary Care</div>
+        <div>123 Appalachian Way</div>
+        <div>Kennesaw, GA 30152</div>
+      </div>
+
+      <div class="contact-content phone">
+        <div id="phone-icon-background">
+          <i class="fas fa-phone contact-icon"></i>
+        </div>
+        <div>770-132-4567</div>
+      </div>
+
+      <div class="contact-content fax">
+        <div id="fax-icon-background">
+          <i class="fas fa-fax contact-icon"></i>
+        </div>
+        <div>770-222-4567</div>
+      </div>
+
+      <div class="contact-content hours">
+        <div id="hours-icon-background">
+          <i class="far fa-calendar-alt contact-icon"></i>
+        </div>
+        <div><strong>Monday - Thursday</strong></div>
+        <div> 8:00AM - 5:30PM</div>
+        <div><strong>Friday</strong></div>
+        <div>7:00AM - 3:00PM</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div *ngIf="isAdmin">
   <app-users-list></app-users-list>

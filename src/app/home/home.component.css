@@ -1,129 +1,206 @@
-h1 {
+.container {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.header-text {
   text-align: center;
   font-size: 50px;
 }
 
-h2 {
-  margin: 0 auto 15px;
-}
-
-.container {
-  padding: 10px;
-}
-
-img {
+.doc-pic {
   margin: 20px auto;
 }
 
-.box {
-  display: -webkit-flex; /* Safari */
-  -webkit-flex-wrap: wrap; /* Safari 6.1+ */
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 10px;
-  border: 1px solid #3B92A9;
-  border-radius: 10px;
-  padding: 25px;
-  width: 30%;
-  margin: 0 auto 10px;
+.quick-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+  text-align: center;
+  color: white;
+  cursor: default;
+  outline: none;
 }
 
-p {
-  font-size: 10px;
+.quick-link-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  padding: 12px;
+  border-radius: 5px;
+  transition: .3s;
+  font-size: 25px;
 }
 
-@media (max-width: 1079px) {
-  .container{
-    min-width: 100% !important;
+.quick-link-content:hover {
+  box-shadow: 0 6px 20px -4px black;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  z-index: 200000;
+}
+
+.quick-link-icon {
+  font-size: 35px;
+}
+
+.fa-file-prescription {
+  color: #00437d;
+}
+
+.fa-user-md {
+  color: #905700;;
+}
+
+.fa-external-link-alt {
+  color: #00441c;
+}
+
+#card1 {
+  background-color: #7aabce;
+}
+
+#card2 {
+  /*background-color: #FFB318;*/
+  background-color: #ffb039;
+}
+
+#card3 {
+  background-color: #7ace9d;
+}
+
+/*----------------------ANNOUNCEMENT SECTION----------------------*/
+.announcements {
+  margin: 50px 0 50px 0;
+}
+
+.announcements-header {
+  text-align: center;
+  font-size: 55px;
+  font-weight: 300;
+  color: #565555;
+  margin: 25px;
+}
+
+.announcements-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.each-announcements {
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+}
+
+.announcement-icon {
+  font-size: 35px;
+  color: #ce7a81;
+}
+
+/*----------------------CONTACT US SECTION----------------------*/
+
+.address, .phone, .fax, .hours {
+  font-size: 18px;
+}
+
+.hours, .address {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.contact-info {
+  width: 100%;
+  text-align: center;
+  color: #565555;
+  margin-bottom: 50px;
+}
+
+.contact-header{
+  margin: 15px auto;
+  font-size: 55px;
+  font-weight: 300;
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.icon-background {
+  width: 70px;
+  height: 60px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: bisque;
+}
+
+#map-icon-background {
+  width: 70px;
+  height: 60px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #ce7a81;
+  color: #6f000d;
+}
+
+#phone-icon-background {
+  width: 70px;
+  height: 60px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #7aabce;
+  color: #00437d;
+}
+
+#fax-icon-background {
+  width: 70px;
+  height: 60px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #7ace9d;
+  color: #00441c;
+}
+
+#hours-icon-background {
+  width: 70px;
+  height: 60px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #ce9d7a;
+  color: #632900;
+}
+
+.contact-icon {
+  font-size: 35px;
+  margin: 12px;
+}
+
+.contact-content {
+  padding: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .quick-links {
+    grid-template-columns: 1fr;
   }
-  .box {
-    width: 100%;
+
+  .header-text {
+    font-size: 32px;
   }
 
   .doc-pic {
-    width: 350px;
+    width: 400px;
   }
-}
 
-.announcements-class[_ngcontent-c6] {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
+  .content-container {
+    grid-template-columns: 1fr;
+  }
 
-.announcements-group {
-  overflow: scroll;
-}
-
-.row[_ngcontent-c6] .card[_ngcontent-c6] {
-  margin: 0px 0px 0px 0px;
-  height: 10rem;
-  width: 32.3%;
-  margin-left: .5%;
-  margin-right: .5%;
-  padding-top: 1.5rem;
-  color: white;
-}
-
-#card1{
-  background-color: #4582EC;
-}
-
-#card2{
-  background-color: #d9534f;
-}
-
-#card3{
-  background-color: #f0ad4e;
-}
-
-.card-body {
-  padding: 5px;
-  text-align: center;
-}
-
-.card-header {
-  text-align: center;
-}
-
-.cards-announcements {
-  margin: 1rem;
-}
-
-.card-icon {
-  margin-top: 3px;
-  padding-left: 1rem;
-}
-
-.card-title {
-  margin-left: 1rem;
-  text-align: center;
-}
-
-.card-body a {
-  color: white;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.card-body a:hover{
-  color: black;
-}
-
-.row .card.announcement-card {
-  padding-top: 0rem;
-  width: 13rem;
-  height: 20rem;
-  margin-left: 1rem;
-}
-
-.row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.text-muted {
-  color: white!important;
+  .contact-header, .announcements-header{
+    font-size: 35px;
+  }
 }

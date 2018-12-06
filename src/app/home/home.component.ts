@@ -9,8 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   isAdmin;
-
-
+  announcementList = [
+    {
+      date: "12/20/18",
+      announcement: "Office Remodeling"
+    },
+    {
+      date: "12/25/18",
+      announcement: "Office Closed. Merry Christmas"
+    },
+    {
+      date: "01/15/19",
+      announcement: "Patient Appreciation Week"
+    },
+    {
+      date: "01/28/19",
+      announcement: "Office Closed"
+    },
+    {
+      date: "02/18/19",
+      announcement: "Happy Birthday Dr. Phil"
+    }
+  ];
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
